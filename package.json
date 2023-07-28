@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development vitepress dev docs --port=8732",
     "build": "vitepress build docs",
-    "build:github": "cross-env APP_BASE_PATH=/mm-notes/ npm run build",
+    "build:github": "cross-env APP_BASE_PATH=/vitepress_blog/ npm run build",
     "lint": "prettier --write .",
     "prepare": "husky install"
   },

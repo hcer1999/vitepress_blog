@@ -1,11 +1,11 @@
 name: GitHub Actions Build and Deploy
 
-# 触发条件: push 到 master 分支后
+# 触发条件: push 到 main 分支后
 on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
     # 只在下列路径变更时触发
     paths:
       - 'docs/**'
@@ -56,6 +56,6 @@ jobs:
           # 指定仓库
           REPOSITORY_NAME: hcer1999/vitepress_blog
           # GitHub Pages 读取的分支
-          BRANCH: master
+          BRANCH: main
           # 静态文件所在目录
           FOLDER: dist
