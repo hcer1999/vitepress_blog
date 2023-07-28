@@ -1,0 +1,22 @@
+---
+outline: 2
+---
+
+# H5 踩坑记录
+
+## `WebView` 返回上一页不刷新
+
+为了提升浏览网页的效率加入了缓存机制，导致 `WebView` 返回上一页时不会刷新
+
+##### 解决方法
+
+监听 `pageshow` 事件，**通过 `persisted` 或 `performance.navigation.type` 属性**判断当前页面是否通过缓存载入
+
+```js
+const onPageShow = (e) => {
+  if (e.persisted || (window.performance && window.performance.navigation.type === 2)) {
+    location.reload()
+  }
+}
+window.addEventListener('pageshow', onPageShow)
+```
