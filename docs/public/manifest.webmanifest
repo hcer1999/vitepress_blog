@@ -1,7 +1,7 @@
 {
-  "name": "茂茂物语",
-  "short_name": "茂茂物语",
-  "description": "Mao Mao 的成长之路",
+  "name": "冰可乐的前端笔记",
+  "short_name": "冰可乐的前端笔记",
+  "description": "花自飘零水自流",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",

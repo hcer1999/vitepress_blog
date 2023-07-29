@@ -67,7 +67,7 @@ export default defineConfig({
       })
   },
   buildEnd: async ({ outDir }) => {
-    const sitemap = new SitemapStream({ hostname: 'https://note.bingkele.cc/' })
+    const sitemap = new SitemapStream({ hostname: 'http://note.bingkele.cc/' })
     const writeStream = createWriteStream(resolve(outDir, 'sitemap.xml'))
     sitemap.pipe(writeStream)
     links.forEach((link) => sitemap.write(link))

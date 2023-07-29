@@ -16,7 +16,7 @@ hero:
       link: /interview/README
       theme: alt
     - text: 前端导航
-      link: /nav/
+      link: /nav
     - text: 网抑云音乐
       link: http://wyy.bingkele.cc
       theme: alt
@@ -49,7 +49,7 @@ features:
   - icon: 💯
     title: 吾志所向，一往无前。
     details: '<small class="bottom-small">一个想躺平的小开发</small>'
-    link: https://fe-mm.com
+    link: http://bingkele.cc
 ---
 
 <style>
