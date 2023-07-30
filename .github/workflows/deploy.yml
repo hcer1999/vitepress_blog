@@ -56,6 +56,6 @@ jobs:
           # 指定仓库
           REPOSITORY_NAME: hcer1999/vitepress_blog
           # GitHub Pages 读取的分支
-          BRANCH: pages
+          BRANCH: gh-pages
           # 静态文件所在目录
           FOLDER: dist
