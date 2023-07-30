@@ -6,12 +6,12 @@ import { slugify } from '@mdit-vue/shared'
 import { NavLink } from '../types'
 
 // 导入所有emoji表情
-import { emoji } from '../../../assets/emoji.js'
+import { emoji } from '../../../assets/emoji'
 
 // 从emoji表情中随机取一个
-const randomEmoji = (): string => {
+const randomEmoji = () => {
   const keys = Object.keys(emoji)
-  const randomKey: string = keys[Math.floor(Math.random() * keys.length)]
+  const randomKey = keys[Math.floor(Math.random() * keys.length)]
   return emoji[randomKey]
 }
 
@@ -177,3 +177,4 @@ const formatBadge = computed(() => {
   }
 }
 </style>
+../../../assets/emoji.js

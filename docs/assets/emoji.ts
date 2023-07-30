@@ -1,4 +1,7 @@
-export const emoji = {
+interface Emoji {
+  [key: string | number]: string
+}
+export const emoji: Emoji = {
   100: '💯',
   1234: '🔢',
   grinning: '😀',

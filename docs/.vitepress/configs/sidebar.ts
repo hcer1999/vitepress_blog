@@ -1,5 +1,16 @@
 import type { DefaultTheme } from 'vitepress'
 
+// 导入content的data
+import data from '../../content/data'
+
+// 将data中的数据转换为sidebar的数据格式
+// 遍历data[0]里的items，给他新增一个text属性，值为title
+
+data[0].items.forEach((item) => {
+  // 新增一个text属性，值为title
+  item.text = item.title
+})
+
 export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/fe/': [
     {
@@ -195,4 +206,5 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       link: '/interview/http',
     },
   ],
+  '/content/': data,
 }

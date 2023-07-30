@@ -15,10 +15,10 @@ hero:
     - text: 刷面试题
       link: /interview/start
       theme: alt
+    - text: 文章分享
+      link: /content
     - text: 前端导航
       link: /nav
-    - text: 网抑云音乐
-      link: http://wyy.bingkele.cc
       theme: alt
 features:
   - icon: 📖
@@ -69,3 +69,6 @@ features:
   align-items: end;
 }
 </style>
+<script>
+
+</script>

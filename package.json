@@ -41,5 +41,8 @@
       "prettier --write"
     ]
   },
-  "prettier": "@femm/prettier"
+  "prettier": "@femm/prettier",
+  "dependencies": {
+    "gsap": "^3.12.2"
+  }
 }
