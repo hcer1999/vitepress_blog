@@ -10,6 +10,7 @@ on:
     paths:
       - 'docs/**'
       - 'package.json'
+      - 'deploy.yml'
 
 # 设置上海时区
 env:
