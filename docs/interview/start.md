@@ -6,32 +6,39 @@ const list = [ {
       {
         icon: '../public/icons/html.svg',
         title: 'HTML 篇',
-        link: '/interview/html'
+        link: '/interview/html',
+        target: '_self'
       },
       {
         icon: '../public/icons/css.svg',
         title: 'CSS 篇',
-        link: '/interview/css'
+        link: '/interview/css',
+        target: '_self'
+
       },
       {
         icon: '../public/icons/js.svg',
         title: 'JS 篇',
-        link: '/interview/javascript'
+        link: '/interview/javascript',
+        target: '_self'
       },
       {
         icon: '../public/icons/vue.svg',
         title: 'Vue 篇',
-        link: '/interview/vue'
+        link: '/interview/vue',
+        target: '_self'
       },
       {
         icon: '../public/icons/chrome.svg',
         title: 'DOM 篇',
-        link: '/interview/dom'
+        link: '/interview/dom',
+        target: '_self'
       },
       {
         icon: '../public/icons/http.svg',
         title: 'HTTP 篇',
-        link: '/interview/http'
+        link: '/interview/http',
+        target: '_self'
       },
   ]
 }
@@ -39,8 +46,7 @@ const list = [ {
 </script>
 <style src="../nav/index.scss"></style>
 
-<MNavLinks v-for="{title, items} in list" :title="title" :items="items"/>
-
+<CNavLinks v-for="{title, items} in list" :title="title" :items="items"/>
 
 ::: tip 声明
 

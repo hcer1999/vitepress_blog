@@ -6,6 +6,7 @@ import MNavVisitor from './components/MNavVisitor.vue'
 import MDocFooter from './components/MDocFooter.vue'
 import MAsideSponsors from './components/MAsideSponsors.vue'
 import MNavLinks from './components/MNavLinks.vue'
+import CNavLinks from './components/CNavLinks.vue'
 
 import './styles/index.scss'
 
@@ -25,7 +26,7 @@ if (typeof window !== 'undefined') {
       return Promise.all(
         keyList.map(function (key) {
           return caches.delete(key)
-        })
+        }),
       )
     })
   }
@@ -53,11 +54,12 @@ export default {
        */
       'nav-bar-title-after': () => h(MNavVisitor),
       'doc-after': () => h(MDocFooter),
-      'aside-bottom': () => h(MAsideSponsors)
+      'aside-bottom': () => h(MAsideSponsors),
     })
   },
   enhanceApp({ app, router }: EnhanceAppContext) {
     app.component('MNavLinks', MNavLinks)
+    app.component('CNavLinks', CNavLinks)
 
     app.provide('DEV', process.env.NODE_ENV === 'development')
 
@@ -65,10 +67,10 @@ export default {
       watch(
         () => router.route.data.relativePath,
         () => updateHomePageStyle(location.pathname === '/'),
-        { immediate: true }
+        { immediate: true },
       )
     }
-  }
+  },
 }
 
 if (typeof window !== 'undefined') {

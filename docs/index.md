@@ -5,15 +5,15 @@ layoutClass: 'm-home-layout'
 hero:
   name: 冰可乐的
   text: 个人前端笔记
-  tagline: 花自飘零水自流
+  tagline: 一起变强大！
   image:
     src: /logo.png
     alt: 冰可乐
   actions:
     - text: 前端笔记
-      link: /notes/README
+      link: /notes/start
     - text: 刷面试题
-      link: /interview/README
+      link: /interview/start
       theme: alt
     - text: 前端导航
       link: /nav

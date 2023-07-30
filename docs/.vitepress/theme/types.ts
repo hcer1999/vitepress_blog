@@ -13,6 +13,8 @@ export interface NavLink {
   desc?: string
   /** 站点链接 */
   link: string
+  /** 是否在当前页跳转 */
+  target?: string | '_blank' | '_self'
 }
 
 export interface NavData {
