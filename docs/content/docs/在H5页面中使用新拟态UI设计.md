@@ -1,0 +1,47 @@
+# 在 H5 页面中使用新拟态 UI 设计
+
+#### 什么是新拟态 UI 设计？
+
+在设计达人看来这种 UI 很适合用来做概念设计的产品，当然实际应用中也可以尝试，因为视觉效果确实是很不错呢。我们来看看关于新拟态的 UI 作品。
+
+![](http://cdn.bingkele.cc/FqEiGVf1w1jnQrWzXdJmksmL5AjV)
+
+![](http://cdn.bingkele.cc/FrPzNEygXHIODJcCXP5c-jERY8yW)
+
+![](http://cdn.bingkele.cc/Fqvz8xA244ZRhuMkKlh9Z1kjvLh-)
+
+![](http://cdn.bingkele.cc/Fkl7V_V_7D1uVb06zWxNZZUJQXg3)
+
+![](http://cdn.bingkele.cc/Fh_e0131VEt8lJn3s16Ue4gj7RH0)
+
+#### 如何实现新拟态 UI 设计效果？
+
+1. **直接参考下图的设置：**
+
+   大家先看这个图，新拟态主要是通过阴影来实现的，通过阴影实现凸凹两种质感
+
+   ![](http://cdn.bingkele.cc/FozWo_oYl6qQAJta0vlHE84ExiG-)
+
+2. **使用 Neumorphism 在线工具：**
+
+   推荐大家用 Neumorphism 在线工具来快速实现新拟态 UI 效果，因为它带有预览功能，所见即所得，比 PS 或 Sketch 上设置更加快捷，而具体的设置参数看对应 CSS 属性值就可以了，也可以直接复制 CSS 样式代码。
+
+   ![](http://cdn.bingkele.cc/Fsz33gxOHL6jbCAk4PGuich3AZzy)
+
+   > Neumorphism 地址：[https://neumorphism.io/](https://neumorphism.io/)
+
+#### 新拟态 UI 主要实现方式
+
+1. 给图形添加 2 个阴影，参数要设置大一些，注意两阴影颜色是同一色调，然后分别设置一个亮色一暗色。这里就不说参数了，如果你调整不出效果，表示你色感方面还需要加强。
+
+   ![](http://cdn.bingkele.cc/FmU6rzIt9KuBzJWZuqDk1rxtMWTq)
+
+2. 模糊设置：Blur 模糊值通常是坐标值的 2 倍，这样效果会明示一点。
+
+   ![](http://cdn.bingkele.cc/FreMjAnIQ16gJJ0O1-QYRmR9iTBS)
+
+3. 凸出的效果就是利用渐变来设置了。
+
+   ![](http://cdn.bingkele.cc/Fm5T3oRdqD0MuUfXtTmBBgjhK8Pj)
+
+> 原文地址：https://www.shejidaren.com/neumorphism-soft-ui.html

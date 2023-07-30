@@ -1,0 +1,50 @@
+## Github 镜像加速，浏览器脚本
+
+Github 作为程序员们最大的~~交友~~(搞基)平台，但是由于 Github 的服务器在大洋彼岸，导致国内用户访问速度超级慢，有时候甚至直接打不开，Clone 项目的速度更是不用说了，能有个一二十 KB 就不错了，**有科学上网的小伙伴可以无视**。
+
+今天分享的这个东西是一个浏览器的插件，名字叫**暴力猴**(之前用过一段时间油猴，但是暴力猴相对来说在界面这一块就比暴力猴好用了)。
+
+你需要准备以下东西：
+
+- chrome 浏览器(谷歌内核的应该都可)
+- 没了
+
+#### 开始
+
+1. 首先去安装暴力猴浏览器插件，这个不用多说，安装扩展不难
+
+   - 360 极速：[https://ext.chrome.360.cn/violentmonkey](https://ext.chrome.360.cn/webstore/detail/jinjaccalgkegednnccohejagnlnfdag)
+   - Chrome：[https://chrome.google.com/violent-monkey](https://chrome.google.com/webstore/detail/violent-monkey/jinjaccalgkegednnccohejagnlnfdag)(需科学上网)
+   - Firefox：[https://addons.mozilla.org/violentmonkey](https://addons.mozilla.org/firefox/addon/violentmonkey/)
+   - Edge：[https://microsoftedge.microsoft.com/violentmonkey](https://microsoftedge.microsoft.com/addons/detail/eeagobfjdenkkddmbclomhiblgggliao)
+   - Github：[https://github.com/violentmonkey](https://github.com/violentmonkey/violentmonkey/releases)
+
+2. 然后打开[Greasy Fork](https://greasyfork.org/zh-CN)，一个脚本分享平台。
+
+   我们需要安装的脚本的安装地址为：[https://greasyfork.org/zh-CN/scripts/398278](https://greasyfork.org/zh-CN/scripts/398278)
+
+   点击**安装此脚本**
+
+   ![](http://cdn.bingkele.cc/Fu8FaPgwB3ZrgBVmeAcoEPMr3jNS)
+
+   然后会弹出脚本的安装界面，我们点击右上角的**确认安装**。
+
+   ![](http://cdn.bingkele.cc/FjQxtTAsBo0930l8kgY7lxLPa_SH)
+
+   到此，脚本已经安装完成。
+
+   #### 效果
+
+   我们打开 Github 看看效果：[https://github.com/hcer1999/note](https://github.com/hcer1999/note)
+
+   ![](http://cdn.bingkele.cc/FuI_InJmvldBM71F1UoZb_c6TTQF)
+
+   可以看到，在页面中多了一些内容，这些东西就是脚本插入到页面中的，如果我们需要 Clone 一个这个项目，我们只需要在这几项列表里点击**复制**，然后再控制台里粘贴执行就可以快速 Clone 项目了。
+
+   ![](http://cdn.bingkele.cc/FrJfV2856SWBYTTGPvSIABTG3tQV)
+
+   可以看到，速度是很快的。
+
+   当然我们也可以点击后面的快速浏览，直接在镜像里浏览这个项目的代码，打开速度肯定是比官方的快的，但是大家要注意**不要在镜像网址里登录自己的账号**哦！以免账号丢失。
+
+   OK，这就是本篇的全部内容了，有什么问题请留言。
