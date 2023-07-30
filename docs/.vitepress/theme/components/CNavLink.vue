@@ -5,6 +5,16 @@ import { slugify } from '@mdit-vue/shared'
 
 import { NavLink } from '../types'
 
+// 导入所有emoji表情
+import { emoji } from '../../../assets/emoji.js'
+
+// 从emoji表情中随机取一个
+const randomEmoji = (): string => {
+  const keys = Object.keys(emoji)
+  const randomKey: string = keys[Math.floor(Math.random() * keys.length)]
+  return emoji[randomKey]
+}
+
 const props = defineProps<{
   noIcon?: boolean
   icon?: NavLink['icon']
@@ -48,6 +58,9 @@ const formatBadge = computed(() => {
               onerror="this.parentElement.style.display='none'"
             />
           </div>
+        </template>
+        <template v-else class="icon">
+          <div class="icon">{{ randomEmoji() }}</div>
         </template>
         <h5 v-if="title" :id="formatTitle" class="title" :class="{ 'no-icon': noIcon }">
           {{ title }}
