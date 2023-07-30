@@ -25,7 +25,7 @@ const data: Data[] = [
     items: [
       {
         // noIcon: true,
-        icon: '../public/icons/webstorm.svg',
+        icon: '../icons/webstorm.svg',
         title: 'Webstorm史上最全快捷键',
         badge: {
           text: '2020-1-12',

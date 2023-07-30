@@ -4,38 +4,38 @@ const list = [ {
   title: "前端面试题",
   items: [
       {
-        icon: '../public/icons/html.svg',
+        icon: '../icons/html.svg',
         title: 'HTML 篇',
         link: '/interview/html',
         target: '_self'
       },
       {
-        icon: '../public/icons/css.svg',
+        icon: '../icons/css.svg',
         title: 'CSS 篇',
         link: '/interview/css',
         target: '_self'
 
       },
       {
-        icon: '../public/icons/js.svg',
+        icon: '../icons/js.svg',
         title: 'JS 篇',
         link: '/interview/javascript',
         target: '_self'
       },
       {
-        icon: '../public/icons/vue.svg',
+        icon: '../icons/vue.svg',
         title: 'Vue 篇',
         link: '/interview/vue',
         target: '_self'
       },
       {
-        icon: '../public/icons/chrome.svg',
+        icon: '../icons/chrome.svg',
         title: 'DOM 篇',
         link: '/interview/dom',
         target: '_self'
       },
       {
-        icon: '../public/icons/http.svg',
+        icon: '../icons/http.svg',
         title: 'HTTP 篇',
         link: '/interview/http',
         target: '_self'
