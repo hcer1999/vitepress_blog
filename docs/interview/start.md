@@ -6,38 +6,38 @@ const list = [ {
       {
         icon: '../icons/html.svg',
         title: 'HTML 篇',
-        link: './html',
+        link: '/interview/html',
         target: '_self'
       },
       {
         icon: '../icons/css.svg',
         title: 'CSS 篇',
-        link: './css',
+        link: '/interview/css',
         target: '_self'
 
       },
       {
         icon: '../icons/js.svg',
         title: 'JS 篇',
-        link: './javascript',
+        link: '/interview/javascript',
         target: '_self'
       },
       {
         icon: '../icons/vue.svg',
         title: 'Vue 篇',
-        link: './vue',
+        link: '/interview/vue',
         target: '_self'
       },
       {
         icon: '../icons/chrome.svg',
         title: 'DOM 篇',
-        link: './dom',
+        link: '/interview/dom',
         target: '_self'
       },
       {
         icon: '../icons/http.svg',
         title: 'HTTP 篇',
-        link: './http',
+        link: '/interview/http',
         target: '_self'
       },
   ]
