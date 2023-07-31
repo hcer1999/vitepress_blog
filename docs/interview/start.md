@@ -1,5 +1,4 @@
 <script setup>
-import { NAV_DATA } from '../nav/data'
 const list = [ {
   title: "前端面试题",
   items: [

@@ -43,14 +43,17 @@ const formatBadge = computed(() => {
   }
   return props.badge
 })
+
+const baseUrl = import.meta.env.BASE_URL
+
 </script>
 
 <template>
-  <a v-if="link" class="m-nav-link" :href="link" :target="target" rel="noreferrer">
+  <a v-if="link" class="m-nav-link" :href="baseUrl + link" :target="target" rel="noreferrer">
     <article class="box" :class="{ 'has-badge': formatBadge }">
       <div class="box-header">
         <template v-if="!noIcon">
-          <div v-if="svg" class="icon" v-html="svg"></div>
+          <div v-if="svg" v-html="svg"></div>
           <div v-else-if="icon && typeof icon === 'string'" class="icon">
             <img
               :src="withBase(icon)"
@@ -59,7 +62,7 @@ const formatBadge = computed(() => {
             />
           </div>
         </template>
-        <template v-else class="icon">
+        <template v-else>
           <div class="icon">{{ randomEmoji() }}</div>
         </template>
         <h5 v-if="title" :id="formatTitle" class="title" :class="{ 'no-icon': noIcon }">
