@@ -1,8 +1,0 @@
-User-agent: *
-Disallow: /wp-*
-Disallow: /*&*
-Disallow: /*%*
-Disallow: /tag=*
-Disallow: /?feed
-Disallow: /?=*
-sitemap: http://note.bingkele.cc/sitemap.xml
