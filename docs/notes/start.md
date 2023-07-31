@@ -6,49 +6,49 @@ const list = [ {
       {
         icon: '../icons/html.svg',
         title: 'HTML 笔记',
-        link: '/notes/html',
+        link: './html',
         target: '_self'
       },
       {
         icon: '../icons/css.svg',
         title: 'CSS 笔记',
-        link: '/notes/css',
+        link: './css',
         target: '_self'
       },
       {
         icon: '../icons/js.svg',
         title: 'JS 笔记',
-        link: '/notes/javascript',
+        link: './javascript',
         target: '_self'
       },
       {
         icon: '../icons/js.svg',
         title: 'ES6 笔记',
-        link: '/notes/es6',
+        link: './es6',
         target: '_self'
       },
       {
         icon: '../icons/jquery.svg',
         title: 'jQuery 笔记',
-        link: '/notes/jquery',
+        link: './jquery',
         target: '_self'
       },
       {
         icon: '../icons/sql.svg',
         title: '数据库 笔记',
-        link: '/notes/sql',
+        link: './sql',
         target: '_self'
       },
       {
         icon: '../icons/git.svg',
         title: 'Git工具 笔记',
-        link: '/notes/git',
+        link: './git',
         target: '_self'
       },
       {
         icon: '../icons/webstorm.svg',
         title: 'WebStorm快捷键大全',
-        link: '/notes/webstormkeys',
+        link: './webstormkeys',
         target: '_self'
       },
   ]

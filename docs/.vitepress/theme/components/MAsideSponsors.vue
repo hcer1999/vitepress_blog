@@ -3,10 +3,10 @@ import { VPDocAsideSponsors } from 'vitepress/theme'
 
 const data = [
   {
-    items: [{ img: 'http://cdn.bingkele.cc/Wechatqrcode.png' }],
+    items: [{ img: '../../../assets/Wechatqrcode.png' }],
   },
   {
-    items: [{ img: 'http://cdn.bingkele.cc/QQqrcode.png' }],
+    items: [{ img: '../../../assets/QQqrcode.png' }],
   },
 ]
 </script>
