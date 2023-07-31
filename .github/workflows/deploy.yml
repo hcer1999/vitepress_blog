@@ -10,6 +10,7 @@ on:
     paths:
       - 'docs/**'
       - 'package.json'
+      - '.github/workflows/**'
 
 # 设置上海时区
 env:
