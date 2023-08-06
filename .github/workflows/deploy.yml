@@ -1,6 +1,6 @@
 name: GitHub Actions Build and Deploy
 
-# 触发条件: push 到 main 分支后 cs
+# 触发条件: push 到 main 分支后
 on:
   workflow_dispatch:
   push:
@@ -10,7 +10,7 @@ on:
     paths:
       - 'docs/**'
       - 'package.json'
-      - 'deploy.yml'
+      - '.github/workflows/**'
 
 # 设置上海时区
 env:
