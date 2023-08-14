@@ -17,8 +17,14 @@ const list = [ {
       },
       {
         icon: '../icons/js.svg',
-        title: 'JS 笔记',
+        title: 'JS 入门笔记',
         link: '/notes/javascript',
+        target: '_self'
+      },
+      {
+        icon: '../icons/js.svg',
+        title: 'JS 进阶笔记',
+        link: '/notes/javascript_premium',
         target: '_self'
       },
       {
