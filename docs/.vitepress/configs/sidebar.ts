@@ -155,8 +155,12 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       link: '/notes/css',
     },
     {
-      text: 'JS 笔记',
+      text: 'JS 基础笔记',
       link: '/notes/javascript',
+    },
+    {
+      text: 'JS 进阶笔记',
+      link: '/notes/javascript_premium',
     },
     {
       text: 'ES6 笔记',

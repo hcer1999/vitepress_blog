@@ -44,12 +44,11 @@ const formatBadge = computed(() => {
   return props.badge
 })
 
-const baseUrl = import.meta.env.BASE_URL
-
+// const baseUrl = import.meta.env.BASE_URL
 </script>
 
 <template>
-  <a v-if="link" class="m-nav-link" :href="baseUrl + link" :target="target" rel="noreferrer">
+  <a v-if="link" class="m-nav-link" :href="link" :target="target" rel="noreferrer">
     <article class="box" :class="{ 'has-badge': formatBadge }">
       <div class="box-header">
         <template v-if="!noIcon">
