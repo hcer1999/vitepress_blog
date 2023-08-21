@@ -208,6 +208,17 @@ const data: Data[] = [
         link: '/content/docs/17',
         target: '_self',
       },
+      {
+        noIcon: true,
+        title: '微信小程序切换密码类型的 input 组件时不弹出输入法',
+        badge: {
+          text: '2023-8-17',
+          type: 'info',
+        },
+        desc: '关于这个问题，小程序官方社区在 2021 年就有人提出来了，2 年过去了，官方并没有修复....',
+        link: '/content/docs/18',
+        target: '_self',
+      },
     ],
   },
 ]
