@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as e}from"./chunks/framework.c6ce8c78.js";const A=JSON.parse('{"title":"数据库语句","description":"","frontmatter":{},"headers":[],"relativePath":"notes/sql.md","lastUpdated":1692603245000}'),l={name:"notes/sql.md"},p=e("",9),r=[p];function t(c,o,i,m,b,C){return n(),a("div",null,r)}const d=s(l,[["render",t]]);export{A as __pageData,d as default};

@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.c6ce8c78.js";const d=JSON.parse('{"title":"微信小程序踩坑记录","description":"","frontmatter":{"outline":2},"headers":[],"relativePath":"pit/wx.md","lastUpdated":1692288433000}'),p={name:"pit/wx.md"},o=l("",9),e=[o];function t(c,r,F,D,y,i){return n(),a("div",null,e)}const b=s(p,[["render",t]]);export{d as __pageData,b as default};
