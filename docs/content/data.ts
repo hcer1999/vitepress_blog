@@ -219,6 +219,17 @@ const data: Data[] = [
         link: '/content/docs/18',
         target: '_self',
       },
+      {
+        noIcon: true,
+        title: 'post为什么会发送两次请求?',
+        badge: {
+          text: '2023-8-23',
+          type: 'info',
+        },
+        desc: '要理解请求，咱们必须先了解一下什么是浏览器的同源策略....',
+        link: '/content/docs/19',
+        target: '_self',
+      },
     ],
   },
 ]
