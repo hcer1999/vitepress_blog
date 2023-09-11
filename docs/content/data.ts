@@ -230,6 +230,17 @@ const data: Data[] = [
         link: '/content/docs/19',
         target: '_self',
       },
+      {
+        noIcon: true,
+        title: '原生小程序转uniapp详细教程',
+        badge: {
+          text: '2023-9-11',
+          type: 'info',
+        },
+        desc: '该方法同样适用于 QQ、头条/抖音、支付宝/钉钉和百度等小程序....',
+        link: '/content/docs/20',
+        target: '_self',
+      },
     ],
   },
 ]
