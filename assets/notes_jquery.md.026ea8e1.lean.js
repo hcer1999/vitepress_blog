@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as n,Q as l}from"./chunks/framework.c6ce8c78.js";const C=JSON.parse('{"title":"Jquery","description":"","frontmatter":{},"headers":[],"relativePath":"notes/jquery.md","lastUpdated":1692762427000}'),p={name:"notes/jquery.md"},o=l("",121),e=[o];function t(r,c,i,y,F,D){return a(),n("div",null,e)}const d=s(p,[["render",t]]);export{C as __pageData,d as default};
