@@ -232,13 +232,24 @@ const data: Data[] = [
       },
       {
         noIcon: true,
+        title: '原生小程序转uniapp详细教程',
+        badge: {
+          text: '2023-9-11',
+          type: 'info',
+        },
+        desc: '该方法同样适用于 QQ、头条/抖音、支付宝/钉钉和百度等小程序....',
+        link: '/content/docs/20',
+        target: '_self',
+      },
+      {
+        noIcon: true,
         title: '使用纯CSS实现科技化的边框的盒子',
         badge: {
           text: '2023-10-21',
           type: 'info',
         },
         desc: '给一个盒子设置默认的边框颜色...',
-        link: '/content/docs/20',
+        link: '/content/docs/21',
         target: '_self',
       },
     ],
