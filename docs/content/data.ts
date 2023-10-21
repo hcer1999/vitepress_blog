@@ -230,6 +230,17 @@ const data: Data[] = [
         link: '/content/docs/19',
         target: '_self',
       },
+      {
+        noIcon: true,
+        title: '使用纯CSS实现科技化的边框的盒子',
+        badge: {
+          text: '2023-10-21',
+          type: 'info',
+        },
+        desc: '给一个盒子设置默认的边框颜色...',
+        link: '/content/docs/20',
+        target: '_self',
+      },
     ],
   },
 ]
