@@ -1,1 +1,0 @@
-import{_ as e,o,c as l,Q as s}from"./chunks/framework.c6ce8c78.js";const b=JSON.parse('{"title":"CSS 篇","description":"","frontmatter":{},"headers":[],"relativePath":"interview/css.md","lastUpdated":1697858423000}'),a={name:"interview/css.md"},c=s("",111),n=[c];function i(p,t,d,r,u,y){return o(),l("div",null,n)}const h=e(a,[["render",i]]);export{b as __pageData,h as default};
