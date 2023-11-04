@@ -252,6 +252,17 @@ const data: Data[] = [
         link: '/content/docs/21',
         target: '_self',
       },
+      {
+        noIcon: true,
+        title: '在Vite项目封装VScode官方编辑器monaco-editor',
+        badge: {
+          text: '2023-11-5',
+          type: 'info',
+        },
+        desc: '在很多网站的在线编辑代码都有非常智能的代码提示...',
+        link: '/content/docs/22',
+        target: '_self',
+      },
     ],
   },
 ]
