@@ -179,4 +179,3 @@ const formatBadge = computed(() => {
   }
 }
 </style>
-../../../assets/emoji.js
