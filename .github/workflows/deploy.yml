@@ -52,7 +52,7 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          # GitHub 密钥
+          # GitHub 密钥 需要定期维护
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           # 指定仓库
           REPOSITORY_NAME: hcer1999/vitepress_blog
