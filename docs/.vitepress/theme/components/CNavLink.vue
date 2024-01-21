@@ -81,18 +81,19 @@ const formatBadge = computed(() => {
   --m-nav-box-gap: 12px;
 
   display: block;
-  border: 1px solid var(--vp-c-bg-soft);
   border-radius: 8px;
   height: 100%;
-  background-color: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-bg-soft);
   transition: all 0.25s;
   &:hover {
-    box-shadow: var(--vp-shadow-2);
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
     border-color: var(--vp-c-brand);
+    border: 1px solid var(--vp-c-bg-soft);
     text-decoration: initial;
     background-color: var(--vp-c-brand);
     transform: scale(1.05);
-    .title {
+    .title,
+    .desc {
       color: #fff;
     }
   }
@@ -121,6 +122,8 @@ const formatBadge = computed(() => {
     border-radius: 6px;
     width: var(--m-nav-icon-box-size);
     height: var(--m-nav-icon-box-size);
+    min-width: var(--m-nav-icon-box-size);
+    min-height: var(--m-nav-icon-box-size);
     font-size: var(--m-nav-icon-size);
     background-color: var(--vp-c-bg-soft-down);
     transition: background-color 0.25s;
