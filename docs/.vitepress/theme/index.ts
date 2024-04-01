@@ -26,7 +26,7 @@ if (typeof window !== 'undefined') {
       return Promise.all(
         keyList.map(function (key) {
           return caches.delete(key)
-        }),
+        })
       )
     })
   }
@@ -54,10 +54,10 @@ export default {
        */
       'nav-bar-title-after': () => h(MNavVisitor),
       'doc-after': () => h(MDocFooter),
-      'aside-bottom': () => h(MAsideSponsors),
+      'aside-bottom': () => h(MAsideSponsors)
     })
   },
-  enhanceApp({ app, router }: EnhanceAppContext) {
+  async enhanceApp({ app, router }: EnhanceAppContext) {
     app.component('MNavLinks', MNavLinks)
     app.component('CNavLinks', CNavLinks)
 
@@ -67,10 +67,30 @@ export default {
       watch(
         () => router.route.data.relativePath,
         () => updateHomePageStyle(location.pathname === '/'),
-        { immediate: true },
+        { immediate: true }
       )
     }
-  },
+
+    if (!import.meta.env.SSR) {
+      const { loadOml2d } = await import('oh-my-live2d')
+      loadOml2d({
+        models: [
+          {
+            path: 'https://model.oml2d.com/HK416-1-normal/model.json',
+            position: [0, 60],
+            scale: 0.08,
+            stageStyle: {
+              height: 450
+            }
+          },
+          {
+            path: 'https://model.oml2d.com/Senko_Normals/senko.model3.json',
+            position: [-10, 20]
+          }
+        ]
+      })
+    }
+  }
 }
 
 if (typeof window !== 'undefined') {

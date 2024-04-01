@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  oh-my-live2d:
+    specifier: ^0.15.2
+    version: 0.15.2
+
 devDependencies:
   '@femm/prettier':
     specifier: ^1.0.1
@@ -1111,6 +1116,10 @@ packages:
   /object-inspect@1.12.3:
     resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}
     dev: true
+
+  /oh-my-live2d@0.15.2:
+    resolution: {integrity: sha512-0+K48pgUrJOzo6ey16KiUCdGX/pWWogRY2JeOf4JnlYo9Rnd1RCfbzMQ4sX85aAMfavNfKfx9XGw6jEl4er9Xw==}
+    dev: false
 
   /onetime@5.1.2:
     resolution: {integrity: sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==}

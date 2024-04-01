@@ -41,5 +41,8 @@
       "prettier --write"
     ]
   },
-  "prettier": "@femm/prettier"
+  "prettier": "@femm/prettier",
+  "dependencies": {
+    "oh-my-live2d": "^0.15.2"
+  }
 }
