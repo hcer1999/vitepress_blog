@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "version": "1.0.0",
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@9.1.0",
   "description": "Development related notes",
   "repository": {
     "type": "git",
@@ -20,21 +20,25 @@
     "build": "vitepress build docs",
     "build:github": "cross-env APP_BASE_PATH=/vitepress_blog/ cross-env BASE_URL=/vitepress_blog/ npm run build",
     "lint": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "updist": "node upload.serve.mjs"
   },
   "devDependencies": {
-    "@femm/prettier": "^1.0.1",
+    "@femm/prettier": "^1.1.0",
     "@femm/verify-commit": "^1.0.1",
-    "@mdit-vue/shared": "^0.12.0",
-    "@types/node": "^18.13.0",
+    "@mdit-vue/shared": "^0.12.1",
+    "@types/node": "^18.19.33",
     "cross-env": "^7.0.3",
+    "fs": "0.0.1-security",
     "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
-    "prettier": "^2.8.4",
-    "sass": "^1.58.3",
+    "lint-staged": "^13.3.0",
+    "ora": "^8.0.1",
+    "prettier": "^2.8.8",
+    "sass": "^1.77.0",
+    "scp2": "^0.5.0",
     "sitemap": "^7.1.1",
     "vitepress": "1.0.0-alpha.60",
-    "vue": "^3.2.47"
+    "vue": "^3.4.27"
   },
   "lint-staged": {
     "*.{js,ts,css,md,json}": [
