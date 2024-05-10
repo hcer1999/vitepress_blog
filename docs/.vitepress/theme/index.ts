@@ -7,7 +7,7 @@ import MDocFooter from './components/MDocFooter.vue'
 import MAsideSponsors from './components/MAsideSponsors.vue'
 import MNavLinks from './components/MNavLinks.vue'
 import CNavLinks from './components/CNavLinks.vue'
-
+import CLayout from './components/CLayout.vue'
 import './styles/index.scss'
 
 if (typeof window !== 'undefined') {
@@ -26,7 +26,7 @@ if (typeof window !== 'undefined') {
       return Promise.all(
         keyList.map(function (key) {
           return caches.delete(key)
-        })
+        }),
       )
     })
   }
@@ -46,7 +46,7 @@ export default {
       props.class = frontmatter.value.layoutClass
     }
 
-    return h(DefaultTheme.Layout, props, {
+    return h(CLayout, props, {
       /**
        * 相关插槽
        * https://vitepress.dev/guide/extending-default-theme#layout-slots
@@ -54,7 +54,7 @@ export default {
        */
       'nav-bar-title-after': () => h(MNavVisitor),
       'doc-after': () => h(MDocFooter),
-      'aside-bottom': () => h(MAsideSponsors)
+      'aside-bottom': () => h(MAsideSponsors),
     })
   },
   async enhanceApp({ app, router }: EnhanceAppContext) {
@@ -67,7 +67,7 @@ export default {
       watch(
         () => router.route.data.relativePath,
         () => updateHomePageStyle(location.pathname === '/'),
-        { immediate: true }
+        { immediate: true },
       )
     }
 
@@ -80,17 +80,17 @@ export default {
             position: [0, 60],
             scale: 0.08,
             stageStyle: {
-              height: 450
-            }
+              height: 450,
+            },
           },
           {
             path: 'https://model.oml2d.com/Senko_Normals/senko.model3.json',
-            position: [-10, 20]
-          }
-        ]
+            position: [-10, 20],
+          },
+        ],
       })
     }
-  }
+  },
 }
 
 if (typeof window !== 'undefined') {

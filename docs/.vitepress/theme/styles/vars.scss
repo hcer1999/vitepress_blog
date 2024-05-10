@@ -76,3 +76,73 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand) !important;
 }
+
+:root {
+  --vp-c-brand-1: #18794e;
+  --vp-c-brand-2: #299764;
+  --vp-c-brand-3: #30a46c;
+
+  --vp-c-gray-1: #dddde3;
+  --vp-c-gray-2: #e4e4e9;
+  --vp-c-gray-3: #ebebef;
+  --vp-c-gray-soft: rgba(142, 150, 170, 0.14);
+
+  --vp-c-indigo-1: #3451b2;
+  --vp-c-indigo-2: #3a5ccc;
+  --vp-c-indigo-3: #5672cd;
+  --vp-c-indigo-soft: rgba(100, 108, 255, 0.14);
+
+  --vp-c-green-1: #18794e;
+  --vp-c-green-2: #299764;
+  --vp-c-green-3: #30a46c;
+  --vp-c-green-soft: rgba(16, 185, 129, 0.14);
+
+  --vp-c-yellow-1: #915930;
+  --vp-c-yellow-2: #946300;
+  --vp-c-yellow-3: #9f6a00;
+  --vp-c-yellow-soft: rgba(234, 179, 8, 0.14);
+
+  --vp-c-red-1: #b8272c;
+  --vp-c-red-2: #d5393e;
+  --vp-c-red-3: #e0575b;
+  --vp-c-red-soft: rgba(244, 63, 94, 0.14);
+
+  --vp-c-sponsor: #db2777;
+}
+
+.dark {
+  --vp-c-brand-1: #3dd68c;
+  --vp-c-brand-2: #30a46c;
+  --vp-c-brand-3: #298459;
+}
+/* 提示框背景颜色 */
+:root {
+  --vp-custom-block-tip-bg: var(--vp-c-green-soft);
+}
+
+/* 提示框 */
+.custom-block.tip {
+  border-color: var(--vp-c-green-2);
+}
+
+/* 警告框 */
+.custom-block.warning {
+  /* border-color: #d97706; */
+  border-color: var(--vp-c-yellow-2);
+}
+
+/* 危险框 */
+.custom-block.danger {
+  /* border-color: #f43f5e; */
+  border-color: var(--vp-c-red-2);
+}
+
+/* .vitepress\theme\style\var.css */
+/* 引用块 */
+.vp-doc blockquote {
+  border-radius: 5px;
+  padding: 10px 16px;
+  background-color: var(--vp-badge-danger-bg);
+  position: relative;
+  border-left: 4px solid #e95f59;
+}
