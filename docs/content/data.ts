@@ -299,6 +299,40 @@ const data: Data[] = [
         link: '/content/docs/25',
         target: '_self',
       },
+      {
+        noIcon: false,
+        icon: '../icons/sass.svg',
+        title: 'Sass(Scss)、Less的区别与选择 + 基本使用',
+        badge: {
+          text: '2024-5-10',
+          type: 'info',
+        },
+        desc: 'Sass(Scss)、Less 都是 CSS 预处理器，他们定义了一种新的语言，其基本思想是，用一种...',
+        link: '/content/docs/26',
+        target: '_self',
+      },
+      {
+        noIcon: true,
+        title: '作为前端，你必须要知道的meta标签知识',
+        badge: {
+          text: '2024-5-10',
+          type: 'info',
+        },
+        desc: 'meta是文档级元数据元素，用来表示那些不能由其它 HTML 元相关元素...',
+        link: '/content/docs/27',
+        target: '_self',
+      },
+      {
+        noIcon: true,
+        title: '小程序与H5深度对比及原理解析',
+        badge: {
+          text: '2024-5-10',
+          type: 'info',
+        },
+        desc: '小程序和H5都是轻量级的、可直接在移动设备上运行的应用，但它们之间存在一些关键差异...',
+        link: '/content/docs/28',
+        target: '_self',
+      },
     ],
   },
 ]
