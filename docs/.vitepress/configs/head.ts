@@ -30,7 +30,19 @@ export const head: HeadConfig[] = [
   ['link', { rel: 'apple-touch-icon', href: '/favicon.ico' }],
   ['link', { rel: 'mask-icon', href: '/favicon.ico', color: '#3eaf7c' }],
   ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
-
+  // <!-- Google Tag Manager -->
+  // <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  // new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  // j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  // 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  // })(window,document,'script','dataLayer','GTM-PJGVGC9G');</script>
+  // <!-- End Google Tag Manager -->
+  ['script', { src: '//sdk.51.la/js-sdk-pro.min.js', charset: 'UTF-8', id: 'LA_COLLECT' }],
+  [
+    'script',
+    {},
+    `LA.init({id:"K1qi65GEQCfdOxT7",ck:"K1qi65GEQCfdOxT7",autoTrack:true,hashMode:true})`,
+  ],
   // [
   //   'script',
   //   { src: isDevelopment ? '' : 'https://hm.baidu.com/hm.js?8092fab2f2adfc7938ba5b8885aef5b4' },
