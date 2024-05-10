@@ -17,7 +17,7 @@ const pageId = computed(() => route.path.replace('/mm-notes', ''))
       title="当前页面累计访问数"
       onerror="this.style.display='none'"
     />
-    Copyright © 2023-present BingKeLe
+    Copyright © 2024-present BingKeLe
   </div>
 </template>
 

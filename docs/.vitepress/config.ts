@@ -21,7 +21,7 @@ export default defineConfig({
 
   /* markdown 配置 */
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
   },
 
   /* 主题配置 */
@@ -35,14 +35,14 @@ export default defineConfig({
     /* 右侧大纲配置 */
     outline: {
       level: 'deep',
-      label: '本页目录'
+      label: '本页目录',
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/hcer1999/vitepress_blog' }],
 
     footer: {
       message: '赣ICP备2023003243号',
-      copyright: 'Powered by VitePress | Copyright © 2023 BingKeLe'
+      copyright: 'Powered by VitePress | Copyright © 2024 BingKeLe',
     },
 
     darkModeSwitchLabel: '外观',
@@ -54,8 +54,8 @@ export default defineConfig({
 
     docFooter: {
       prev: '上一篇',
-      next: '下一篇'
-    }
+      next: '下一篇',
+    },
   },
 
   /* 生成站点地图 */
@@ -63,7 +63,7 @@ export default defineConfig({
     if (!/[\\/]404\.html$/.test(id))
       links.push({
         url: pageData.relativePath.replace(/((^|\/)index)?\.md$/, '$2'),
-        lastmod: pageData.lastUpdated
+        lastmod: pageData.lastUpdated,
       })
   },
   buildEnd: async ({ outDir }) => {
@@ -73,5 +73,5 @@ export default defineConfig({
     links.forEach((link) => sitemap.write(link))
     sitemap.end()
     await new Promise((r) => writeStream.on('finish', r))
-  }
+  },
 })
