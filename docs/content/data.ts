@@ -333,6 +333,18 @@ const data: Data[] = [
         link: '/content/docs/28',
         target: '_self',
       },
+      {
+        noIcon: false,
+        icon: '../icons/vue.svg',
+        title: 'Vue3中Hook函数，解锁新技能！',
+        badge: {
+          text: '2024-5-11',
+          type: 'info',
+        },
+        desc: 'Vue3带来了Composition API，在这其中，Hooks是其重要组成部分，本文将深入探讨Vue3中Hooks...',
+        link: '/content/docs/29',
+        target: '_self',
+      },
     ],
   },
 ]
