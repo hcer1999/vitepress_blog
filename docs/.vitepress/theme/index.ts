@@ -1,5 +1,6 @@
 import { h, watch } from 'vue'
-import { useData, EnhanceAppContext } from 'vitepress'
+import { useData, useRoute, EnhanceAppContext } from 'vitepress'
+import giscusTalk from 'vitepress-plugin-comment-with-giscus'
 import DefaultTheme from 'vitepress/theme'
 
 import MNavVisitor from './components/MNavVisitor.vue'
@@ -36,6 +37,32 @@ let homePageStyle: HTMLStyleElement | undefined
 
 export default {
   extends: DefaultTheme,
+  setup() {
+    // Get frontmatter and route
+    const { frontmatter } = useData()
+    const route = useRoute()
+
+    // giscus配置
+    giscusTalk(
+      {
+        repo: 'hcer1999/vitepress_blog', //仓库
+        repoId: 'R_kgDOKApalg', //仓库ID
+        category: 'Announcements', // 讨论分类
+        categoryId: 'DIC_kwDOKApals4CfWNu', //讨论分类ID
+        mapping: 'pathname',
+        inputPosition: 'bottom',
+        lang: 'zh-CN',
+      },
+      {
+        frontmatter,
+        route,
+      },
+      //默认值为true，表示已启用，此参数可以忽略；
+      //如果为false，则表示未启用
+      //您可以使用“comment:true”序言在页面上单独启用它
+      true,
+    )
+  },
   Layout: () => {
     const props: Record<string, any> = {}
     // 获取 frontmatter

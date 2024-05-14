@@ -112,8 +112,35 @@
 
 .dark {
   --vp-c-brand-1: #3dd68c;
-  --vp-c-brand-2: #30a46c;
-  --vp-c-brand-3: #298459;
+    --vp-c-brand-2: #30a46c;
+    --vp-c-brand-3: #298459;
+  --vp-c-gray-1: #515c67;
+  --vp-c-gray-2: #414853;
+  --vp-c-gray-3: #32363f;
+  --vp-c-gray-soft: rgba(101, 117, 133, .16);
+  --vp-c-indigo-1: #a8b1ff;
+  --vp-c-indigo-2: #5c73e7;
+  --vp-c-indigo-3: #3e63dd;
+  --vp-c-indigo-soft: rgba(100, 108, 255, .16);
+  --vp-c-purple-1: #c8abfa;
+  --vp-c-purple-2: #a879e6;
+  --vp-c-purple-3: #8e5cd9;
+  --vp-c-purple-soft: rgba(159, 122, 234, .16);
+  --vp-c-green-1: #3dd68c;
+  --vp-c-green-2: #30a46c;
+  --vp-c-green-3: #298459;
+  --vp-c-green-soft: rgba(16, 185, 129, .16);
+  --vp-c-yellow-1: #f9b44e;
+  --vp-c-yellow-2: #da8b17;
+  --vp-c-yellow-3: #a46a0a;
+  --vp-c-yellow-soft: rgba(234, 179, 8, .16);
+  --vp-c-red-1: #f66f81;
+  --vp-c-red-2: #f14158;
+  --vp-c-red-3: #b62a3c;
+  --vp-c-red-soft: rgba(244, 63, 94, .16);
+  --vp-c-text-1: rgba(255, 255, 245, .86);
+    --vp-c-text-2: rgba(235, 235, 245, .6);
+    --vp-c-text-3: rgba(235, 235, 245, .38);
 }
 /* 提示框背景颜色 */
 :root {
@@ -145,4 +172,16 @@
   background-color: var(--vp-badge-danger-bg);
   position: relative;
   border-left: 4px solid #e95f59;
+}
+// 去除超链接下划线
+.vp-doc a {
+  text-decoration: none;
+}
+
+h1 {
+  background: #e43498;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
