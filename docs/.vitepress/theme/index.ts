@@ -1,5 +1,6 @@
-import { h, watch } from 'vue'
+import { h, watch, onMounted, nextTick } from 'vue'
 import { useData, useRoute, EnhanceAppContext } from 'vitepress'
+import mediumZoom from 'medium-zoom'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus'
 import DefaultTheme from 'vitepress/theme'
 
@@ -61,6 +62,18 @@ export default {
       //如果为false，则表示未启用
       //您可以使用“comment:true”序言在页面上单独启用它
       true,
+    )
+
+    const initZoom = () => {
+      // mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' }); // 默认
+      mediumZoom('.main img', { background: 'var(--vp-c-bg)' }) // 不显式添加{data-zoomable}的情况下为所有图像启用此功能
+    }
+    onMounted(() => {
+      initZoom()
+    })
+    watch(
+      () => route.path,
+      () => nextTick(() => initZoom()),
     )
   },
   Layout: () => {
