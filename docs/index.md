@@ -10,13 +10,13 @@ hero:
     src: /logo.png
     alt: 冰可乐
   actions:
-    - text: 前端笔记
-      link: /notes/start
+    - text: 文章分享
+      link: /content
     - text: 刷面试题
       link: /interview/start
       theme: alt
-    - text: 文章分享
-      link: /content
+    - text: 前端笔记
+      link: /notes/start
     - text: 前端导航
       link: /nav
       theme: alt
