@@ -210,6 +210,10 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       text: 'HTTP 篇',
       link: '/interview/http',
     },
+    {
+      text: '大厂面试题',
+      link: '/interview/big-business',
+    },
   ],
   '/content/': data,
 }

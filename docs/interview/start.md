@@ -39,6 +39,12 @@ const list = [ {
         link: '/interview/http',
         target: '_self'
       },
+      {
+        icon: '../icons/bytedance.svg',
+        title: '大厂面试题',
+        link: '/interview/big-business',
+        target: '_self'
+      },
   ]
 }
 ]
