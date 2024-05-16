@@ -30,7 +30,7 @@ const formatTitle = computed(() => {
 .m-nav-links {
   --m-nav-gap: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: repeat(1, minmax(130px, 1fr));
   grid-row-gap: var(--m-nav-gap);
   grid-column-gap: var(--m-nav-gap);
   grid-auto-flow: row dense;
@@ -38,16 +38,17 @@ const formatTitle = computed(() => {
   margin-top: var(--m-nav-gap);
 }
 
-@each $media, $size in (500px: 140px, 640px: 155px, 768px: 175px, 960px: 200px, 1440px: 240px) {
-  @media (min-width: $media) {
-    .m-nav-links {
-      grid-template-columns: repeat(auto-fill, minmax($size, 1fr));
-    }
-  }
-}
+// @each $media, $size in (500px: 140px, 640px: 155px, 768px: 175px, 960px: 200px, 1440px: 240px) {
+//   @media (min-width: $media) {
+//     .m-nav-links {
+//       grid-template-columns: repeat(auto-fill, minmax($size, 1fr));
+//     }
+//   }
+// }
 
 @media (min-width: 960px) {
   .m-nav-links {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
     --m-nav-gap: 20px;
   }
 }
