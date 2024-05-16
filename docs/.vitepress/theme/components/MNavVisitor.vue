@@ -22,4 +22,9 @@ const DEV = inject('DEV') as Ref<boolean>
     display: none;
   }
 }
+@media (max-width: 450px) {
+  .visitor {
+    display: none;
+  }
+}
 </style>
