@@ -93,7 +93,7 @@ const formatBadge = computed(() => {
     background-color: var(--vp-c-brand);
     transform: scale(1.05);
     .title,
-    .desc {
+    .desc,.badge {
       color: #fff;
     }
   }
@@ -106,7 +106,7 @@ const formatBadge = computed(() => {
     height: 100%;
     color: var(--vp-c-text-1);
     &.has-badge {
-      padding-top: calc(var(--m-nav-box-gap) + 2px);
+      padding-top: calc(var(--m-nav-box-gap) + 4px);
     }
     &-header {
       display: flex;
