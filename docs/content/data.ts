@@ -345,6 +345,18 @@ const data: Data[] = [
         link: '/content/docs/29',
         target: '_self',
       },
+      {
+        noIcon: false,
+        icon: '../icons/vue.svg',
+        title: '【样式穿透】VUE样式穿透为啥有时不生效，把ta嚼烂',
+        badge: {
+          text: '2024-5-21',
+          type: 'info',
+        },
+        desc: '背景：经常在UI框架进行样式穿透的时候，会发生不生效的情况，既会是因为选择器优先级问题...',
+        link: '/content/docs/30',
+        target: '_self',
+      },
     ],
   },
 ]
