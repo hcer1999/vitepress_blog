@@ -357,6 +357,17 @@ const data: Data[] = [
         link: '/content/docs/30',
         target: '_self',
       },
+      {
+        noIcon: true,
+        title: '200 行 JavaScript 的虚拟 DOM',
+        badge: {
+          text: '2024-7-15',
+          type: 'info',
+        },
+        desc: '在这篇文章中，我将详细介绍一个超过200行的完整虚拟DOM的实现...',
+        link: '/content/docs/31',
+        target: '_self',
+      },
     ],
   },
 ]
