@@ -215,5 +215,139 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       link: '/interview/big-business',
     },
   ],
-  '/content/': data,
+  '/content': data,
+  '/gsap/': [
+    {
+      text: 'GSAP',
+      items: [
+        {
+          text: '属性',
+          link: '/gsap/gsap/start',
+          items: [
+            {
+              text: 'gsap.effects()',
+              link: '/gsap/gsap/properties/gsap.effects',
+            },
+            {
+              text: 'gsap.globalTimeline()',
+              link: '/gsap/gsap/properties/gsap.globalTimeline',
+            },
+            {
+              text: 'gsap.ticker()',
+              link: '/gsap/gsap/properties/gsap.ticker',
+            },
+            {
+              text: 'gsap.utils()',
+              link: '/gsap/gsap/properties/gsap.utils',
+            },
+            {
+              text: 'gsap.version()',
+              link: '/gsap/gsap/properties/gsap.version',
+            },
+          ],
+        },
+        {
+          text: '方法',
+          items: [
+            {
+              text: 'gsap.config()',
+              link: '/gsap/gsap/methods/gsap.config',
+            },
+            {
+              text: 'gsap.context()',
+              link: '/gsap/gsap/methods/gsap.context',
+            },
+            {
+              text: 'gsap.defaults()',
+              link: '/gsap/gsap/methods/gsap.defaults',
+            },
+            {
+              text: 'gsap.delayedCall()',
+              link: '/gsap/gsap/methods/gsap.delayedCall',
+            },
+            {
+              text: 'gsap.exportRoot()',
+              link: '/gsap/gsap/methods/gsap.exportRoot',
+            },
+            {
+              text: 'gsap.from()',
+              link: '/gsap/gsap/methods/gsap.from',
+            },
+            {
+              text: 'gsap.fromTo()',
+              link: '/gsap/gsap/methods/gsap.fromTo',
+            },
+            {
+              text: 'gsap.getByld()',
+              link: '/gsap/gsap/methods/gsap.getByld',
+            },
+            {
+              text: 'gsap.getProperty()',
+              link: '/gsap/gsap/methods/gsap.getProperty',
+            },
+            {
+              text: 'gsap.getTweensOf()',
+              link: '/gsap/gsap/methods/gsap.getTweensOf',
+            },
+            {
+              text: 'gsap.isTweening()',
+              link: '/gsap/gsap/methods/gsap.isTweening',
+            },
+            {
+              text: 'gsap.killTweensOf()',
+              link: '/gsap/gsap/methods/gsap.killTweensOf',
+            },
+            {
+              text: 'gsap.matchMedia()',
+              link: '/gsap/gsap/methods/gsap.matchMedia',
+            },
+            {
+              text: 'gsap.matchMediaRefresh()',
+              link: '/gsap/gsap/methods/gsap.matchMediaRefresh',
+            },
+            {
+              text: 'gsap.parseEase()',
+              link: '/gsap/gsap/methods/gsap.parseEase',
+            },
+            {
+              text: 'gsap.quicksetter()',
+              link: '/gsap/gsap/methods/gsap.quicksetter',
+            },
+            {
+              text: 'gsap.quickTo()',
+              link: '/gsap/gsap/methods/gsap.quickTo',
+            },
+            {
+              text: 'gsap.registerEase()',
+              link: '/gsap/gsap/methods/gsap.registerEase',
+            },
+            {
+              text: 'gsap.registerEffect()',
+              link: '/gsap/gsap/methods/gsap.registerEffect',
+            },
+            {
+              text: 'gsap.registerPlugin()',
+              link: '/gsap/gsap/methods/gsap.registerPlugin',
+            },
+            {
+              text: 'gsap.set()',
+              link: '/gsap/gsap/methods/gsap.set',
+            },
+            {
+              text: 'gsap.timeline()',
+              link: '/gsap/gsap/methods/gsap.timeline',
+            },
+            {
+              text: 'gsap.to()',
+              link: '/gsap/gsap/methods/gsap.to',
+            },
+            {
+              text: 'gsap.updateRoot()',
+              link: '/gsap/gsap/methods/gsap.updateRoot',
+            },
+          ],
+        },
+      ],
+    },
+  ],
 }

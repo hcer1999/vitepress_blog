@@ -15,8 +15,8 @@ hero:
     - text: 刷面试题
       link: /interview/start
       theme: alt
-    - text: 前端笔记
-      link: /notes/start
+    - text: GSAP中文文档
+      link: /gsap/start
     - text: 前端导航
       link: /nav
       theme: alt
