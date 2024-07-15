@@ -368,6 +368,17 @@ const data: Data[] = [
         link: '/content/docs/31',
         target: '_self',
       },
+      {
+        noIcon: true,
+        title: '仅用CSS实现文本内容过长时，中间显示省略号...,两端正常展示',
+        badge: {
+          text: '2024-7-15',
+          type: 'info',
+        },
+        desc: '仅用CSS实现文本内容过长时，中间显示省略号...,两端正常展示...',
+        link: '/content/docs/32',
+        target: '_self',
+      },
     ],
   },
 ]
