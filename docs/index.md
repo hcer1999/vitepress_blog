@@ -17,8 +17,8 @@ hero:
       theme: alt
     - text: GSAP中文文档
       link: /gsap/start
-    - text: 前端导航
-      link: /nav
+    - text: html2canvas中文文档
+      link: /html2canvas/about
       theme: alt
 features:
   - icon: 📖

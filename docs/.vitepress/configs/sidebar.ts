@@ -350,4 +350,30 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       ],
     },
   ],
+  '/html2canvas/': [
+    {
+      text: '关于',
+      link: '/html2canvas/about',
+    },
+    {
+      text: '入门',
+      link: '/html2canvas/start',
+    },
+    {
+      text: '配置',
+      link: '/html2canvas/config',
+    },
+    {
+      text: '功能',
+      link: '/html2canvas/function',
+    },
+    {
+      text: '代理',
+      link: '/html2canvas/proxy',
+    },
+    {
+      text: '答疑',
+      link: '/html2canvas/question',
+    },
+  ],
 }
