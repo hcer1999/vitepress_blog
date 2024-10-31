@@ -1,6 +1,14 @@
 import type { DefaultTheme } from 'vitepress'
 
 export const nav: DefaultTheme.Config['nav'] = [
+  {
+    text: '一些中文文档',
+    items: [
+      { text: 'GSAP', link: '/gsap/start' },
+      { text: 'html2canvas', link: '/html2canvas/start' },
+      { text: 'Hammer.js', link: '/hammerjs/start' },
+    ],
+  },
   { text: '导航', link: '/nav', activeMatch: '^/nav' },
   {
     text: '前端物语',

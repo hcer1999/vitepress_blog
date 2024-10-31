@@ -15,11 +15,6 @@ hero:
     - text: 刷面试题
       link: /interview/start
       theme: alt
-    - text: GSAP中文文档
-      link: /gsap/start
-    - text: html2canvas中文文档
-      link: /html2canvas/about
-      theme: alt
 features:
   - icon: 📖
     title: 前端物语
