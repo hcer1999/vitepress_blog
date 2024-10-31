@@ -376,4 +376,102 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       link: '/html2canvas/question',
     },
   ],
+  '/hammerjs/': [
+    {
+      text: '基础',
+      items: [
+        {
+          text: '入门',
+          link: '/hammerjs/start',
+        },
+        {
+          text: '技巧和提示',
+          link: '/hammerjs/tips',
+        },
+        {
+          text: '浏览器/设备支持情况',
+          link: '/hammerjs/browser-support',
+        },
+        {
+          text: '示例',
+          link: '/hammerjs/examples',
+        },
+        {
+          text: '更新日志',
+          link: '/hammerjs/changelog',
+        },
+      ],
+    },
+    {
+      text: 'Hammer',
+      items: [
+        {
+          text: 'API',
+          link: '/hammerjs/api',
+        },
+        {
+          text: 'Touch-action',
+          link: '/hammerjs/touch-action',
+        },
+        {
+          text: '同时识别两种手势',
+          link: '/hammerjs/recognize-with',
+        },
+        {
+          text: '要求其他识别器失败',
+          link: '/hammerjs/require-failure',
+        },
+        {
+          text: '在运行时切换识别器',
+          link: '/hammerjs/toggle-recognizer',
+        },
+      ],
+    },
+    {
+      text: '手势',
+      items: [
+        {
+          text: '拖动',
+          link: '/hammerjs/recognizer-pan',
+        },
+        {
+          text: '轻触',
+          link: '/hammerjs/recognizer-tap',
+        },
+        {
+          text: '旋转',
+          link: '/hammerjs/recognizer-rotate',
+        },
+        {
+          text: '滑动',
+          link: '/hammerjs/recognizer-swipe',
+        },
+        {
+          text: '捏合',
+          link: '/hammerjs/recognizer-pinch',
+        },
+        {
+          text: '长按',
+          link: '/hammerjs/recognizer-press',
+        },
+      ],
+    },
+    {
+      text: '扩展',
+      items: [
+        {
+          text: 'jQuery 插件',
+          link: '/hammerjs/jquery-plugin',
+        },
+        {
+          text: 'Angular.js 指令',
+          link: '/hammerjs/angularjs-directive',
+        },
+        {
+          text: '触摸模拟器',
+          link: '/hammerjs/touch-emulator',
+        },
+      ],
+    },
+  ],
 }
