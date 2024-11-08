@@ -222,7 +222,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       items: [
         {
           text: '安装',
-          link: '/gsap/gsap/start',
+          link: '/gsap/start',
         },
       ],
     },
@@ -230,8 +230,9 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       text: '基本',
       items: [
         {
-          text: 'GSAP',
+          text: 'GSAP对象',
           collapsed: true,
+          link: '/gsap/gsap/start',
           items: [
             {
               text: '属性',
