@@ -218,132 +218,325 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/content': data,
   '/gsap/': [
     {
-      text: 'GSAP',
+      text: '快速开始',
       items: [
         {
-          text: '属性',
+          text: '安装',
           link: '/gsap/gsap/start',
+        },
+      ],
+    },
+    {
+      text: '基本',
+      items: [
+        {
+          text: 'GSAP',
+          collapsed: true,
           items: [
             {
-              text: 'gsap.effects()',
-              link: '/gsap/gsap/properties/gsap.effects',
+              text: '属性',
+              collapsed: true,
+              items: [
+                {
+                  text: 'gsap.effects()',
+                  link: '/gsap/gsap/properties/gsap.effects',
+                },
+                {
+                  text: 'gsap.globalTimeline()',
+                  link: '/gsap/gsap/properties/gsap.globalTimeline',
+                },
+                {
+                  text: 'gsap.ticker()',
+                  link: '/gsap/gsap/properties/gsap.ticker',
+                },
+                {
+                  text: 'gsap.utils()',
+                  link: '/gsap/gsap/properties/gsap.utils',
+                },
+                {
+                  text: 'gsap.version()',
+                  link: '/gsap/gsap/properties/gsap.version',
+                },
+              ],
             },
             {
-              text: 'gsap.globalTimeline()',
-              link: '/gsap/gsap/properties/gsap.globalTimeline',
+              text: '方法',
+              collapsed: true,
+              items: [
+                {
+                  text: 'gsap.config()',
+                  link: '/gsap/gsap/methods/gsap.config',
+                },
+                {
+                  text: 'gsap.context()',
+                  link: '/gsap/gsap/methods/gsap.context',
+                },
+                {
+                  text: 'gsap.defaults()',
+                  link: '/gsap/gsap/methods/gsap.defaults',
+                },
+                {
+                  text: 'gsap.delayedCall()',
+                  link: '/gsap/gsap/methods/gsap.delayedCall',
+                },
+                {
+                  text: 'gsap.exportRoot()',
+                  link: '/gsap/gsap/methods/gsap.exportRoot',
+                },
+                {
+                  text: 'gsap.from()',
+                  link: '/gsap/gsap/methods/gsap.from',
+                },
+                {
+                  text: 'gsap.fromTo()',
+                  link: '/gsap/gsap/methods/gsap.fromTo',
+                },
+                {
+                  text: 'gsap.getByld()',
+                  link: '/gsap/gsap/methods/gsap.getByld',
+                },
+                {
+                  text: 'gsap.getProperty()',
+                  link: '/gsap/gsap/methods/gsap.getProperty',
+                },
+                {
+                  text: 'gsap.getTweensOf()',
+                  link: '/gsap/gsap/methods/gsap.getTweensOf',
+                },
+                {
+                  text: 'gsap.isTweening()',
+                  link: '/gsap/gsap/methods/gsap.isTweening',
+                },
+                {
+                  text: 'gsap.killTweensOf()',
+                  link: '/gsap/gsap/methods/gsap.killTweensOf',
+                },
+                {
+                  text: 'gsap.matchMedia()',
+                  link: '/gsap/gsap/methods/gsap.matchMedia',
+                },
+                {
+                  text: 'gsap.matchMediaRefresh()',
+                  link: '/gsap/gsap/methods/gsap.matchMediaRefresh',
+                },
+                {
+                  text: 'gsap.parseEase()',
+                  link: '/gsap/gsap/methods/gsap.parseEase',
+                },
+                {
+                  text: 'gsap.quicksetter()',
+                  link: '/gsap/gsap/methods/gsap.quicksetter',
+                },
+                {
+                  text: 'gsap.quickTo()',
+                  link: '/gsap/gsap/methods/gsap.quickTo',
+                },
+                {
+                  text: 'gsap.registerEase()',
+                  link: '/gsap/gsap/methods/gsap.registerEase',
+                },
+                {
+                  text: 'gsap.registerEffect()',
+                  link: '/gsap/gsap/methods/gsap.registerEffect',
+                },
+                {
+                  text: 'gsap.registerPlugin()',
+                  link: '/gsap/gsap/methods/gsap.registerPlugin',
+                },
+                {
+                  text: 'gsap.set()',
+                  link: '/gsap/gsap/methods/gsap.set',
+                },
+                {
+                  text: 'gsap.timeline()',
+                  link: '/gsap/gsap/methods/gsap.timeline',
+                },
+                {
+                  text: 'gsap.to()',
+                  link: '/gsap/gsap/methods/gsap.to',
+                },
+                {
+                  text: 'gsap.updateRoot()',
+                  link: '/gsap/gsap/methods/gsap.updateRoot',
+                },
+              ],
             },
             {
-              text: 'gsap.ticker()',
-              link: '/gsap/gsap/properties/gsap.ticker',
-            },
-            {
-              text: 'gsap.utils()',
-              link: '/gsap/gsap/properties/gsap.utils',
-            },
-            {
-              text: 'gsap.version()',
-              link: '/gsap/gsap/properties/gsap.version',
+              text: '内部插件',
+              collapsed: true,
+              items: [
+                {
+                  text: 'Attributes',
+                  link: '/gsap/gsap/internal-plugins/attributes',
+                },
+                {
+                  text: 'End Array',
+                  link: '/gsap/gsap/internal-plugins/end-array',
+                },
+                {
+                  text: 'Modifiers',
+                  link: '/gsap/gsap/internal-plugins/modifiers',
+                },
+                {
+                  text: 'Snap',
+                  link: '/gsap/gsap/internal-plugins/snap',
+                },
+              ],
             },
           ],
         },
         {
-          text: '方法',
+          text: 'Tween',
+          collapsed: true,
+          link: '/gsap/tween/start',
           items: [
             {
-              text: 'gsap.config()',
-              link: '/gsap/gsap/methods/gsap.config',
+              text: '方法',
+              collapsed: true,
+              items: [
+                {
+                  text: '.delay()',
+                  link: '/gsap/tween/methods/delay',
+                },
+                {
+                  text: '.duration()',
+                  link: '/gsap/tween/methods/duration',
+                },
+                {
+                  text: '.endTime()',
+                  link: '/gsap/tween/methods/end-time',
+                },
+                {
+                  text: '.eventCallback()',
+                  link: '/gsap/tween/methods/event-callback',
+                },
+                {
+                  text: '.globalTime()',
+                  link: '/gsap/tween/methods/global-time',
+                },
+                {
+                  text: '.invalidate()',
+                  link: '/gsap/tween/methods/invalidate',
+                },
+                {
+                  text: '.isActive()',
+                  link: '/gsap/tween/methods/is-active',
+                },
+                {
+                  text: '.iteration()',
+                  link: '/gsap/tween/methods/iteration',
+                },
+                {
+                  text: '.kill()',
+                  link: '/gsap/tween/methods/kill',
+                },
+                {
+                  text: '.pause()',
+                  link: '/gsap/tween/methods/pause',
+                },
+                {
+                  text: '.paused()',
+                  link: '/gsap/tween/methods/paused',
+                },
+                {
+                  text: '.play()',
+                  link: '/gsap/tween/methods/play',
+                },
+                {
+                  text: '.progress()',
+                  link: '/gsap/tween/methods/progress',
+                },
+                {
+                  text: '.repeat()',
+                  link: '/gsap/tween/methods/repeat',
+                },
+                {
+                  text: '.repeatDelay()',
+                  link: '/gsap/tween/methods/repeat-delay',
+                },
+                {
+                  text: '.restart()',
+                  link: '/gsap/tween/methods/restart',
+                },
+                {
+                  text: '.resume()',
+                  link: '/gsap/tween/methods/resume',
+                },
+                {
+                  text: '.reverse()',
+                  link: '/gsap/tween/methods/reverse',
+                },
+                {
+                  text: '.reversed()',
+                  link: '/gsap/tween/methods/reversed',
+                },
+                {
+                  text: '.revert()',
+                  link: '/gsap/tween/methods/revert',
+                },
+                {
+                  text: '.seek()',
+                  link: '/gsap/tween/methods/seek',
+                },
+                {
+                  text: '.startTime()',
+                  link: '/gsap/tween/methods/start-time',
+                },
+                {
+                  text: '.targets()',
+                  link: '/gsap/tween/methods/targets',
+                },
+                {
+                  text: '.then()',
+                  link: '/gsap/tween/methods/then',
+                },
+                {
+                  text: '.time()',
+                  link: '/gsap/tween/methods/time',
+                },
+                {
+                  text: '.timeScale()',
+                  link: '/gsap/tween/methods/time-scale',
+                },
+                {
+                  text: '.totalDuration()',
+                  link: '/gsap/tween/methods/total-duration',
+                },
+                {
+                  text: '.totalProgress()',
+                  link: '/gsap/tween/methods/total-progress',
+                },
+                {
+                  text: '.totalTime()',
+                  link: '/gsap/tween/methods/total-time',
+                },
+                {
+                  text: '.yoyo()',
+                  link: '/gsap/tween/methods/yoyo',
+                },
+              ],
             },
             {
-              text: 'gsap.context()',
-              link: '/gsap/gsap/methods/gsap.context',
-            },
-            {
-              text: 'gsap.defaults()',
-              link: '/gsap/gsap/methods/gsap.defaults',
-            },
-            {
-              text: 'gsap.delayedCall()',
-              link: '/gsap/gsap/methods/gsap.delayedCall',
-            },
-            {
-              text: 'gsap.exportRoot()',
-              link: '/gsap/gsap/methods/gsap.exportRoot',
-            },
-            {
-              text: 'gsap.from()',
-              link: '/gsap/gsap/methods/gsap.from',
-            },
-            {
-              text: 'gsap.fromTo()',
-              link: '/gsap/gsap/methods/gsap.fromTo',
-            },
-            {
-              text: 'gsap.getByld()',
-              link: '/gsap/gsap/methods/gsap.getByld',
-            },
-            {
-              text: 'gsap.getProperty()',
-              link: '/gsap/gsap/methods/gsap.getProperty',
-            },
-            {
-              text: 'gsap.getTweensOf()',
-              link: '/gsap/gsap/methods/gsap.getTweensOf',
-            },
-            {
-              text: 'gsap.isTweening()',
-              link: '/gsap/gsap/methods/gsap.isTweening',
-            },
-            {
-              text: 'gsap.killTweensOf()',
-              link: '/gsap/gsap/methods/gsap.killTweensOf',
-            },
-            {
-              text: 'gsap.matchMedia()',
-              link: '/gsap/gsap/methods/gsap.matchMedia',
-            },
-            {
-              text: 'gsap.matchMediaRefresh()',
-              link: '/gsap/gsap/methods/gsap.matchMediaRefresh',
-            },
-            {
-              text: 'gsap.parseEase()',
-              link: '/gsap/gsap/methods/gsap.parseEase',
-            },
-            {
-              text: 'gsap.quicksetter()',
-              link: '/gsap/gsap/methods/gsap.quicksetter',
-            },
-            {
-              text: 'gsap.quickTo()',
-              link: '/gsap/gsap/methods/gsap.quickTo',
-            },
-            {
-              text: 'gsap.registerEase()',
-              link: '/gsap/gsap/methods/gsap.registerEase',
-            },
-            {
-              text: 'gsap.registerEffect()',
-              link: '/gsap/gsap/methods/gsap.registerEffect',
-            },
-            {
-              text: 'gsap.registerPlugin()',
-              link: '/gsap/gsap/methods/gsap.registerPlugin',
-            },
-            {
-              text: 'gsap.set()',
-              link: '/gsap/gsap/methods/gsap.set',
-            },
-            {
-              text: 'gsap.timeline()',
-              link: '/gsap/gsap/methods/gsap.timeline',
-            },
-            {
-              text: 'gsap.to()',
-              link: '/gsap/gsap/methods/gsap.to',
-            },
-            {
-              text: 'gsap.updateRoot()',
-              link: '/gsap/gsap/methods/gsap.updateRoot',
+              text: '属性',
+              collapsed: true,
+              items: [
+                {
+                  text: '.data',
+                  link: '/gsap/tween/properties/data',
+                },
+                {
+                  text: '.ratio',
+                  link: '/gsap/tween/properties/ratio',
+                },
+                {
+                  text: '.scrollTrigger',
+                  link: '/gsap/tween/properties/scroll-trigger',
+                },
+                {
+                  text: '.vars',
+                  link: '/gsap/tween/properties/vars',
+                },
+              ],
             },
           ],
         },
@@ -472,6 +665,20 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
           link: '/hammerjs/touch-emulator',
         },
       ],
+    },
+  ],
+  '/sweetalert/': [
+    {
+      text: '配置',
+      link: '/sweetalert/config',
+    },
+    {
+      text: '方法',
+      link: '/sweetalert/methods',
+    },
+    {
+      text: '主题',
+      link: '/sweetalert/theming',
     },
   ],
 }

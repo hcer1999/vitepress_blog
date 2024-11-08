@@ -7,6 +7,7 @@ export const nav: DefaultTheme.Config['nav'] = [
       { text: 'GSAP', link: '/gsap/start' },
       { text: 'html2canvas', link: '/html2canvas/start' },
       { text: 'Hammer.js', link: '/hammerjs/start' },
+      { text: 'SweetAlert', link: '/sweetalert/config' },
     ],
   },
   { text: '导航', link: '/nav', activeMatch: '^/nav' },
