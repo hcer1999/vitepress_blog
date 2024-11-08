@@ -386,7 +386,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
           ],
         },
         {
-          text: 'Tween',
+          text: 'Tween(补间动画)',
           collapsed: true,
           link: '/gsap/tween/start',
           items: [
@@ -539,6 +539,126 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
               ],
             },
           ],
+        },
+        {
+          text: 'Timeline(时间线)',
+          collapsed: true,
+          link: '/gsap/timeline/start',
+          items: [
+            {
+              text: '方法',
+              collapsed: true,
+              items: [
+                {
+                  text: '敬请期待',
+                },
+              ],
+            },
+            {
+              text: '属性',
+              collapsed: true,
+              items: [
+                {
+                  text: '敬请期待',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          text: 'CSS(敬请期待)',
+          collapsed: true,
+        },
+        {
+          text: 'Easing(敬请期待)',
+          collapsed: true,
+        },
+      ],
+    },
+    {
+      text: '插件(敬请期待)',
+      collapsed: true,
+      items: [
+        {
+          text: 'ScrollTrigger',
+        },
+        {
+          text: 'ScrollSmoother',
+        },
+        {
+          text: 'Flip',
+        },
+        {
+          text: 'CSSRule',
+        },
+        {
+          text: 'Draggable',
+        },
+        {
+          text: 'DrawSVG',
+        },
+        {
+          text: 'Easel',
+        },
+        {
+          text: 'GSDevTools',
+        },
+        {
+          text: 'Inertia',
+        },
+        {
+          text: 'MorphSVG',
+        },
+        {
+          text: 'MotionPath',
+        },
+        {
+          text: 'MotionPathHelper',
+        },
+        {
+          text: 'Observer',
+        },
+        {
+          text: 'Physics2D',
+        },
+        {
+          text: 'PhysicsProps',
+        },
+        {
+          text: 'Pixi',
+        },
+        {
+          text: 'Plugin',
+        },
+        {
+          text: 'ScrambleText',
+        },
+        {
+          text: 'ScrollTo',
+        },
+        {
+          text: 'SplitText',
+        },
+        {
+          text: 'Text',
+        },
+      ],
+    },
+    {
+      text: '有用的功能和工具(敬请期待)',
+      collapsed: true,
+      items: [
+        {
+          text: 'Utility Methods(常用方法)',
+        },
+        {
+          text: 'Staggers(延迟执行)',
+        },
+        {
+          text: 'HelperFunctions(工具方法)',
+        },
+        {
+          text: 'React-useGSAP()',
         },
       ],
     },
