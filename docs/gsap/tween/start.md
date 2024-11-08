@@ -4,9 +4,9 @@ Tween 是执行所有动画工作的实体 - 可以将其视为一个**高性能
 
 **创建 Tween 的方法**（所有这些方法都返回一个 Tween 实例）：
 
-- [gsap.to()](/gsap/gsap/methods/gsap.to)
-- [gsap.from()](/gsap/gsap/methods/gsap.from)
-- [gsap.fromTo()](/gsap/gsap/methods/gsap.fromto)
+- [gsap.to()](/gsap/gsap/methods/to)
+- [gsap.from()](/gsap/gsap/methods/from)
+- [gsap.fromTo()](/gsap/gsap/methods/from-to)
 
 对于简单的动画，上述方法就足够了！例如：
 
