@@ -53,4 +53,5 @@ if (!isDevelopment) {
   // @ts-ignore
   options.push(...statisticsOptions)
 }
+// @ts-ignore
 export const head: HeadConfig[] = options

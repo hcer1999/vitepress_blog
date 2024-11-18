@@ -551,7 +551,213 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
               collapsed: true,
               items: [
                 {
-                  text: '敬请期待',
+                  text: 'add()',
+                  link: '/gsap/timeline/methods/add',
+                },
+                {
+                  text: 'addLabel()',
+                  link: '/gsap/timeline/methods/add-label',
+                },
+                {
+                  text: 'addPause()',
+                  link: '/gsap/timeline/methods/add-pause',
+                },
+                {
+                  text: 'call()',
+                  link: '/gsap/timeline/methods/call',
+                },
+                {
+                  text: 'clear()',
+                  link: '/gsap/timeline/methods/clear',
+                },
+                {
+                  text: 'currentLabel()',
+                  link: '/gsap/timeline/methods/current-label',
+                },
+                {
+                  text: 'delay()',
+                  link: '/gsap/timeline/methods/delay',
+                },
+                {
+                  text: 'duration()',
+                  link: '/gsap/timeline/methods/duration',
+                },
+                {
+                  text: 'endTime()',
+                  link: '/gsap/timeline/methods/end-time',
+                },
+                {
+                  text: 'eventCallback()',
+                  link: '/gsap/timeline/methods/event-callback',
+                },
+
+                {
+                  text: 'from()',
+                  link: '/gsap/timeline/methods/from',
+                },
+                {
+                  text: 'fromTo()',
+                  link: '/gsap/timeline/methods/from-to',
+                },
+                {
+                  text: 'getById()',
+                  link: '/gsap/timeline/methods/get-by-id',
+                },
+                {
+                  text: 'getChildren()',
+                  link: '/gsap/timeline/methods/get-children',
+                },
+                {
+                  text: 'getTweensOf()',
+                  link: '/gsap/timeline/methods/get-tweens-of',
+                },
+                {
+                  text: 'globalTime()',
+                  link: '/gsap/timeline/methods/global-time',
+                },
+                {
+                  text: 'invalidate()',
+                  link: '/gsap/timeline/methods/invalidate',
+                },
+                {
+                  text: 'isActive()',
+                  link: '/gsap/timeline/methods/is-active',
+                },
+                {
+                  text: 'iteration()',
+                  link: '/gsap/timeline/methods/iteration',
+                },
+                {
+                  text: 'killTweensOf()',
+                  link: '/gsap/timeline/methods/kill-tweens-of',
+                },
+                {
+                  text: 'kill()',
+                  link: '/gsap/timeline/methods/kill',
+                },
+                {
+                  text: 'nextLabel()',
+                  link: '/gsap/timeline/methods/next-label',
+                },
+                {
+                  text: 'pause()',
+                  link: '/gsap/timeline/methods/pause',
+                },
+                {
+                  text: 'paused()',
+                  link: '/gsap/timeline/methods/paused',
+                },
+                {
+                  text: 'play()',
+                  link: '/gsap/timeline/methods/play',
+                },
+                {
+                  text: 'previousLabel()',
+                  link: '/gsap/timeline/methods/previous-label',
+                },
+                {
+                  text: 'progress()',
+                  link: '/gsap/timeline/methods/progress',
+                },
+                {
+                  text: 'recent()',
+                  link: '/gsap/timeline/methods/recent',
+                },
+                {
+                  text: 'remove()',
+                  link: '/gsap/timeline/methods/remove',
+                },
+                {
+                  text: 'removeLabel()',
+                  link: '/gsap/timeline/methods/remove-label',
+                },
+                {
+                  text: 'removePause()',
+                  link: '/gsap/timeline/methods/remove-pause',
+                },
+                {
+                  text: 'repeat()',
+                  link: '/gsap/timeline/methods/repeat',
+                },
+                {
+                  text: 'repeatDelay()',
+                  link: '/gsap/timeline/methods/repeat-delay',
+                },
+                {
+                  text: 'restart()',
+                  link: '/gsap/timeline/methods/restart',
+                },
+                {
+                  text: 'resume()',
+                  link: '/gsap/timeline/methods/resume',
+                },
+                {
+                  text: 'reverse()',
+                  link: '/gsap/timeline/methods/reverse',
+                },
+                {
+                  text: 'reversed()',
+                  link: '/gsap/timeline/methods/reversed',
+                },
+                {
+                  text: 'revert()',
+                  link: '/gsap/timeline/methods/revert',
+                },
+                {
+                  text: 'seek()',
+                  link: '/gsap/timeline/methods/seek',
+                },
+                {
+                  text: 'set()',
+                  link: '/gsap/timeline/methods/set',
+                },
+                {
+                  text: 'shiftChildren()',
+                  link: '/gsap/timeline/methods/shift-children',
+                },
+                {
+                  text: 'startTime()',
+                  link: '/gsap/timeline/methods/start-time',
+                },
+                {
+                  text: 'then()',
+                  link: '/gsap/timeline/methods/then',
+                },
+                {
+                  text: 'time()',
+                  link: '/gsap/timeline/methods/time',
+                },
+                {
+                  text: 'timeScale()',
+                  link: '/gsap/timeline/methods/time-scale',
+                },
+                {
+                  text: 'to()',
+                  link: '/gsap/timeline/methods/to',
+                },
+                {
+                  text: 'totalDuration()',
+                  link: '/gsap/timeline/methods/total-duration',
+                },
+                {
+                  text: 'totalProgress()',
+                  link: '/gsap/timeline/methods/total-progress',
+                },
+                {
+                  text: 'totalTime()',
+                  link: '/gsap/timeline/methods/total-time',
+                },
+                {
+                  text: 'tweenFromTo()',
+                  link: '/gsap/timeline/methods/tween-from-to',
+                },
+                {
+                  text: 'tweenTo()',
+                  link: '/gsap/timeline/methods/tween-to',
+                },
+                {
+                  text: 'yoyo()',
+                  link: '/gsap/timeline/methods/yoyo',
                 },
               ],
             },
@@ -560,7 +766,32 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
               collapsed: true,
               items: [
                 {
-                  text: '敬请期待',
+                  text: 'autoRemoveChildren',
+                  link: '/gsap/timeline/properties/auto-remove-children',
+                },
+                {
+                  text: 'data',
+                  link: '/gsap/timeline/properties/data',
+                },
+                {
+                  text: 'labels',
+                  link: '/gsap/timeline/properties/labels',
+                },
+                {
+                  text: 'parent',
+                  link: '/gsap/timeline/properties/parent',
+                },
+                {
+                  text: 'scrollTrigger',
+                  link: '/gsap/timeline/properties/scroll-trigger',
+                },
+                {
+                  text: 'smoothChildTiming',
+                  link: '/gsap/timeline/properties/smooth-child-timing',
+                },
+                {
+                  text: 'vars',
+                  link: '/gsap/timeline/properties/vars',
                 },
               ],
             },
