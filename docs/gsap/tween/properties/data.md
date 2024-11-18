@@ -1,6 +1,6 @@
-# data
+# GSAP中文文档 - tween 属性 - 数据（data）
 
-## data : \*
+## 数据（data）
 
 一个存储任何您想要的数据的地方（如果存在，最初用 `vars.data` 填充）。
 

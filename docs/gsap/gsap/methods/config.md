@@ -1,4 +1,6 @@
-# gsap.config()
+# GSAP中文文档 - gsap.config()
+
+## gsap.config()
 
 `gsap.config()` 允许您配置 GSAP 的非补间动画特定设置，如 `autoSleep`、`force3D` 和 `units`。要影响应该由个别补间动画 **继承** 的属性，请改用 `gsap.defaults()`。以下是 config() 选项的列表：
 

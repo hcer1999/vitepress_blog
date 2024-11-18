@@ -1,4 +1,4 @@
-# gsap.effects()
+# GSAP中文文档 - gsap.effects()
 
 一旦效果已经被注册，你可以直接在 `gsap.effects` 对象上访问它，如下所示：
 

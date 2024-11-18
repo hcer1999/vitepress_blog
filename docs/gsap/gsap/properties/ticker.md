@@ -1,4 +1,6 @@
-# gsap.ticker()
+# GSAP中文文档 - gsap.ticker()
+
+## gsap.ticker()
 
 `gsap.ticker` 就像 GSAP 引擎的心跳一样 - 它在每个 `requestAnimationFrame` 事件上更新 `globalTimeline`，因此它与浏览器的渲染周期完美同步。您可以添加自己的监听器来在每次更新后运行自定义逻辑（对游戏开发者来说非常棒）。您可以添加任意数量的监听器。
 

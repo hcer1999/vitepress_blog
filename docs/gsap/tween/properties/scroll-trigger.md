@@ -1,4 +1,6 @@
-# scrollTrigger
+# GSAP中文文档 - tween 属性 - 滚动触发器（scrollTrigger）
+
+## 滚动触发器（scrollTrigger）
 
 ::: info -
 

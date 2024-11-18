@@ -1,4 +1,6 @@
-# gsap.getProperty()
+# GSAP中文文档 - gsap.getProperty()
+
+## gsap.getProperty()
 
 返回属性的值，尽可能以数字形式（除非指定单位），如果属性不存在则返回 `null`。
 

@@ -1,4 +1,6 @@
-# gsap.quickSetter()
+# GSAP中文文档 - gsap.quickSetter()
+
+## gsap.quickSetter()
 
 ### `gsap.quickSetter()` 返回: 函数
 

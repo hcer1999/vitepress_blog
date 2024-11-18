@@ -1,4 +1,6 @@
-# gsap.getById()
+# GSAP中文文档 - gsap.getById()
+
+## gsap.getById()
 
 这个函数用于获取与给定 ID 相关联的补间动画（Tween）或时间轴（Timeline）。如果没有任何补间动画或时间轴具有该 ID，则返回 `undefined`。
 

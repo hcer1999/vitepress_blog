@@ -1,6 +1,8 @@
-# gsap.delayedCall
+# GSAP中文文档 - gsap.delayedCall()
 
-### `gsap.delayedCall()` 提供了一个简单的方式来在设定的时间后调用一个函数，它与整个渲染循环完全同步（与 `setTimeout()` 不同，后者可能在浏览器屏幕刷新周期之外触发）。您还可以选择传递任意数量的参数给函数。
+## gsap.delayedCall()
+
+`gsap.delayedCall()` 提供了一个简单的方式来在设定的时间后调用一个函数，它与整个渲染循环完全同步（与 `setTimeout()` 不同，后者可能在浏览器屏幕刷新周期之外触发）。您还可以选择传递任意数量的参数给函数。
 
 ```javascript
 // 在 1 秒后调用 myFunction() 并传递 2 个参数:

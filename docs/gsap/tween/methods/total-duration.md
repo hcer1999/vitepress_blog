@@ -1,4 +1,6 @@
-# 总持续时间（totalDuration）
+# GSAP中文文档 - tween 方法 - 总持续时间（totalDuration）
+
+## 总持续时间（totalDuration）
 
 省略参数时返回当前值（获取器），而定义参数则设置该值（设置器），并返回实例本身以便于链式调用。
 
@@ -6,19 +8,19 @@
 
 此方法既作为获取器也作为设置器。省略参数时返回当前值（获取器），而定义参数则设置该值（设置器），并返回实例本身以便于链式调用。
 
-## 参数（Parameters）
+### 参数（Parameters）
 
 - **value**: Number（可选）
   - 设置补间的总持续时间。
 
-## 返回值（Returns）
+### 返回值（Returns）
 
 - Number
   - 如果未提供参数，返回当前总持续时间。
 - self
   - 如果提供了参数，返回实例本身以便于链式调用。
 
-## 示例代码（Example Code）
+### 示例代码（Example Code）
 
 ```javascript
 // 获取总持续时间

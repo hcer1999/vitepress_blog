@@ -1,4 +1,6 @@
-# gsap.from()
+# GSAP中文文档 - gsap.from()
+
+## gsap.from()
 
 以下是对 `gsap.from()` 文档的完整解析和翻译：
 

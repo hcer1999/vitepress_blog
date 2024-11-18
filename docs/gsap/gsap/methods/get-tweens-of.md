@@ -1,4 +1,6 @@
-# gsap.getTweensOf()
+# GSAP中文文档 - gsap.getTweensOf()
+
+## gsap.getTweensOf()
 
 返回一个数组，包含特定目标（或目标组）的所有尚未被释放用于垃圾回收的补间动画（Tweens）。
 

@@ -1,4 +1,6 @@
-# gsap.killTweensOf()
+# GSAP中文文档 - gsap.killTweensOf()
+
+## gsap.killTweensOf()
 
 `gsap.killTweensOf()` 函数用于终止特定对象的所有补间动画（或特定补间属性），或终止对特定函数的延迟调用（delayedCalls）。以下是一些使用示例：
 

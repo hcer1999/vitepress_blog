@@ -1,4 +1,6 @@
-# gsap.registerEffect()
+# GSAP中文文档 - gsap.registerEffect()
+
+## gsap.registerEffect()
 
 注册效果后，您可以直接在 gsap.effects 对象上访问它，如下所示：
 

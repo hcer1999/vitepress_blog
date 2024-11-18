@@ -1,4 +1,6 @@
-# gsap.registerPlugin()
+# GSAP中文文档 - gsap.registerPlugin()
+
+## gsap.registerPlugin()
 
 向 GSAP 核心注册插件可确保两者无缝协作，并防止构建工具/捆绑程序中的树抖动问题。您只需要在使用插件之前注册一次即可，例如：
 

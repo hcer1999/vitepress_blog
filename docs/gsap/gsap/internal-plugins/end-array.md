@@ -1,4 +1,6 @@
-# EndArray
+# GSAP中文文档 - 数组结束插件（EndArray）
+
+## 数组结束插件（EndArray）
 
 ::: info 什么是内部插件？
 

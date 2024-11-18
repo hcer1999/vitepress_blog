@@ -1,4 +1,6 @@
-# gsap.parseEase()
+# GSAP中文文档 - gsap.parseEase()
+
+## gsap.parseEase()
 
 将缓动字符串输入 `gsap.parseEase()`，它将返回相应的解析后的缓动函数。例如：
 

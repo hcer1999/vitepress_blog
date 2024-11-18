@@ -1,4 +1,6 @@
-# gsap.matchMediaRefresh()
+# GSAP中文文档 - gsap.matchMediaRefresh()
+
+## gsap.matchMediaRefresh()
 
 立即恢复所有活动/匹配的 MatchMedia 对象，然后运行当前匹配的任何对象。当您需要容纳一个可以切换“减少运动”之类的内容的 UI 复选框时，这会特别有用：
 

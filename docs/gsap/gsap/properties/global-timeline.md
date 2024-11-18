@@ -1,4 +1,4 @@
-# gsap.globalTimeline()
+# GSAP中文文档 - gsap.globalTimeline()
 
 `gsap.globalTimeline` 是 GSAP 中的根时间轴实例，它控制着 GSAP 中的所有动画，这使得它成为一次性影响所有动画的强大方式。然而，请注意，`gsap.delayedCalls()` 在技术上也是补间动画，所以如果你对全局时间轴执行 `pause()` 或 `timeScale()` 操作，它也会影响 `delayedCalls()`。如果你想排除这些补间动画，可以查看 `gsap.exportRoot()`。
 

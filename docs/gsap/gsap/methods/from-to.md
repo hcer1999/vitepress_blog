@@ -1,4 +1,6 @@
-# gsap.fromTo()
+# GSAP中文文档 - gsap.fromTo()
+
+## gsap.fromTo()
 
 ### 返回: Tween
 

@@ -1,6 +1,8 @@
-# 重新开始（restart）
+# GSAP中文文档 - tween 方法 - 重新开始（restart）
 
-## 参数（Parameters）
+## 重新开始（restart）
+
+### 参数（Parameters）
 
 - **includeDelay**: Boolean
 
@@ -9,16 +11,16 @@
 - **suppressEvents**: Boolean
   - （默认值为 `true`）如果为 `true`（默认值），当播放头移动到 `time` 参数定义的新位置时，不会触发任何事件或回调。
 
-## 返回值（Returns）
+### 返回值（Returns）
 
 - self
   - 返回实例本身，便于链式调用。
 
-## 详细信息（Details）
+### 详细信息（Details）
 
 重新开始并从开头向前播放。
 
-## 示例代码（Example Code）
+### 示例代码（Example Code）
 
 ```javascript
 // 重新开始，不包括任何已定义的延迟

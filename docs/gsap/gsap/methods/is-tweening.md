@@ -1,4 +1,6 @@
-# gsap.isTweening()
+# GSAP中文文档 - gsap.isTweening()
+
+## gsap.isTweening()
 
 `gsap.isTweening()` 函数报告一个特定对象是否正在被动画化。如果一个补间动画（tween）被暂停、已完成或尚未开始，则它不被认为是活动的。例如：
 

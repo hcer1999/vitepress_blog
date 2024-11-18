@@ -1,4 +1,6 @@
-# 暂停状态（paused）
+# GSAP中文文档 - tween 方法 - 暂停状态（paused）
+
+## 暂停状态（paused）
 
 省略参数时返回当前值（获取器），而定义参数则设置该值（设置器），并返回实例本身以便于链式调用。
 
@@ -10,16 +12,16 @@
 
 此方法既作为获取器也作为设置器。省略参数时返回当前值（获取器），而定义参数则设置该值（设置器）并返回实例本身以便于链式调用，如 `myAnimation.paused(true).delay(2).timeScale(0.5);`
 
-## 参数（Parameters）
+### 参数（Parameters）
 
 - **value**: Boolean
   - 可选参数，设置动画的暂停状态。
 
-## 返回值（Returns）
+### 返回值（Returns）
 
 - self（使链式调用更容易）
 
-## 示例代码（Example Code）
+### 示例代码（Example Code）
 
 ```javascript
 // 获取当前暂停状态

@@ -1,18 +1,20 @@
-# 悠悠（yoyo）
+# GSAP中文文档 - tween 方法 - 悠悠效果（yoyo）
+
+## 悠悠效果（yoyo）
 
 获取或设置补间的悠悠状态，其中 `true` 导致补间在每次重复时来回移动，交替向后和向前。
 
-## 参数（Parameters）
+### 参数（Parameters）
 
 - **value**: Boolean
   - （默认值为 `false`）省略参数时返回当前值（获取器），而定义参数则设置该值（设置器）并返回实例本身以便于链式调用。
 
-## 返回值（Returns）
+### 返回值（Returns）
 
 - Boolean 或 self
   - 省略参数时返回当前值（获取器），定义参数时设置该值（设置器）并返回实例本身以便于链式调用。
 
-## 详细信息（Details）
+### 详细信息（Details）
 
 获取或设置补间的 `yoyo` 状态，其中 `true` 导致补间在每次 `repeat` 时来回移动，交替向后和向前。`yoyo` 与 `repeat` 一起工作，`repeat` 控制补间重复的次数，`yoyo` 控制每次重复是否交替方向。因此，要使补间悠悠，您必须将其 `repeat` 设置为非零值。悠悠对补间的 `reversed` 属性没有影响。
 
@@ -22,7 +24,7 @@
 
 此方法既作为获取器也作为设置器。省略参数时返回当前值（获取器），而定义参数则设置该值（设置器），并返回实例本身以便于链式调用，如 `myAnimation.yoyo(true).repeat(3).timeScale(2).play(0.5);`
 
-## 示例代码（Example Code）
+### 示例代码（Example Code）
 
 ```javascript
 // 获取当前悠悠状态

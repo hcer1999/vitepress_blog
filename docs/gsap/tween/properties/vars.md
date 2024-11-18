@@ -1,4 +1,6 @@
-# vars
+# GSAP中文文档 - tween 属性 - 配置对象（vars）
+
+## 配置对象（vars）
 
 ::: info -
 

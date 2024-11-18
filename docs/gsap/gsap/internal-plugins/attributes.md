@@ -1,4 +1,6 @@
-# Attributes
+# GSAP中文文档 - 属性插件（Attributes）
+
+## 属性插件（Attributes）
 
 ::: info 什么是内部插件？
 

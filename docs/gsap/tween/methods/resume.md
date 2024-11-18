@@ -1,13 +1,15 @@
-# 继续播放（resume）
+# GSAP中文文档 - tween 方法 - 继续播放（resume）
+
+## 继续播放（resume）
 
 继续播放而不改变方向（向前或反向）。
 
-## 返回值（Returns）
+### 返回值（Returns）
 
 - self
   - 为了更容易的链式调用。
 
-## 详细信息（Details）
+### 详细信息（Details）
 
 继续播放而不改变方向（向前或反向）。
 

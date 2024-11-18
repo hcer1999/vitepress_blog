@@ -1,6 +1,6 @@
-# GSAP中文文档 - timeline 方法 - 来回播放（yoyo）
+# GSAP中文文档 - timeline 方法 - 悠悠效果（yoyo）
 
-## 来回播放（yoyo）
+## 悠悠效果（yoyo）
 
 yoyo 方法用于获取或设置时间轴的 yoyo 状态，当设置为 true 时，时间轴在每次重复时会来回播放，即在正向和反向之间交替进行。
 
