@@ -5,7 +5,9 @@ import { defineConfig, PageData } from 'vitepress'
 
 import { head, nav, sidebar, algolia } from './configs'
 
-const links: { url: string; lastmod: PageData['lastUpdated'] }[] = []
+const links: { url: string; lastmod: PageData['lastUpdated']; priority: number }[] = []
+
+const hostname = 'https://note.bingkele.cc'
 
 export default defineConfig({
   outDir: '../dist',
@@ -67,14 +69,18 @@ export default defineConfig({
 
   /* 生成站点地图 */
   transformHtml: (_, id, { pageData }) => {
-    if (!/[\\/]404\.html$/.test(id))
+    if (!/[\\/]404\.html$/.test(id)) {
+      const url = pageData.relativePath.replace(/((^|\/)index)?\.md$/, '$2').replace(/\.md$/, '')
+
       links.push({
-        url: pageData.relativePath.replace(/((^|\/)index)?\.md$/, '$2'),
+        url: url || '/',
         lastmod: pageData.lastUpdated,
+        priority: url === '' ? 1.0 : 0.8,
       })
+    }
   },
   buildEnd: async ({ outDir }) => {
-    const sitemap = new SitemapStream({ hostname: 'http://note.bingkele.cc/' })
+    const sitemap = new SitemapStream({ hostname })
     const writeStream = createWriteStream(resolve(outDir, 'sitemap.xml'))
     sitemap.pipe(writeStream)
     links.forEach((link) => sitemap.write(link))
