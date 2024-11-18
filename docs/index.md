@@ -11,7 +11,7 @@ hero:
     alt: 冰可乐
   actions:
     - text: 文章分享
-      link: /content
+      link: /article
     - text: 刷面试题
       link: /interview/start
       theme: alt
