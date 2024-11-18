@@ -56,6 +56,13 @@ export default defineConfig({
       prev: '上一篇',
       next: '下一篇',
     },
+
+    editLink: {
+      pattern: (params: { relativePath: string }) => {
+        return `https://github.com/hcer1999/vitepress_blog/tree/main/docs/${params.relativePath}`
+      },
+      text: '在 GitHub 上编辑此页',
+    },
   },
 
   /* 生成站点地图 */

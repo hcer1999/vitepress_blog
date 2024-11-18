@@ -381,7 +381,7 @@ const data: Data[] = [
       },
       {
         noIcon: false,
-        icon: '../public/icons/xiaomi.svg',
+        icon: '../icons/xiaomi.svg',
         title: '小米妙享中心 3.2.0.296 免验证安装',
         link: '/content/docs/33',
         target: '_self',
