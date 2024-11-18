@@ -127,7 +127,7 @@ tl.from('.class', { x: 100 }, '>')
 
 <iframe src="https://codepen.io/GreenSock/pen/PopXddg" width="100%" height="800" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>
 
-务必阅读[位置参数](/docs/gsap/timeline/position-parameters)，其中包含交互式时间线可视化和视频。
+务必阅读[位置参数](https://gsap.com/resources/position-parameter)，其中包含交互式时间线可视化和视频。
 
 ::: info 信息
 
