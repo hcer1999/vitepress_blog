@@ -31,36 +31,36 @@ conn
       return false
     }
 
-    // 这里我拼接了放置服务器资源目录的位置 ，首选通过rm -rf删除了这个目录下的文件
-    conn.exec('rm -rf /www/wwwroot/' + server.pathNmae + '/*', function (err, stream) {
-      // stream.on('close', function (code, signal) {
-      //   console.log('删除完毕');
-      // })
-      console.log('删除文件')
-      setTimeout(() => {
-        console.log('开始上传')
-        spinner.start()
-        client.scp(
-          server.locaPath,
-          {
-            host: server.host,
-            port: server.port,
-            username: server.username,
-            password: server.password,
-            path: '/www/wwwroot/' + server.pathNmae
-          },
-          (err) => {
-            spinner.stop()
-            if (!err) {
-              console.log('项目发布完毕')
-            } else {
-              console.log('err', err)
+    // 修改删除命令，排除models目录
+    conn.exec(
+      'cd /www/wwwroot/' + server.pathNmae + ' && find . -maxdepth 1 ! -name "models" ! -name "." -exec rm -rf {} +',
+      function (err, stream) {
+        console.log('删除文件(保留models目录)')
+        setTimeout(() => {
+          console.log('开始上传')
+          spinner.start()
+          client.scp(
+            server.locaPath,
+            {
+              host: server.host,
+              port: server.port,
+              username: server.username,
+              password: server.password,
+              path: '/www/wwwroot/' + server.pathNmae
+            },
+            (err) => {
+              spinner.stop()
+              if (!err) {
+                console.log('项目发布完毕')
+              } else {
+                console.log('err', err)
+              }
+              conn.end() // 结束命令
             }
-            conn.end() // 结束命令
-          }
-        )
-      }, 3000)
-    })
+          )
+        }, 3000)
+      }
+    )
   })
   .connect({
     host: server.host,
