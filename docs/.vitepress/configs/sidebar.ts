@@ -798,12 +798,44 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
           ],
         },
         {
-          text: 'CSS(敬请期待)',
-          collapsed: true,
+          text: 'CSS',
+          collapsed: false,
+          link: '/gsap/css/start',
         },
         {
-          text: 'Easing(敬请期待)',
+          text: 'Easing',
           collapsed: true,
+          link: '/gsap/easing/start',
+          items: [
+            {
+              text: 'CustomBounce',
+              link: '/gsap/easing/custom-bounce',
+            },
+            {
+              text: 'CustomEase',
+              link: '/gsap/easing/custom-ease',
+            },
+            {
+              text: 'CustomWiggle',
+              link: '/gsap/easing/custom-wiggle',
+            },
+            {
+              text: 'ExpoScaleEase',
+              link: '/gsap/easing/expo-scale-ease',
+            },
+            {
+              text: 'RoughEase',
+              link: '/gsap/easing/rough-ease',
+            },
+            {
+              text: 'SlowMo',
+              link: '/gsap/easing/slow-mo',
+            },
+            {
+              text: 'SteppedEase',
+              link: '/gsap/easing/stepped-ease',
+            },
+          ],
         },
       ],
     },
