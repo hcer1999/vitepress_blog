@@ -4,15 +4,15 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 const baseOptions = [
   ['meta', { name: 'theme-color', content: '#3eaf7c' }],
   ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+  ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
   ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
   ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
   ['meta', { name: 'msapplication-TileImage', content: '/favicon.ico' }],
   ['meta', { 'Net-equiv': 'Content-Type', content: 'text/html; charset=utf-8' }],
   [
     'meta',
-    { name: 'Keywords', content: '前端,前端开发,程序员,FE,web,html,html5,css3,js,javascript,vue' },
+    { name: 'keywords', content: '前端,前端开发,程序员,FE,web,html,html5,css3,js,javascript,vue' },
   ],
-  ['meta', { name: 'Description', content: '冰可乐的个人学习笔记站点' }],
   [
     'meta',
     {
