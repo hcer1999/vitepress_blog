@@ -116,7 +116,7 @@ export default {
       loadOml2d({
         models: [
           {
-            path: 'https://model.oml2d.com/HK416-1-normal/model.json',
+            path: 'https://note.bingkele.cc/models/HK416-1-normal/model.json',
             position: [0, 60],
             scale: 0.08,
             stageStyle: {
@@ -124,7 +124,7 @@ export default {
             },
           },
           {
-            path: 'https://model.oml2d.com/Senko_Normals/senko.model3.json',
+            path: 'https://note.bingkele.cc/models/bilibili-33/index.json',
             position: [-10, 20],
           },
         ],
