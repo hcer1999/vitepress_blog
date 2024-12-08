@@ -12,7 +12,7 @@
 
 ::: tip 提示 - 默认缓动
 
-GSAP使用默认的缓动效果为 "power1.out"。你可以通过为特定补间动画（tween）设置其`ease`属性为另一个（有效的）缓动值来覆盖这个默认值。你也可以使用[`gsap.defaults()`](/gsap/gsap/methods/defaults)来为GSAP设置不同的默认缓动效果。此外，你还可以为特定的[时间轴](/gsap/timelines/start)设置默认值。
+GSAP使用默认的缓动效果为 "power1.out"。你可以通过为特定补间动画（tween）设置其`ease`属性为另一个（有效的）缓动值来覆盖这个默认值。你也可以使用[`gsap.defaults()`](/gsap/gsap/methods/defaults)来为GSAP设置不同的默认缓动效果。此外，你还可以为特定的[时间轴](/gsap/timeline/start)设置默认值。
 
 ```javascript
 gsap.defaults({
