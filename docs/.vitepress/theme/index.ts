@@ -116,6 +116,14 @@ export default {
       loadOml2d({
         models: [
           {
+            path: 'https://note.bingkele.cc/models/Kar98k-normal/model.json',
+            position: [0, 60],
+            scale: 0.08,
+            stageStyle: {
+              height: 450,
+            },
+          },
+          {
             path: 'https://note.bingkele.cc/models/HK416-1-normal/model.json',
             position: [0, 60],
             scale: 0.08,
@@ -124,8 +132,20 @@ export default {
             },
           },
           {
-            path: 'https://note.bingkele.cc/models/bilibili-33/index.json',
-            position: [-10, 20],
+            path: 'https://note.bingkele.cc/models/HK416-2-destroy/model.json',
+            position: [0, 60],
+            scale: 0.08,
+            stageStyle: {
+              height: 450,
+            },
+          },
+          {
+            path: 'https://note.bingkele.cc/models/HK416-2-normal/model.json',
+            position: [0, 60],
+            scale: 0.08,
+            stageStyle: {
+              height: 450,
+            },
           },
         ],
       })
