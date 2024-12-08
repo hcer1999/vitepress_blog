@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       oh-my-live2d:
-        specifier: ^0.15.2
-        version: 0.15.2
+        specifier: ^0.19.3
+        version: 0.19.3
     devDependencies:
       '@femm/prettier':
         specifier: ^1.1.0
@@ -27,9 +27,6 @@ importers:
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
-      fs:
-        specifier: 0.0.1-security
-        version: 0.0.1-security
       husky:
         specifier: ^9.0.11
         version: 9.0.11
@@ -704,9 +701,6 @@ packages:
   fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
 
-  fs@0.0.1-security:
-    resolution: {integrity: sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==}
-
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -896,8 +890,8 @@ packages:
     resolution: {integrity: sha512-ppwTtiJZq0O/ai0z7yfudtBpWIoxM8yE6nHi1X47eFR2EWORqfbu6CnPlNsjeN683eT0qG6H/Pyf9fCcvjnnnQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  oh-my-live2d@0.15.2:
-    resolution: {integrity: sha512-0+K48pgUrJOzo6ey16KiUCdGX/pWWogRY2JeOf4JnlYo9Rnd1RCfbzMQ4sX85aAMfavNfKfx9XGw6jEl4er9Xw==}
+  oh-my-live2d@0.19.3:
+    resolution: {integrity: sha512-EWva8OUmcExIFIhqGkeiVPQt44RvYYFg+nmpkrZgQVQ+xofVFq4SDYAg5NcdK40HxyV4vORBJEg4OHIHP96MrA==}
 
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
@@ -1787,8 +1781,6 @@ snapshots:
 
   fs.realpath@1.0.0: {}
 
-  fs@0.0.1-security: {}
-
   fsevents@2.3.3:
     optional: true
 
@@ -1972,7 +1964,7 @@ snapshots:
     dependencies:
       path-key: 4.0.0
 
-  oh-my-live2d@0.15.2: {}
+  oh-my-live2d@0.19.3: {}
 
   once@1.4.0:
     dependencies:
