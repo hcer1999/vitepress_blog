@@ -2,6 +2,7 @@
 description: 致力于为前端开发工程师提供最简单便捷的网址导航服务
 layoutClass: m-nav-layout
 outline: [2, 3, 4]
+editLink: false
 ---
 
 <script setup>

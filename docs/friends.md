@@ -1,11 +1,12 @@
 ---
 layout: home
 layoutClass: 'm-home-layout'
+editLink: false
 
 hero:
-  name: 冰可乐的
-  text: 朋友们
-  tagline: 欢迎交换友链
+  name: 冰可乐的朋友们
+  text: 欢迎交换友链
+  tagline: '添加友链请发送邮件至: bingkelele007@163.com'
 
 features:
   - icon: 📖

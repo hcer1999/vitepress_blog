@@ -3,10 +3,7 @@
 
 const data = [
   {
-    items: [{ img: 'http://cdn.bingkele.cc/Wechatqrcode.png' }],
-  },
-  {
-    items: [{ img: 'http://cdn.bingkele.cc/QQqrcode.png' }],
+    items: [{ img: '../../../assets/up.png' }],
   },
 ]
 
@@ -19,10 +16,19 @@ const onClick = (index: number) => {
     document.body.scrollIntoView({ block: 'end', behavior: 'smooth' })
   }
 }
+
+// 当页面滚动距离小于30px 不显示
+window.addEventListener('scroll', () => {
+  if (window.scrollY < 30) {
+    document.querySelector('.VPDocAsideSponsors')?.classList.add('hidden')
+  } else {
+    document.querySelector('.VPDocAsideSponsors')?.classList.remove('hidden')
+  }
+})
 </script>
 
 <template>
-  <div class="VPDocAsideSponsors">
+  <div class="VPDocAsideSponsors hidden">
     <div class="VPSponsors vp-sponsor aside">
       <section
         class="vp-sponsor-section"
@@ -57,4 +63,16 @@ const onClick = (index: number) => {
   transition: all 0.6s ease-in-out;
   transform: scale(1.2);
 }
+
+.VPDocAsideSponsors {
+  opacity: 1;
+  transition: all 0.6s ease-in-out;
+}
+.VPDocAsideSponsors.hidden {
+  // display: none;
+  opacity: 0;
+}
+
+
+
 </style>

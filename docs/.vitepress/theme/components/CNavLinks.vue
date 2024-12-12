@@ -17,10 +17,10 @@ const formatTitle = computed(() => {
 </script>
 
 <template>
-  <h2 v-if="title" :id="formatTitle" tabindex="-1">
+  <h1 v-if="title" :id="formatTitle" tabindex="-1">
     {{ title }}
     <a class="header-anchor" :href="`#${formatTitle}`" aria-hidden="true"></a>
-  </h2>
+  </h1>
   <div class="m-nav-links">
     <CNavLink v-for="item in items" :noIcon="noIcon" v-bind="item" />
   </div>
@@ -36,6 +36,7 @@ const formatTitle = computed(() => {
   grid-auto-flow: row dense;
   justify-content: center;
   margin-top: var(--m-nav-gap);
+
 }
 
 // @each $media, $size in (500px: 140px, 640px: 155px, 768px: 175px, 960px: 200px, 1440px: 240px) {
@@ -46,9 +47,25 @@ const formatTitle = computed(() => {
 //   }
 // }
 
-@media (min-width: 960px) {
+.m-nav-link {
+  min-height: 100px;
+}
+
+@media (min-width: 500px) {
+  .m-nav-links {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    --m-nav-gap: 20px;
+  }
+}
+@media (min-width: 768px) {
   .m-nav-links {
     grid-template-columns: repeat(2, minmax(200px, 1fr));
+    --m-nav-gap: 20px;
+  }
+}
+@media (min-width: 960px) {
+  .m-nav-links {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
     --m-nav-gap: 20px;
   }
 }

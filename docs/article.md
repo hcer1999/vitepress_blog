@@ -1,3 +1,10 @@
+---
+title: 文章列表
+editLink: false
+layout: home
+outline: [0]
+---
+
 <script setup>
 import data from './content/data'
 
