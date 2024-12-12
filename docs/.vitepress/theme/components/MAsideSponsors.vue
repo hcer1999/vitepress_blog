@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+
 // import { VPDocAsideSponsors } from 'vitepress/theme'
 
 const data = [
@@ -16,15 +18,16 @@ const onClick = (index: number) => {
     document.body.scrollIntoView({ block: 'end', behavior: 'smooth' })
   }
 }
-
-// 当页面滚动距离小于30px 不显示
-window.addEventListener('scroll', () => {
-  if (window.scrollY < 30) {
-    document.querySelector('.VPDocAsideSponsors')?.classList.add('hidden')
-  } else {
-    document.querySelector('.VPDocAsideSponsors')?.classList.remove('hidden')
-  }
+onMounted(() => {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < 30) {
+      document.querySelector('.VPDocAsideSponsors')?.classList.add('hidden')
+    } else {
+      document.querySelector('.VPDocAsideSponsors')?.classList.remove('hidden')
+    }
+  })
 })
+
 </script>
 
 <template>
@@ -72,7 +75,4 @@ window.addEventListener('scroll', () => {
   // display: none;
   opacity: 0;
 }
-
-
-
 </style>
