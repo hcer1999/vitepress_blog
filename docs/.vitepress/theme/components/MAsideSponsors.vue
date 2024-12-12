@@ -3,9 +3,10 @@ import { onMounted } from 'vue'
 
 // import { VPDocAsideSponsors } from 'vitepress/theme'
 
+import upImg from '../../../assets/up.png'
 const data = [
   {
-    items: [{ img: '../../../assets/up.png' }],
+    items: [{ img: upImg }],
   },
 ]
 
