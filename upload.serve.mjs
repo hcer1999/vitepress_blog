@@ -7,7 +7,7 @@ import ora from 'ora'
 // 服务器配置信息
 const server = {
   ...serverConfig,
-  locaPath: './dist/' // 本地打包文件的位置
+  localPath: './dist/' // 本地打包文件的位置
 }
 
 // 如果dist目录下没有robots.txt文件 那么就把根目录下的robots.txt文件复制到dist目录下
@@ -25,7 +25,7 @@ console.log('正在建立连接')
 conn
   .on('ready', function () {
     console.log('已连接')
-    if (!server.pathNmae) {
+    if (!server.pathName) {
       console.log('连接已关闭')
       conn.end()
       return false
@@ -33,20 +33,20 @@ conn
 
     // 修改删除命令，排除models目录
     conn.exec(
-      'cd /www/wwwroot/' + server.pathNmae + ' && find . -maxdepth 1 ! -name "models" ! -name "." -exec rm -rf {} +',
+      'cd /www/wwwroot/' + server.pathName + ' && find . -maxdepth 1 ! -name "models" ! -name "." -exec rm -rf {} +',
       function (err, stream) {
         console.log('删除文件(保留models目录)')
         setTimeout(() => {
           console.log('开始上传')
           spinner.start()
           client.scp(
-            server.locaPath,
+            server.localPath,
             {
               host: server.host,
               port: server.port,
               username: server.username,
               password: server.password,
-              path: '/www/wwwroot/' + server.pathNmae
+              path: '/www/wwwroot/' + server.pathName
             },
             (err) => {
               spinner.stop()
