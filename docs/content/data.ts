@@ -390,6 +390,17 @@ const data: Data[] = [
           type: 'info',
         },
       },
+      {
+        noIcon: false,
+        icon: '../icons/cursor.webp',
+        title: '添加 Cursor Rule 让你编程更高效（中英双语）',
+        link: '/content/docs/34',
+        target: '_self',
+        badge: {
+          text: '2025-01-23',
+          type: 'info',
+        },
+      },
     ],
   },
 ]
