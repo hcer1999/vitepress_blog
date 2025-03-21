@@ -46,6 +46,14 @@ const statisticsOptions = [
     {},
     `LA.init({id:"K1qi65GEQCfdOxT7",ck:"K1qi65GEQCfdOxT7",autoTrack:true,hashMode:true})`,
   ],
+  [
+    'script',
+    {
+      async: '',
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6198632316720288',
+      crossorigin: 'anonymous',
+    },
+  ],
 ]
 const options = baseOptions
 // 只有在生产环境才把统计代码加入到head中

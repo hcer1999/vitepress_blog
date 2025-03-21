@@ -1,7 +1,7 @@
 {
   "name": "冰可乐的前端笔记",
   "short_name": "冰可乐的前端笔记",
-  "description": "花自飘零水自流",
+  "description": "流水不争先，争的是滔滔不绝",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
