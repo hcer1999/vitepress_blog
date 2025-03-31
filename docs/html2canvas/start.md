@@ -1,4 +1,4 @@
-# 入门
+# html2canvas 中文文档 - 入门
 
 了解如何开始使用 `html2canvas`。
 

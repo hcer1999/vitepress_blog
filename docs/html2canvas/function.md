@@ -1,4 +1,4 @@
-# 功能
+# html2canvas 中文文档 - 功能
 
 了解 `html2canvas` 支持的不同功能
 

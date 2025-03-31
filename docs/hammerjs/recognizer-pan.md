@@ -1,4 +1,4 @@
-# Hammer.Pan(options)
+# Hammer.js 中文文档 - Hammer.Pan(options)
 
 当指针按下并允许在指定方向移动时，将识别Pan手势。
 

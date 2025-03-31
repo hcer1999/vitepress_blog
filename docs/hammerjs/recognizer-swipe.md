@@ -1,4 +1,4 @@
-# Hammer.Swipe(options)
+# Hammer.js 中文文档 - Hammer.Swipe(options)
 
 当指针快速移动（速度足够）且在允许的方向上移动了足够的距离时，将识别Swipe手势。
 

@@ -1,4 +1,4 @@
-# 要求其他识别器失败
+# Hammer.js 中文文档 - 要求其他识别器失败
 
 使用`requireFailure()`方法，您可以让一个识别器在另一个识别器失败之前不进行识别。这在您想要嵌套两个手势时非常有用，比如水平平移（pan-horizontal）和垂直平移（pan-vertical）。您可以使用`dropRequireFailure()`方法移除这种依赖。
 

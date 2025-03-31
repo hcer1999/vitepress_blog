@@ -1,4 +1,4 @@
-# Hammer.Pinch(options)
+# Hammer.js 中文文档 - Hammer.Pinch(options)
 
 当两个或更多的指针向对方移动（放大）或远离对方（缩小）时，将识别Pinch手势。
 

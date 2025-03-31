@@ -1,4 +1,4 @@
-# Hammer.Rotate(options)
+# Hammer.js 中文文档 - Hammer.Rotate(options)
 
 当两个或更多的指针以圆形运动时，将识别Rotate手势。
 

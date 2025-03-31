@@ -1,4 +1,4 @@
-# Hammer.Press(options)
+# Hammer.js 中文文档 - Hammer.Press(options)
 
 当指针在没有任何移动的情况下按下x毫秒时，将识别Press手势。
 

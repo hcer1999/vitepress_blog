@@ -1,4 +1,4 @@
-# 配置项
+# html2canvas 中文文档 - 配置项
 
 探索 `html2canvas` 不同的可用的配置项。
 

@@ -1,4 +1,4 @@
-# Touch-action 属性
+# Hammer.js 中文文档 - Touch-action 属性
 
 Chrome 35+、IE10+以及即将支持的Firefox浏览器支持`touch-action`属性。这个属性告诉浏览器如何处理元素上的触摸操作。它极大地改善了手势的检测和体验，因为它可以防止页面滚动而无需执行任何JavaScript代码，在某些情况下，仅靠JavaScript可能来不及。
 

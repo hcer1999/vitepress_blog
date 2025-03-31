@@ -1,4 +1,4 @@
-# 配置
+# sweetalert 中文文档 - 配置
 
 - ## `text`
 

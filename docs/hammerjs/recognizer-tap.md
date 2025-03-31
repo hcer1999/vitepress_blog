@@ -1,4 +1,4 @@
-# Hammer.Tap(options)
+# Hammer.js 中文文档 - Hammer.Tap(options)
 
 当指针进行小幅度的轻触/点击时，将识别Tap手势。如果在给定的时间间隔和位置内发生多次轻触，也会识别多次轻触。发出的事件eventData中包含属性`tapCount`，表示被识别的多次轻触的数量。
 

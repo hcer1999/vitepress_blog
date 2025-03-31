@@ -1,6 +1,4 @@
-# HTML2CANVAS 中文文档
-
-## 关于html2canvas
+# html2canvas 中文文档 - 关于
 
 了解 html2canvas，它是如何工作的以及它的一些局限性。
 

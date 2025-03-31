@@ -1,4 +1,4 @@
-# 答疑
+# html2canvas 中文文档 - 答疑
 
 浏览有关 `html2canvas` 的常见问题解答。
 

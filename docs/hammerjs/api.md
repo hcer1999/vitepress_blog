@@ -1,4 +1,4 @@
-以下是Hammer.js API文档的内容，我将保持原格式并提供详细解析：
+# Hammer.js 中文文档 - API
 
 ## General API
 
