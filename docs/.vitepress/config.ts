@@ -44,7 +44,7 @@ export default defineConfig({
 
     footer: {
       message: '赣ICP备2023003243号',
-      copyright: 'Powered by VitePress | Copyright © 2024 BingKeLe',
+      copyright: 'Powered by VitePress | Copyright © 2025 BingKeLe',
     },
 
     darkModeSwitchLabel: '外观',

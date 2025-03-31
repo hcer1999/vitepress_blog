@@ -401,6 +401,51 @@ const data: Data[] = [
           type: 'info',
         },
       },
+      {
+        noIcon: false,
+        icon: '../icons/npm.svg',
+        title: 'npm-change 快速切换npm源小工具',
+        link: '/content/docs/35',
+        target: '_self',
+        badge: {
+          text: '2025-03-31',
+          type: 'info',
+        },
+      },
+      {
+        noIcon: true,
+        title: '构建渐进式Web应用（PWA）教程',
+        link: '/content/docs/36',
+        desc: '渐进式Web应用（PWA）是一种结合了Web与移动应用优势的技术架构。它允许开发者构建像本地应用一样的用户体验，同时通过Web浏览器访问。PWA不仅能够在普通浏览器中运行，还可以在离线状态下工作，并提供推送通知等原生应用功能。',
+        target: '_self',
+        badge: {
+          text: '2025-03-31',
+          type: 'info',
+        },
+      },
+      {
+        noIcon: true,
+        title: '深入理解 JavaScript 定时器与动画函数',
+        link: '/content/docs/37',
+        desc: '在前端开发中，定时器和动画函数是非常常用的功能，尤其是在实现延时操作、定时任务和动画效果时',
+        target: '_self',
+        badge: {
+          text: '2025-03-31',
+          type: 'info',
+        },
+      },
+      {
+        noIcon: false,
+        icon: '../icons/ts.svg',
+        title: 'TypeScript 入门教程（基础篇）',
+        link: '/content/docs/38',
+        desc: 'TypeScript 是一种由微软开发的编程语言，它是 JavaScript 的超集，为 JavaScript 添加了静态类型系统。TypeScript 允许开发者编写更安全、更可靠的代码，并提供了更好的工具支持。',
+        target: '_self',
+        badge: {
+          text: '2025-03-31',
+          type: 'info',
+        },
+      },
     ],
   },
 ]
