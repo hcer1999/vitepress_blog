@@ -17,56 +17,147 @@ const formatTitle = computed(() => {
 </script>
 
 <template>
-  <h1 v-if="title" :id="formatTitle" tabindex="-1">
-    {{ title }}
-    <a class="header-anchor" :href="`#${formatTitle}`" aria-hidden="true"></a>
-  </h1>
-  <div class="m-nav-links">
-    <CNavLink v-for="item in items" :noIcon="noIcon" v-bind="item" />
+  <div class="cnav-container">
+    <h1 v-if="title" :id="formatTitle" tabindex="-1" class="cnav-title">
+      {{ title }}
+      <a class="header-anchor" :href="`#${formatTitle}`" aria-hidden="true"></a>
+    </h1>
+    <div class="cnav-links">
+      <CNavLink 
+        v-for="(item, index) in items" 
+        :key="index"
+        :noIcon="noIcon" 
+        v-bind="item"
+        :style="{ animationDelay: `${index * 0.05}s` }"
+        class="cnav-link-item"
+      />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.m-nav-links {
-  --m-nav-gap: 10px;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cnav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cnav-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--vp-c-text-1);
+  position: relative;
+  padding-bottom: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--vp-c-brand), var(--vp-c-brand-light));
+    border-radius: 2px;
+  }
+}
+
+.cnav-links {
   display: grid;
-  grid-template-columns: repeat(1, minmax(130px, 1fr));
-  grid-row-gap: var(--m-nav-gap);
-  grid-column-gap: var(--m-nav-gap);
-  grid-auto-flow: row dense;
-  justify-content: center;
-  margin-top: var(--m-nav-gap);
-
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
 }
 
-// @each $media, $size in (500px: 140px, 640px: 155px, 768px: 175px, 960px: 200px, 1440px: 240px) {
-//   @media (min-width: $media) {
-//     .m-nav-links {
-//       grid-template-columns: repeat(auto-fill, minmax($size, 1fr));
-//     }
-//   }
-// }
-
-.m-nav-link {
-  min-height: 100px;
+/* 兼容旧的类名 */
+:global(.m-nav-links) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
 }
 
-@media (min-width: 500px) {
-  .m-nav-links {
-    grid-template-columns: repeat(1, minmax(200px, 1fr));
-    --m-nav-gap: 20px;
+.cnav-link-item {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 170px;
+}
+
+// 响应式调整
+@media (max-width: 996px) {
+  .cnav-links,
+  :global(.m-nav-links) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
-@media (min-width: 768px) {
-  .m-nav-links {
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
-    --m-nav-gap: 20px;
+
+@media (max-width: 768px) {
+  .cnav-container {
+    padding: 1rem 0.75rem;
+  }
+  
+  .cnav-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .cnav-links,
+  :global(.m-nav-links) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .cnav-link-item {
+    min-height: 150px;
   }
 }
-@media (min-width: 960px) {
-  .m-nav-links {
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    --m-nav-gap: 20px;
+
+@media (max-width: 640px) {
+  .cnav-links,
+  :global(.m-nav-links) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .cnav-container {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .cnav-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .cnav-links,
+  :global(.m-nav-links) {
+    grid-template-columns: 1fr;
+  }
+  
+  .cnav-link-item {
+    min-height: 130px;
   }
 }
 </style>

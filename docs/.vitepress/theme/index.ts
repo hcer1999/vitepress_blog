@@ -9,6 +9,8 @@ import MDocFooter from './components/MDocFooter.vue'
 import MAsideSponsors from './components/MAsideSponsors.vue'
 import MNavLinks from './components/MNavLinks.vue'
 import CNavLinks from './components/CNavLinks.vue'
+import CPagination from './components/CPagination.vue'
+import CArticleFilter from './components/CArticleFilter.vue'
 import CLayout from './components/CLayout.vue'
 import './styles/index.scss'
 
@@ -60,7 +62,7 @@ export default {
       },
       //默认值为true，表示已启用，此参数可以忽略；
       //如果为false，则表示未启用
-      //您可以使用“comment:true”序言在页面上单独启用它
+      //您可以使用"comment:true"序言在页面上单独启用它
       true,
     )
 
@@ -100,6 +102,8 @@ export default {
   async enhanceApp({ app, router }: EnhanceAppContext) {
     app.component('MNavLinks', MNavLinks)
     app.component('CNavLinks', CNavLinks)
+    app.component('CPagination', CPagination)
+    app.component('CArticleFilter', CArticleFilter)
 
     app.provide('DEV', process.env.NODE_ENV === 'development')
 
