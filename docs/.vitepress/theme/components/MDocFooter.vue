@@ -62,6 +62,8 @@ const contacts = [
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  padding: 16px;
+  border-radius: 8px;
 }
 
 .qr-item:hover {
