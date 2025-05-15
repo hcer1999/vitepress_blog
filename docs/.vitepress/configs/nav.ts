@@ -4,6 +4,7 @@ export const nav: DefaultTheme.Config['nav'] = [
   {
     text: '一些中文文档',
     items: [
+      { text: 'Next.js', link: '/nextjs/index' },
       { text: 'GSAP', link: '/gsap/start' },
       { text: 'html2canvas', link: '/html2canvas/start' },
       { text: 'Hammer.js', link: '/hammerjs/start' },
