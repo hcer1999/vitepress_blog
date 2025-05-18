@@ -2,6 +2,8 @@ import type { DefaultTheme } from 'vitepress'
 
 // 导入content的data
 import data from '../../content/data'
+// 导入 Next.js 中文文档侧边栏
+import { nextjsCnSidebar } from '../nextjs-cn-sidebar'
 
 // 将data中的数据转换为sidebar的数据格式
 // 遍历data[0]里的items，给他新增一个text属性，值为title
@@ -12,6 +14,7 @@ data[0].items.forEach((item) => {
 })
 
 export const sidebar: DefaultTheme.Config['sidebar'] = {
+  '/nextjs-cn/': nextjsCnSidebar,
   '/nextjs/': [
     {
       text: 'Next.js',
