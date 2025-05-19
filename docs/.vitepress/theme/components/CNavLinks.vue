@@ -101,6 +101,7 @@ const formatTitle = computed(() => {
   width: 100%;
   height: 100%;
   min-height: 170px;
+  overflow: hidden;
 }
 
 // 响应式调整
