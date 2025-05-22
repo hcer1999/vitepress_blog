@@ -1,35 +1,35 @@
 ---
 title: revalidateTag
-description: API Reference for the revalidateTag function.
+description: revalidateTag 函数的 API 参考。
 ---
 
-`revalidateTag` allows you to purge [cached data](/docs/app/deep-dive/caching) on-demand for a specific cache tag.
+`revalidateTag` 允许你按需为特定缓存标签清除[缓存数据](/docs/app/deep-dive/caching)。
 
-> **Good to know**:
+> **须知**：
 >
-> - `revalidateTag` only invalidates the cache when the path is next visited. This means calling `revalidateTag` with a dynamic route segment will not immediately trigger many revalidations at once. The invalidation only happens when the path is next visited.
+> - `revalidateTag` 仅在下次访问路径时才会使缓存失效。这意味着使用动态路由段调用 `revalidateTag` 不会立即触发多个重新验证。失效仅在下次访问路径时发生。
 
-## Parameters
+## 参数
 
 ```tsx
 revalidateTag(tag: string): void;
 ```
 
-- `tag`: A string representing the cache tag associated with the data you want to revalidate. Must be less than or equal to 256 characters. This value is case-sensitive.
+- `tag`：表示要重新验证的数据相关的缓存标签的字符串。必须小于或等于 256 个字符。此值区分大小写。
 
-You can add tags to `fetch` as follows:
+你可以按如下方式向 `fetch` 添加标签：
 
 ```tsx
 fetch(url, { next: { tags: [...] } });
 ```
 
-## Returns
+## 返回值
 
-`revalidateTag` does not return a value.
+`revalidateTag` 不返回值。
 
-## Examples
+## 示例
 
-### Server Action
+### 服务器操作
 
 ```ts filename="app/actions.ts" switcher
 'use server'
@@ -53,7 +53,7 @@ export default async function submit() {
 }
 ```
 
-### Route Handler
+### 路由处理程序
 
 ```ts filename="app/api/revalidate/route.ts" switcher
 import type { NextRequest } from 'next/server'

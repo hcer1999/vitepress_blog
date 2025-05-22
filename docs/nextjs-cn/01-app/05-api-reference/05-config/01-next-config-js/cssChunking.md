@@ -1,19 +1,19 @@
 ---
 title: cssChunking
-description: Use the `cssChunking` option to control how CSS files are chunked in your Next.js application.
+description: 使用 `cssChunking` 选项控制 Next.js 应用程序中 CSS 文件的分块方式。
 version: experimental
 ---
 
-CSS Chunking is a strategy used to improve the performance of your web application by splitting and re-ordering CSS files into chunks. This allows you to load only the CSS that is needed for a specific route, instead of loading all the application's CSS at once.
+CSS 分块是一种通过将 CSS 文件分割并重新排序为块来提高 Web 应用程序性能的策略。这使你能够只加载特定路由所需的 CSS，而不是一次加载应用程序的所有 CSS。
 
-You can control how CSS files are chunked using the `experimental.cssChunking` option in your `next.config.js` file:
+你可以使用 `next.config.js` 文件中的 `experimental.cssChunking` 选项来控制 CSS 文件的分块方式：
 
 ```tsx filename="next.config.ts" switcher
 import type { NextConfig } from 'next'
 
 const nextConfig = {
   experimental: {
-    cssChunking: true, // default
+    cssChunking: true, // 默认值
   },
 } satisfies NextConfig
 
@@ -24,19 +24,19 @@ export default nextConfig
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    cssChunking: true, // default
+    cssChunking: true, // 默认值
   },
 }
 
 module.exports = nextConfig
 ```
 
-## Options
+## 选项
 
-- **`true` (default)**: Next.js will try to merge CSS files whenever possible, determining explicit and implicit dependencies between files from import order to reduce the number of chunks and therefore the number of requests.
-- **`false`**: Next.js will not attempt to merge or re-order your CSS files.
-- **`'strict'`**: Next.js will load CSS files in the correct order they are imported into your files, which can lead to more chunks and requests.
+- **`true`（默认）**：Next.js 将尝试尽可能合并 CSS 文件，根据导入顺序确定文件之间的显式和隐式依赖关系，以减少块数量，从而减少请求数量。
+- **`false`**：Next.js 不会尝试合并或重新排序你的 CSS 文件。
+- **`'strict'`**：Next.js 将按照 CSS 文件导入到你的文件中的正确顺序加载它们，这可能会导致更多的块和请求。
 
-You may consider using `'strict'` if you run into unexpected CSS behavior. For example, if you import `a.css` and `b.css` in different files using a different `import` order (`a` before `b`, or `b` before `a`), `true` will merge the files in any order and assume there are no dependencies between them. However, if `b.css` depends on `a.css`, you may want to use `'strict'` to prevent the files from being merged, and instead, load them in the order they are imported - which can result in more chunks and requests.
+如果你遇到意外的 CSS 行为，可以考虑使用 `'strict'`。例如，如果你在不同文件中以不同的 `import` 顺序（`a` 在 `b` 之前，或 `b` 在 `a` 之前）导入 `a.css` 和 `b.css`，则 `true` 将以任意顺序合并文件，并假设它们之间没有依赖关系。但是，如果 `b.css` 依赖于 `a.css`，你可能希望使用 `'strict'` 来防止文件被合并，而是按照导入顺序加载它们 - 这可能会导致更多的块和请求。
 
-For most applications, we recommend `true` as it leads to fewer requests and better performance.
+对于大多数应用程序，我们建议使用 `true`，因为它会减少请求数量并提高性能。

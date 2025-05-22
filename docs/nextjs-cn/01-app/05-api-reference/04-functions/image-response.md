@@ -1,15 +1,15 @@
 ---
 title: ImageResponse
-description: API Reference for the ImageResponse constructor.
+description: ImageResponse 构造函数的 API 参考。
 ---
 
-The `ImageResponse` constructor allows you to generate dynamic images using JSX and CSS. This is useful for generating social media images such as Open Graph images, Twitter cards, and more.
+`ImageResponse` 构造函数允许你使用 JSX 和 CSS 生成动态图像。这对于生成社交媒体图像（如 Open Graph 图像、Twitter 卡片等）非常有用。
 
-## Reference
+## 参考
 
-### Parameters
+### 参数
 
-The following parameters are available for `ImageResponse`:
+`ImageResponse` 可用的参数如下：
 
 ```jsx
 import { ImageResponse } from 'next/og'
@@ -28,7 +28,7 @@ new ImageResponse(
     }[]
     debug?: boolean = false
 
-    // Options that will be passed to the HTTP response
+    // 将传递给 HTTP 响应的选项
     status?: number = 200
     statusText?: string
     headers?: Record<string, string>
@@ -36,26 +36,26 @@ new ImageResponse(
 )
 ```
 
-> Examples are available in the [Vercel OG Playground](https://og-playground.vercel.app/).
+> 示例可在 [Vercel OG Playground](https://og-playground.vercel.app/) 中查看。
 
-### Supported HTML and CSS features
+### 支持的 HTML 和 CSS 特性
 
-`ImageResponse` supports common CSS properties including flexbox and absolute positioning, custom fonts, text wrapping, centering, and nested images.
+`ImageResponse` 支持常见的 CSS 属性，包括弹性盒布局和绝对定位、自定义字体、文本换行、居中和嵌套图像。
 
-Please refer to [Satori’s documentation](https://github.com/vercel/satori#css) for a list of supported HTML and CSS features.
+请参阅 [Satori 的文档](https://github.com/vercel/satori#css) 获取支持的 HTML 和 CSS 特性列表。
 
-## Behavior
+## 行为
 
-- `ImageResponse` uses [@vercel/og](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation), [Satori](https://github.com/vercel/satori), and Resvg to convert HTML and CSS into PNG.
-- Only flexbox and a subset of CSS properties are supported. Advanced layouts (e.g. `display: grid`) will not work.
-- Maximum bundle size of `500KB`. The bundle size includes your JSX, CSS, fonts, images, and any other assets. If you exceed the limit, consider reducing the size of any assets or fetching at runtime.
-- Only `ttf`, `otf`, and `woff` font formats are supported. To maximize the font parsing speed, `ttf` or `otf` are preferred over `woff`.
+- `ImageResponse` 使用 [@vercel/og](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)、[Satori](https://github.com/vercel/satori) 和 Resvg 将 HTML 和 CSS 转换为 PNG。
+- 只支持弹性盒布局和部分 CSS 属性。高级布局（如 `display: grid`）将不起作用。
+- 最大包体积为 `500KB`。包体积包括你的 JSX、CSS、字体、图像和任何其他资源。如果超出限制，请考虑减小资源大小或在运行时获取。
+- 仅支持 `ttf`、`otf` 和 `woff` 字体格式。为了最大化字体解析速度，推荐使用 `ttf` 或 `otf` 而不是 `woff`。
 
-## Examples
+## 示例
 
-### Route Handlers
+### 路由处理程序
 
-`ImageResponse` can be used in Route Handlers to generate images dynamically at request time.
+`ImageResponse` 可以在路由处理程序中使用，以在请求时动态生成图像。
 
 ```js filename="app/api/route.js"
 import { ImageResponse } from 'next/og'
@@ -111,14 +111,14 @@ export async function GET() {
 }
 ```
 
-### File-based Metadata
+### 基于文件的元数据
 
-You can use `ImageResponse` in a [`opengraph-image.tsx`](/docs/app/api-reference/file-conventions/metadata/opengraph-image) file to generate Open Graph images at build time or dynamically at request time.
+你可以在 [`opengraph-image.tsx`](/docs/app/api-reference/file-conventions/metadata/opengraph-image) 文件中使用 `ImageResponse` 来在构建时或请求时动态生成 Open Graph 图像。
 
 ```tsx filename="app/opengraph-image.tsx"
 import { ImageResponse } from 'next/og'
 
-// Image metadata
+// 图像元数据
 export const alt = 'My site'
 export const size = {
   width: 1200,
@@ -127,11 +127,11 @@ export const size = {
 
 export const contentType = 'image/png'
 
-// Image generation
+// 图像生成
 export default async function Image() {
   return new ImageResponse(
     (
-      // ImageResponse JSX element
+      // ImageResponse JSX 元素
       <div
         style={{
           fontSize: 128,
@@ -146,26 +146,26 @@ export default async function Image() {
         My site
       </div>
     ),
-    // ImageResponse options
+    // ImageResponse 选项
     {
-      // For convenience, we can re-use the exported opengraph-image
-      // size config to also set the ImageResponse's width and height.
+      // 为方便起见，我们可以重用导出的 opengraph-image
+      // size 配置来设置 ImageResponse 的宽度和高度。
       ...size,
     },
   )
 }
 ```
 
-### Custom fonts
+### 自定义字体
 
-You can use custom fonts in your `ImageResponse` by providing a `fonts` array in the options.
+你可以通过在选项中提供 `fonts` 数组来在 `ImageResponse` 中使用自定义字体。
 
 ```tsx filename="app/opengraph-image.tsx"
 import { ImageResponse } from 'next/og'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-// Image metadata
+// 图像元数据
 export const alt = 'My site'
 export const size = {
   width: 1200,
@@ -174,9 +174,9 @@ export const size = {
 
 export const contentType = 'image/png'
 
-// Image generation
+// 图像生成
 export default async function Image() {
-  // Font loading, process.cwd() is Next.js project directory
+  // 字体加载，process.cwd() 是 Next.js 项目目录
   const interSemiBold = await readFile(
     join(process.cwd(), 'assets/Inter-SemiBold.ttf')
   )
@@ -185,10 +185,10 @@ export default async function Image() {
     (
       // ...
     ),
-    // ImageResponse options
+    // ImageResponse 选项
     {
-      // For convenience, we can re-use the exported opengraph-image
-      // size config to also set the ImageResponse's width and height.
+      // 为方便起见，我们可以重用导出的 opengraph-image
+      // size 配置来设置 ImageResponse 的宽度和高度。
       ...size,
       fonts: [
         {
@@ -203,10 +203,10 @@ export default async function Image() {
 }
 ```
 
-## Version History
+## 版本历史
 
-| Version   | Changes                                               |
-| --------- | ----------------------------------------------------- |
-| `v14.0.0` | `ImageResponse` moved from `next/server` to `next/og` |
-| `v13.3.0` | `ImageResponse` can be imported from `next/server`.   |
-| `v13.0.0` | `ImageResponse` introduced via `@vercel/og` package.  |
+| 版本      | 变更                                              |
+| --------- | ------------------------------------------------- |
+| `v14.0.0` | `ImageResponse` 从 `next/server` 移动到 `next/og` |
+| `v13.3.0` | `ImageResponse` 可以从 `next/server` 导入。       |
+| `v13.0.0` | 通过 `@vercel/og` 包引入 `ImageResponse`。        |

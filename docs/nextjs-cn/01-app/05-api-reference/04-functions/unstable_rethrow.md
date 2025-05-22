@@ -1,12 +1,12 @@
 ---
 title: unstable_rethrow
-description: API Reference for the unstable_rethrow function.
+description: unstable_rethrow 函数的 API 参考。
 version: unstable
 ---
 
-`unstable_rethrow` can be used to avoid catching internal errors thrown by Next.js when attempting to handle errors thrown in your application code.
+`unstable_rethrow` 可用于避免在尝试处理应用程序代码中抛出的错误时捕获 Next.js 内部抛出的错误。
 
-For example, calling the `notFound` function will throw an internal Next.js error and render the [`not-found.js`](/docs/app/api-reference/file-conventions/not-found) component. However, if used inside a `try/catch` block, the error will be caught, preventing `not-found.js` from rendering:
+例如，调用 `notFound` 函数将抛出一个 Next.js 内部错误并渲染 [`not-found.js`](/docs/app/api-reference/file-conventions/not-found) 组件。然而，如果在 `try/catch` 块内使用，错误将被捕获，阻止 `not-found.js` 渲染：
 
 ```tsx filename="@/app/ui/component.tsx"
 import { notFound } from 'next/navigation'
@@ -24,7 +24,7 @@ export default async function Page() {
 }
 ```
 
-You can use `unstable_rethrow` API to re-throw the internal error and continue with the expected behavior:
+你可以使用 `unstable_rethrow` API 重新抛出内部错误并继续预期的行为：
 
 ```tsx filename="@/app/ui/component.tsx"
 import { notFound, unstable_rethrow } from 'next/navigation'
@@ -43,13 +43,13 @@ export default async function Page() {
 }
 ```
 
-The following Next.js APIs rely on throwing an error which should be rethrown and handled by Next.js itself:
+以下 Next.js API 依赖于抛出错误，这些错误应该被重新抛出并由 Next.js 本身处理：
 
 - [`notFound()`](/docs/app/api-reference/functions/not-found)
 - [`redirect()`](/docs/app/building-your-application/routing/redirecting#redirect-function)
 - [`permanentRedirect()`](/docs/app/building-your-application/routing/redirecting#permanentredirect-function)
 
-If a route segment is marked to throw an error unless it's static, a Dynamic API call will also throw an error that should similarly not be caught by the developer. Note that Partial Prerendering (PPR) affects this behavior as well. These APIs are:
+如果路由段被标记为除非是静态的否则抛出错误，动态 API 调用也会抛出一个类似的错误，开发者不应该捕获这个错误。请注意，部分预渲染 (PPR) 也会影响这种行为。这些 API 包括：
 
 - [`cookies`](/docs/app/api-reference/functions/cookies)
 - [`headers`](/docs/app/api-reference/functions/headers)
@@ -57,8 +57,14 @@ If a route segment is marked to throw an error unless it's static, a Dynamic API
 - `fetch(..., { cache: 'no-store' })`
 - `fetch(..., { next: { revalidate: 0 } })`
 
-> **Good to know**:
+> **须知**:
 >
-> - This method should be called at the top of the catch block, passing the error object as its only argument. It can also be used within a `.catch` handler of a promise.
-> - If you ensure that your calls to APIs that throw are not wrapped in a try/catch then you don't need to use `unstable_rethrow`
-> - Any resource cleanup (like clearing intervals, timers, etc) would have to either happen prior to the call to `unstable_rethrow` or within a `finally` block.
+> - 此方法应该在 catch 块的顶部调用，将错误对象作为其唯一参数传递。它也可以在 promise 的 `.catch` 处理程序中使用。
+> - 如果你确保对会抛出错误的 API 的调用没有被 try/catch 包装，那么你不需要使用 `unstable_rethrow`。
+> - 任何资源清理（如清除间隔、计时器等）必须在调用 `unstable_rethrow` 之前进行，或者在 `finally` 块内进行。
+
+## 版本历史
+
+| 版本      | 变更                      |
+| --------- | ------------------------- |
+| `v15.0.0` | 引入 `unstable_rethrow`。 |

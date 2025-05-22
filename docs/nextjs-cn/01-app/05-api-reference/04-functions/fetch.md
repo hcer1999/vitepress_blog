@@ -1,13 +1,13 @@
 ---
 title: fetch
-description: API reference for the extended fetch function.
+description: 扩展的 fetch 函数的 API 参考。
 ---
 
-Next.js extends the [Web `fetch()` API](https://developer.mozilla.org/docs/Web/API/Fetch_API) to allow each request on the server to set its own persistent caching and revalidation semantics.
+Next.js 扩展了 [Web `fetch()` API](https://developer.mozilla.org/docs/Web/API/Fetch_API)，允许服务器上的每个请求设置自己的持久缓存和重新验证语义。
 
-In the browser, the `cache` option indicates how a fetch request will interact with the _browser's_ HTTP cache. With this extension, `cache` indicates how a _server-side_ fetch request will interact with the framework's persistent [Data Cache](/docs/app/deep-dive/caching#data-cache).
+在浏览器中，`cache` 选项指示 fetch 请求如何与*浏览器的* HTTP 缓存交互。通过这个扩展，`cache` 指示*服务器端* fetch 请求如何与框架的持久[数据缓存](/docs/app/deep-dive/caching#data-cache)交互。
 
-You can call `fetch` with `async` and `await` directly within Server Components.
+你可以在服务器组件中直接使用 `async` 和 `await` 调用 `fetch`。
 
 ```tsx filename="app/page.tsx" switcher
 export default async function Page() {
@@ -39,21 +39,21 @@ export default async function Page() {
 
 ## `fetch(url, options)`
 
-Since Next.js extends the [Web `fetch()` API](https://developer.mozilla.org/docs/Web/API/Fetch_API), you can use any of the [native options available](https://developer.mozilla.org/docs/Web/API/fetch#parameters).
+由于 Next.js 扩展了 [Web `fetch()` API](https://developer.mozilla.org/docs/Web/API/Fetch_API)，你可以使用任何[可用的原生选项](https://developer.mozilla.org/docs/Web/API/fetch#parameters)。
 
 ### `options.cache`
 
-Configure how the request should interact with Next.js [Data Cache](/docs/app/deep-dive/caching#data-cache).
+配置请求应如何与 Next.js [数据缓存](/docs/app/deep-dive/caching#data-cache)交互。
 
 ```ts
 fetch(`https://...`, { cache: 'force-cache' | 'no-store' })
 ```
 
-- **`auto no cache`** (default): Next.js fetches the resource from the remote server on every request in development, but will fetch once during `next build` because the route will be statically prerendered. If [Dynamic APIs](/docs/app/building-your-application/rendering/server-components#dynamic-rendering) are detected on the route, Next.js will fetch the resource on every request.
-- **`no-store`**: Next.js fetches the resource from the remote server on every request, even if Dynamic APIs are not detected on the route.
-- **`force-cache`**: Next.js looks for a matching request in its Data Cache.
-  - If there is a match and it is fresh, it will be returned from the cache.
-  - If there is no match or a stale match, Next.js will fetch the resource from the remote server and update the cache with the downloaded resource.
+- **`auto no cache`**（默认）：在开发环境中，Next.js 在每次请求时都从远程服务器获取资源，但在 `next build` 期间只获取一次，因为路由将被静态预渲染。如果在路由上检测到[动态 API](/docs/app/building-your-application/rendering/server-components#dynamic-rendering)，Next.js 将在每次请求时获取资源。
+- **`no-store`**：即使在路由上未检测到动态 API，Next.js 也会在每次请求时从远程服务器获取资源。
+- **`force-cache`**：Next.js 在其数据缓存中查找匹配的请求。
+  - 如果有匹配项且它是新鲜的，将从缓存中返回它。
+  - 如果没有匹配项或匹配项已过时，Next.js 将从远程服务器获取资源并使用下载的资源更新缓存。
 
 ### `options.next.revalidate`
 
@@ -61,18 +61,18 @@ fetch(`https://...`, { cache: 'force-cache' | 'no-store' })
 fetch(`https://...`, { next: { revalidate: false | 0 | number } })
 ```
 
-Set the cache lifetime of a resource (in seconds).
+设置资源的缓存生命周期（以秒为单位）。
 
-- **`false`** - Cache the resource indefinitely. Semantically equivalent to `revalidate: Infinity`. The HTTP cache may evict older resources over time.
-- **`0`** - Prevent the resource from being cached.
-- **`number`** - (in seconds) Specify the resource should have a cache lifetime of at most `n` seconds.
+- **`false`** - 无限期缓存资源。在语义上等同于 `revalidate: Infinity`。HTTP 缓存可能会随着时间推移清除较旧的资源。
+- **`0`** - 防止资源被缓存。
+- **`number`** -（以秒为单位）指定资源的缓存生命周期最多为 `n` 秒。
 
-> **Good to know**:
+> **须知**：
 >
-> - If an individual `fetch()` request sets a `revalidate` number lower than the [default `revalidate`](/docs/app/api-reference/file-conventions/route-segment-config#revalidate) of a route, the whole route revalidation interval will be decreased.
-> - If two fetch requests with the same URL in the same route have different `revalidate` values, the lower value will be used.
-> - As a convenience, it is not necessary to set the `cache` option if `revalidate` is set to a number.
-> - Conflicting options such as `{ revalidate: 3600, cache: 'no-store' }` will cause an error.
+> - 如果单个 `fetch()` 请求设置的 `revalidate` 数值低于路由的[默认 `revalidate`](/docs/app/api-reference/file-conventions/route-segment-config#revalidate)，整个路由的重新验证间隔将会减少。
+> - 如果同一路由中具有相同 URL 的两个 fetch 请求有不同的 `revalidate` 值，将使用较低的值。
+> - 为方便起见，如果设置了 `revalidate` 为数字，则不需要设置 `cache` 选项。
+> - 冲突的选项，如 `{ revalidate: 3600, cache: 'no-store' }` 将导致错误。
 
 ### `options.next.tags`
 
@@ -80,20 +80,20 @@ Set the cache lifetime of a resource (in seconds).
 fetch(`https://...`, { next: { tags: ['collection'] } })
 ```
 
-Set the cache tags of a resource. Data can then be revalidated on-demand using [`revalidateTag`](https://nextjs.org/docs/app/api-reference/functions/revalidateTag). The max length for a custom tag is 256 characters and the max tag items is 128.
+设置资源的缓存标签。然后可以使用 [`revalidateTag`](https://nextjs.org/docs/app/api-reference/functions/revalidateTag) 按需重新验证数据。自定义标签的最大长度为 256 个字符，最大标签项数为 128。
 
-## Troubleshooting
+## 故障排除
 
-### Fetch default `auto no store` and `cache: 'no-store'` not showing fresh data in development
+### 在开发环境中，Fetch 默认的 `auto no store` 和 `cache: 'no-store'` 不显示最新数据
 
-Next.js caches `fetch` responses in Server Components across Hot Module Replacement (HMR) in local development for faster responses and to reduce costs for billed API calls.
+Next.js 在本地开发的热模块替换（HMR）过程中缓存服务器组件中的 `fetch` 响应，以加快响应速度并减少计费 API 调用的成本。
 
-By default, the [HMR cache](/docs/app/api-reference/config/next-config-js/serverComponentsHmrCache) applies to all fetch requests, including those with the default `auto no cache` and `cache: 'no-store'` option. This means uncached requests will not show fresh data between HMR refreshes. However, the cache will be cleared on navigation or full-page reloads.
+默认情况下，[HMR 缓存](/docs/app/api-reference/config/next-config-js/serverComponentsHmrCache)应用于所有 fetch 请求，包括那些使用默认 `auto no cache` 和 `cache: 'no-store'` 选项的请求。这意味着未缓存的请求在 HMR 刷新之间不会显示最新数据。但是，缓存将在导航或完整页面重新加载时被清除。
 
-See the [`serverComponentsHmrCache`](/docs/app/api-reference/config/next-config-js/serverComponentsHmrCache) docs for more information.
+有关更多信息，请参阅 [`serverComponentsHmrCache`](/docs/app/api-reference/config/next-config-js/serverComponentsHmrCache) 文档。
 
-## Version History
+## 版本历史
 
-| Version   | Changes             |
-| --------- | ------------------- |
-| `v13.0.0` | `fetch` introduced. |
+| 版本      | 变更           |
+| --------- | -------------- |
+| `v13.0.0` | 引入 `fetch`。 |

@@ -1,62 +1,62 @@
 ---
 title: next CLI
-description: Learn how to run and build your application with the Next.js CLI.
+description: 了解如何使用 Next.js CLI 运行和构建应用程序。
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-The Next.js CLI allows you to develop, build, start your application, and more.
+Next.js CLI 允许您开发、构建、启动应用程序等。
 
-Basic usage:
+基本用法：
 
 ```bash filename="Terminal"
 npx next [command] [options]
 ```
 
-## Reference
+## 参考
 
-The following options are available:
+以下选项可用：
 
-| Options             | Description                        |
-| ------------------- | ---------------------------------- |
-| `-h` or `--help`    | Shows all available options        |
-| `-v` or `--version` | Outputs the Next.js version number |
+| 选项                | 描述                |
+| ------------------- | ------------------- |
+| `-h` 或 `--help`    | 显示所有可用选项    |
+| `-v` 或 `--version` | 输出 Next.js 版本号 |
 
-### Commands
+### 命令
 
-The following commands are available:
+以下命令可用：
 
-| Command                                | Description                                                                                                                                                                                                                        |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`dev`](#next-dev-options)             | Starts Next.js in development mode with Hot Module Reloading, error reporting, and more.                                                                                                                                           |
-| [`build`](#next-build-options)         | Creates an optimized production build of your application. Displaying information about each route.                                                                                                                                |
-| [`start`](#next-start-options)         | Starts Next.js in production mode. The application should be compiled with `next build` first.                                                                                                                                     |
-| [`info`](#next-info-options)           | Prints relevant details about the current system which can be used to report Next.js bugs.                                                                                                                                         |
-| [`lint`](#next-lint-options)           | Runs ESLint for all files in the `/src`, `/app`, `/pages`, `/components`, and `/lib` directories. It also provides a guided setup to install any required dependencies if ESLint it is not already configured in your application. |
-| [`telemetry`](#next-telemetry-options) | Allows you to enable or disable Next.js' completely anonymous telemetry collection.                                                                                                                                                |
+| 命令                                   | 描述                                                                                                                                                      |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`dev`](#next-dev-options)             | 以开发模式启动 Next.js，包含热模块替换、错误报告等功能。                                                                                                  |
+| [`build`](#next-build-options)         | 创建应用程序的优化生产构建。显示有关每个路由的信息。                                                                                                      |
+| [`start`](#next-start-options)         | 以生产模式启动 Next.js。应用程序应先使用 `next build` 进行编译。                                                                                          |
+| [`info`](#next-info-options)           | 打印当前系统的相关详细信息，可用于报告 Next.js 错误。                                                                                                     |
+| [`lint`](#next-lint-options)           | 为 `/src`、`/app`、`/pages`、`/components` 和 `/lib` 目录中的所有文件运行 ESLint。如果应用程序中尚未配置 ESLint，它还提供引导式安装任何所需依赖项的设置。 |
+| [`telemetry`](#next-telemetry-options) | 允许您启用或禁用 Next.js 完全匿名的遥测收集。                                                                                                             |
 
-> **Good to know**: Running `next` without a command is an alias for `next dev`.
+> **小提示**：不带命令运行 `next` 相当于运行 `next dev`。
 
-### `next dev` options
+### `next dev` 选项
 
-`next dev` starts the application in development mode with Hot Module Reloading (HMR), error reporting, and more. The following options are available when running `next dev`:
+`next dev` 以开发模式启动应用程序，包含热模块替换 (HMR)、错误报告等功能。运行 `next dev` 时可使用以下选项：
 
-| Option                                   | Description                                                                                                                                          |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-h, --help`                             | Show all available options.                                                                                                                          |
-| `[directory]`                            | A directory in which to build the application. If not provided, current directory is used.                                                           |
-| `--turbopack`                            | Starts development mode using [Turbopack](/docs/app/api-reference/turbopack).                                                                        |
-| `-p` or `--port <port>`                  | Specify a port number on which to start the application. Default: 3000, env: PORT                                                                    |
-| `-H`or `--hostname <hostname>`           | Specify a hostname on which to start the application. Useful for making the application available for other devices on the network. Default: 0.0.0.0 |
-| `--experimental-https`                   | Starts the server with HTTPS and generates a self-signed certificate.                                                                                |
-| `--experimental-https-key <path>`        | Path to a HTTPS key file.                                                                                                                            |
-| `--experimental-https-cert <path>`       | Path to a HTTPS certificate file.                                                                                                                    |
-| `--experimental-https-ca <path>`         | Path to a HTTPS certificate authority file.                                                                                                          |
-| `--experimental-upload-trace <traceUrl>` | Reports a subset of the debugging trace to a remote HTTP URL.                                                                                        |
+| 选项                                     | 描述                                                                              |
+| ---------------------------------------- | --------------------------------------------------------------------------------- |
+| `-h, --help`                             | 显示所有可用选项。                                                                |
+| `[directory]`                            | 构建应用程序的目录。如果未提供，则使用当前目录。                                  |
+| `--turbopack`                            | 使用 [Turbopack](/docs/app/api-reference/turbopack) 启动开发模式。                |
+| `-p` 或 `--port <port>`                  | 指定启动应用程序的端口号。默认值：3000，环境变量：PORT                            |
+| `-H` 或 `--hostname <hostname>`          | 指定启动应用程序的主机名。用于使应用程序在网络上的其他设备上可用。默认值：0.0.0.0 |
+| `--experimental-https`                   | 使用 HTTPS 启动服务器并生成自签名证书。                                           |
+| `--experimental-https-key <path>`        | HTTPS 密钥文件的路径。                                                            |
+| `--experimental-https-cert <path>`       | HTTPS 证书文件的路径。                                                            |
+| `--experimental-https-ca <path>`         | HTTPS 证书颁发机构文件的路径。                                                    |
+| `--experimental-upload-trace <traceUrl>` | 将调试跟踪的子集报告到远程 HTTP URL。                                             |
 
-### `next build` options
+### `next build` 选项
 
-`next build` creates an optimized production build of your application. The output displays information about each route. For example:
+`next build` 创建应用程序的优化生产构建。输出显示有关每个路由的信息。例如：
 
 ```bash filename="Terminal"
 Route (app)                              Size     First Load JS
@@ -67,44 +67,44 @@ Route (app)                              Size     First Load JS
 ƒ  (Dynamic)  server-rendered on demand
 ```
 
-- **Size**: The size of assets downloaded when navigating to the page client-side. The size for each route only includes its dependencies.
-- **First Load JS**: The size of assets downloaded when visiting the page from the server. The amount of JS shared by all is shown as a separate metric.
+- **Size**：客户端导航到页面时下载的资产大小。每个路由的大小仅包括其依赖项。
+- **First Load JS**：从服务器访问页面时下载的资产大小。所有共享的 JS 大小显示为单独的指标。
 
-Both of these values are [**compressed with gzip**](/docs/app/api-reference/config/next-config-js/compress). The first load is indicated by green, yellow, or red. Aim for green for performant applications.
+这两个值都是使用 [**gzip 压缩**](/docs/app/api-reference/config/next-config-js/compress)。首次加载用绿色、黄色或红色表示。高性能应用应该以绿色为目标。
 
-The following options are available for the `next build` command:
+`next build` 命令可用的选项如下：
 
-| Option                             | Description                                                                                                                                   |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-h, --help`                       | Show all available options.                                                                                                                   |
-| `[directory]`                      | A directory on which to build the application. If not provided, the current directory will be used.                                           |
-| `-d` or `--debug`                  | Enables a more verbose build output. With this flag enabled additional build output like rewrites, redirects, and headers will be shown.      |
+| 选项                               | 描述                                                                                              |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `-h, --help`                       | 显示所有可用选项。                                                                                |
+| `[directory]`                      | 构建应用程序的目录。如果未提供，则使用当前目录。                                                  |
+| `-d` 或 `--debug`                  | 启用更详细的构建输出。启用此标志后，将显示额外的构建输出，如重写、重定向和标头。                  |
 |                                    |
-| `--profile`                        | Enables production [profiling for React](https://react.dev/reference/react/Profiler).                                                         |
-| `--no-lint`                        | Disables linting.                                                                                                                             |
-| `--no-mangling`                    | Disables [mangling](https://en.wikipedia.org/wiki/Name_mangling). This may affect performance and should only be used for debugging purposes. |
-| `--experimental-app-only`          | Builds only App Router routes.                                                                                                                |
-| `--experimental-build-mode [mode]` | Uses an experimental build mode. (choices: "compile", "generate", default: "default")                                                         |
+| `--profile`                        | 启用 React 的生产[分析](https://react.dev/reference/react/Profiler)。                             |
+| `--no-lint`                        | 禁用代码检查。                                                                                    |
+| `--no-mangling`                    | 禁用[名称混淆](https://en.wikipedia.org/wiki/Name_mangling)。这可能会影响性能，应仅用于调试目的。 |
+| `--experimental-app-only`          | 仅构建 App Router 路由。                                                                          |
+| `--experimental-build-mode [mode]` | 使用实验性构建模式。(选项："compile"、"generate"，默认："default")                                |
 
-### `next start` options
+### `next start` 选项
 
-`next start` starts the application in production mode. The application should be compiled with [`next build`](#next-build-options) first.
+`next start` 以生产模式启动应用程序。应用程序应先使用 [`next build`](#next-build-options) 进行编译。
 
-The following options are available for the `next start` command:
+`next start` 命令可用的选项如下：
 
-| Option                                  | Description                                                                                                     |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `-h` or `--help`                        | Show all available options.                                                                                     |
-| `[directory]`                           | A directory on which to start the application. If no directory is provided, the current directory will be used. |
-| `-p` or `--port <port>`                 | Specify a port number on which to start the application. (default: 3000, env: PORT)                             |
-| `-H` or `--hostname <hostname>`         | Specify a hostname on which to start the application (default: 0.0.0.0).                                        |
-| `--keepAliveTimeout <keepAliveTimeout>` | Specify the maximum amount of milliseconds to wait before closing the inactive connections.                     |
+| 选项                                    | 描述                                                     |
+| --------------------------------------- | -------------------------------------------------------- |
+| `-h` 或 `--help`                        | 显示所有可用选项。                                       |
+| `[directory]`                           | 启动应用程序的目录。如果未提供目录，则使用当前目录。     |
+| `-p` 或 `--port <port>`                 | 指定启动应用程序的端口号。(默认值：3000，环境变量：PORT) |
+| `-H` 或 `--hostname <hostname>`         | 指定启动应用程序的主机名 (默认值：0.0.0.0)。             |
+| `--keepAliveTimeout <keepAliveTimeout>` | 指定关闭非活动连接前等待的最大毫秒数。                   |
 
-### `next info` options
+### `next info` 选项
 
-`next info` prints relevant details about the current system which can be used to report Next.js bugs when opening a [GitHub issue](https://github.com/vercel/next.js/issues). This information includes Operating System platform/arch/version, Binaries (Node.js, npm, Yarn, pnpm), package versions (`next`, `react`, `react-dom`), and more.
+`next info` 打印当前系统的相关详细信息，可用于在创建 [GitHub issue](https://github.com/vercel/next.js/issues) 时报告 Next.js 错误。此信息包括操作系统平台/架构/版本、二进制文件（Node.js、npm、Yarn、pnpm）、包版本（`next`、`react`、`react-dom`）等。
 
-The output should look like this:
+输出应如下所示：
 
 ```bash filename="Terminal"
 Operating System:
@@ -128,108 +128,108 @@ Next.js Config:
   output: N/A
 ```
 
-The following options are available for the `next info` command:
+`next info` 命令可用的选项如下：
 
-| Option           | Description                                    |
-| ---------------- | ---------------------------------------------- |
-| `-h` or `--help` | Show all available options                     |
-| `--verbose`      | Collects additional information for debugging. |
+| 选项             | 描述                 |
+| ---------------- | -------------------- |
+| `-h` 或 `--help` | 显示所有可用选项     |
+| `--verbose`      | 收集额外的调试信息。 |
 
-### `next lint` options
+### `next lint` 选项
 
-`next lint` runs ESLint for all files in the `pages/`, `app/`, `components/`, `lib/`, and `src/` directories. It also provides a guided setup to install any required dependencies if ESLint is not already configured in your application.
+`next lint` 为 `pages/`、`app/`、`components/`、`lib/` 和 `src/` 目录中的所有文件运行 ESLint。如果应用程序中尚未配置 ESLint，它还提供引导式安装任何所需依赖项的设置。
 
-The following options are available for the `next lint` command:
+`next lint` 命令可用的选项如下：
 
-| Option                                                | Description                                                                                                   |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `[directory]`                                         | A base directory on which to lint the application. If not provided, the current directory will be used.       |
-| `-d, --dir, <dirs...>`                                | Include directory, or directories, to run ESLint.                                                             |
-| `--file, <files...>`                                  | Include file, or files, to run ESLint.                                                                        |
-| `--ext, [exts...]`                                    | Specify JavaScript file extensions. (default: [".js", ".mjs", ".cjs", ".jsx", ".ts", ".mts", ".cts", ".tsx"]) |
-| `-c, --config, <config>`                              | Uses this configuration file, overriding all other configuration options.                                     |
-| `--resolve-plugins-relative-to, <rprt>`               | Specify a directory where plugins should be resolved from.                                                    |
-| `--strict`                                            | Creates a `.eslintrc.json` file using the Next.js strict configuration.                                       |
-| `--rulesdir, <rulesdir...>`                           | Uses additional rules from this directory(s).                                                                 |
-| `--fix`                                               | Automatically fix linting issues.                                                                             |
-| `--fix-type <fixType>`                                | Specify the types of fixes to apply (e.g., problem, suggestion, layout).                                      |
-| `--ignore-path <path>`                                | Specify a file to ignore.                                                                                     |
-| `--no-ignore <path>`                                  | Disables the `--ignore-path` option.                                                                          |
-| `--quiet`                                             | Reports errors only.                                                                                          |
-| `--max-warnings [maxWarnings]`                        | Specify the number of warnings before triggering a non-zero exit code. (default: -1)                          |
-| `-o, --output-file, <outputFile>`                     | Specify a file to write report to.                                                                            |
-| `-f, --format, <format>`                              | Uses a specific output format.                                                                                |
-| `--no-inline-config`                                  | Prevents comments from changing config or rules.                                                              |
-| `--report-unused-disable-directives-severity <level>` | Specify severity level for unused eslint-disable directives. (choices: "error", "off", "warn")                |
-| `--no-cache`                                          | Disables caching.                                                                                             |
-| `--cache-location, <cacheLocation>`                   | Specify a location for cache.                                                                                 |
-| `--cache-strategy, [cacheStrategy]`                   | Specify a strategy to use for detecting changed files in the cache. (default: "metadata")                     |
-| `--error-on-unmatched-pattern`                        | Reports errors when any file patterns are unmatched.                                                          |
-| `-h, --help`                                          | Displays this message.                                                                                        |
+| 选项                                                  | 描述                                                                                                 |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `[directory]`                                         | 对应用程序进行代码检查的基本目录。如果未提供，则使用当前目录。                                       |
+| `-d, --dir, <dirs...>`                                | 包含要运行 ESLint 的目录。                                                                           |
+| `--file, <files...>`                                  | 包含要运行 ESLint 的文件。                                                                           |
+| `--ext, [exts...]`                                    | 指定 JavaScript 文件扩展名。(默认值：[".js", ".mjs", ".cjs", ".jsx", ".ts", ".mts", ".cts", ".tsx"]) |
+| `-c, --config, <config>`                              | 使用此配置文件，覆盖所有其他配置选项。                                                               |
+| `--resolve-plugins-relative-to, <rprt>`               | 指定应从中解析插件的目录。                                                                           |
+| `--strict`                                            | 使用 Next.js 严格配置创建 `.eslintrc.json` 文件。                                                    |
+| `--rulesdir, <rulesdir...>`                           | 使用此目录（或多个目录）中的其他规则。                                                               |
+| `--fix`                                               | 自动修复代码检查问题。                                                                               |
+| `--fix-type <fixType>`                                | 指定要应用的修复类型（例如 problem、suggestion、layout）。                                           |
+| `--ignore-path <path>`                                | 指定要忽略的文件。                                                                                   |
+| `--no-ignore <path>`                                  | 禁用 `--ignore-path` 选项。                                                                          |
+| `--quiet`                                             | 仅报告错误。                                                                                         |
+| `--max-warnings [maxWarnings]`                        | 指定触发非零退出代码前的警告数。(默认值：-1)                                                         |
+| `-o, --output-file, <outputFile>`                     | 指定写入报告的文件。                                                                                 |
+| `-f, --format, <format>`                              | 使用特定的输出格式。                                                                                 |
+| `--no-inline-config`                                  | 防止注释更改配置或规则。                                                                             |
+| `--report-unused-disable-directives-severity <level>` | 指定未使用的 eslint-disable 指令的严重级别。(选项："error"、"off"、"warn")                           |
+| `--no-cache`                                          | 禁用缓存。                                                                                           |
+| `--cache-location, <cacheLocation>`                   | 指定缓存的位置。                                                                                     |
+| `--cache-strategy, [cacheStrategy]`                   | 指定用于检测缓存中已更改文件的策略。(默认值："metadata")                                             |
+| `--error-on-unmatched-pattern`                        | 当任何文件模式不匹配时报告错误。                                                                     |
+| `-h, --help`                                          | 显示此消息。                                                                                         |
 
-### `next telemetry` options
+### `next telemetry` 选项
 
-Next.js collects **completely anonymous** telemetry data about general usage. Participation in this anonymous program is optional, and you can opt-out if you prefer not to share information.
+Next.js 收集**完全匿名**的遥测数据，用于一般使用情况。参与此匿名计划是可选的，如果您不希望共享信息，可以选择退出。
 
-The following options are available for the `next telemetry` command:
+`next telemetry` 命令可用的选项如下：
 
-| Option       | Description                             |
-| ------------ | --------------------------------------- |
-| `-h, --help` | Show all available options.             |
-| `--enable`   | Enables Next.js' telemetry collection.  |
-| `--disable`  | Disables Next.js' telemetry collection. |
+| 选项         | 描述                      |
+| ------------ | ------------------------- |
+| `-h, --help` | 显示所有可用选项。        |
+| `--enable`   | 启用 Next.js 的遥测收集。 |
+| `--disable`  | 禁用 Next.js 的遥测收集。 |
 
-Learn more about [Telemetry](/telemetry).
+了解更多关于[遥测](/telemetry)的信息。
 
-## Examples
+## 示例
 
-### Changing the default port
+### 更改默认端口
 
-By default, Next.js uses `http://localhost:3000` during development and with `next start`. The default port can be changed with the `-p` option, like so:
+默认情况下，Next.js 在开发过程中和使用 `next start` 时使用 `http://localhost:3000`。可以使用 `-p` 选项更改默认端口，如下所示：
 
 ```bash filename="Terminal"
 next dev -p 4000
 ```
 
-Or using the `PORT` environment variable:
+或使用 `PORT` 环境变量：
 
 ```bash filename="Terminal"
 PORT=4000 next dev
 ```
 
-> **Good to know**: `PORT` cannot be set in `.env` as booting up the HTTP server happens before any other code is initialized.
+> **小提示**：`PORT` 不能在 `.env` 中设置，因为 HTTP 服务器的启动发生在任何其他代码初始化之前。
 
-### Using HTTPS during development
+### 在开发过程中使用 HTTPS
 
-For certain use cases like webhooks or authentication, you can use [HTTPS](https://developer.mozilla.org/en-US/docs/Glossary/HTTPS) to have a secure environment on `localhost`. Next.js can generate a self-signed certificate with `next dev` using the `--experimental-https` flag:
+对于某些使用场景，如 webhook 或身份验证，您可以使用 [HTTPS](https://developer.mozilla.org/en-US/docs/Glossary/HTTPS) 在 `localhost` 上创建安全环境。Next.js 可以使用 `--experimental-https` 标志通过 `next dev` 生成自签名证书：
 
 ```bash filename="Terminal"
 next dev --experimental-https
 ```
 
-With the generated certificate, the Next.js development server will exist at `https://localhost:3000`. The default port `3000` is used unless a port is specified with `-p`, `--port`, or `PORT`.
+使用生成的证书，Next.js 开发服务器将位于 `https://localhost:3000`。除非使用 `-p`、`--port` 或 `PORT` 指定端口，否则使用默认端口 `3000`。
 
-You can also provide a custom certificate and key with `--experimental-https-key` and `--experimental-https-cert`. Optionally, you can provide a custom CA certificate with `--experimental-https-ca` as well.
+您还可以使用 `--experimental-https-key` 和 `--experimental-https-cert` 提供自定义证书和密钥。还可以选择使用 `--experimental-https-ca` 提供自定义 CA 证书。
 
 ```bash filename="Terminal"
 next dev --experimental-https --experimental-https-key ./certificates/localhost-key.pem --experimental-https-cert ./certificates/localhost.pem
 ```
 
-`next dev --experimental-https` is only intended for development and creates a locally trusted certificate with [`mkcert`](https://github.com/FiloSottile/mkcert). In production, use properly issued certificates from trusted authorities.
+`next dev --experimental-https` 仅用于开发，并使用 [`mkcert`](https://github.com/FiloSottile/mkcert) 创建本地受信任的证书。在生产环境中，请使用来自受信任机构的正式颁发的证书。
 
-### Configuring a timeout for downstream proxies
+### 为下游代理配置超时
 
-When deploying Next.js behind a downstream proxy (e.g. a load-balancer like AWS ELB/ALB), it's important to configure Next's underlying HTTP server with [keep-alive timeouts](https://nodejs.org/api/http.html#http_server_keepalivetimeout) that are _larger_ than the downstream proxy's timeouts. Otherwise, once a keep-alive timeout is reached for a given TCP connection, Node.js will immediately terminate that connection without notifying the downstream proxy. This results in a proxy error whenever it attempts to reuse a connection that Node.js has already terminated.
+当在下游代理（例如 AWS ELB/ALB 之类的负载均衡器）后部署 Next.js 时，重要的是要为 Next.js 的底层 HTTP 服务器配置比下游代理超时时间更长的 [keep-alive 超时](https://nodejs.org/api/http.html#http_server_keepalivetimeout)。否则，一旦给定 TCP 连接的 keep-alive 超时时间到达，Node.js 将立即终止该连接，而不会通知下游代理。这会导致代理在尝试重用 Node.js 已经终止的连接时出现错误。
 
-To configure the timeout values for the production Next.js server, pass `--keepAliveTimeout` (in milliseconds) to `next start`, like so:
+要为生产 Next.js 服务器配置超时值，请在 `next start` 中传递 `--keepAliveTimeout`（以毫秒为单位），如下所示：
 
 ```bash filename="Terminal"
 next start --keepAliveTimeout 70000
 ```
 
-### Passing Node.js arguments
+### 传递 Node.js 参数
 
-You can pass any [node arguments](https://nodejs.org/api/cli.html#cli_node_options_options) to `next` commands. For example:
+您可以向 `next` 命令传递任何 [node 参数](https://nodejs.org/api/cli.html#cli_node_options_options)。例如：
 
 ```bash filename="Terminal"
 NODE_OPTIONS='--throw-deprecation' next

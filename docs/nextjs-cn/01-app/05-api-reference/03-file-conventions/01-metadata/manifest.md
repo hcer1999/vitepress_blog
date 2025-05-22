@@ -1,11 +1,11 @@
 ---
 title: manifest.json
-description: API Reference for manifest.json file.
+description: manifest.json 文件的 API 参考。
 ---
 
-Add or generate a `manifest.(json|webmanifest)` file that matches the [Web Manifest Specification](https://developer.mozilla.org/docs/Web/Manifest) in the **root** of `app` directory to provide information about your web application for the browser.
+在 `app` 目录的**根目录**中添加或生成符合 [Web 清单规范](https://developer.mozilla.org/docs/Web/Manifest) 的 `manifest.(json|webmanifest)` 文件，为浏览器提供有关你的 Web 应用程序的信息。
 
-## Static Manifest file
+## 静态清单文件
 
 ```json filename="app/manifest.json | app/manifest.webmanifest"
 {
@@ -17,11 +17,11 @@ Add or generate a `manifest.(json|webmanifest)` file that matches the [Web Manif
 }
 ```
 
-## Generate a Manifest file
+## 生成清单文件
 
-Add a `manifest.js` or `manifest.ts` file that returns a [`Manifest` object](#manifest-object).
+添加一个返回 [`Manifest` 对象](#manifest-对象)的 `manifest.js` 或 `manifest.ts` 文件。
 
-> Good to know: `manifest.js` is special Route Handlers that is cached by default unless it uses a [Dynamic API](/docs/app/deep-dive/caching#dynamic-apis) or [dynamic config](/docs/app/deep-dive/caching#segment-config-options) option.
+> 须知: `manifest.js` 是一个默认被缓存的特殊路由处理程序，除非它使用了[动态 API](/docs/app/deep-dive/caching#dynamic-apis) 或[动态配置](/docs/app/deep-dive/caching#segment-config-options)选项。
 
 ```ts filename="app/manifest.ts" switcher
 import type { MetadataRoute } from 'next'
@@ -67,6 +67,6 @@ export default function manifest() {
 }
 ```
 
-### Manifest Object
+### Manifest 对象
 
-The manifest object contains an extensive list of options that may be updated due to new web standards. For information on all the current options, refer to the `MetadataRoute.Manifest` type in your code editor if using [TypeScript](https://nextjs.org/docs/app/api-reference/config/typescript#ide-plugin) or see the [MDN](https://developer.mozilla.org/docs/Web/Manifest) docs.
+清单对象包含广泛的选项列表，可能会因新的 Web 标准而更新。有关所有当前选项的信息，如果使用 [TypeScript](https://nextjs.org/docs/app/api-reference/config/typescript#ide-plugin)，请参考代码编辑器中的 `MetadataRoute.Manifest` 类型，或查看 [MDN](https://developer.mozilla.org/docs/Web/Manifest) 文档。

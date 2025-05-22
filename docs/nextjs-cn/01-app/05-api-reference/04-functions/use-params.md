@@ -1,9 +1,9 @@
 ---
 title: useParams
-description: API Reference for the useParams hook.
+description: useParams 钩子的 API 参考。
 ---
 
-`useParams` is a **Client Component** hook that lets you read a route's [dynamic params](/docs/app/building-your-application/routing/dynamic-routes) filled in by the current URL.
+`useParams` 是一个**客户端组件**钩子，让你可以读取由当前 URL 填充的路由[动态参数](/docs/app/building-your-application/routing/dynamic-routes)。
 
 ```tsx filename="app/example-client-component.tsx" switcher
 'use client'
@@ -13,7 +13,7 @@ import { useParams } from 'next/navigation'
 export default function ExampleClientComponent() {
   const params = useParams<{ tag: string; item: string }>()
 
-  // Route -> /shop/[tag]/[item]
+  // 路由 -> /shop/[tag]/[item]
   // URL -> /shop/shoes/nike-air-max-97
   // `params` -> { tag: 'shoes', item: 'nike-air-max-97' }
   console.log(params)
@@ -30,7 +30,7 @@ import { useParams } from 'next/navigation'
 export default function ExampleClientComponent() {
   const params = useParams()
 
-  // Route -> /shop/[tag]/[item]
+  // 路由 -> /shop/[tag]/[item]
   // URL -> /shop/shoes/nike-air-max-97
   // `params` -> { tag: 'shoes', item: 'nike-air-max-97' }
   console.log(params)
@@ -39,35 +39,35 @@ export default function ExampleClientComponent() {
 }
 ```
 
-## Parameters
+## 参数
 
 ```tsx
 const params = useParams()
 ```
 
-`useParams` does not take any parameters.
+`useParams` 不接受任何参数。
 
-## Returns
+## 返回值
 
-`useParams` returns an object containing the current route's filled in [dynamic parameters](/docs/app/building-your-application/routing/dynamic-routes).
+`useParams` 返回一个包含当前路由填充的[动态参数](/docs/app/building-your-application/routing/dynamic-routes)的对象。
 
-- Each property in the object is an active dynamic segment.
-- The properties name is the segment's name, and the properties value is what the segment is filled in with.
-- The properties value will either be a `string` or array of `string`'s depending on the [type of dynamic segment](/docs/app/building-your-application/routing/dynamic-routes).
-- If the route contains no dynamic parameters, `useParams` returns an empty object.
-- If used in Pages Router, `useParams` will return `null` on the initial render and updates with properties following the rules above once the router is ready.
+- 对象中的每个属性都是一个活动的动态段。
+- 属性名是段的名称，属性值是段被填充的内容。
+- 属性值将是一个 `string` 或 `string` 数组，取决于[动态段的类型](/docs/app/building-your-application/routing/dynamic-routes)。
+- 如果路由不包含动态参数，`useParams` 返回一个空对象。
+- 如果在 Pages Router 中使用，`useParams` 在初始渲染时将返回 `null`，并在路由器准备好后更新为遵循上述规则的属性。
 
-For example:
+例如：
 
-| Route                           | URL         | `useParams()`             |
+| 路由                            | URL         | `useParams()`             |
 | ------------------------------- | ----------- | ------------------------- |
 | `app/shop/page.js`              | `/shop`     | `{}`                      |
 | `app/shop/[slug]/page.js`       | `/shop/1`   | `{ slug: '1' }`           |
 | `app/shop/[tag]/[item]/page.js` | `/shop/1/2` | `{ tag: '1', item: '2' }` |
 | `app/shop/[...slug]/page.js`    | `/shop/1/2` | `{ slug: ['1', '2'] }`    |
 
-## Version History
+## 版本历史
 
-| Version   | Changes                 |
-| --------- | ----------------------- |
-| `v13.3.0` | `useParams` introduced. |
+| 版本      | 变更               |
+| --------- | ------------------ |
+| `v13.3.0` | 引入 `useParams`。 |

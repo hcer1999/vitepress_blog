@@ -1,16 +1,16 @@
 ---
 title: error.js
-description: API reference for the error.js special file.
+description: error.js 特殊文件的 API 参考。
 related:
-  title: Learn more about error handling
+  title: 了解更多关于错误处理
   links:
     - app/building-your-application/routing/error-handling
 ---
 
-An **error** file allows you to handle unexpected runtime errors and display fallback UI.
+**error** 文件允许你处理意外的运行时错误并显示备用 UI。
 
 <Image
-  alt="error.js special file"
+  alt="error.js 特殊文件"
   srcLight="/docs/light/error-special-file.png"
   srcDark="/docs/dark/error-special-file.png"
   width="1600"
@@ -18,7 +18,7 @@ An **error** file allows you to handle unexpected runtime errors and display fal
 />
 
 ```tsx filename="app/dashboard/error.tsx" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 import { useEffect } from 'react'
 
@@ -30,20 +30,20 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
+    // 将错误记录到错误报告服务
     console.error(error)
   }, [error])
 
   return (
     <div>
-      <h2>Something went wrong!</h2>
+      <h2>出错了！</h2>
       <button
         onClick={
-          // Attempt to recover by trying to re-render the segment
+          // 尝试通过重新渲染段来恢复
           () => reset()
         }
       >
-        Try again
+        重试
       </button>
     </div>
   )
@@ -51,74 +51,74 @@ export default function Error({
 ```
 
 ```jsx filename="app/dashboard/error.js" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 import { useEffect } from 'react'
 
 export default function Error({ error, reset }) {
   useEffect(() => {
-    // Log the error to an error reporting service
+    // 将错误记录到错误报告服务
     console.error(error)
   }, [error])
 
   return (
     <div>
-      <h2>Something went wrong!</h2>
+      <h2>出错了！</h2>
       <button
         onClick={
-          // Attempt to recover by trying to re-render the segment
+          // 尝试通过重新渲染段来恢复
           () => reset()
         }
       >
-        Try again
+        重试
       </button>
     </div>
   )
 }
 ```
 
-`error.js` wraps a route segment and its nested children in a [React Error Boundary](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary). When an error throws within the boundary, the `error` component shows as the fallback UI.
+`error.js` 将路由段及其嵌套子组件包装在 [React 错误边界](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) 中。当边界内抛出错误时，`error` 组件作为备用 UI 显示。
 
 <Image
-  alt="How error.js works"
+  alt="error.js 如何工作"
   srcLight="/docs/light/error-overview.png"
   srcDark="/docs/dark/error-overview.png"
   width="1600"
   height="903"
 />
 
-> **Good to know**:
+> **须知**：
 >
-> - The [React DevTools](https://react.dev/learn/react-developer-tools) allow you to toggle error boundaries to test error states.
-> - If you want errors to bubble up to the parent error boundary, you can `throw` when rendering the `error` component.
+> - [React 开发工具](https://react.dev/learn/react-developer-tools) 允许你切换错误边界来测试错误状态。
+> - 如果你希望错误冒泡到父级错误边界，可以在渲染 `error` 组件时使用 `throw`。
 
-## Reference
+## 参考
 
 ### Props
 
 #### `error`
 
-An instance of an [`Error`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error) object forwarded to the `error.js` Client Component.
+一个转发到 `error.js` 客户端组件的 [`Error`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error) 对象实例。
 
-> **Good to know:** During development, the `Error` object forwarded to the client will be serialized and include the `message` of the original error for easier debugging. However, **this behavior is different in production** to avoid leaking potentially sensitive details included in the error to the client.
+> **须知：** 在开发过程中，转发到客户端的 `Error` 对象将被序列化，并包含原始错误的 `message`，以便更容易调试。但是，**在生产环境中这种行为会有所不同**，以避免将错误中包含的可能敏感信息泄露给客户端。
 
 #### `error.message`
 
-- Errors forwarded from Client Components show the original `Error` message.
-- Errors forwarded from Server Components show a generic message with an identifier. This is to prevent leaking sensitive details. You can use the identifier, under `errors.digest`, to match the corresponding server-side logs.
+- 从客户端组件转发的错误显示原始的 `Error` 消息。
+- 从服务器组件转发的错误显示带有标识符的通用消息。这是为了防止泄露敏感信息。你可以使用 `errors.digest` 下的标识符与服务器端日志中的相应错误进行匹配。
 
 #### `error.digest`
 
-An automatically generated hash of the error thrown. It can be used to match the corresponding error in server-side logs.
+自动生成的错误哈希值。它可用于匹配服务器端日志中的相应错误。
 
 #### `reset`
 
-The cause of an error can sometimes be temporary. In these cases, trying again might resolve the issue.
+错误的原因有时可能是临时的。在这些情况下，重试可能会解决问题。
 
-An error component can use the `reset()` function to prompt the user to attempt to recover from the error. When executed, the function will try to re-render the error boundary's contents. If successful, the fallback error component is replaced with the result of the re-render.
+错误组件可以使用 `reset()` 函数提示用户尝试从错误中恢复。执行该函数时，它将尝试重新渲染错误边界的内容。如果成功，备用错误组件将被重新渲染的结果替换。
 
 ```tsx filename="app/dashboard/error.tsx" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 export default function Error({
   error,
@@ -129,34 +129,34 @@ export default function Error({
 }) {
   return (
     <div>
-      <h2>Something went wrong!</h2>
-      <button onClick={() => reset()}>Try again</button>
+      <h2>出错了！</h2>
+      <button onClick={() => reset()}>重试</button>
     </div>
   )
 }
 ```
 
 ```jsx filename="app/dashboard/error.js" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 export default function Error({ error, reset }) {
   return (
     <div>
-      <h2>Something went wrong!</h2>
-      <button onClick={() => reset()}>Try again</button>
+      <h2>出错了！</h2>
+      <button onClick={() => reset()}>重试</button>
     </div>
   )
 }
 ```
 
-## Examples
+## 示例
 
-### Global Error
+### 全局错误
 
-While less common, you can handle errors in the root layout or template using `global-error.js`, located in the root app directory, even when leveraging [internationalization](/docs/app/building-your-application/routing/internationalization). Global error UI must define its own `<html>` and `<body>` tags. This file replaces the root layout or template when active.
+虽然不太常见，但你可以使用 `global-error.js` 处理根布局或模板中的错误，该文件位于根 app 目录中，即使在使用[国际化](/docs/app/building-your-application/routing/internationalization)时也是如此。全局错误 UI 必须定义自己的 `<html>` 和 `<body>` 标签。当激活时，此文件替换根布局或模板。
 
 ```tsx filename="app/global-error.tsx" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 export default function GlobalError({
   error,
@@ -166,11 +166,11 @@ export default function GlobalError({
   reset: () => void
 }) {
   return (
-    // global-error must include html and body tags
+    // global-error 必须包含 html 和 body 标签
     <html>
       <body>
-        <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
+        <h2>出错了！</h2>
+        <button onClick={() => reset()}>重试</button>
       </body>
     </html>
   )
@@ -178,26 +178,26 @@ export default function GlobalError({
 ```
 
 ```jsx filename="app/global-error.js" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 export default function GlobalError({ error, reset }) {
   return (
-    // global-error must include html and body tags
+    // global-error 必须包含 html 和 body 标签
     <html>
       <body>
-        <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
+        <h2>出错了！</h2>
+        <button onClick={() => reset()}>重试</button>
       </body>
     </html>
   )
 }
 ```
 
-### Graceful error recovery with a custom error boundary
+### 使用自定义错误边界优雅地恢复错误
 
-When rendering fails on the client, it can be useful to show the last known server rendered UI for a better user experience.
+当客户端渲染失败时，显示最后已知的服务器渲染 UI 可能会提供更好的用户体验。
 
-The `GracefullyDegradingErrorBoundary` is an example of a custom error boundary that captures and preserves the current HTML before an error occurs. If a rendering error happens, it re-renders the captured HTML and displays a persistent notification bar to inform the user.
+`GracefullyDegradingErrorBoundary` 是一个自定义错误边界的示例，它在错误发生前捕获并保留当前的 HTML。如果发生渲染错误，它会重新渲染捕获的 HTML 并显示一个持久性通知栏来通知用户。
 
 ```tsx filename="app/dashboard/error.tsx" switcher
 'use client'
@@ -237,7 +237,7 @@ export class GracefullyDegradingErrorBoundary extends Component<
 
   render() {
     if (this.state.hasError) {
-      // Render the current HTML content without hydration
+      // 在没有水合的情况下渲染当前的 HTML 内容
       return (
         <>
           <div
@@ -248,7 +248,7 @@ export class GracefullyDegradingErrorBoundary extends Component<
             }}
           />
           <div className="fixed bottom-0 left-0 right-0 bg-red-600 text-white py-4 px-6 text-center">
-            <p className="font-semibold">An error occurred during page rendering</p>
+            出现了一个错误。请稍后重试。
           </div>
         </>
       )
@@ -258,19 +258,41 @@ export class GracefullyDegradingErrorBoundary extends Component<
   }
 }
 
-export default GracefullyDegradingErrorBoundary
+// 嵌套的 error.js 边界可以使用该组件来保存服务器端的 HTML
+export default function DashboardError({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string }
+  reset: () => void
+}) {
+  return (
+    <div className="space-y-4">
+      <div className="text-vercel-pink text-sm font-medium">
+        <h2 className="text-lg font-bold">出错了！</h2>
+        <p>无法渲染仪表板。尝试重试或查看控制台获取更多信息。</p>
+      </div>
+      <button
+        className="rounded bg-vercel-pink px-4 py-2 text-sm text-white hover:bg-pink-600 active:bg-pink-700"
+        onClick={reset}
+      >
+        重试
+      </button>
+    </div>
+  )
+}
 ```
 
 ```jsx filename="app/dashboard/error.js" switcher
 'use client'
 
-import React, { Component, createRef } from 'react'
+import React from 'react'
 
-class GracefullyDegradingErrorBoundary extends Component {
+export class GracefullyDegradingErrorBoundary extends React.Component {
   constructor(props) {
     super(props)
     this.state = { hasError: false }
-    this.contentRef = createRef()
+    this.contentRef = React.createRef()
   }
 
   static getDerivedStateFromError(_) {
@@ -285,7 +307,7 @@ class GracefullyDegradingErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      // Render the current HTML content without hydration
+      // 在没有水合的情况下渲染当前的 HTML 内容
       return (
         <>
           <div
@@ -296,7 +318,7 @@ class GracefullyDegradingErrorBoundary extends Component {
             }}
           />
           <div className="fixed bottom-0 left-0 right-0 bg-red-600 text-white py-4 px-6 text-center">
-            <p className="font-semibold">An error occurred during page rendering</p>
+            出现了一个错误。请稍后重试。
           </div>
         </>
       )
@@ -306,13 +328,29 @@ class GracefullyDegradingErrorBoundary extends Component {
   }
 }
 
-export default GracefullyDegradingErrorBoundary
+// 嵌套的 error.js 边界可以使用该组件来保存服务器端的 HTML
+export default function DashboardError({ error, reset }) {
+  return (
+    <div className="space-y-4">
+      <div className="text-vercel-pink text-sm font-medium">
+        <h2 className="text-lg font-bold">出错了！</h2>
+        <p>无法渲染仪表板。尝试重试或查看控制台获取更多信息。</p>
+      </div>
+      <button
+        className="rounded bg-vercel-pink px-4 py-2 text-sm text-white hover:bg-pink-600 active:bg-pink-700"
+        onClick={reset}
+      >
+        重试
+      </button>
+    </div>
+  )
+}
+
+## 版本历史
+
+| 版本      | 变更                                  |
+| --------- | ------------------------------------- |
+| `v15.2.0` | 在开发环境中也显示 `global-error`。    |
+| `v13.1.0` | 引入 `global-error`。                 |
+| `v13.0.0` | 引入 `error`。                        |
 ```
-
-## Version History
-
-| Version   | Changes                                     |
-| --------- | ------------------------------------------- |
-| `v15.2.0` | Also display `global-error` in development. |
-| `v13.1.0` | `global-error` introduced.                  |
-| `v13.0.0` | `error` introduced.                         |

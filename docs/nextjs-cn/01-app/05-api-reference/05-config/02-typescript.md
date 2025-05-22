@@ -1,63 +1,63 @@
 ---
 title: TypeScript
-description: Next.js provides a TypeScript-first development experience for building your React application.
+description: Next.js 为构建 React 应用程序提供了 TypeScript 优先的开发体验。
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-Next.js comes with built-in TypeScript, automatically installing the necessary packages and configuring the proper settings when you create a new project with `create-next-app`.
+Next.js 内置了 TypeScript 支持，当你使用 `create-next-app` 创建新项目时，会自动安装必要的包并配置适当的设置。
 
-To add TypeScript to an existing project, rename a file to `.ts` / `.tsx`. Run `next dev` and `next build` to automatically install the necessary dependencies and add a `tsconfig.json` file with the recommended config options.
+要将 TypeScript 添加到现有项目中，将文件重命名为 `.ts` / `.tsx`。运行 `next dev` 和 `next build` 将自动安装必要的依赖项，并添加包含推荐配置选项的 `tsconfig.json` 文件。
 
-> **Good to know**: If you already have a `jsconfig.json` file, copy the `paths` compiler option from the old `jsconfig.json` into the new `tsconfig.json` file, and delete the old `jsconfig.json` file.
+> **提示**：如果你已经有 `jsconfig.json` 文件，请将旧 `jsconfig.json` 中的 `paths` 编译器选项复制到新的 `tsconfig.json` 文件中，然后删除旧的 `jsconfig.json` 文件。
 
 <AppOnly>
 
-## IDE Plugin
+## IDE 插件
 
-Next.js includes a custom TypeScript plugin and type checker, which VSCode and other code editors can use for advanced type-checking and auto-completion.
+Next.js 包含一个自定义的 TypeScript 插件和类型检查器，VSCode 和其他代码编辑器可以使用它来进行高级类型检查和自动完成。
 
-You can enable the plugin in VS Code by:
+你可以在 VS Code 中通过以下方式启用插件：
 
-1. Opening the command palette (`Ctrl/⌘` + `Shift` + `P`)
-2. Searching for "TypeScript: Select TypeScript Version"
-3. Selecting "Use Workspace Version"
+1. 打开命令面板（`Ctrl/⌘` + `Shift` + `P`）
+2. 搜索 "TypeScript: Select TypeScript Version"
+3. 选择 "Use Workspace Version"
 
 <Image
-  alt="TypeScript Command Palette"
+  alt="TypeScript 命令面板"
   srcLight="/docs/light/typescript-command-palette.png"
   srcDark="/docs/dark/typescript-command-palette.png"
   width="1600"
   height="637"
 />
 
-Now, when editing files, the custom plugin will be enabled. When running `next build`, the custom type checker will be used.
+现在，在编辑文件时，自定义插件将被启用。当运行 `next build` 时，将使用自定义类型检查器。
 
-The TypeScript plugin can help with:
+TypeScript 插件可以帮助：
 
-- Warning if the invalid values for [segment config options](/docs/app/api-reference/file-conventions/route-segment-config) are passed.
-- Showing available options and in-context documentation.
-- Ensuring the `'use client'` directive is used correctly.
-- Ensuring client hooks (like `useState`) are only used in Client Components.
+- 在传递无效的[段配置选项](/docs/app/api-reference/file-conventions/route-segment-config)值时发出警告。
+- 显示可用选项和上下文文档。
+- 确保正确使用 `'use client'` 指令。
+- 确保客户端钩子（如 `useState`）仅在客户端组件中使用。
 
-> **🎥 Watch:** Learn about the built-in TypeScript plugin → [YouTube (3 minutes)](https://www.youtube.com/watch?v=pqMqn9fKEf8)
+> **🎥 观看：** 了解内置 TypeScript 插件 → [YouTube（3 分钟）](https://www.youtube.com/watch?v=pqMqn9fKEf8)
 
-## End-to-End Type Safety
+## 端到端类型安全
 
-The Next.js App Router has **enhanced type safety**. This includes:
+Next.js App Router 具有**增强的类型安全**。这包括：
 
-1. **No serialization of data between fetching function and page**: You can `fetch` directly in components, layouts, and pages on the server. This data _does not_ need to be serialized (converted to a string) to be passed to the client side for consumption in React. Instead, since `app` uses Server Components by default, we can use values like `Date`, `Map`, `Set`, and more without any extra steps. Previously, you needed to manually type the boundary between server and client with Next.js-specific types.
-2. **Streamlined data flow between components**: With the removal of `_app` in favor of root layouts, it is now easier to visualize the data flow between components and pages. Previously, data flowing between individual `pages` and `_app` were difficult to type and could introduce confusing bugs. With [colocated data fetching](/docs/app/building-your-application/data-fetching/fetching) in the App Router, this is no longer an issue.
+1. **获取函数和页面之间没有数据序列化**：你可以直接在服务器上的组件、布局和页面中使用 `fetch`。这些数据**不需要**被序列化（转换为字符串）以传递给客户端使用。相反，由于 `app` 默认使用服务器组件，我们可以直接使用 `Date`、`Map`、`Set` 等值，而无需额外步骤。以前，你需要使用 Next.js 特定类型来手动处理服务器和客户端之间的边界。
+2. **组件之间的简化数据流**：通过用根布局替代 `_app`，现在更容易可视化组件和页面之间的数据流。以前，在单个 `pages` 和 `_app` 之间流动的数据难以类型化，可能会引入令人困惑的错误。通过 App Router 中的[共存数据获取](/docs/app/building-your-application/data-fetching/fetching)，这不再是问题。
 
-[Data Fetching in Next.js](/docs/app/building-your-application/data-fetching/fetching) now provides as close to end-to-end type safety as possible without being prescriptive about your database or content provider selection.
+[Next.js 中的数据获取](/docs/app/building-your-application/data-fetching/fetching)现在提供了尽可能接近端到端类型安全的体验，而不对你的数据库或内容提供商选择做出规定。
 
-We're able to type the response data as you would expect with normal TypeScript. For example:
+我们可以像在普通 TypeScript 中一样对响应数据进行类型化。例如：
 
 ```tsx filename="app/page.tsx" switcher
 async function getData() {
   const res = await fetch('https://api.example.com/...')
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
+  // 返回值*不会*被序列化
+  // 你可以返回 Date、Map、Set 等
   return res.json()
 }
 
@@ -68,36 +68,36 @@ export default async function Page() {
 }
 ```
 
-For _complete_ end-to-end type safety, this also requires your database or content provider to support TypeScript. This could be through using an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) or type-safe query builder.
+对于*完整的*端到端类型安全，这还需要你的数据库或内容提供商支持 TypeScript。这可以通过使用 [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) 或类型安全的查询构建器来实现。
 
 </AppOnly>
 
-## Examples
+## 示例
 
-### Type checking `next.config.ts`
+### 类型检查 `next.config.ts`
 
-You can use TypeScript and import types in your Next.js configuration by using `next.config.ts`.
+你可以使用 TypeScript 并在 Next.js 配置中导入类型，方法是使用 `next.config.ts`。
 
 ```ts filename="next.config.ts"
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* 这里是配置选项 */
 }
 
 export default nextConfig
 ```
 
-> **Good to know**: Module resolution in `next.config.ts` is currently limited to `CommonJS`. This may cause incompatibilities with ESM only packages being loaded in `next.config.ts`.
+> **提示**：目前 `next.config.ts` 中的模块解析仅限于 `CommonJS`。这可能导致在 `next.config.ts` 中加载仅 ESM 的包时出现不兼容问题。
 
-When using the `next.config.js` file, you can add some type checking in your IDE using JSDoc as below:
+当使用 `next.config.js` 文件时，你可以使用 JSDoc 在你的 IDE 中添加一些类型检查，如下所示：
 
 ```js filename="next.config.js"
 // @ts-check
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  /* 这里是配置选项 */
 }
 
 module.exports = nextConfig
@@ -105,11 +105,11 @@ module.exports = nextConfig
 
 <AppOnly>
 
-### Statically Typed Links
+### 静态类型链接
 
-Next.js can statically type links to prevent typos and other errors when using `next/link`, improving type safety when navigating between pages.
+Next.js 可以静态类型化链接，以防止在使用 `next/link` 时出现拼写错误和其他错误，从而在页面间导航时提高类型安全性。
 
-To opt-into this feature, `experimental.typedRoutes` need to be enabled and the project needs to be using TypeScript.
+要选择使用此功能，需要启用 `experimental.typedRoutes` 并且项目需要使用 TypeScript。
 
 ```ts filename="next.config.ts"
 import type { NextConfig } from 'next'
@@ -123,25 +123,25 @@ const nextConfig: NextConfig = {
 export default nextConfig
 ```
 
-Next.js will generate a link definition in `.next/types` that contains information about all existing routes in your application, which TypeScript can then use to provide feedback in your editor about invalid links.
+Next.js 将在 `.next/types` 中生成一个链接定义，其中包含有关应用程序中所有现有路由的信息，然后 TypeScript 可以使用这些信息在编辑器中提供关于无效链接的反馈。
 
-Currently, experimental support includes any string literal, including dynamic segments. For non-literal strings, you currently need to manually cast the `href` with `as Route`:
+目前，实验性支持包括任何字符串字面量，包括动态段。对于非字面量字符串，你目前需要手动将 `href` 转换为 `as Route`：
 
 ```tsx
 import type { Route } from 'next';
 import Link from 'next/link'
 
-// No TypeScript errors if href is a valid route
+// 如果 href 是有效路由，则没有 TypeScript 错误
 <Link href="/about" />
 <Link href="/blog/nextjs" />
 <Link href={`/blog/${slug}`} />
 <Link href={('/blog' + slug) as Route} />
 
-// TypeScript errors if href is not a valid route
+// 如果 href 不是有效路由，则会有 TypeScript 错误
 <Link href="/aboot" />
 ```
 
-To accept `href` in a custom component wrapping `next/link`, use a generic:
+要在包装 `next/link` 的自定义组件中接受 `href`，请使用泛型：
 
 ```tsx
 import type { Route } from 'next'
@@ -156,23 +156,23 @@ function Card<T extends string>({ href }: { href: Route<T> | URL }) {
 }
 ```
 
-> **How does it work?**
+> **它是如何工作的？**
 >
-> When running `next dev` or `next build`, Next.js generates a hidden `.d.ts` file inside `.next` that contains information about all existing routes in your application (all valid routes as the `href` type of `Link`). This `.d.ts` file is included in `tsconfig.json` and the TypeScript compiler will check that `.d.ts` and provide feedback in your editor about invalid links.
+> 当运行 `next dev` 或 `next build` 时，Next.js 会在 `.next` 内生成一个隐藏的 `.d.ts` 文件，其中包含有关应用程序中所有现有路由的信息（所有作为 `Link` 的 `href` 类型的有效路由）。这个 `.d.ts` 文件包含在 `tsconfig.json` 中，TypeScript 编译器将检查该 `.d.ts` 并在编辑器中提供关于无效链接的反馈。
 
-### With Async Server Components
+### 与异步服务器组件一起使用
 
-To use an `async` Server Component with TypeScript, ensure you are using TypeScript `5.1.3` or higher and `@types/react` `18.2.8` or higher.
+要使用 `async` 服务器组件和 TypeScript，请确保你使用的是 TypeScript `5.1.3` 或更高版本，以及 `@types/react` `18.2.8` 或更高版本。
 
-If you are using an older version of TypeScript, you may see a `'Promise<Element>' is not a valid JSX element` type error. Updating to the latest version of TypeScript and `@types/react` should resolve this issue.
+如果你使用的是旧版本的 TypeScript，你可能会看到 `'Promise<Element>' is not a valid JSX element` 类型错误。更新到最新版本的 TypeScript 和 `@types/react` 应该能解决这个问题。
 
 </AppOnly>
 
 <PagesOnly>
 
-### Static Generation and Server-side Rendering
+### 静态生成和服务器端渲染
 
-For [`getStaticProps`](/docs/pages/api-reference/functions/get-static-props), [`getStaticPaths`](/docs/pages/api-reference/functions/get-static-paths), and [`getServerSideProps`](/docs/pages/api-reference/functions/get-server-side-props), you can use the `GetStaticProps`, `GetStaticPaths`, and `GetServerSideProps` types respectively:
+对于 [`getStaticProps`](/docs/pages/api-reference/functions/get-static-props)、[`getStaticPaths`](/docs/pages/api-reference/functions/get-static-paths) 和 [`getServerSideProps`](/docs/pages/api-reference/functions/get-server-side-props)，你可以分别使用 `GetStaticProps`、`GetStaticPaths` 和 `GetServerSideProps` 类型：
 
 ```tsx filename="pages/blog/[slug].tsx"
 import type { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
@@ -190,44 +190,14 @@ export const getServerSideProps = (async (context) => {
 }) satisfies GetServerSideProps
 ```
 
-> **Good to know:** `satisfies` was added to TypeScript in [4.9](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html). We recommend upgrading to the latest version of TypeScript.
+> **提示：** `satisfies` 是在 TypeScript [4.9](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html) 中添加的。我们建议升级到最新版本的 TypeScript。
 
-### With API Routes
+### 与 API 路由一起使用
 
-The following is an example of how to use the built-in types for API routes:
-
-```ts filename="pages/api/hello.ts"
-import type { NextApiRequest, NextApiResponse } from 'next'
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({ name: 'John Doe' })
-}
-```
-
-You can also type the response data:
+以下是如何使用 API 路由的内置类型的示例：
 
 ```ts filename="pages/api/hello.ts"
 import type { NextApiRequest, NextApiResponse } from 'next'
-
-type Data = {
-  name: string
-}
-
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  res.status(200).json({ name: 'John Doe' })
-}
-```
-
-### With custom `App`
-
-If you have a [custom `App`](/docs/pages/building-your-application/routing/custom-app), you can use the built-in type `AppProps` and change file name to `./pages/_app.tsx` like so:
-
-```ts
-import type { AppProps } from 'next/app'
-
-export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
 ```
 
 </PagesOnly>

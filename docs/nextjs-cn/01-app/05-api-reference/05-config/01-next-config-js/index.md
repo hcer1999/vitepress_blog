@@ -1,28 +1,28 @@
 ---
 title: next.config.js
-description: Learn how to configure your application with next.config.js.
+description: 了解如何使用 next.config.js 配置你的应用程序。
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-Next.js can be configured through a `next.config.js` file in the root of your project directory (for example, by `package.json`) with a default export.
+Next.js 可以通过项目根目录（例如与 `package.json` 同级）中的 `next.config.js` 文件进行配置，该文件需要包含默认导出。
 
 ```js filename="next.config.js"
 // @ts-check
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  /* 这里是配置选项 */
 }
 
 module.exports = nextConfig
 ```
 
-## ECMAScript Modules
+## ECMAScript 模块
 
-`next.config.js` is a regular Node.js module, not a JSON file. It gets used by the Next.js server and build phases, and it's not included in the browser build.
+`next.config.js` 是一个常规的 Node.js 模块，而不是 JSON 文件。它被 Next.js 服务器和构建阶段使用，不会包含在浏览器构建中。
 
-If you need [ECMAScript modules](https://nodejs.org/api/esm.html), you can use `next.config.mjs`:
+如果你需要使用 [ECMAScript 模块](https://nodejs.org/api/esm.html)，可以使用 `next.config.mjs`：
 
 ```js filename="next.config.mjs"
 // @ts-check
@@ -31,17 +31,17 @@ If you need [ECMAScript modules](https://nodejs.org/api/esm.html), you can use `
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  /* config options here */
+  /* 这里是配置选项 */
 }
 
 export default nextConfig
 ```
 
-> **Good to know**: `next.config` with the `.cjs`, `.cts`, or `.mts` extensions are currently **not** supported.
+> **须知**：目前**不**支持带有 `.cjs`、`.cts` 或 `.mts` 扩展名的 `next.config`。
 
-## Configuration as a Function
+## 配置为函数
 
-You can also use a function:
+你也可以使用函数：
 
 ```js filename="next.config.mjs"
 // @ts-check
@@ -51,15 +51,15 @@ export default (phase, { defaultConfig }) => {
    * @type {import('next').NextConfig}
    */
   const nextConfig = {
-    /* config options here */
+    /* 这里是配置选项 */
   }
   return nextConfig
 }
 ```
 
-### Async Configuration
+### 异步配置
 
-Since Next.js 12.1.0, you can use an async function:
+从 Next.js 12.1.0 开始，你可以使用异步函数：
 
 ```js filename="next.config.js"
 // @ts-check
@@ -69,15 +69,15 @@ module.exports = async (phase, { defaultConfig }) => {
    * @type {import('next').NextConfig}
    */
   const nextConfig = {
-    /* config options here */
+    /* 这里是配置选项 */
   }
   return nextConfig
 }
 ```
 
-### Phase
+### 阶段
 
-`phase` is the current context in which the configuration is loaded. You can see the [available phases](https://github.com/vercel/next.js/blob/5e6b008b561caf2710ab7be63320a3d549474a5b/packages/next/shared/lib/constants.ts#L19-L23). Phases can be imported from `next/constants`:
+`phase` 是加载配置的当前上下文。你可以查看[可用阶段](https://github.com/vercel/next.js/blob/5e6b008b561caf2710ab7be63320a3d549474a5b/packages/next/shared/lib/constants.ts#L19-L23)。阶段可以从 `next/constants` 导入：
 
 ```js filename="next.config.js"
 // @ts-check
@@ -87,45 +87,45 @@ const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
 module.exports = (phase, { defaultConfig }) => {
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
-      /* development only config options here */
+      /* 仅开发环境的配置选项 */
     }
   }
 
   return {
-    /* config options for all phases except development here */
+    /* 除开发环境外所有阶段的配置选项 */
   }
 }
 ```
 
 ## TypeScript
 
-If you are using TypeScript in your project, you can use `next.config.ts` to use TypeScript in your configuration:
+如果你在项目中使用 TypeScript，可以使用 `next.config.ts` 在配置中使用 TypeScript：
 
 ```ts filename="next.config.ts"
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* 这里是配置选项 */
 }
 
 export default nextConfig
 ```
 
-The commented lines are the place where you can put the configs allowed by `next.config.js`, which are [defined in this file](https://github.com/vercel/next.js/blob/canary/packages/next/src/server/config-shared.ts).
+注释行是你可以放置 `next.config.js` 允许的配置的地方，这些配置[在此文件中定义](https://github.com/vercel/next.js/blob/canary/packages/next/src/server/config-shared.ts)。
 
-However, none of the configs are required, and it's not necessary to understand what each config does. Instead, search for the features you need to enable or modify in this section and they will show you what to do.
+然而，所有这些配置都不是必需的，也不需要了解每个配置的作用。相反，在本节中搜索你需要启用或修改的功能，它们会告诉你该怎么做。
 
-> Avoid using new JavaScript features not available in your target Node.js version. `next.config.js` will not be parsed by Webpack or Babel.
+> 避免使用目标 Node.js 版本中不可用的新 JavaScript 功能。`next.config.js` 不会被 Webpack 或 Babel 解析。
 
-This page documents all the available configuration options:
+本页面记录了所有可用的配置选项：
 
-## Unit Testing (experimental)
+## 单元测试（实验性）
 
-Starting in Next.js 15.1, the `next/experimental/testing/server` package contains utilities to help unit test `next.config.js` files.
+从 Next.js 15.1 开始，`next/experimental/testing/server` 包含帮助对 `next.config.js` 文件进行单元测试的实用工具。
 
-The `unstable_getResponseFromNextConfig` function runs the [`headers`](/docs/app/api-reference/config/next-config-js/headers), [`redirects`](/docs/app/api-reference/config/next-config-js/redirects), and [`rewrites`](/docs/app/api-reference/config/next-config-js/rewrites) functions from `next.config.js` with the provided request information and returns `NextResponse` with the results of the routing.
+`unstable_getResponseFromNextConfig` 函数运行 `next.config.js` 中的 [`headers`](/docs/app/api-reference/config/next-config-js/headers)、[`redirects`](/docs/app/api-reference/config/next-config-js/redirects) 和 [`rewrites`](/docs/app/api-reference/config/next-config-js/rewrites) 函数，使用提供的请求信息并返回带有路由结果的 `NextResponse`。
 
-> The response from `unstable_getResponseFromNextConfig` only considers `next.config.js` fields and does not consider middleware or filesystem routes, so the result in production may be different than the unit test.
+> `unstable_getResponseFromNextConfig` 的响应仅考虑 `next.config.js` 字段，不考虑中间件或文件系统路由，因此生产环境中的结果可能与单元测试不同。
 
 ```js
 import {

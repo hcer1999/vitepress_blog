@@ -1,9 +1,9 @@
 ---
 title: headers
-description: API reference for the headers function.
+description: headers 函数的 API 参考。
 ---
 
-`headers` is an **async** function that allows you to **read** the HTTP incoming request headers from a [Server Component](/docs/app/building-your-application/rendering/server-components).
+`headers` 是一个**异步**函数，允许你从[服务器组件](/docs/app/building-your-application/rendering/server-components)中**读取** HTTP 传入请求头。
 
 ```tsx filename="app/page.tsx" switcher
 import { headers } from 'next/headers'
@@ -23,33 +23,33 @@ export default async function Page() {
 }
 ```
 
-## Reference
+## 参考
 
-### Parameters
+### 参数
 
-`headers` does not take any parameters.
+`headers` 不接受任何参数。
 
-### Returns
+### 返回值
 
-`headers` returns a **read-only** [Web Headers](https://developer.mozilla.org/docs/Web/API/Headers) object.
+`headers` 返回一个**只读**的 [Web Headers](https://developer.mozilla.org/docs/Web/API/Headers) 对象。
 
-- [`Headers.entries()`](https://developer.mozilla.org/docs/Web/API/Headers/entries): Returns an [`iterator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Iteration_protocols) allowing to go through all key/value pairs contained in this object.
-- [`Headers.forEach()`](https://developer.mozilla.org/docs/Web/API/Headers/forEach): Executes a provided function once for each key/value pair in this `Headers` object.
-- [`Headers.get()`](https://developer.mozilla.org/docs/Web/API/Headers/get): Returns a [`String`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) sequence of all the values of a header within a `Headers` object with a given name.
-- [`Headers.has()`](https://developer.mozilla.org/docs/Web/API/Headers/has): Returns a boolean stating whether a `Headers` object contains a certain header.
-- [`Headers.keys()`](https://developer.mozilla.org/docs/Web/API/Headers/keys): Returns an [`iterator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Iteration_protocols) allowing you to go through all keys of the key/value pairs contained in this object.
-- [`Headers.values()`](https://developer.mozilla.org/docs/Web/API/Headers/values): Returns an [`iterator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Iteration_protocols) allowing you to go through all values of the key/value pairs contained in this object.
+- [`Headers.entries()`](https://developer.mozilla.org/docs/Web/API/Headers/entries)：返回一个[`迭代器`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Iteration_protocols)，允许遍历此对象中包含的所有键/值对。
+- [`Headers.forEach()`](https://developer.mozilla.org/docs/Web/API/Headers/forEach)：对此 `Headers` 对象中的每个键/值对执行提供的函数一次。
+- [`Headers.get()`](https://developer.mozilla.org/docs/Web/API/Headers/get)：返回给定名称的 `Headers` 对象中某个标头的所有值的[`字符串`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)序列。
+- [`Headers.has()`](https://developer.mozilla.org/docs/Web/API/Headers/has)：返回一个布尔值，说明 `Headers` 对象是否包含某个标头。
+- [`Headers.keys()`](https://developer.mozilla.org/docs/Web/API/Headers/keys)：返回一个[`迭代器`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Iteration_protocols)，允许你遍历此对象中包含的所有键/值对的键。
+- [`Headers.values()`](https://developer.mozilla.org/docs/Web/API/Headers/values)：返回一个[`迭代器`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Iteration_protocols)，允许你遍历此对象中包含的所有键/值对的值。
 
-## Good to know
+## 须知
 
-- `headers` is an **asynchronous** function that returns a promise. You must use `async/await` or React's [`use`](https://react.dev/reference/react/use) function.
-  - In version 14 and earlier, `headers` was a synchronous function. To help with backwards compatibility, you can still access it synchronously in Next.js 15, but this behavior will be deprecated in the future.
-- Since `headers` is read-only, you cannot `set` or `delete` the outgoing request headers.
-- `headers` is a [Dynamic API](/docs/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis) whose returned values cannot be known ahead of time. Using it in will opt a route into **[dynamic rendering](/docs/app/building-your-application/rendering/server-components#dynamic-rendering)**.
+- `headers` 是一个**异步**函数，返回一个 promise。你必须使用 `async/await` 或 React 的 [`use`](https://react.dev/reference/react/use) 函数。
+  - 在版本 14 及更早版本中，`headers` 是一个同步函数。为了向后兼容，你在 Next.js 15 中仍然可以同步访问它，但这种行为将在未来被废弃。
+- 由于 `headers` 是只读的，你不能 `set` 或 `delete` 传出请求头。
+- `headers` 是一个[动态 API](/docs/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)，其返回值不能提前知道。在路由中使用它将使该路由选择**[动态渲染](/docs/app/building-your-application/rendering/server-components#dynamic-rendering)**。
 
-## Examples
+## 示例
 
-### Using the Authorization header
+### 使用 Authorization 标头
 
 ```jsx filename="app/page.js"
 import { headers } from 'next/headers'
@@ -57,7 +57,7 @@ import { headers } from 'next/headers'
 export default async function Page() {
   const authorization = (await headers()).get('authorization')
   const res = await fetch('...', {
-    headers: { authorization }, // Forward the authorization header
+    headers: { authorization }, // 转发 authorization 标头
   })
   const user = await res.json()
 
@@ -65,9 +65,9 @@ export default async function Page() {
 }
 ```
 
-## Version History
+## 版本历史
 
-| Version      | Changes                                                                                                |
-| ------------ | ------------------------------------------------------------------------------------------------------ |
-| `v15.0.0-RC` | `headers` is now an async function. A [codemod](/docs/app/guides/upgrading/codemods#150) is available. |
-| `v13.0.0`    | `headers` introduced.                                                                                  |
+| 版本         | 变更                                                                                          |
+| ------------ | --------------------------------------------------------------------------------------------- |
+| `v15.0.0-RC` | `headers` 现在是一个异步函数。提供了一个 [codemod](/docs/app/guides/upgrading/codemods#150)。 |
+| `v13.0.0`    | 引入 `headers`。                                                                              |

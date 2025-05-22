@@ -1,11 +1,11 @@
 ---
 title: Script
-description: Optimize third-party scripts in your Next.js application using the built-in `next/script` Component.
+description: 使用内置的 `next/script` 组件优化 Next.js 应用程序中的第三方脚本。
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-This API reference will help you understand how to use [props](#props) available for the Script Component. For features and usage, please see the [Optimizing Scripts](/docs/app/guides/scripts) page.
+本 API 参考将帮助你了解如何使用 Script 组件可用的[属性](#props)。有关功能和用法，请参阅[优化脚本](/docs/app/guides/scripts)页面。
 
 ```tsx filename="app/dashboard/page.tsx" switcher
 import Script from 'next/script'
@@ -33,56 +33,56 @@ export default function Dashboard() {
 
 ## Props
 
-Here's a summary of the props available for the Script Component:
+以下是 Script 组件可用属性的摘要：
 
-| Prop                    | Example                           | Type     | Required                              |
-| ----------------------- | --------------------------------- | -------- | ------------------------------------- |
-| [`src`](#src)           | `src="http://example.com/script"` | String   | Required unless inline script is used |
-| [`strategy`](#strategy) | `strategy="lazyOnload"`           | String   | -                                     |
-| [`onLoad`](#onload)     | `onLoad={onLoadFunc}`             | Function | -                                     |
-| [`onReady`](#onready)   | `onReady={onReadyFunc}`           | Function | -                                     |
-| [`onError`](#onerror)   | `onError={onErrorFunc}`           | Function | -                                     |
+| 属性                    | 示例                              | 类型     | 是否必需                     |
+| ----------------------- | --------------------------------- | -------- | ---------------------------- |
+| [`src`](#src)           | `src="http://example.com/script"` | String   | 除非使用内联脚本，否则为必需 |
+| [`strategy`](#strategy) | `strategy="lazyOnload"`           | String   | -                            |
+| [`onLoad`](#onload)     | `onLoad={onLoadFunc}`             | Function | -                            |
+| [`onReady`](#onready)   | `onReady={onReadyFunc}`           | Function | -                            |
+| [`onError`](#onerror)   | `onError={onErrorFunc}`           | Function | -                            |
 
-## Required Props
+## 必需属性
 
-The `<Script />` component requires the following properties.
+`<Script />` 组件需要以下属性。
 
 ### `src`
 
-A path string specifying the URL of an external script. This can be either an absolute external URL or an internal path. The `src` property is required unless an inline script is used.
+指定外部脚本 URL 的路径字符串。这可以是绝对外部 URL 或内部路径。除非使用内联脚本，否则 `src` 属性是必需的。
 
-## Optional Props
+## 可选属性
 
-The `<Script />` component accepts a number of additional properties beyond those which are required.
+`<Script />` 组件接受多个除必需属性外的其他属性。
 
 ### `strategy`
 
-The loading strategy of the script. There are four different strategies that can be used:
+脚本的加载策略。有四种不同的策略可供使用：
 
-- `beforeInteractive`: Load before any Next.js code and before any page hydration occurs.
-- `afterInteractive`: (**default**) Load early but after some hydration on the page occurs.
-- `lazyOnload`: Load during browser idle time.
-- `worker`: (experimental) Load in a web worker.
+- `beforeInteractive`：在任何 Next.js 代码之前和页面水合发生之前加载。
+- `afterInteractive`：（**默认**）在页面上发生一些水合之后尽早加载。
+- `lazyOnload`：在浏览器空闲时间加载。
+- `worker`：（实验性）在 web worker 中加载。
 
 ### `beforeInteractive`
 
-Scripts that load with the `beforeInteractive` strategy are injected into the initial HTML from the server, downloaded before any Next.js module, and executed in the order they are placed.
+使用 `beforeInteractive` 策略加载的脚本会从服务器注入到初始 HTML 中，在任何 Next.js 模块之前下载，并按照放置顺序执行。
 
-Scripts denoted with this strategy are preloaded and fetched before any first-party code, but their execution **does not block page hydration from occurring**.
+使用此策略的脚本会在任何第一方代码之前预加载和获取，但它们的执行**不会阻止页面水合的发生**。
 
 <AppOnly>
 
-`beforeInteractive` scripts must be placed inside the root layout (`app/layout.tsx`) and are designed to load scripts that are needed by the entire site (i.e. the script will load when any page in the application has been loaded server-side).
+`beforeInteractive` 脚本必须放在根布局（`app/layout.tsx`）中，用于加载整个站点所需的脚本（即，当应用程序中的任何页面已在服务器端加载时，该脚本将加载）。
 
 </AppOnly>
 
 <PagesOnly>
 
-`beforeInteractive` scripts must be placed inside the `Document` Component (`pages/_document.js`) and are designed to load scripts that are needed by the entire site (i.e. the script will load when any page in the application has been loaded server-side).
+`beforeInteractive` 脚本必须放在 `Document` 组件（`pages/_document.js`）中，用于加载整个站点所需的脚本（即，当应用程序中的任何页面已在服务器端加载时，该脚本将加载）。
 
 </PagesOnly>
 
-**This strategy should only be used for critical scripts that need to be fetched as soon as possible.**
+**此策略应仅用于需要尽快获取的关键脚本。**
 
 <AppOnly>
 
@@ -140,18 +140,18 @@ export default function Document() {
 
 </PagesOnly>
 
-> **Good to know**: Scripts with `beforeInteractive` will always be injected inside the `head` of the HTML document regardless of where it's placed in the component.
+> **须知**：无论 `beforeInteractive` 脚本在组件中放置在何处，都将始终注入到 HTML 文档的 `head` 中。
 
-Some examples of scripts that should be fetched as soon as possible with `beforeInteractive` include:
+一些应该使用 `beforeInteractive` 尽快获取的脚本示例包括：
 
-- Bot detectors
-- Cookie consent managers
+- 机器人检测器
+- Cookie 同意管理器
 
 ### `afterInteractive`
 
-Scripts that use the `afterInteractive` strategy are injected into the HTML client-side and will load after some (or all) hydration occurs on the page. **This is the default strategy** of the Script component and should be used for any script that needs to load as soon as possible but not before any first-party Next.js code.
+使用 `afterInteractive` 策略的脚本会在客户端注入到 HTML 中，并会在页面上发生一些（或全部）水合后加载。这是 Script 组件的**默认策略**，应用于任何需要尽快加载但不需要在任何第一方 Next.js 代码之前加载的脚本。
 
-`afterInteractive` scripts can be placed inside of any page or layout and will only load and execute when that page (or group of pages) is opened in the browser.
+`afterInteractive` 脚本可以放置在任何页面或布局中，只有当该页面（或一组页面）在浏览器中打开时才会加载和执行。
 
 ```jsx filename="app/page.js"
 import Script from 'next/script'
@@ -165,16 +165,16 @@ export default function Page() {
 }
 ```
 
-Some examples of scripts that are good candidates for `afterInteractive` include:
+适合 `afterInteractive` 策略的脚本示例包括：
 
-- Tag managers
-- Analytics
+- 标签管理器
+- 分析工具
 
 ### `lazyOnload`
 
-Scripts that use the `lazyOnload` strategy are injected into the HTML client-side during browser idle time and will load after all resources on the page have been fetched. This strategy should be used for any background or low priority scripts that do not need to load early.
+使用 `lazyOnload` 策略的脚本会在客户端浏览器空闲时间注入到 HTML 中，并在页面上所有资源获取完毕后加载。此策略应用于任何不需要提前加载的后台或低优先级脚本。
 
-`lazyOnload` scripts can be placed inside of any page or layout and will only load and execute when that page (or group of pages) is opened in the browser.
+`lazyOnload` 脚本可以放置在任何页面或布局中，只有当该页面（或一组页面）在浏览器中打开时才会加载和执行。
 
 ```jsx filename="app/page.js"
 import Script from 'next/script'
@@ -188,18 +188,18 @@ export default function Page() {
 }
 ```
 
-Examples of scripts that do not need to load immediately and can be fetched with `lazyOnload` include:
+不需要立即加载并可使用 `lazyOnload` 获取的脚本示例包括：
 
-- Chat support plugins
-- Social media widgets
+- 聊天支持插件
+- 社交媒体小部件
 
 ### `worker`
 
-> **Warning:** The `worker` strategy is not yet stable and does not yet work with the App Router. Use with caution.
+> **警告：** `worker` 策略尚不稳定，尚不适用于 App Router。请谨慎使用。
 
-Scripts that use the `worker` strategy are off-loaded to a web worker in order to free up the main thread and ensure that only critical, first-party resources are processed on it. While this strategy can be used for any script, it is an advanced use case that is not guaranteed to support all third-party scripts.
+使用 `worker` 策略的脚本会卸载到 web worker，以释放主线程并确保只有关键的第一方资源在主线程上处理。虽然此策略可用于任何脚本，但这是一个高级用例，不保证支持所有第三方脚本。
 
-To use `worker` as a strategy, the `nextScriptWorkers` flag must be enabled in `next.config.js`:
+要使用 `worker` 作为策略，必须在 `next.config.js` 中启用 `nextScriptWorkers` 标志：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -209,7 +209,7 @@ module.exports = {
 }
 ```
 
-`worker` scripts can **only currently be used in the `pages/` directory**:
+`worker` 脚本**目前只能在 `pages/` 目录中使用**：
 
 ```tsx filename="pages/home.tsx" switcher
 import Script from 'next/script'
@@ -237,11 +237,11 @@ export default function Home() {
 
 ### `onLoad`
 
-> **Warning:** `onLoad` does not yet work with Server Components and can only be used in Client Components. Further, `onLoad` can't be used with `beforeInteractive` – consider using `onReady` instead.
+> **警告：** `onLoad` 尚不适用于服务器组件，只能在客户端组件中使用。此外，`onLoad` 不能与 `beforeInteractive` 一起使用 - 考虑使用 `onReady` 替代。
 
-Some third-party scripts require users to run JavaScript code once after the script has finished loading in order to instantiate content or call a function. If you are loading a script with either `afterInteractive` or `lazyOnload` as a loading strategy, you can execute code after it has loaded using the `onLoad` property.
+某些第三方脚本要求用户在脚本加载完成后运行 JavaScript 代码，以实例化内容或调用函数。如果您使用 `afterInteractive` 或 `lazyOnload` 作为加载策略加载脚本，可以使用 `onLoad` 属性在脚本加载后执行代码。
 
-Here's an example of executing a lodash method only after the library has been loaded.
+以下是在库加载后仅执行 lodash 方法的示例。
 
 ```tsx filename="app/page.tsx" switcher
 'use client'
@@ -283,11 +283,11 @@ export default function Page() {
 
 ### `onReady`
 
-> **Warning:** `onReady` does not yet work with Server Components and can only be used in Client Components.
+> **警告：** `onReady` 尚不适用于服务器组件，只能在客户端组件中使用。
 
-Some third-party scripts require users to run JavaScript code after the script has finished loading and every time the component is mounted (after a route navigation for example). You can execute code after the script's load event when it first loads and then after every subsequent component re-mount using the `onReady` property.
+某些第三方脚本要求用户在脚本加载完成后以及每次组件挂载时（例如，路由导航后）运行 JavaScript 代码。您可以使用 `onReady` 属性在脚本首次加载时的加载事件后以及之后每次组件重新挂载时执行代码。
 
-Here's an example of how to re-instantiate a Google Maps JS embed every time the component is mounted:
+以下是每次组件挂载时重新实例化 Google Maps JS 嵌入的示例：
 
 <AppOnly>
 
@@ -378,9 +378,9 @@ export default function Page() {
 
 ### `onError`
 
-> **Warning:** `onError` does not yet work with Server Components and can only be used in Client Components. `onError` cannot be used with the `beforeInteractive` loading strategy.
+> **警告：** `onError` 尚不适用于服务器组件，只能在客户端组件中使用。`onError` 不能与 `beforeInteractive` 加载策略一起使用。
 
-Sometimes it is helpful to catch when a script fails to load. These errors can be handled with the `onError` property:
+有时捕获脚本加载失败很有帮助。这些错误可以使用 `onError` 属性处理：
 
 <AppOnly>
 
@@ -395,7 +395,7 @@ export default function Page() {
       <Script
         src="https://example.com/script.js"
         onError={(e: Error) => {
-          console.error('Script failed to load', e)
+          console.error('脚本加载失败', e)
         }}
       />
     </>
@@ -414,7 +414,7 @@ export default function Page() {
       <Script
         src="https://example.com/script.js"
         onError={(e) => {
-          console.error('Script failed to load', e)
+          console.error('脚本加载失败', e)
         }}
       />
     </>
@@ -435,7 +435,7 @@ export default function Page() {
       <Script
         src="https://example.com/script.js"
         onError={(e: Error) => {
-          console.error('Script failed to load', e)
+          console.error('脚本加载失败', e)
         }}
       />
     </>
@@ -445,11 +445,11 @@ export default function Page() {
 
 </PagesOnly>
 
-## Version History
+## 版本历史
 
-| Version   | Changes                                                                   |
-| --------- | ------------------------------------------------------------------------- |
-| `v13.0.0` | `beforeInteractive` and `afterInteractive` is modified to support `app`.  |
-| `v12.2.4` | `onReady` prop added.                                                     |
-| `v12.2.2` | Allow `next/script` with `beforeInteractive` to be placed in `_document`. |
-| `v11.0.0` | `next/script` introduced.                                                 |
+| 版本      | 变更                                                                 |
+| --------- | -------------------------------------------------------------------- |
+| `v13.0.0` | 修改 `beforeInteractive` 和 `afterInteractive` 以支持 `app`。        |
+| `v12.2.4` | 添加 `onReady` 属性。                                                |
+| `v12.2.2` | 允许在 `_document` 中放置带有 `beforeInteractive` 的 `next/script`。 |
+| `v11.0.0` | 引入 `next/script`。                                                 |

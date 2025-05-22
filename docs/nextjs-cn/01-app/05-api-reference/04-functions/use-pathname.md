@@ -1,9 +1,9 @@
 ---
 title: usePathname
-description: API Reference for the usePathname hook.
+description: usePathname 钩子的 API 参考。
 ---
 
-`usePathname` is a **Client Component** hook that lets you read the current URL's **pathname**.
+`usePathname` 是一个**客户端组件**钩子，让你可以读取当前 URL 的**路径名**。
 
 ```tsx filename="app/example-client-component.tsx" switcher
 'use client'
@@ -27,40 +27,40 @@ export default function ExampleClientComponent() {
 }
 ```
 
-`usePathname` intentionally requires using a [Client Component](/docs/app/building-your-application/rendering/client-components). It's important to note Client Components are not a de-optimization. They are an integral part of the [Server Components](/docs/app/building-your-application/rendering/server-components) architecture.
+`usePathname` 有意要求使用[客户端组件](/docs/app/building-your-application/rendering/client-components)。重要的是要注意，客户端组件并不是一种优化上的妥协。它们是[服务器组件](/docs/app/building-your-application/rendering/server-components)架构的重要组成部分。
 
-For example, a Client Component with `usePathname` will be rendered into HTML on the initial page load. When navigating to a new route, this component does not need to be re-fetched. Instead, the component is downloaded once (in the client JavaScript bundle), and re-renders based on the current state.
+例如，在初始页面加载时，带有 `usePathname` 的客户端组件将被渲染成 HTML。在导航到新路由时，不需要重新获取此组件。相反，组件只被下载一次（在客户端 JavaScript 包中），并根据当前状态重新渲染。
 
-> **Good to know**:
+> **须知**：
 >
-> - Reading the current URL from a [Server Component](/docs/app/building-your-application/rendering/server-components) is not supported. This design is intentional to support layout state being preserved across page navigations.
-> - Compatibility mode:
->   - `usePathname` can return `null` when a [fallback route](/docs/pages/api-reference/functions/get-static-paths#fallback-true) is being rendered or when a `pages` directory page has been [automatically statically optimized](/docs/pages/building-your-application/rendering/automatic-static-optimization) by Next.js and the router is not ready.
->   - When using `usePathname` with rewrites in [`next.config`](/docs/app/api-reference/config/next-config-js/rewrites) or [`Middleware`](/docs/app/building-your-application/routing/middleware), `useState` and `useEffect` must also be used in order to avoid hydration mismatch errors.
->   - Next.js will automatically update your types if it detects both an `app` and `pages` directory in your project.
+> - 不支持从[服务器组件](/docs/app/building-your-application/rendering/server-components)读取当前 URL。这种设计是有意为之的，目的是支持布局状态在页面导航过程中得到保存。
+> - 兼容性模式：
+>   - 当渲染[回退路由](/docs/pages/api-reference/functions/get-static-paths#fallback-true)时，或者当 `pages` 目录页面被 Next.js [自动静态优化](/docs/pages/building-your-application/rendering/automatic-static-optimization)且路由器未准备好时，`usePathname` 可能返回 `null`。
+>   - 当在 [`next.config`](/docs/app/api-reference/config/next-config-js/rewrites) 或 [`Middleware`](/docs/app/building-your-application/routing/middleware) 中使用带有重写的 `usePathname` 时，必须同时使用 `useState` 和 `useEffect` 以避免水合不匹配错误。
+>   - 如果 Next.js 检测到你的项目中同时存在 `app` 和 `pages` 目录，它将自动更新你的类型。
 
-## Parameters
+## 参数
 
 ```tsx
 const pathname = usePathname()
 ```
 
-`usePathname` does not take any parameters.
+`usePathname` 不接受任何参数。
 
-## Returns
+## 返回值
 
-`usePathname` returns a string of the current URL's pathname. For example:
+`usePathname` 返回当前 URL 路径名的字符串。例如：
 
-| URL                 | Returned value        |
+| URL                 | 返回值                |
 | ------------------- | --------------------- |
 | `/`                 | `'/'`                 |
 | `/dashboard`        | `'/dashboard'`        |
 | `/dashboard?v=2`    | `'/dashboard'`        |
 | `/blog/hello-world` | `'/blog/hello-world'` |
 
-## Examples
+## 示例
 
-### Do something in response to a route change
+### 响应路由变化执行操作
 
 ```tsx filename="app/example-client-component.tsx" switcher
 'use client'
@@ -71,7 +71,7 @@ function ExampleClientComponent() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   useEffect(() => {
-    // Do something here...
+    // 在这里执行操作...
   }, [pathname, searchParams])
 }
 ```
@@ -85,11 +85,11 @@ function ExampleClientComponent() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   useEffect(() => {
-    // Do something here...
+    // 在这里执行操作...
   }, [pathname, searchParams])
 }
 ```
 
-| Version   | Changes                   |
-| --------- | ------------------------- |
-| `v13.0.0` | `usePathname` introduced. |
+| 版本      | 变更                 |
+| --------- | -------------------- |
+| `v13.0.0` | 引入 `usePathname`。 |

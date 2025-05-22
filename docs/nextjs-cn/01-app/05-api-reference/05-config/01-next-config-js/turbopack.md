@@ -1,11 +1,11 @@
 ---
 title: turbopack
-description: Configure Next.js with Turbopack-specific options
+description: 使用 Turbopack 特定选项配置 Next.js
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-The `turbopack` option lets you customize [Turbopack](/docs/app/api-reference/turbopack) to transform different files and change how modules are resolved.
+`turbopack` 选项允许你自定义 [Turbopack](/docs/app/api-reference/turbopack) 来转换不同的文件并更改模块的解析方式。
 
 ```ts filename="next.config.ts" switcher
 import type { NextConfig } from 'next'
@@ -30,26 +30,26 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-> **Good to know**:
+> **须知**:
 >
-> - Turbopack for Next.js does not require loaders or loader configuration for built-in functionality. Turbopack has built-in support for CSS and compiling modern JavaScript, so there's no need for `css-loader`, `postcss-loader`, or `babel-loader` if you're using `@babel/preset-env`.
+> - Next.js 的 Turbopack 不需要为内置功能配置加载器或加载器配置。Turbopack 内置支持 CSS 和编译现代 JavaScript，所以如果你使用 `@babel/preset-env`，就不需要 `css-loader`、`postcss-loader` 或 `babel-loader`。
 
-## Reference
+## 参考
 
-### Options
+### 选项
 
-The following options are available for the `turbo` configuration:
+`turbo` 配置有以下可用选项：
 
-| Option              | Description                                                             |
-| ------------------- | ----------------------------------------------------------------------- |
-| `root`              | Sets the application root directory. Should be an absolute path.        |
-| `rules`             | List of supported webpack loaders to apply when running with Turbopack. |
-| `resolveAlias`      | Map aliased imports to modules to load in their place.                  |
-| `resolveExtensions` | List of extensions to resolve when importing files.                     |
+| 选项                | 描述                                                     |
+| ------------------- | -------------------------------------------------------- |
+| `root`              | 设置应用程序根目录。应该是绝对路径。                     |
+| `rules`             | 使用 Turbopack 运行时要应用的支持的 webpack 加载器列表。 |
+| `resolveAlias`      | 将别名导入映射到要加载的模块。                           |
+| `resolveExtensions` | 导入文件时要解析的扩展名列表。                           |
 
-### Supported loaders
+### 支持的加载器
 
-The following loaders have been tested to work with Turbopack's webpack loader implementation:
+以下加载器已经过测试，可以与 Turbopack 的 webpack 加载器实现一起工作：
 
 - [`babel-loader`](https://www.npmjs.com/package/babel-loader)
 - [`@svgr/webpack`](https://www.npmjs.com/package/@svgr/webpack)
@@ -59,13 +59,13 @@ The following loaders have been tested to work with Turbopack's webpack loader i
 - [`raw-loader`](https://www.npmjs.com/package/raw-loader)
 - [`sass-loader`](https://www.npmjs.com/package/sass-loader)
 
-## Examples
+## 示例
 
-### Root directory
+### 根目录
 
-Turbopack uses the root directory to resolve modules. Files outside of the project root are not resolved.
+Turbopack 使用根目录解析模块。项目根目录之外的文件不会被解析。
 
-Next.js automatically detects the root directory of your project. It does so by looking for one of these files:
+Next.js 会自动检测项目的根目录。它通过寻找以下文件之一来实现：
 
 - `pnpm-lock.yaml`
 - `package-lock.json`
@@ -73,7 +73,7 @@ Next.js automatically detects the root directory of your project. It does so by 
 - `bun.lock`
 - `bun.lockb`
 
-If you have a different project structure, for example if you don't use workspaces, you can manually set the `root` option:
+如果你有不同的项目结构，例如，如果你不使用工作区，你可以手动设置 `root` 选项：
 
 ```js filename="next.config.js"
 const path = require('path')
@@ -84,17 +84,17 @@ module.exports = {
 }
 ```
 
-### Configuring webpack loaders
+### 配置 webpack 加载器
 
-If you need loader support beyond what's built in, many webpack loaders already work with Turbopack. There are currently some limitations:
+如果你需要超出内置支持的加载器，许多 webpack 加载器已经可以与 Turbopack 一起工作。目前有一些限制：
 
-- Only a core subset of the webpack loader API is implemented. Currently, there is enough coverage for some popular loaders, and we'll expand our API support in the future.
-- Only loaders that return JavaScript code are supported. Loaders that transform files like stylesheets or images are not currently supported.
-- Options passed to webpack loaders must be plain JavaScript primitives, objects, and arrays. For example, it's not possible to pass `require()` plugin modules as option values.
+- 只实现了 webpack 加载器 API 的核心子集。目前，有足够的覆盖范围支持一些流行的加载器，我们将在未来扩展我们的 API 支持。
+- 只支持返回 JavaScript 代码的加载器。目前不支持转换样式表或图像等文件的加载器。
+- 传递给 webpack 加载器的选项必须是简单的 JavaScript 原始类型、对象和数组。例如，不可能将 `require()` 插件模块作为选项值传递。
 
-To configure loaders, add the names of the loaders you've installed and any options in `next.config.js`, mapping file extensions to a list of loaders.
+要配置加载器，在 `next.config.js` 中添加你已安装的加载器的名称和任何选项，将文件扩展名映射到加载器列表。
 
-Here is an example below using the [`@svgr/webpack`](https://www.npmjs.com/package/@svgr/webpack) loader, which enables importing `.svg` files and rendering them as React components.
+下面是一个使用 [`@svgr/webpack`](https://www.npmjs.com/package/@svgr/webpack) 加载器的示例，它允许导入 `.svg` 文件并将它们渲染为 React 组件。
 
 ```js filename="next.config.js"
 module.exports = {
@@ -109,13 +109,13 @@ module.exports = {
 }
 ```
 
-> **Good to know**: Prior to Next.js version 13.4.4, `turbo.rules` was named `turbo.loaders` and only accepted file extensions like `.mdx` instead of `*.mdx`.
+> **须知**：在 Next.js 13.4.4 版本之前，`turbo.rules` 被命名为 `turbo.loaders`，并且只接受像 `.mdx` 这样的文件扩展名，而不是 `*.mdx`。
 
-### Resolving aliases
+### 解析别名
 
-Turbopack can be configured to modify module resolution through aliases, similar to webpack's [`resolve.alias`](https://webpack.js.org/configuration/resolve/#resolvealias) configuration.
+Turbopack 可以配置通过别名修改模块解析，类似于 webpack 的 [`resolve.alias`](https://webpack.js.org/configuration/resolve/#resolvealias) 配置。
 
-To configure resolve aliases, map imported patterns to their new destination in `next.config.js`:
+要配置解析别名，在 `next.config.js` 中将导入的模式映射到它们的新目标：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -128,15 +128,15 @@ module.exports = {
 }
 ```
 
-This aliases imports of the `underscore` package to the `lodash` package. In other words, `import underscore from 'underscore'` will load the `lodash` module instead of `underscore`.
+这将 `underscore` 包的导入别名为 `lodash` 包。换句话说，`import underscore from 'underscore'` 将加载 `lodash` 模块而不是 `underscore`。
 
-Turbopack also supports conditional aliasing through this field, similar to Node.js' [conditional exports](https://nodejs.org/docs/latest-v18.x/api/packages.html#conditional-exports). At the moment only the `browser` condition is supported. In the case above, imports of the `mocha` module will be aliased to `mocha/browser-entry.js` when Turbopack targets browser environments.
+Turbopack 还支持通过此字段进行条件别名，类似于 Node.js 的[条件导出](https://nodejs.org/docs/latest-v18.x/api/packages.html#conditional-exports)。目前只支持 `browser` 条件。在上述情况下，当 Turbopack 针对浏览器环境时，`mocha` 模块的导入将被别名为 `mocha/browser-entry.js`。
 
-### Resolving custom extensions
+### 解析自定义扩展名
 
-Turbopack can be configured to resolve modules with custom extensions, similar to webpack's [`resolve.extensions`](https://webpack.js.org/configuration/resolve/#resolveextensions) configuration.
+Turbopack 可以配置为解析具有自定义扩展名的模块，类似于 webpack 的 [`resolve.extensions`](https://webpack.js.org/configuration/resolve/#resolveextensions) 配置。
 
-To configure resolve extensions, use the `resolveExtensions` field in `next.config.js`:
+要配置解析扩展名，在 `next.config.js` 中使用 `resolveExtensions` 字段：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -146,13 +146,13 @@ module.exports = {
 }
 ```
 
-This overwrites the original resolve extensions with the provided list. Make sure to include the default extensions.
+这将用提供的列表覆盖原始解析扩展名。确保包含默认扩展名。
 
-For more information and guidance for how to migrate your app to Turbopack from webpack, see [Turbopack's documentation on webpack compatibility](https://turbo.build/pack/docs/migrating-from-webpack).
+有关如何将你的应用从 webpack 迁移到 Turbopack 的更多信息和指导，请参阅 [Turbopack 关于 webpack 兼容性的文档](https://turbo.build/pack/docs/migrating-from-webpack)。
 
-## Version History
+## 版本历史
 
-| Version  | Changes                                         |
-| -------- | ----------------------------------------------- |
-| `15.3.0` | `experimental.turbo` is changed to `turbopack`. |
-| `13.0.0` | `experimental.turbo` introduced.                |
+| 版本     | 变更                                      |
+| -------- | ----------------------------------------- |
+| `15.3.0` | `experimental.turbo` 更改为 `turbopack`。 |
+| `13.0.0` | 引入 `experimental.turbo`。               |

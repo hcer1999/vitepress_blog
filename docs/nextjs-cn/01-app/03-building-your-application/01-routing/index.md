@@ -1,5 +1,7 @@
 ---
-title: Routing Fundamentals
-nav_title: Routing
-description: Learn the fundamentals of routing for front-end applications.
+title: 路由基础
+nav_title: 路由
+description: 学习前端应用程序的路由基础知识。
 ---
+
+Next.js 使用基于文件系统的路由器，其中使用文件夹来定义路由。

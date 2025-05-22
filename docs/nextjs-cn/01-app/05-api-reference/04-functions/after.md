@@ -1,22 +1,22 @@
 ---
 title: after
-description: API Reference for the after function.
+description: after 函数的 API 参考。
 ---
 
-`after` allows you to schedule work to be executed after a response (or prerender) is finished. This is useful for tasks and other side effects that should not block the response, such as logging and analytics.
+`after` 允许你安排在响应（或预渲染）完成后执行的工作。这对于不应阻塞响应的任务和其他副作用（如日志记录和分析）非常有用。
 
-It can be used in [Server Components](/docs/app/building-your-application/rendering/server-components) (including [`generateMetadata`](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)), [Server Actions](/docs/app/building-your-application/data-fetching/server-actions-and-mutations), [Route Handlers](/docs/app/building-your-application/routing/route-handlers), and [Middleware](/docs/app/building-your-application/routing/middleware).
+它可以在[服务器组件](/docs/app/building-your-application/rendering/server-components)（包括 [`generateMetadata`](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)）、[服务器操作](/docs/app/building-your-application/data-fetching/server-actions-and-mutations)、[路由处理程序](/docs/app/building-your-application/routing/route-handlers)和[中间件](/docs/app/building-your-application/routing/middleware)中使用。
 
-The function accepts a callback that will be executed after the response (or prerender) is finished:
+该函数接受一个回调，该回调将在响应（或预渲染）完成后执行：
 
 ```tsx filename="app/layout.tsx" switcher
 import { after } from 'next/server'
-// Custom logging function
+// 自定义日志函数
 import { log } from '@/app/utils'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   after(() => {
-    // Execute after the layout is rendered and sent to the user
+    // 在布局渲染并发送给用户后执行
     log()
   })
   return <>{children}</>
@@ -25,41 +25,41 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 ```jsx filename="app/layout.jsx" switcher
 import { after } from 'next/server'
-// Custom logging function
+// 自定义日志函数
 import { log } from '@/app/utils'
 
 export default function Layout({ children }) {
   after(() => {
-    // Execute after the layout is rendered and sent to the user
+    // 在布局渲染并发送给用户后执行
     log()
   })
   return <>{children}</>
 }
 ```
 
-> **Good to know:** `after` is not a [Dynamic API](/docs/app/building-your-application/rendering/server-components#dynamic-apis) and calling it does not cause a route to become dynamic. If it's used within a static page, the callback will execute at build time, or whenever a page is revalidated.
+> **须知：** `after` 不是[动态 API](/docs/app/building-your-application/rendering/server-components#dynamic-apis)，调用它不会导致路由变为动态。如果它在静态页面中使用，回调将在构建时执行，或者在页面重新验证时执行。
 
-## Reference
+## 参考
 
-### Parameters
+### 参数
 
-- A callback function which will be executed after the response (or prerender) is finished.
+- 一个回调函数，它将在响应（或预渲染）完成后执行。
 
-### Duration
+### 持续时间
 
-`after` will run for the platform's default or configured max duration of your route. If your platform supports it, you can configure the timeout limit using the [`maxDuration`](/docs/app/api-reference/file-conventions/route-segment-config#maxduration) route segment config.
+`after` 将运行平台的默认或配置的路由最大持续时间。如果你的平台支持，你可以使用 [`maxDuration`](/docs/app/api-reference/file-conventions/route-segment-config#maxduration) 路由段配置来配置超时限制。
 
-## Good to know
+## 须知
 
-- `after` will be executed even if the response didn't complete successfully. Including when an error is thrown or when `notFound` or `redirect` is called.
-- You can use React `cache` to deduplicate functions called inside `after`.
-- `after` can be nested inside other `after` calls, for example, you can create utility functions that wrap `after` calls to add additional functionality.
+- 即使响应未成功完成，`after` 也会执行。包括抛出错误或调用 `notFound` 或 `redirect` 时。
+- 你可以使用 React `cache` 来去重 `after` 内部调用的函数。
+- `after` 可以嵌套在其他 `after` 调用中，例如，你可以创建包装 `after` 调用的实用函数来添加额外的功能。
 
-## Examples
+## 示例
 
-### With request APIs
+### 使用请求 API
 
-You can use request APIs such as [`cookies`](/docs/app/api-reference/functions/cookies) and [`headers`](/docs/app/api-reference/functions/headers) inside `after` in [Server Actions](/docs/app/building-your-application/data-fetching/server-actions-and-mutations) and [Route Handlers](/docs/app/api-reference/file-conventions/route). This is useful for logging activity after a mutation. For example:
+你可以在[服务器操作](/docs/app/building-your-application/data-fetching/server-actions-and-mutations)和[路由处理程序](/docs/app/api-reference/file-conventions/route)中的 `after` 内部使用 [`cookies`](/docs/app/api-reference/functions/cookies) 和 [`headers`](/docs/app/api-reference/functions/headers) 等请求 API。这对于在突变后记录活动很有用。例如：
 
 ```ts filename="app/api/route.ts" highlight={2,7-9} switcher
 import { after } from 'next/server'
@@ -67,10 +67,10 @@ import { cookies, headers } from 'next/headers'
 import { logUserAction } from '@/app/utils'
 
 export async function POST(request: Request) {
-  // Perform mutation
+  // 执行突变
   // ...
 
-  // Log user activity for analytics
+  // 记录用户活动以用于分析
   after(async () => {
     const userAgent = (await headers().get('user-agent')) || 'unknown'
     const sessionCookie = (await cookies().get('session-id'))?.value || 'anonymous'
@@ -91,10 +91,10 @@ import { cookies, headers } from 'next/headers'
 import { logUserAction } from '@/app/utils'
 
 export async function POST(request) {
-  // Perform mutation
+  // 执行突变
   // ...
 
-  // Log user activity for analytics
+  // 记录用户活动以用于分析
   after(async () => {
     const userAgent = (await headers().get('user-agent')) || 'unknown'
     const sessionCookie = (await cookies().get('session-id'))?.value || 'anonymous'
@@ -109,26 +109,26 @@ export async function POST(request) {
 }
 ```
 
-However, you cannot use these request APIs inside `after` in [Server Components](/docs/app/building-your-application/rendering/server-components). This is because Next.js needs to know which part of the tree access the request APIs to support [Partial Prerendering](/docs/app/getting-started/partial-prerendering), but `after` runs after React's rendering lifecycle.
+然而，你不能在[服务器组件](/docs/app/building-your-application/rendering/server-components)中的 `after` 内部使用这些请求 API。这是因为 Next.js 需要知道树的哪一部分访问请求 API 以支持[部分预渲染](/docs/app/getting-started/partial-prerendering)，但 `after` 在 React 的渲染生命周期之后运行。
 
-## Platform Support
+## 平台支持
 
-| Deployment Option                                                   | Supported         |
-| ------------------------------------------------------------------- | ----------------- |
-| [Node.js server](/docs/app/getting-started/deploying#nodejs-server) | Yes               |
-| [Docker container](/docs/app/getting-started/deploying#docker)      | Yes               |
-| [Static export](/docs/app/getting-started/deploying#static-export)  | No                |
-| [Adapters](/docs/app/getting-started/deploying#adapters)            | Platform-specific |
+| 部署选项                                                            | 支持     |
+| ------------------------------------------------------------------- | -------- |
+| [Node.js 服务器](/docs/app/getting-started/deploying#nodejs-server) | 是       |
+| [Docker 容器](/docs/app/getting-started/deploying#docker)           | 是       |
+| [静态导出](/docs/app/getting-started/deploying#static-export)       | 否       |
+| [适配器](/docs/app/getting-started/deploying#adapters)              | 平台特定 |
 
-Learn how to [configure `after`](/docs/app/guides/self-hosting#after) when self-hosting Next.js.
+了解如何在[自托管 Next.js](/docs/app/guides/self-hosting#after) 时配置 `after`。
 
 <details id="after-serverless">
-  <summary>Reference: supporting `after` for serverless platforms</summary>
-  Using `after` in a serverless context requires waiting for asynchronous tasks to finish after the response has been sent. In Next.js and Vercel, this is achieved using a primitive called `waitUntil(promise)`, which extends the lifetime of a serverless invocation until all promises passed to [`waitUntil`](https://vercel.com/docs/functions/functions-api-reference#waituntil) have settled.
+  <summary>参考：为无服务器平台支持 `after`</summary>
+  在无服务器上下文中使用 `after` 需要在响应发送后等待异步任务完成。在 Next.js 和 Vercel 中，这是通过一个名为 `waitUntil(promise)` 的原语实现的，它会延长无服务器调用的生命周期，直到传递给 [`waitUntil`](https://vercel.com/docs/functions/functions-api-reference#waituntil) 的所有 promise 都已解决。
 
-If you want your users to be able to run `after`, you will have to provide your implementation of `waitUntil` that behaves in an analogous way.
+如果你希望用户能够运行 `after`，你将必须提供你自己的 `waitUntil` 实现，其行为类似。
 
-When `after` is called, Next.js will access `waitUntil` like this:
+当调用 `after` 时，Next.js 将像这样访问 `waitUntil`：
 
 ```jsx
 const RequestContext = globalThis[Symbol.for('@next/request-context')]
@@ -136,7 +136,7 @@ const contextValue = RequestContext?.get()
 const waitUntil = contextValue?.waitUntil
 ```
 
-Which means that `globalThis[Symbol.for('@next/request-context')]` is expected to contain an object like this:
+这意味着 `globalThis[Symbol.for('@next/request-context')]` 应该包含这样的一个对象：
 
 ```tsx
 type NextRequestContext = {
@@ -148,14 +148,14 @@ type NextRequestContextValue = {
 }
 ```
 
-Here is an example of the implementation.
+以下是实现示例。
 
 ```tsx
 import { AsyncLocalStorage } from 'node:async_hooks'
 
 const RequestContextStorage = new AsyncLocalStorage<NextRequestContextValue>()
 
-// Define and inject the accessor that next.js will use
+// 定义并注入 next.js 将使用的访问器
 const RequestContext: NextRequestContext = {
   get() {
     return RequestContextStorage.getStore()
@@ -165,16 +165,16 @@ globalThis[Symbol.for('@next/request-context')] = RequestContext
 
 const handler = (req, res) => {
   const contextValue = { waitUntil: YOUR_WAITUNTIL }
-  // Provide the value
+  // 提供值
   return RequestContextStorage.run(contextValue, () => nextJsHandler(req, res))
 }
 ```
 
 </details>
 
-## Version History
+## 版本历史
 
-| Version History | Description                  |
-| --------------- | ---------------------------- |
-| `v15.1.0`       | `after` became stable.       |
-| `v15.0.0-rc`    | `unstable_after` introduced. |
+| 版本历史     | 描述                    |
+| ------------ | ----------------------- |
+| `v15.1.0`    | `after` 变为稳定版。    |
+| `v15.0.0-rc` | 引入 `unstable_after`。 |

@@ -1,46 +1,46 @@
 ---
 title: instrumentation-client.js
-description: Learn how to add client-side instrumentation to track and monitor your Next.js application's frontend performance.
+description: 了解如何添加客户端检测来跟踪和监控 Next.js 应用程序的前端性能。
 ---
 
-The `instrumentation-client.js|ts` file allows you to add monitoring and analytics code that runs before your application's frontend code starts executing. This is useful for setting up performance tracking, error monitoring, or any other client-side observability tools.
+`instrumentation-client.js|ts` 文件允许你添加在应用程序前端代码开始执行之前运行的监控和分析代码。这对于设置性能跟踪、错误监控或任何其他客户端可观测性工具非常有用。
 
-To use it, place the file in the **root** of your application or inside a `src` folder.
+要使用它，请将文件放在应用程序的**根目录**中或 `src` 文件夹内。
 
-## Usage
+## 用法
 
-Unlike [server-side instrumentation](/docs/app/guides/instrumentation), you do not need to export any specific functions. You can write your monitoring code directly in the file:
+与[服务器端检测](/docs/app/guides/instrumentation)不同，你不需要导出任何特定函数。你可以直接在文件中编写监控代码：
 
 ```ts filename="instrumentation-client.ts" switcher
-// Set up performance monitoring
+// 设置性能监控
 performance.mark('app-init')
 
-// Initialize analytics
+// 初始化分析
 console.log('Analytics initialized')
 
-// Set up error tracking
+// 设置错误跟踪
 window.addEventListener('error', (event) => {
-  // Send to your error tracking service
+  // 发送到错误跟踪服务
   reportError(event.error)
 })
 ```
 
 ```js filename="instrumentation-client.js" switcher
-// Set up performance monitoring
+// 设置性能监控
 performance.mark('app-init')
 
-// Initialize analytics
+// 初始化分析
 console.log('Analytics initialized')
 
-// Set up error tracking
+// 设置错误跟踪
 window.addEventListener('error', (event) => {
-  // Send to your error tracking service
+  // 发送到错误跟踪服务
   reportError(event.error)
 })
 ```
 
-## Version History
+## 版本历史
 
-| Version | Changes                             |
-| ------- | ----------------------------------- |
-| `v15.3` | `instrumentation-client` introduced |
+| 版本    | 变更                          |
+| ------- | ----------------------------- |
+| `v15.3` | 引入 `instrumentation-client` |

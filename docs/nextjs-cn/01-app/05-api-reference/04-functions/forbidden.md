@@ -1,15 +1,15 @@
 ---
 title: forbidden
-description: API Reference for the forbidden function.
+description: forbidden 函数的 API 参考。
 version: experimental
 related:
   links:
     - app/api-reference/file-conventions/forbidden
 ---
 
-The `forbidden` function throws an error that renders a Next.js 403 error page. It's useful for handling authorization errors in your application. You can customize the UI using the [`forbidden.js` file](/docs/app/api-reference/file-conventions/forbidden).
+`forbidden` 函数抛出一个错误，渲染 Next.js 403 错误页面。它对处理应用程序中的授权错误很有用。您可以使用 [`forbidden.js` 文件](/docs/app/api-reference/file-conventions/forbidden) 自定义 UI。
 
-To start using `forbidden`, enable the experimental [`authInterrupts`](/docs/app/api-reference/config/next-config-js/authInterrupts) configuration option in your `next.config.js` file:
+要开始使用 `forbidden`，请在 `next.config.js` 文件中启用实验性的 [`authInterrupts`](/docs/app/api-reference/config/next-config-js/authInterrupts) 配置选项：
 
 ```ts filename="next.config.ts" switcher
 import type { NextConfig } from 'next'
@@ -31,7 +31,7 @@ module.exports = {
 }
 ```
 
-`forbidden` can be invoked in [Server Components](/docs/app/building-your-application/rendering/server-components), [Server Actions](/docs/app/building-your-application/data-fetching/server-actions-and-mutations), and [Route Handlers](/docs/app/building-your-application/routing/route-handlers).
+`forbidden` 可以在 [服务器组件](/docs/app/building-your-application/rendering/server-components)、[服务器操作](/docs/app/building-your-application/data-fetching/server-actions-and-mutations) 和 [路由处理程序](/docs/app/building-your-application/routing/route-handlers) 中调用。
 
 ```tsx filename="app/auth/page.tsx" switcher
 import { verifySession } from '@/app/lib/dal'
@@ -40,12 +40,12 @@ import { forbidden } from 'next/navigation'
 export default async function AdminPage() {
   const session = await verifySession()
 
-  // Check if the user has the 'admin' role
+  // 检查用户是否具有 'admin' 角色
   if (session.role !== 'admin') {
     forbidden()
   }
 
-  // Render the admin page for authorized users
+  // 为授权用户渲染管理页面
   return <></>
 }
 ```
@@ -57,25 +57,25 @@ import { forbidden } from 'next/navigation'
 export default async function AdminPage() {
   const session = await verifySession()
 
-  // Check if the user has the 'admin' role
+  // 检查用户是否具有 'admin' 角色
   if (session.role !== 'admin') {
     forbidden()
   }
 
-  // Render the admin page for authorized users
+  // 为授权用户渲染管理页面
   return <></>
 }
 ```
 
-## Good to know
+## 须知
 
-- The `forbidden` function cannot be called in the [root layout](/docs/app/building-your-application/routing/layouts-and-templates#root-layout-required).
+- `forbidden` 函数不能在 [根布局](/docs/app/building-your-application/routing/layouts-and-templates#root-layout-required) 中调用。
 
-## Examples
+## 示例
 
-### Role-based route protection
+### 基于角色的路由保护
 
-You can use `forbidden` to restrict access to certain routes based on user roles. This ensures that users who are authenticated but lack the required permissions cannot access the route.
+您可以使用 `forbidden` 基于用户角色限制对某些路由的访问。这确保已认证但缺乏所需权限的用户无法访问该路由。
 
 ```tsx filename="app/admin/page.tsx" switcher
 import { verifySession } from '@/app/lib/dal'
@@ -84,16 +84,16 @@ import { forbidden } from 'next/navigation'
 export default async function AdminPage() {
   const session = await verifySession()
 
-  // Check if the user has the 'admin' role
+  // 检查用户是否具有 'admin' 角色
   if (session.role !== 'admin') {
     forbidden()
   }
 
-  // Render the admin page for authorized users
+  // 为授权用户渲染管理页面
   return (
     <main>
-      <h1>Admin Dashboard</h1>
-      <p>Welcome, {session.user.name}!</p>
+      <h1>管理员仪表板</h1>
+      <p>欢迎，{session.user.name}！</p>
     </main>
   )
 }
@@ -106,24 +106,24 @@ import { forbidden } from 'next/navigation'
 export default async function AdminPage() {
   const session = await verifySession()
 
-  // Check if the user has the 'admin' role
+  // 检查用户是否具有 'admin' 角色
   if (session.role !== 'admin') {
     forbidden()
   }
 
-  // Render the admin page for authorized users
+  // 为授权用户渲染管理页面
   return (
     <main>
-      <h1>Admin Dashboard</h1>
-      <p>Welcome, {session.user.name}!</p>
+      <h1>管理员仪表板</h1>
+      <p>欢迎，{session.user.name}！</p>
     </main>
   )
 }
 ```
 
-### Mutations with Server Actions
+### 使用服务器操作的数据变更
 
-When implementing mutations in Server Actions, you can use `forbidden` to only allow users with a specific role to update sensitive data.
+在服务器操作中实现数据变更时，您可以使用 `forbidden` 只允许具有特定角色的用户更新敏感数据。
 
 ```ts filename="app/actions/update-role.ts" switcher
 'use server'
@@ -135,12 +135,12 @@ import db from '@/app/lib/db'
 export async function updateRole(formData: FormData) {
   const session = await verifySession()
 
-  // Ensure only admins can update roles
+  // 确保只有管理员可以更新角色
   if (session.role !== 'admin') {
     forbidden()
   }
 
-  // Perform the role update for authorized users
+  // 为授权用户执行角色更新
   // ...
 }
 ```
@@ -155,18 +155,18 @@ import db from '@/app/lib/db'
 export async function updateRole(formData) {
   const session = await verifySession()
 
-  // Ensure only admins can update roles
+  // 确保只有管理员可以更新角色
   if (session.role !== 'admin') {
     forbidden()
   }
 
-  // Perform the role update for authorized users
+  // 为授权用户执行角色更新
   // ...
 }
 ```
 
-## Version History
+## 版本历史
 
-| Version   | Changes                 |
-| --------- | ----------------------- |
-| `v15.1.0` | `forbidden` introduced. |
+| 版本      | 变更               |
+| --------- | ------------------ |
+| `v15.1.0` | 引入 `forbidden`。 |

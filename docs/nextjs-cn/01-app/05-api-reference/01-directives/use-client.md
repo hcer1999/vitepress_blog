@@ -1,17 +1,17 @@
 ---
-title: use client
-description: Learn how to use the use client directive to render a component on the client.
+title: 'use client'
+description: 了解如何使用 'use client' 指令在客户端渲染组件。
 ---
 
-The `'use client'` directive declares an entry point for the components to be rendered on the **client side** and should be used when creating interactive user interfaces (UI) that require client-side JavaScript capabilities, such as state management, event handling, and access to browser APIs. This is a React feature.
+`'use client'` 指令声明了一个入口点，用于在**客户端**渲染组件，它应该用于创建需要客户端 JavaScript 功能（如状态管理、事件处理和浏览器 API 访问）的交互式用户界面 (UI)。这是一个 React 功能。
 
-> **Good to know:**
+> **须知：**
 >
-> You do not need to add the `'use client'` directive to every file that contains Client Components. You only need to add it to the files whose components you want to render directly within Server Components. The `'use client'` directive defines the client-server [boundary](https://nextjs.org/docs/app/building-your-application/rendering#network-boundary), and the components exported from such a file serve as entry points to the client.
+> 你不需要在每个包含客户端组件的文件中添加 `'use client'` 指令。你只需要在希望直接在服务器组件内渲染的组件文件中添加它。`'use client'` 指令定义了客户端-服务器[边界](https://nextjs.org/docs/app/building-your-application/rendering#network-boundary)，从这类文件导出的组件作为客户端的入口点。
 
-## Usage
+## 用法
 
-To declare an entry point for the Client Components, add the `'use client'` directive **at the top of the file**, before any imports:
+要声明客户端组件的入口点，请在文件**顶部**、所有导入之前添加 `'use client'` 指令：
 
 ```tsx filename="app/components/counter.tsx" highlight={1} switcher
 'use client'
@@ -47,12 +47,12 @@ export default function Counter() {
 }
 ```
 
-When using the `'use client'` directive, the props of the Client Components must be [serializable](https://react.dev/reference/rsc/use-client#serializable-types). This means the props need to be in a format that React can serialize when sending data from the server to the client.
+当使用 `'use client'` 指令时，客户端组件的属性必须是[可序列化的](https://react.dev/reference/rsc/use-client#serializable-types)。这意味着属性需要采用 React 可以在从服务器向客户端发送数据时序列化的格式。
 
 ```tsx filename="app/components/counter.tsx" highlight={4} switcher
 'use client'
 
-export default function Counter({ onClick /* ❌ Function is not serializable */ }) {
+export default function Counter({ onClick /* ❌ 函数不可序列化 */ }) {
   return (
     <div>
       <button onClick={onClick}>Increment</button>
@@ -64,7 +64,7 @@ export default function Counter({ onClick /* ❌ Function is not serializable */
 ```jsx filename="app/components/counter.js" highlight={4} switcher
 'use client'
 
-export default function Counter({ onClick /* ❌ Function is not serializable */ }) {
+export default function Counter({ onClick /* ❌ 函数不可序列化 */ }) {
   return (
     <div>
       <button onClick={onClick}>Increment</button>
@@ -73,22 +73,22 @@ export default function Counter({ onClick /* ❌ Function is not serializable */
 }
 ```
 
-## Nesting Client Components within Server Components
+## 在服务器组件内嵌套客户端组件
 
-Combining Server and Client Components allows you to build applications that are both performant and interactive:
+组合服务器和客户端组件可以让你构建既高性能又交互性强的应用程序：
 
-1. **Server Components**: Use for static content, data fetching, and SEO-friendly elements.
-2. **Client Components**: Use for interactive elements that require state, effects, or browser APIs.
-3. **Component composition**: Nest Client Components within Server Components as needed for a clear separation of server and client logic.
+1. **服务器组件**：用于静态内容、数据获取和对 SEO 友好的元素。
+2. **客户端组件**：用于需要状态、副作用或浏览器 API 的交互式元素。
+3. **组件组合**：根据需要在服务器组件内嵌套客户端组件，清晰分离服务器和客户端逻辑。
 
-In the following example:
+在以下示例中：
 
-- `Header` is a Server Component handling static content.
-- `Counter` is a Client Component enabling interactivity within the page.
+- `Header` 是处理静态内容的服务器组件。
+- `Counter` 是在页面中启用交互功能的客户端组件。
 
 ```tsx filename="app/page.tsx" highlight={2,8} switcher
 import Header from './header'
-import Counter from './counter' // This is a Client Component
+import Counter from './counter' // 这是一个客户端组件
 
 export default function Page() {
   return (
@@ -102,7 +102,7 @@ export default function Page() {
 
 ```jsx filename="app/page.js" highlight={2,8} switcher
 import Header from './header'
-import Counter from './counter' // This is a Client Component
+import Counter from './counter' // 这是一个客户端组件
 
 export default function Page() {
   return (
@@ -114,6 +114,6 @@ export default function Page() {
 }
 ```
 
-## Reference
+## 参考
 
-See the [React documentation](https://react.dev/reference/rsc/use-client) for more information on `'use client'`.
+有关 `'use client'` 的更多信息，请参阅 [React 文档](https://react.dev/reference/rsc/use-client)。

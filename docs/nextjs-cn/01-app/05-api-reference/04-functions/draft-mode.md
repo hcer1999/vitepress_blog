@@ -1,14 +1,14 @@
 ---
 title: draftMode
-description: API Reference for the draftMode function.
+description: draftMode 函数的 API 参考。
 related:
-  title: Next Steps
-  description: Learn how to use Draft Mode with this step-by-step guide.
+  title: 后续步骤
+  description: 通过这个分步指南学习如何使用草稿模式。
   links:
     - app/guides/draft-mode
 ---
 
-`draftMode` is an **async** function allows you to enable and disable [Draft Mode](/docs/app/guides/draft-mode), as well as check if Draft Mode is enabled in a [Server Component](/docs/app/building-your-application/rendering/server-components).
+`draftMode` 是一个**异步**函数，允许你启用和禁用[草稿模式](/docs/app/guides/draft-mode)，以及检查草稿模式在[服务器组件](/docs/app/building-your-application/rendering/server-components)中是否启用。
 
 ```tsx filename="app/page.ts" switcher
 import { draftMode } from 'next/headers'
@@ -26,28 +26,28 @@ export default async function Page() {
 }
 ```
 
-## Reference
+## 参考
 
-The following methods and properties are available:
+提供了以下方法和属性：
 
-| Method      | Description                                                                       |
-| ----------- | --------------------------------------------------------------------------------- |
-| `isEnabled` | A boolean value that indicates if Draft Mode is enabled.                          |
-| `enable()`  | Enables Draft Mode in a Route Handler by setting a cookie (`__prerender_bypass`). |
-| `disable()` | Disables Draft Mode in a Route Handler by deleting a cookie.                      |
+| 方法        | 描述                                                                      |
+| ----------- | ------------------------------------------------------------------------- |
+| `isEnabled` | 一个布尔值，指示草稿模式是否启用。                                        |
+| `enable()`  | 通过设置一个 cookie（`__prerender_bypass`）在路由处理程序中启用草稿模式。 |
+| `disable()` | 通过删除 cookie 在路由处理程序中禁用草稿模式。                            |
 
-## Good to know
+## 须知
 
-- `draftMode` is an **asynchronous** function that returns a promise. You must use `async/await` or React's [`use`](https://react.dev/reference/react/use) function.
-  - In version 14 and earlier, `draftMode` was a synchronous function. To help with backwards compatibility, you can still access it synchronously in Next.js 15, but this behavior will be deprecated in the future.
-- A new bypass cookie value will be generated each time you run `next build`. This ensures that the bypass cookie can’t be guessed.
-- To test Draft Mode locally over HTTP, your browser will need to allow third-party cookies and local storage access.
+- `draftMode` 是一个**异步**函数，返回一个 Promise。你必须使用 `async/await` 或 React 的 [`use`](https://react.dev/reference/react/use) 函数。
+  - 在版本 14 及更早版本中，`draftMode` 是一个同步函数。为了向后兼容，你在 Next.js 15 中仍然可以同步访问它，但这种行为将在未来被废弃。
+- 每次运行 `next build` 时都会生成一个新的绕过 cookie 值。这确保绕过 cookie 不能被猜测。
+- 要在 HTTP 上本地测试草稿模式，你的浏览器需要允许第三方 cookie 和本地存储访问。
 
-## Examples
+## 示例
 
-### Enabling Draft Mode
+### 启用草稿模式
 
-To enable Draft Mode, create a new [Route Handler](/docs/app/building-your-application/routing/route-handlers) and call the `enable()` method:
+要启用草稿模式，创建一个新的[路由处理程序](/docs/app/building-your-application/routing/route-handlers)并调用 `enable()` 方法：
 
 ```tsx filename="app/draft/route.ts" switcher
 import { draftMode } from 'next/headers'
@@ -69,11 +69,11 @@ export async function GET(request) {
 }
 ```
 
-### Disabling Draft Mode
+### 禁用草稿模式
 
-By default, the Draft Mode session ends when the browser is closed.
+默认情况下，草稿模式会话在浏览器关闭时结束。
 
-To disable Draft Mode manually, call the `disable()` method in your [Route Handler](/docs/app/building-your-application/routing/route-handlers):
+要手动禁用草稿模式，在[路由处理程序](/docs/app/building-your-application/routing/route-handlers)中调用 `disable()` 方法：
 
 ```tsx filename="app/draft/route.ts" switcher
 import { draftMode } from 'next/headers'
@@ -95,11 +95,11 @@ export async function GET(request) {
 }
 ```
 
-Then, send a request to invoke the Route Handler. If calling the route using the [`<Link>` component](/docs/app/api-reference/components/link), you must pass `prefetch={false}` to prevent accidentally deleting the cookie on prefetch.
+然后，发送请求以调用路由处理程序。如果使用 [`<Link>` 组件](/docs/app/api-reference/components/link)调用路由，必须传递 `prefetch={false}` 以防止在预取时意外删除 cookie。
 
-### Checking if Draft Mode is enabled
+### 检查草稿模式是否启用
 
-You can check if Draft Mode is enabled in a Server Component with the `isEnabled` property:
+你可以在服务器组件中使用 `isEnabled` 属性检查草稿模式是否启用：
 
 ```tsx filename="app/page.ts" switcher
 import { draftMode } from 'next/headers'
@@ -129,9 +129,9 @@ export default async function Page() {
 }
 ```
 
-## Version History
+## 版本历史
 
-| Version      | Changes                                                                                                  |
-| ------------ | -------------------------------------------------------------------------------------------------------- |
-| `v15.0.0-RC` | `draftMode` is now an async function. A [codemod](/docs/app/guides/upgrading/codemods#150) is available. |
-| `v13.4.0`    | `draftMode` introduced.                                                                                  |
+| 版本         | 变更                                                                                            |
+| ------------ | ----------------------------------------------------------------------------------------------- |
+| `v15.0.0-RC` | `draftMode` 现在是一个异步函数。提供了一个 [codemod](/docs/app/guides/upgrading/codemods#150)。 |
+| `v13.4.0`    | 引入 `draftMode`。                                                                              |

@@ -1,13 +1,13 @@
 ---
 title: Form
-description: Learn how to use the `<Form>` component to handle form submissions and search params updates with client-side navigation.
+description: 了解如何使用 `<Form>` 组件处理表单提交和使用客户端导航更新搜索参数。
 ---
 
-The `<Form>` component extends the HTML `<form>` element to provide <AppOnly>[**prefetching**](/docs/app/building-your-application/routing/linking-and-navigating#2-prefetching) of [loading UI](/docs/app/building-your-application/routing/loading-ui-and-streaming),</AppOnly> **client-side navigation** on submission, and **progressive enhancement**.
+`<Form>` 组件扩展了 HTML `<form>` 元素，提供了<AppOnly>[**预获取**](/docs/app/building-your-application/routing/linking-and-navigating#2-prefetching) [加载 UI](/docs/app/building-your-application/routing/loading-ui-and-streaming)、</AppOnly>**客户端导航**提交和**渐进式增强**功能。
 
-It's useful for forms that update URL search params as it reduces the boilerplate code needed to achieve the above.
+它对于更新 URL 搜索参数的表单非常有用，因为它减少了实现上述功能所需的模板代码。
 
-Basic usage:
+基本用法：
 
 <AppOnly>
 
@@ -17,10 +17,9 @@ import Form from 'next/form'
 export default function Page() {
   return (
     <Form action="/search">
-      {/* On submission, the input value will be appended to
-          the URL, e.g. /search?query=abc */}
+      {/* 提交时，输入值将附加到 URL 中，例如 /search?query=abc */}
       <input name="query" />
-      <button type="submit">Submit</button>
+      <button type="submit">提交</button>
     </Form>
   )
 }
@@ -32,10 +31,9 @@ import Form from 'next/form'
 export default function Search() {
   return (
     <Form action="/search">
-      {/* On submission, the input value will be appended to
-          the URL, e.g. /search?query=abc */}
+      {/* 提交时，输入值将附加到 URL 中，例如 /search?query=abc */}
       <input name="query" />
-      <button type="submit">Submit</button>
+      <button type="submit">提交</button>
     </Form>
   )
 }
@@ -51,10 +49,9 @@ import Form from 'next/form'
 export default function Page() {
   return (
     <Form action="/search">
-      {/* On submission, the input value will be appended to
-          the URL, e.g. /search?query=abc */}
+      {/* 提交时，输入值将附加到 URL 中，例如 /search?query=abc */}
       <input name="query" />
-      <button type="submit">Submit</button>
+      <button type="submit">提交</button>
     </Form>
   )
 }
@@ -66,10 +63,9 @@ import Form from 'next/form'
 export default function Search() {
   return (
     <Form action="/search">
-      {/* On submission, the input value will be appended to
-          the URL, e.g. /search?query=abc */}
+      {/* 提交时，输入值将附加到 URL 中，例如 /search?query=abc */}
       <input name="query" />
-      <button type="submit">Submit</button>
+      <button type="submit">提交</button>
     </Form>
   )
 }
@@ -77,99 +73,99 @@ export default function Search() {
 
 </PagesOnly>
 
-## Reference
+## 参考
 
-The behavior of the `<Form>` component depends on whether the `action` prop is passed a `string` or `function`.
+`<Form>` 组件的行为取决于 `action` 属性是传递了 `string` 还是 `function`。
 
 <AppOnly>
 
-- When `action` is a **string**, the `<Form>` behaves like a native HTML form that uses a **`GET`** method. The form data is encoded into the URL as search params, and when the form is submitted, it navigates to the specified URL. In addition, Next.js:
-  - [Prefetches](/docs/app/building-your-application/routing/linking-and-navigating#2-prefetching) the path when the form becomes visible, this preloads shared UI (e.g. `layout.js` and `loading.js`), resulting in faster navigation.
-  - Performs a [client-side navigation](/docs/app/building-your-application/routing/linking-and-navigating#5-soft-navigation) instead of a full page reload when the form is submitted. This retains shared UI and client-side state.
-- When `action` is a **function** (Server Action), `<Form>` behaves like a [React form](https://react.dev/reference/react-dom/components/form), executing the action when the form is submitted.
+- 当 `action` 是**字符串**时，`<Form>` 的行为类似于使用 **`GET`** 方法的原生 HTML 表单。表单数据被编码为 URL 中的搜索参数，当表单提交时，它会导航到指定的 URL。此外，Next.js 还会：
+  - 当表单变为可见时[预获取](/docs/app/building-your-application/routing/linking-and-navigating#2-prefetching)路径，这会预加载共享 UI（例如 `layout.js` 和 `loading.js`），从而实现更快的导航。
+  - 当表单提交时执行[客户端导航](/docs/app/building-your-application/routing/linking-and-navigating#5-soft-navigation)，而不是完全页面重新加载。这保留了共享 UI 和客户端状态。
+- 当 `action` 是**函数**（服务器操作）时，`<Form>` 的行为类似于 [React 表单](https://react.dev/reference/react-dom/components/form)，在表单提交时执行操作。
 
 </AppOnly>
 
 <PagesOnly>
 
-- When `action` is a **string**, the `<Form>` behaves like a native HTML form that uses a **`GET`** method. The form data is encoded into the URL as search params, and when the form is submitted, it navigates to the specified URL. In addition, Next.js:
-  - Performs a [client-side navigation](/docs/app/building-your-application/routing/linking-and-navigating#5-soft-navigation) instead of a full page reload when the form is submitted. This retains shared UI and client-side state.
+- 当 `action` 是**字符串**时，`<Form>` 的行为类似于使用 **`GET`** 方法的原生 HTML 表单。表单数据被编码为 URL 中的搜索参数，当表单提交时，它会导航到指定的 URL。此外，Next.js 还会：
+  - 当表单提交时执行[客户端导航](/docs/app/building-your-application/routing/linking-and-navigating#5-soft-navigation)，而不是完全页面重新加载。这保留了共享 UI 和客户端状态。
 
 </PagesOnly>
 
-### `action` (string) Props
+### `action`（字符串）属性
 
 <PagesOnly>
 
-When `action` is a string, the `<Form>` component supports the following props:
+当 `action` 是字符串时，`<Form>` 组件支持以下属性：
 
-| Prop      | Example            | Type                            | Required |
-| --------- | ------------------ | ------------------------------- | -------- |
-| `action`  | `action="/search"` | `string` (URL or relative path) | Yes      |
-| `replace` | `replace={false}`  | `boolean`                       | -        |
-| `scroll`  | `scroll={true}`    | `boolean`                       | -        |
+| 属性      | 示例               | 类型                       | 是否必需 |
+| --------- | ------------------ | -------------------------- | -------- |
+| `action`  | `action="/search"` | `string`（URL 或相对路径） | 是       |
+| `replace` | `replace={false}`  | `boolean`                  | -        |
+| `scroll`  | `scroll={true}`    | `boolean`                  | -        |
 
-- **`action`**: The URL or path to navigate to when the form is submitted.
-  - An empty string `""` will navigate to the same route with updated search params.
-- **`replace`**: Replaces the current history state instead of pushing a new one to the [browser's history](https://developer.mozilla.org/en-US/docs/Web/API/History_API) stack. Default is `false`.
-- **`scroll`**: Controls the scroll behavior during navigation. Defaults to `true`, this means it will scroll to the top of the new route, and maintain the scroll position for backwards and forwards navigation.
+- **`action`**：表单提交时导航到的 URL 或路径。
+  - 空字符串 `""` 将导航到带有更新后搜索参数的相同路由。
+- **`replace`**：替换当前历史状态，而不是将新状态推送到[浏览器的历史](https://developer.mozilla.org/en-US/docs/Web/API/History_API)堆栈。默认为 `false`。
+- **`scroll`**：控制导航过程中的滚动行为。默认为 `true`，这意味着它将滚动到新路由的顶部，并在向后和向前导航时保持滚动位置。
 
 </PagesOnly>
 
 <AppOnly>
 
-When `action` is a string, the `<Form>` component supports the following props:
+当 `action` 是字符串时，`<Form>` 组件支持以下属性：
 
-| Prop       | Example            | Type                            | Required |
-| ---------- | ------------------ | ------------------------------- | -------- |
-| `action`   | `action="/search"` | `string` (URL or relative path) | Yes      |
-| `replace`  | `replace={false}`  | `boolean`                       | -        |
-| `scroll`   | `scroll={true}`    | `boolean`                       | -        |
-| `prefetch` | `prefetch={true}`  | `boolean`                       | -        |
+| 属性       | 示例               | 类型                       | 是否必需 |
+| ---------- | ------------------ | -------------------------- | -------- |
+| `action`   | `action="/search"` | `string`（URL 或相对路径） | 是       |
+| `replace`  | `replace={false}`  | `boolean`                  | -        |
+| `scroll`   | `scroll={true}`    | `boolean`                  | -        |
+| `prefetch` | `prefetch={true}`  | `boolean`                  | -        |
 
-- **`action`**: The URL or path to navigate to when the form is submitted.
-  - An empty string `""` will navigate to the same route with updated search params.
-- **`replace`**: Replaces the current history state instead of pushing a new one to the [browser's history](https://developer.mozilla.org/en-US/docs/Web/API/History_API) stack. Default is `false`.
-- **`scroll`**: Controls the scroll behavior during navigation. Defaults to `true`, this means it will scroll to the top of the new route, and maintain the scroll position for backwards and forwards navigation.
-- **`prefetch`**: Controls whether the path should be prefetched when the form becomes visible in the user's viewport. Defaults to `true`.
+- **`action`**：表单提交时导航到的 URL 或路径。
+  - 空字符串 `""` 将导航到带有更新后搜索参数的相同路由。
+- **`replace`**：替换当前历史状态，而不是将新状态推送到[浏览器的历史](https://developer.mozilla.org/en-US/docs/Web/API/History_API)堆栈。默认为 `false`。
+- **`scroll`**：控制导航过程中的滚动行为。默认为 `true`，这意味着它将滚动到新路由的顶部，并在向后和向前导航时保持滚动位置。
+- **`prefetch`**：控制表单在用户视口中可见时是否应该预获取路径。默认为 `true`。
 
-### `action` (function) Props
+### `action`（函数）属性
 
-When `action` is a function, the `<Form>` component supports the following prop:
+当 `action` 是函数时，`<Form>` 组件支持以下属性：
 
-| Prop     | Example             | Type                       | Required |
-| -------- | ------------------- | -------------------------- | -------- |
-| `action` | `action={myAction}` | `function` (Server Action) | Yes      |
+| 属性     | 示例                | 类型                     | 是否必需 |
+| -------- | ------------------- | ------------------------ | -------- |
+| `action` | `action={myAction}` | `function`（服务器操作） | 是       |
 
-- **`action`**: The Server Action to be called when the form is submitted. See the [React docs](https://react.dev/reference/react-dom/components/form#props) for more.
+- **`action`**：表单提交时调用的服务器操作。更多信息请参阅 [React 文档](https://react.dev/reference/react-dom/components/form#props)。
 
-> **Good to know**: When `action` is a function, the `replace` and `scroll` props are ignored.
-
-</AppOnly>
-
-### Caveats
-
-<AppOnly>
-
-- **`formAction`**: Can be used in a `<button>` or `<input type="submit">` fields to override the `action` prop. Next.js will perform a client-side navigation, however, this approach doesn't support prefetching.
-  - When using [`basePath`](/docs/app/api-reference/config/next-config-js/basePath), you must also include it in the `formAction` path. e.g. `formAction="/base-path/search"`.
-- **`key`**: Passing a `key` prop to a string `action` is not supported. If you'd like to trigger a re-render or perform a mutation, consider using a function `action` instead.
+> **须知**：当 `action` 是函数时，`replace` 和 `scroll` 属性将被忽略。
 
 </AppOnly>
 
-- **`onSubmit`**: Can be used to handle form submission logic. However, calling `event.preventDefault()` will override `<Form>` behavior such as navigating to the specified URL.
-- **[`method`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#method), [`encType`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#enctype), [`target`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#target)**: Are not supported as they override `<Form>` behavior.
-  - Similarly, `formMethod`, `formEncType`, and `formTarget` can be used to override the `method`, `encType`, and `target` props respectively, and using them will fallback to native browser behavior.
-  - If you need to use these props, use the HTML `<form>` element instead.
-- **`<input type="file">`**: Using this input type when the `action` is a string will match browser behavior by submitting the filename instead of the file object.
+### 注意事项
 
 <AppOnly>
 
-## Examples
+- **`formAction`**：可以在 `<button>` 或 `<input type="submit">` 字段中使用，以覆盖 `action` 属性。Next.js 将执行客户端导航，但是，这种方法不支持预获取。
+  - 当使用 [`basePath`](/docs/app/api-reference/config/next-config-js/basePath) 时，你还必须在 `formAction` 路径中包含它。例如 `formAction="/base-path/search"`。
+- **`key`**：不支持为字符串 `action` 传递 `key` 属性。如果你想触发重新渲染或执行变更，请考虑使用函数 `action` 代替。
 
-### Search form that leads to a search result page
+</AppOnly>
 
-You can create a search form that navigates to a search results page by passing the path as an `action`:
+- **`onSubmit`**：可用于处理表单提交逻辑。但是，调用 `event.preventDefault()` 将覆盖 `<Form>` 行为，例如导航到指定的 URL。
+- **[`method`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#method)、[`encType`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#enctype)、[`target`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#target)**：不受支持，因为它们会覆盖 `<Form>` 的行为。
+  - 同样，`formMethod`、`formEncType` 和 `formTarget` 可用于覆盖 `method`、`encType` 和 `target` 属性，使用它们将回退到原生浏览器行为。
+  - 如果你需要使用这些属性，请使用 HTML `<form>` 元素代替。
+- **`<input type="file">`**：当 `action` 是字符串时使用此输入类型，将匹配浏览器行为，提交文件名而不是文件对象。
+
+<AppOnly>
+
+## 示例
+
+### 导向搜索结果页面的搜索表单
+
+你可以通过将路径作为 `action` 传递，创建一个导航到搜索结果页面的搜索表单：
 
 ```tsx filename="/app/page.tsx" switcher
 import Form from 'next/form'
@@ -178,7 +174,7 @@ export default function Page() {
   return (
     <Form action="/search">
       <input name="query" />
-      <button type="submit">Submit</button>
+      <button type="submit">提交</button>
     </Form>
   )
 }
@@ -191,17 +187,17 @@ export default function Page() {
   return (
     <Form action="/search">
       <input name="query" />
-      <button type="submit">Submit</button>
+      <button type="submit">提交</button>
     </Form>
   )
 }
 ```
 
-When the user updates the query input field and submits the form, the form data will be encoded into the URL as search params, e.g. `/search?query=abc`.
+当用户更新查询输入字段并提交表单时，表单数据将被编码为 URL 中的搜索参数，例如 `/search?query=abc`。
 
-> **Good to know**: If you pass an empty string `""` to `action`, the form will navigate to the same route with updated search params.
+> **须知**：如果你将空字符串 `""` 传递给 `action`，表单将导航到带有更新后搜索参数的相同路由。
 
-On the results page, you can access the query using the [`searchParams`](/docs/app/api-reference/file-conventions/page#searchparams-optional) `page.js` prop and use it to fetch data from an external source.
+在结果页面上，你可以使用 [`searchParams`](/docs/app/api-reference/file-conventions/page#searchparams-optional) `page.js` 属性访问查询，并使用它从外部源获取数据。
 
 ```tsx filename="/app/search/page.tsx" switcher
 import { getSearchResults } from '@/lib/search'
@@ -227,23 +223,23 @@ export default async function SearchPage({ searchParams }) {
 }
 ```
 
-When the `<Form>` becomes visible in the user's viewport, shared UI (such as `layout.js` and `loading.js`) on the `/search` page will be prefetched. On submission, the form will immediately navigate to the new route and show loading UI while the results are being fetched. You can design the fallback UI using [`loading.js`](/docs/app/api-reference/file-conventions/loading):
+当 `<Form>` 在用户视口中可见时，`/search` 页面上的共享 UI（如 `layout.js` 和 `loading.js`）将被预获取。提交时，表单将立即导航到新路由，并在获取结果时显示加载 UI。你可以使用 [`loading.js`](/docs/app/api-reference/file-conventions/loading) 设计备用 UI：
 
 ```tsx filename="/app/search/loading.tsx" switcher
 export default function Loading() {
-  return <div>Loading...</div>
+  return <div>加载中...</div>
 }
 ```
 
 ```jsx filename="/app/search/loading.js" switcher
 export default function Loading() {
-  return <div>Loading...</div>
+  return <div>加载中...</div>
 }
 ```
 
-To cover cases when shared UI hasn't yet loaded, you can show instant feedback to the user using [`useFormStatus`](https://react.dev/reference/react-dom/hooks/useFormStatus).
+为了覆盖共享 UI 尚未加载的情况，你可以使用 [`useFormStatus`](https://react.dev/reference/react-dom/hooks/useFormStatus) 向用户显示即时反馈。
 
-First, create a component that displays a loading state when the form is pending:
+首先，创建一个在表单处于等待状态时显示加载状态的组件：
 
 ```tsx filename="/app/ui/search-button.tsx" switcher
 'use client'
@@ -251,7 +247,7 @@ import { useFormStatus } from 'react-dom'
 
 export default function SearchButton() {
   const status = useFormStatus()
-  return <button type="submit">{status.pending ? 'Searching...' : 'Search'}</button>
+  return <button type="submit">{status.pending ? '搜索中...' : '搜索'}</button>
 }
 ```
 
@@ -261,11 +257,11 @@ import { useFormStatus } from 'react-dom'
 
 export default function SearchButton() {
   const status = useFormStatus()
-  return <button type="submit">{status.pending ? 'Searching...' : 'Search'}</button>
+  return <button type="submit">{status.pending ? '搜索中...' : '搜索'}</button>
 }
 ```
 
-Then, update the search form page to use the `SearchButton` component:
+然后，更新搜索表单页面以使用 `SearchButton` 组件：
 
 ```tsx filename="/app/page.tsx" switcher
 import Form from 'next/form'
@@ -295,9 +291,9 @@ export default function Page() {
 }
 ```
 
-### Mutations with Server Actions
+### 使用服务器操作进行数据变更
 
-You can perform mutations by passing a function to the `action` prop.
+你可以通过将函数传递给 `action` 属性来执行数据变更。
 
 ```tsx filename="/app/posts/create/page.tsx" switcher
 import Form from 'next/form'
@@ -308,7 +304,7 @@ export default function Page() {
     <Form action={createPost}>
       <input name="title" />
       {/* ... */}
-      <button type="submit">Create Post</button>
+      <button type="submit">创建文章</button>
     </Form>
   )
 }
@@ -323,25 +319,25 @@ export default function Page() {
     <Form action={createPost}>
       <input name="title" />
       {/* ... */}
-      <button type="submit">Create Post</button>
+      <button type="submit">创建文章</button>
     </Form>
   )
 }
 ```
 
-After a mutation, it's common to redirect to the new resource. You can use the [`redirect`](/docs/app/building-your-application/routing/redirecting) function from `next/navigation` to navigate to the new post page.
+在数据变更后，通常需要重定向到新资源。你可以使用 `next/navigation` 中的 [`redirect`](/docs/app/building-your-application/routing/redirecting) 函数导航到新的文章页面。
 
-> **Good to know**: Since the "destination" of the form submission is not known until the action is executed, `<Form>` cannot automatically prefetch shared UI.
+> **须知**：由于表单提交的"目的地"在操作执行前不知道，因此 `<Form>` 无法自动预获取共享 UI。
 
 ```tsx filename="/app/posts/actions.ts" switcher
 'use server'
 import { redirect } from 'next/navigation'
 
 export async function createPost(formData: FormData) {
-  // Create a new post
+  // 创建新文章
   // ...
 
-  // Redirect to the new post
+  // 重定向到新文章
   redirect(`/posts/${data.id}`)
 }
 ```
@@ -351,15 +347,15 @@ export async function createPost(formData: FormData) {
 import { redirect } from 'next/navigation'
 
 export async function createPost(formData) {
-  // Create a new post
+  // 创建新文章
   // ...
 
-  // Redirect to the new post
+  // 重定向到新文章
   redirect(`/posts/${data.id}`)
 }
 ```
 
-Then, in the new page, you can fetch data using the `params` prop:
+然后，在新页面中，你可以使用 `params` 属性获取数据：
 
 ```tsx filename="/app/posts/[id]/page.tsx" switcher
 import { getPost } from '@/posts/data'
@@ -393,6 +389,6 @@ export default async function PostPage({ params }) {
 }
 ```
 
-See the [Server Actions](/docs/app/building-your-application/data-fetching/server-actions-and-mutations) docs for more examples.
+有关更多示例，请参阅[服务器操作](/docs/app/building-your-application/data-fetching/server-actions-and-mutations)文档。
 
 </AppOnly>

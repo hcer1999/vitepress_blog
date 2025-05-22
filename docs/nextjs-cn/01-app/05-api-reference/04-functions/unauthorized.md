@@ -1,15 +1,15 @@
 ---
 title: unauthorized
-description: API Reference for the unauthorized function.
+description: unauthorized 函数的 API 参考。
 version: experimental
 related:
   links:
     - app/api-reference/file-conventions/unauthorized
 ---
 
-The `unauthorized` function throws an error that renders a Next.js 401 error page. It's useful for handling authorization errors in your application. You can customize the UI using the [`unauthorized.js` file](/docs/app/api-reference/file-conventions/unauthorized).
+`unauthorized` 函数抛出一个错误，用于渲染 Next.js 401 错误页面。它对于处理应用程序中的授权错误非常有用。你可以使用 [`unauthorized.js` 文件](/docs/app/api-reference/file-conventions/unauthorized)自定义用户界面。
 
-To start using `unauthorized`, enable the experimental [`authInterrupts`](/docs/app/api-reference/config/next-config-js/authInterrupts) configuration option in your `next.config.js` file:
+要开始使用 `unauthorized`，请在 `next.config.js` 文件中启用实验性的 [`authInterrupts`](/docs/app/api-reference/config/next-config-js/authInterrupts) 配置选项：
 
 ```ts filename="next.config.ts" switcher
 import type { NextConfig } from 'next'
@@ -31,7 +31,7 @@ module.exports = {
 }
 ```
 
-`unauthorized` can be invoked in [Server Components](/docs/app/building-your-application/rendering/server-components), [Server Actions](/docs/app/building-your-application/data-fetching/server-actions-and-mutations), and [Route Handlers](/docs/app/building-your-application/routing/route-handlers).
+`unauthorized` 可以在[服务器组件](/docs/app/building-your-application/rendering/server-components)、[服务器操作](/docs/app/building-your-application/data-fetching/server-actions-and-mutations)和[路由处理程序](/docs/app/building-your-application/routing/route-handlers)中调用。
 
 ```tsx filename="app/dashboard/page.tsx" switcher
 import { verifySession } from '@/app/lib/dal'
@@ -44,7 +44,7 @@ export default async function DashboardPage() {
     unauthorized()
   }
 
-  // Render the dashboard for authenticated users
+  // 为已认证用户渲染仪表板
   return (
     <main>
       <h1>Welcome to the Dashboard</h1>
@@ -65,7 +65,7 @@ export default async function DashboardPage() {
     unauthorized()
   }
 
-  // Render the dashboard for authenticated users
+  // 为已认证用户渲染仪表板
   return (
     <main>
       <h1>Welcome to the Dashboard</h1>
@@ -75,15 +75,15 @@ export default async function DashboardPage() {
 }
 ```
 
-## Good to know
+## 须知
 
-- The `unauthorized` function cannot be called in the [root layout](/docs/app/building-your-application/routing/layouts-and-templates#root-layout-required).
+- `unauthorized` 函数不能在[根布局](/docs/app/building-your-application/routing/layouts-and-templates#root-layout-required)中调用。
 
-## Examples
+## 示例
 
-### Displaying login UI to unauthenticated users
+### 向未认证用户显示登录界面
 
-You can use `unauthorized` function to display the `unauthorized.js` file with a login UI.
+你可以使用 `unauthorized` 函数显示带有登录界面的 `unauthorized.js` 文件。
 
 ```tsx filename="app/dashboard/page.tsx" switcher
 import { verifySession } from '@/app/lib/dal'
@@ -143,9 +143,9 @@ export default function UnauthorizedPage() {
 }
 ```
 
-### Mutations with Server Actions
+### 使用服务器操作进行修改
 
-You can invoke `unauthorized` in Server Actions to ensure only authenticated users can perform specific mutations.
+你可以在服务器操作中调用 `unauthorized`，以确保只有经过认证的用户才能执行特定的修改。
 
 ```ts filename="app/actions/update-profile.ts" switcher
 'use server'
@@ -157,12 +157,12 @@ import db from '@/app/lib/db'
 export async function updateProfile(data: FormData) {
   const session = await verifySession()
 
-  // If the user is not authenticated, return a 401
+  // 如果用户未认证，返回401
   if (!session) {
     unauthorized()
   }
 
-  // Proceed with mutation
+  // 继续进行修改
   // ...
 }
 ```
@@ -177,19 +177,19 @@ import db from '@/app/lib/db'
 export async function updateProfile(data) {
   const session = await verifySession()
 
-  // If the user is not authenticated, return a 401
+  // 如果用户未认证，返回401
   if (!session) {
     unauthorized()
   }
 
-  // Proceed with mutation
+  // 继续进行修改
   // ...
 }
 ```
 
-### Fetching data with Route Handlers
+### 使用路由处理程序获取数据
 
-You can use `unauthorized` in Route Handlers to ensure only authenticated users can access the endpoint.
+你可以在路由处理程序中使用 `unauthorized`，以确保只有经过认证的用户才能访问该端点。
 
 ```tsx filename="app/api/profile/route.ts" switcher
 import { NextRequest, NextResponse } from 'next/server'
@@ -197,15 +197,15 @@ import { verifySession } from '@/app/lib/dal'
 import { unauthorized } from 'next/navigation'
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
-  // Verify the user's session
+  // 验证用户会话
   const session = await verifySession()
 
-  // If no session exists, return a 401 and render unauthorized.tsx
+  // 如果不存在会话，返回401并渲染unauthorized.tsx
   if (!session) {
     unauthorized()
   }
 
-  // Fetch data
+  // 获取数据
   // ...
 }
 ```
@@ -217,18 +217,18 @@ import { unauthorized } from 'next/navigation'
 export async function GET() {
   const session = await verifySession()
 
-  // If the user is not authenticated, return a 401 and render unauthorized.tsx
+  // 如果用户未认证，返回401并渲染unauthorized.tsx
   if (!session) {
     unauthorized()
   }
 
-  // Fetch data
+  // 获取数据
   // ...
 }
 ```
 
-## Version History
+## 版本历史
 
-| Version   | Changes                    |
-| --------- | -------------------------- |
-| `v15.1.0` | `unauthorized` introduced. |
+| 版本      | 变更                  |
+| --------- | --------------------- |
+| `v15.1.0` | 引入 `unauthorized`。 |

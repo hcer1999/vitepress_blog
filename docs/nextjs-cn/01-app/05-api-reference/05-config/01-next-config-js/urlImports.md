@@ -1,16 +1,16 @@
 ---
 title: urlImports
-description: Configure Next.js to allow importing modules from external URLs.
+description: 配置 Next.js 允许从外部 URL 导入模块
 version: experimental
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-URL imports are an experimental feature that allows you to import modules directly from external servers (instead of from the local disk).
+URL 导入是一项实验性功能，允许你直接从外部服务器导入模块（而不是从本地磁盘导入）。
 
-> **Warning**: Only use domains that you trust to download and execute on your machine. Please exercise discretion, and caution until the feature is flagged as stable.
+> **警告**：只使用你信任的域名来下载和在你的机器上执行代码。在该功能被标记为稳定之前，请谨慎使用。
 
-To opt-in, add the allowed URL prefixes inside `next.config.js`:
+要启用该功能，请在 `next.config.js` 中添加允许的 URL 前缀：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -20,31 +20,31 @@ module.exports = {
 }
 ```
 
-Then, you can import modules directly from URLs:
+然后，你可以直接从 URL 导入模块：
 
 ```js
 import { a, b, c } from 'https://example.com/assets/some/module.js'
 ```
 
-URL Imports can be used everywhere normal package imports can be used.
+URL 导入可以在任何可以使用正常包导入的地方使用。
 
-## Security Model
+## 安全模型
 
-This feature is being designed with **security as the top priority**. To start, we added an experimental flag forcing you to explicitly allow the domains you accept URL imports from. We're working to take this further by limiting URL imports to execute in the browser sandbox using the [Edge Runtime](/docs/app/api-reference/edge).
+这个功能在设计时将**安全作为最高优先级**。首先，我们添加了一个实验性标志，强制你明确允许接受 URL 导入的域名。我们正在努力进一步限制 URL 导入，使其使用 [Edge 运行时](/docs/app/api-reference/edge) 在浏览器沙箱中执行。
 
-## Lockfile
+## 锁定文件
 
-When using URL imports, Next.js will create a `next.lock` directory containing a lockfile and fetched assets.
-This directory **must be committed to Git**, not ignored by `.gitignore`.
+使用 URL 导入时，Next.js 将创建一个 `next.lock` 目录，其中包含锁定文件和获取的资源。
+这个目录**必须提交到 Git**，不能被 `.gitignore` 忽略。
 
-- When running `next dev`, Next.js will download and add all newly discovered URL Imports to your lockfile.
-- When running `next build`, Next.js will use only the lockfile to build the application for production.
+- 运行 `next dev` 时，Next.js 将下载并将所有新发现的 URL 导入添加到你的锁定文件中。
+- 运行 `next build` 时，Next.js 将仅使用锁定文件来构建生产应用程序。
 
-Typically, no network requests are needed and any outdated lockfile will cause the build to fail.
-One exception is resources that respond with `Cache-Control: no-cache`.
-These resources will have a `no-cache` entry in the lockfile and will always be fetched from the network on each build.
+通常，不需要网络请求，任何过时的锁定文件都会导致构建失败。
+一个例外是响应为 `Cache-Control: no-cache` 的资源。
+这些资源在锁定文件中将有一个 `no-cache` 条目，并且在每次构建时都会从网络获取。
 
-## Examples
+## 示例
 
 ### Skypack
 
@@ -60,7 +60,7 @@ export default () => {
 }
 ```
 
-### Static Image Imports
+### 静态图像导入
 
 ```js
 import Image from 'next/image'
@@ -73,7 +73,7 @@ export default () => (
 )
 ```
 
-### URLs in CSS
+### CSS 中的 URL
 
 ```css
 .className {
@@ -81,12 +81,12 @@ export default () => (
 }
 ```
 
-### Asset Imports
+### 资源导入
 
 ```js
 const logo = new URL('https://example.com/assets/file.txt', import.meta.url)
 
 console.log(logo.pathname)
 
-// prints "/_next/static/media/file.a9727b5d.txt"
+// 打印 "/_next/static/media/file.a9727b5d.txt"
 ```

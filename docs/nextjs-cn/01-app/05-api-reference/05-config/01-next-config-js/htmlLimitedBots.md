@@ -1,9 +1,9 @@
 ---
 title: htmlLimitedBots
-description: Specify a list of user agents that should receive blocking metadata.
+description: 指定应接收阻塞元数据的用户代理列表。
 ---
 
-The `htmlLimitedBots` config allows you to specify a list of user agents that should receive blocking metadata instead of [streaming metadata](/docs/app/api-reference/functions/generate-metadata#streaming-metadata).
+`htmlLimitedBots` 配置允许您指定一个用户代理列表，这些用户代理应接收阻塞元数据，而不是[流式元数据](/docs/app/api-reference/functions/generate-metadata#streaming-metadata)。
 
 ```ts filename="next.config.ts" switcher
 import type { NextConfig } from 'next'
@@ -21,14 +21,14 @@ module.exports = {
 }
 ```
 
-## Default list
+## 默认列表
 
-Next.js includes [a default list of HTML limited bots](https://github.com/vercel/next.js/blob/canary/packages/next/src/shared/lib/router/utils/html-bots.ts).
+Next.js 包含[一个 HTML 受限机器人的默认列表](https://github.com/vercel/next.js/blob/canary/packages/next/src/shared/lib/router/utils/html-bots.ts)。
 
-Specifying a `htmlLimitedBots` config will override the Next.js' default list, allowing you full control over what user agents should opt into this behavior. However, this is advanced behavior, and the default should be sufficient for most cases.
+指定 `htmlLimitedBots` 配置将覆盖 Next.js 的默认列表，使您能够完全控制哪些用户代理应该选择使用此行为。但这是高级行为，对于大多数情况，默认设置应该足够。
 
-## Version History
+## 版本历史
 
-| Version | Changes                              |
-| ------- | ------------------------------------ |
-| 15.2.0  | `htmlLimitedBots` option introduced. |
+| 版本   | 变更                          |
+| ------ | ----------------------------- |
+| 15.2.0 | 引入 `htmlLimitedBots` 选项。 |

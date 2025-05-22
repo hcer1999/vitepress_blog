@@ -1,371 +1,126 @@
 ---
-title: use cache
-description: Learn how to use the use cache directive to cache data in your Next.js application.
-version: canary
-related:
-  title: Related
-  description: View related API references.
-  links:
-    - app/api-reference/config/next-config-js/useCache
-    - app/api-reference/config/next-config-js/dynamicIO
-    - app/api-reference/config/next-config-js/cacheLife
-    - app/api-reference/functions/cacheTag
-    - app/api-reference/functions/cacheLife
-    - app/api-reference/functions/revalidateTag
+title: 'use cache'
+description: 了解如何使用 'use cache' 指令来缓存计算结果。
 ---
 
-The `use cache` directive allows you to mark a route, React component, or a function as cacheable. It can be used at the top of a file to indicate that all exports in the file should be cached, or inline at the top of function or component to cache the return value.
+`'use cache'` 是一个 React 指令，允许你缓存评估返回值的结果，避免重复工作。当组件重新渲染或多个组件请求相同数据时，这可以提高性能。
 
-## Usage
+```jsx filename="app/page.js"
+import { longRunningOperation } from './operation'
 
-`use cache` is currently an experimental feature. To enable it, add the [`useCache`](/docs/app/api-reference/config/next-config-js/useCache) option to your `next.config.ts` file:
-
-```ts filename="next.config.ts" switcher
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
-  experimental: {
-    useCache: true,
-  },
-}
-
-export default nextConfig
-```
-
-```js filename="next.config.js" switcher
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    useCache: true,
-  },
-}
-
-module.exports = nextConfig
-```
-
-> **Good to know:** `use cache` can also be enabled with the [`dynamicIO`](/docs/app/api-reference/config/next-config-js/dynamicIO) option.
-
-Then, add `use cache` at the file, component, or function level:
-
-```tsx
-// File level
-'use cache'
-
-export default async function Page() {
-  // ...
-}
-
-// Component level
-export async function MyComponent() {
+function useData() {
   'use cache'
-  return <></>
-}
-
-// Function level
-export async function getData() {
-  'use cache'
-  const data = await fetch('/api/data')
-  return data
-}
-```
-
-## How `use cache` works
-
-### Cache keys
-
-A cache entry's key is generated using a serialized version of its inputs, which includes:
-
-- Build ID (generated for each build)
-- Function ID (a secure identifier unique to the function)
-- The [serializable](https://react.dev/reference/rsc/use-server#serializable-parameters-and-return-values) function arguments (or props).
-
-The arguments passed to the cached function, as well as any values it reads from the parent scope automatically become a part of the key. This means, the same cache entry will be reused as long as its inputs are the same.
-
-## Non-serializable arguments
-
-Any non-serializable arguments, props, or closed-over values will turn into references inside the cached function, and can be only passed through and not inspected nor modified. These non-serializable values will be filled in at the request time and won't become a part of the cache key.
-
-For example, a cached function can take in JSX as a `children` prop and return `<div>{children}</div>`, but it won't be able to introspect the actual `children` object. This allows you to nest uncached content inside a cached component.
-
-```tsx filename="app/ui/cached-component.tsx" switcher
-function CachedComponent({ children }: { children: ReactNode }) {
-  'use cache'
-  return <div>{children}</div>
-}
-```
-
-```jsx filename="app/ui/cached-component.js" switcher
-function CachedComponent({ children }) {
-  'use cache'
-  return <div>{children}</div>
-}
-```
-
-## Return values
-
-The return value of the cacheable function must be serializable. This ensures that the cached data can be stored and retrieved correctly.
-
-## `use cache` at build time
-
-When used at the top of a [layout](/docs/app/api-reference/file-conventions/layout) or [page](/docs/app/api-reference/file-conventions/page), the route segment will be prerendered, allowing it to later be [revalidated](#during-revalidation).
-
-This means `use cache` cannot be used with [request-time APIs](/docs/app/building-your-application/rendering/server-components#dynamic-apis) like `cookies` or `headers`.
-
-## `use cache` at runtime
-
-On the **server**, the cache entries of individual components or functions will be cached in-memory.
-
-Then, on the **client**, any content returned from the server cache will be stored in the browser's memory for the duration of the session or until [revalidated](#during-revalidation).
-
-## During revalidation
-
-By default, `use cache` has server-side revalidation period of **15 minutes**. While this period may be useful for content that doesn't require frequent updates, you can use the `cacheLife` and `cacheTag` APIs to configure when the individual cache entries should be revalidated.
-
-- [`cacheLife`](/docs/app/api-reference/functions/cacheLife): Configure the cache entry lifetime.
-- [`cacheTag`](/docs/app/api-reference/functions/cacheTag): Create tags for on-demand revalidation.
-
-Both of these APIs integrate across the client and server caching layers, meaning you can configure your caching semantics in one place and have them apply everywhere.
-
-See the [`cacheLife`](/docs/app/api-reference/functions/cacheLife) and [`cacheTag`](/docs/app/api-reference/functions/cacheTag) API docs for more information.
-
-## Examples
-
-### Caching an entire route with `use cache`
-
-To prerender an entire route, add `use cache` to the top of **both** the `layout` and `page` files. Each of these segments are treated as separate entry points in your application, and will be cached independently.
-
-```tsx filename="app/layout.tsx" switcher
-'use cache'
-
-export default function Layout({ children }: { children: ReactNode }) {
-  return <div>{children}</div>
-}
-```
-
-```jsx filename="app/page.tsx" switcher
-'use cache'
-
-export default function Layout({ children }) {
-  return <div>{children}</div>
-}
-```
-
-Any components imported and nested in `page` file will inherit the cache behavior of `page`.
-
-```tsx filename="app/page.tsx" switcher
-'use cache'
-
-async function Users() {
-  const users = await fetch('/api/users')
-  // loop through users
+  return longRunningOperation()
 }
 
 export default function Page() {
-  return (
-    <main>
-      <Users />
-    </main>
-  )
+  const data = useData()
+  ...
 }
 ```
 
-```jsx filename="app/page.js" switcher
-'use cache'
+## 何时使用
 
-async function Users() {
-  const users = await fetch('/api/users')
-  // loop through users
+如果你对 TypeScript 中默认的行为不清楚，可以使用 `use cache` 明确指定函数的输出应该被缓存。这在以下情况下很有用：
+
+- **重复调用**：避免在同一请求中多次调用同一函数时的重复工作
+- **数据需求重叠**：当多个组件需要相同的数据时
+- **计算开销高**：用于计算密集型任务的性能优化
+
+## 工作原理
+
+`use cache` 会缓存函数调用的结果，用它们的参数作为缓存键。相同参数的后续调用可以重用之前的结果，而不需要重新评估函数。
+
+请记住：
+
+- 缓存具有**请求范围**，不会跨请求持久存在
+- 指令仅适用于在服务器上执行的代码
+- 它不是自动应用的——你必须明确添加 `use cache` 指令
+- 你可以在函数范围内的任何位置使用 `use cache`
+
+## 示例
+
+### 基本用法
+
+下面的示例说明了 `use cache` 的简单使用场景：
+
+```jsx filename="app/page.js"
+function getPokemonName(id) {
+  'use cache'
+  console.log(`缓存未命中：获取神奇宝贝 #${id}`) // 演示缓存命中/未命中
+  return fetchPokemonName(id) // 假设这是一个获取神奇宝贝的函数
 }
 
 export default function Page() {
-  return (
-    <main>
-      <Users />
-    </main>
-  )
-}
-```
+  // 第一次调用 - 将执行函数
+  const pokemon1 = getPokemonName(1)
 
-> **Good to know**:
->
-> - If `use cache` is added only to the `layout` or the `page`, only that route segment and any components imported into it will be cached.
-> - If any of the nested children in the route use [Dynamic APIs](/docs/app/building-your-application/rendering/server-components#dynamic-apis), then the route will opt out of prerendering.
+  // 第二次使用相同的 ID - 将重用缓存的结果
+  const pokemon1Again = getPokemonName(1)
 
-### Caching a component's output with `use cache`
+  // 使用不同的 ID - 将执行函数
+  const pokemon2 = getPokemonName(2)
 
-You can use `use cache` at the component level to cache any fetches or computations performed within that component. The cache entry will be reused as long as the serialized props produce the same value in each instance.
-
-```tsx filename="app/components/bookings.tsx" highlight={2} switcher
-export async function Bookings({ type = 'haircut' }: BookingsProps) {
-  'use cache'
-  async function getBookingsData() {
-    const data = await fetch(`/api/bookings?type=${encodeURIComponent(type)}`)
-    return data
-  }
-  return //...
-}
-
-interface BookingsProps {
-  type: string
-}
-```
-
-```jsx filename="app/components/bookings.js" highlight={2} switcher
-export async function Bookings({ type = 'haircut' }) {
-  'use cache'
-  async function getBookingsData() {
-    const data = await fetch(`/api/bookings?type=${encodeURIComponent(type)}`)
-    return data
-  }
-  return //...
-}
-```
-
-### Caching function output with `use cache`
-
-Since you can add `use cache` to any asynchronous function, you aren't limited to caching components or routes only. You might want to cache a network request, a database query, or a slow computation.
-
-```tsx filename="app/actions.ts" highlight={2} switcher
-export async function getData() {
-  'use cache'
-
-  const data = await fetch('/api/data')
-  return data
-}
-```
-
-```jsx filename="app/actions.js" highlight={2} switcher
-export async function getData() {
-  'use cache'
-
-  const data = await fetch('/api/data')
-  return data
-}
-```
-
-### Interleaving
-
-If you need to pass non-serializable arguments to a cacheable function, you can pass them as `children`. This means the `children` reference can change without affecting the cache entry.
-
-```tsx filename="app/page.tsx" switcher
-export default async function Page() {
-  const uncachedData = await getData()
-  return (
-    <CacheComponent>
-      <DynamicComponent data={uncachedData} />
-    </CacheComponent>
-  )
-}
-
-async function CacheComponent({ children }: { children: ReactNode }) {
-  'use cache'
-  const cachedData = await fetch('/api/cached-data')
   return (
     <div>
-      <PrerenderedComponent data={cachedData} />
-      {children}
+      <p>神奇宝贝 1: {pokemon1}</p>
+      <p>相同神奇宝贝: {pokemon1Again}</p> {/* 缓存命中 */}
+      <p>神奇宝贝 2: {pokemon2}</p>
     </div>
   )
 }
 ```
 
-```jsx filename="app/page.js" switcher
-export default async function Page() {
-  const uncachedData = await getData()
-  return (
-    <CacheComponent>
-      <DynamicComponent data={uncachedData} />
-    </CacheComponent>
-  )
+### 组件之间共享数据
+
+`use cache` 可以帮助避免多个组件请求相同数据时的冗余工作：
+
+```jsx filename="app/pokemon/components.js"
+// 共享数据获取函数
+function fetchPokemonData(id) {
+  'use cache'
+  console.log(`获取神奇宝贝 #${id} 数据`)
+  return fetchFromDatabase(id) // 假设的数据库调用
 }
 
-async function CacheComponent({ children }) {
-  'use cache'
-  const cachedData = await fetch('/api/cached-data')
+// 使用共享数据获取的两个组件
+export function PokemonName({ id }) {
+  const pokemon = fetchPokemonData(id) // 重用缓存的结果
+  return <h1>{pokemon.name}</h1>
+}
+
+export function PokemonStats({ id }) {
+  const pokemon = fetchPokemonData(id) // 重用缓存的结果
+  return (
+    <ul>
+      <li>攻击: {pokemon.attack}</li>
+      <li>防御: {pokemon.defense}</li>
+    </ul>
+  )
+}
+```
+
+```jsx filename="app/pokemon/[id]/page.js"
+import { PokemonName, PokemonStats } from '../components'
+
+export default function PokemonPage({ params }) {
+  const id = params.id
+
   return (
     <div>
-      <PrerenderedComponent data={cachedData} />
-      {children}
+      {/* 这两个组件共享同一个缓存的数据获取结果 */}
+      <PokemonName id={id} />
+      <PokemonStats id={id} />
     </div>
   )
 }
 ```
 
-You can also pass Server Actions through cached components to Client Components without invoking them inside the cacheable function.
+## 兼容性与限制
 
-```tsx filename="app/page.tsx" switcher
-import ClientComponent from './ClientComponent'
+- `use cache` 只在**服务器组件**中工作
+- 该缓存限于当前请求的生命周期
+- 当使用传递函数参数时，来自相同函数但不同参数值的不同调用将有不同的缓存条目
+- 这主要是一个优化，不应该用于更改应用程序的行为
 
-export default async function Page() {
-  const performUpdate = async () => {
-    'use server'
-    // Perform some server-side update
-    await db.update(...)
-  }
-
-  return <CacheComponent performUpdate={performUpdate} />
-}
-
-async function CachedComponent({
-  performUpdate,
-}: {
-  performUpdate: () => Promise<void>
-}) {
-  'use cache'
-  // Do not call performUpdate here
-  return <ClientComponent action={performUpdate} />
-}
-```
-
-```jsx filename="app/page.js" switcher
-import ClientComponent from './ClientComponent'
-
-export default async function Page() {
-  const performUpdate = async () => {
-    'use server'
-    // Perform some server-side update
-    await db.update(...)
-  }
-
-  return <CacheComponent performUpdate={performUpdate} />
-}
-
-async function CachedComponent({ performUpdate }) {
-  'use cache'
-  // Do not call performUpdate here
-  return <ClientComponent action={performUpdate} />
-}
-```
-
-```tsx filename="app/ClientComponent.tsx" switcher
-'use client'
-
-export default function ClientComponent({ action }: { action: () => Promise<void> }) {
-  return <button onClick={action}>Update</button>
-}
-```
-
-```jsx filename="app/ClientComponent.js" switcher
-'use client'
-
-export default function ClientComponent({ action }) {
-  return <button onClick={action}>Update</button>
-}
-```
-
-## Platform Support
-
-| Deployment Option                                                   | Supported         |
-| ------------------------------------------------------------------- | ----------------- |
-| [Node.js server](/docs/app/getting-started/deploying#nodejs-server) | Yes               |
-| [Docker container](/docs/app/getting-started/deploying#docker)      | Yes               |
-| [Static export](/docs/app/getting-started/deploying#static-export)  | No                |
-| [Adapters](/docs/app/getting-started/deploying#adapters)            | Platform-specific |
-
-Learn how to [configure caching](/docs/app/guides/self-hosting#caching-and-isr) when self-hosting Next.js.
-
-## Version History
-
-| Version   | Changes                                                 |
-| --------- | ------------------------------------------------------- |
-| `v15.0.0` | `"use cache"` is introduced as an experimental feature. |
+有关具体实现细节，请参考 [React 文档](https://react.dev/reference/rsc/use-cache)。

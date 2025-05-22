@@ -1,23 +1,23 @@
 ---
-title: Error Handling
-description: Learn how to display expected errors and handle uncaught exceptions.
+title: 错误处理
+description: 了解如何显示预期错误并处理未捕获的异常。
 related:
   links:
     - app/api-reference/file-conventions/error
 ---
 
-Errors can be divided into two categories: **expected errors** and **uncaught exceptions**:
+错误可以分为两类：**预期错误**和**未捕获的异常**：
 
-- **Model expected errors as return values**: Avoid using `try`/`catch` for expected errors in Server Actions. Use [`useActionState`](https://react.dev/reference/react/useActionState) to manage these errors and return them to the client.
-- **Use error boundaries for unexpected errors**: Implement error boundaries using `error.tsx` and `global-error.tsx` files to handle unexpected errors and provide a fallback UI.
+- **将预期错误建模为返回值**：在服务器操作中避免使用 `try`/`catch` 处理预期错误。使用 [`useActionState`](https://react.dev/reference/react/useActionState) 来管理这些错误并将它们返回给客户端。
+- **使用错误边界处理意外错误**：实现通过 `error.tsx` 和 `global-error.tsx` 文件的错误边界来处理意外错误并提供备用 UI。
 
-## Handling Expected Errors
+## 处理预期错误
 
-Expected errors are those that can occur during the normal operation of the application, such as those from [server-side form validation](/docs/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-form-validation) or failed requests. These errors should be handled explicitly and returned to the client.
+预期错误是那些可能在应用程序正常操作过程中发生的错误，如来自[服务器端表单验证](/docs/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-form-validation)或失败的请求。这些错误应该被明确处理并返回给客户端。
 
-### Handling Expected Errors from Server Actions
+### 处理来自服务器操作的预期错误
 
-Use the `useActionState` hook to manage the state of Server Actions, including handling errors. This approach avoids `try`/`catch` blocks for expected errors, which should be modeled as return values rather than thrown exceptions.
+使用 `useActionState` 钩子来管理服务器操作的状态，包括处理错误。这种方法避免了对预期错误使用 `try`/`catch` 块，预期错误应该被建模为返回值而不是抛出的异常。
 
 ```ts filename="app/actions.ts" switcher
 'use server'
@@ -29,7 +29,7 @@ export async function createUser(prevState: any, formData: FormData) {
   const json = await res.json()
 
   if (!res.ok) {
-    return { message: 'Please enter a valid email' }
+    return { message: '请输入有效的电子邮件' }
   }
 
   redirect('/dashboard')
@@ -46,14 +46,14 @@ export async function createUser(prevState, formData) {
   const json = await res.json()
 
   if (!res.ok) {
-    return { message: 'Please enter a valid email' }
+    return { message: '请输入有效的电子邮件' }
   }
 
   redirect('/dashboard')
 }
 ```
 
-Then, you can pass your action to the `useActionState` hook and use the returned `state` to display an error message.
+然后，您可以将您的操作传递给 `useActionState` 钩子，并使用返回的 `state` 显示错误消息。
 
 ```tsx filename="app/ui/signup.tsx" highlight={11,18-20} switcher
 'use client'
@@ -70,11 +70,11 @@ export function Signup() {
 
   return (
     <form action={formAction}>
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email">电子邮件</label>
       <input type="text" id="email" name="email" required />
       {/* ... */}
       <p aria-live="polite">{state?.message}</p>
-      <button disabled={pending}>Sign up</button>
+      <button disabled={pending}>注册</button>
     </form>
   )
 }
@@ -95,21 +95,21 @@ export function Signup() {
 
   return (
     <form action={formAction}>
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email">电子邮件</label>
       <input type="text" id="email" name="email" required />
       {/* ... */}
       <p aria-live="polite">{state?.message}</p>
-      <button disabled={pending}>Sign up</button>
+      <button disabled={pending}>注册</button>
     </form>
   )
 }
 ```
 
-You could also use the returned state to display a toast message from the Client Component.
+您也可以使用返回的状态从客户端组件显示一个 toast 消息。
 
-### Handling Expected Errors from Server Components
+### 处理来自服务器组件的预期错误
 
-When fetching data inside of a Server Component, you can use the response to conditionally render an error message or [`redirect`](/docs/app/building-your-application/routing/redirecting#redirect-function).
+在服务器组件内部获取数据时，您可以使用响应有条件地渲染错误消息或[`redirect`](/docs/app/building-your-application/routing/redirecting#redirect-function)。
 
 ```tsx filename="app/page.tsx" switcher
 export default async function Page() {
@@ -117,7 +117,7 @@ export default async function Page() {
   const data = await res.json()
 
   if (!res.ok) {
-    return 'There was an error.'
+    return '出现了一个错误。'
   }
 
   return '...'
@@ -130,29 +130,29 @@ export default async function Page() {
   const data = await res.json()
 
   if (!res.ok) {
-    return 'There was an error.'
+    return '出现了一个错误。'
   }
 
   return '...'
 }
 ```
 
-## Uncaught Exceptions
+## 未捕获的异常
 
-Uncaught exceptions are unexpected errors that indicate bugs or issues that should not occur during the normal flow of your application. These should be handled by throwing errors, which will then be caught by error boundaries.
+未捕获的异常是意外错误，表明在应用程序正常流程中不应该发生的错误或问题。这些应该通过抛出错误来处理，然后由错误边界捕获。
 
-- **Common:** Handle uncaught errors below the root layout with `error.js`.
-- **Optional:** Handle granular uncaught errors with nested `error.js` files (e.g. `app/dashboard/error.js`)
-- **Uncommon:** Handle uncaught errors in the root layout with `global-error.js`.
+- **常见：** 使用 `error.js` 处理根布局下方的未捕获错误。
+- **可选：** 使用嵌套的 `error.js` 文件处理细粒度的未捕获错误（例如 `app/dashboard/error.js`）
+- **不常见：** 使用 `global-error.js` 处理根布局中的未捕获错误。
 
-### Using Error Boundaries
+### 使用错误边界
 
-Next.js uses error boundaries to handle uncaught exceptions. Error boundaries catch errors in their child components and display a fallback UI instead of the component tree that crashed.
+Next.js 使用错误边界来处理未捕获的异常。错误边界捕获其子组件中的错误，并显示备用 UI 而不是崩溃的组件树。
 
-Create an error boundary by adding an `error.tsx` file inside a route segment and exporting a React component:
+通过在路由段内添加 `error.tsx` 文件并导出 React 组件来创建错误边界：
 
 ```tsx filename="app/dashboard/error.tsx" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 import { useEffect } from 'react'
 
@@ -164,20 +164,20 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
+    // 将错误记录到错误报告服务
     console.error(error)
   }, [error])
 
   return (
     <div>
-      <h2>Something went wrong!</h2>
+      <h2>出错了！</h2>
       <button
         onClick={
-          // Attempt to recover by trying to re-render the segment
+          // 尝试通过重新渲染段来恢复
           () => reset()
         }
       >
-        Try again
+        重试
       </button>
     </div>
   )
@@ -185,52 +185,52 @@ export default function Error({
 ```
 
 ```jsx filename="app/dashboard/error.js" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 import { useEffect } from 'react'
 
 export default function Error({ error, reset }) {
   useEffect(() => {
-    // Log the error to an error reporting service
+    // 将错误记录到错误报告服务
     console.error(error)
   }, [error])
 
   return (
     <div>
-      <h2>Something went wrong!</h2>
+      <h2>出错了！</h2>
       <button
         onClick={
-          // Attempt to recover by trying to re-render the segment
+          // 尝试通过重新渲染段来恢复
           () => reset()
         }
       >
-        Try again
+        重试
       </button>
     </div>
   )
 }
 ```
 
-If you want errors to bubble up to the parent error boundary, you can `throw` when rendering the `error` component.
+如果您希望错误冒泡到父错误边界，您可以在渲染 `error` 组件时 `throw`。
 
-### Handling Errors in Nested Routes
+### 处理嵌套路由中的错误
 
-Errors will bubble up to the nearest parent error boundary. This allows for granular error handling by placing `error.tsx` files at different levels in the [route hierarchy](/docs/app/getting-started/project-structure#component-hierarchy).
+错误将冒泡到最近的父错误边界。这允许通过在[路由层次结构](/docs/app/getting-started/project-structure#component-hierarchy)的不同级别放置 `error.tsx` 文件来进行细粒度的错误处理。
 
 <Image
-  alt="Nested Error Component Hierarchy"
+  alt="嵌套错误组件层次结构"
   srcLight="/docs/light/nested-error-component-hierarchy.png"
   srcDark="/docs/dark/nested-error-component-hierarchy.png"
   width="1600"
   height="687"
 />
 
-### Handling Global Errors
+### 处理全局错误
 
-While less common, you can handle errors in the root layout using `app/global-error.js`, located in the root app directory, even when leveraging [internationalization](/docs/app/building-your-application/routing/internationalization). Global error UI must define its own `<html>` and `<body>` tags, since it is replacing the root layout or template when active.
+虽然不太常见，但您可以使用位于根 app 目录中的 `app/global-error.js` 处理根布局中的错误，即使在利用[国际化](/docs/app/building-your-application/routing/internationalization)时也是如此。全局错误 UI 必须定义自己的 `<html>` 和 `<body>` 标签，因为它在激活时会替换根布局或模板。
 
 ```tsx filename="app/global-error.tsx" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 export default function GlobalError({
   error,
@@ -240,11 +240,11 @@ export default function GlobalError({
   reset: () => void
 }) {
   return (
-    // global-error must include html and body tags
+    // global-error 必须包含 html 和 body 标签
     <html>
       <body>
-        <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
+        <h2>出错了！</h2>
+        <button onClick={() => reset()}>重试</button>
       </body>
     </html>
   )
@@ -252,15 +252,15 @@ export default function GlobalError({
 ```
 
 ```jsx filename="app/global-error.js" switcher
-'use client' // Error boundaries must be Client Components
+'use client' // 错误边界必须是客户端组件
 
 export default function GlobalError({ error, reset }) {
   return (
-    // global-error must include html and body tags
+    // global-error 必须包含 html 和 body 标签
     <html>
       <body>
-        <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
+        <h2>出错了！</h2>
+        <button onClick={() => reset()}>重试</button>
       </body>
     </html>
   )

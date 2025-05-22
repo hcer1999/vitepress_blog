@@ -1,9 +1,9 @@
 ---
 title: page.js
-description: API reference for the page.js file.
+description: page.js 文件的 API 参考。
 ---
 
-The `page` file allows you to define UI that is **unique** to a route. You can create a page by default exporting a component from the file:
+`page` 文件允许你定义对路由**唯一**的 UI。你可以通过从文件中默认导出组件来创建页面：
 
 ```tsx filename="app/blog/[slug]/page.tsx" switcher
 export default function Page({
@@ -13,30 +13,88 @@ export default function Page({
   params: Promise<{ slug: string }>
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
-  return <h1>My Page</h1>
+  return <h1>我的页面</h1>
 }
 ```
 
 ```jsx filename="app/blog/[slug]/page.js" switcher
 export default function Page({ params, searchParams }) {
-  return <h1>My Page</h1>
+  return <h1>我的页面</h1>
 }
 ```
 
-## Good to know
+页面是[服务器组件](/docs/app/building-your-application/rendering/server-components)，但可以设置为[客户端组件](/docs/app/building-your-application/rendering/client-components)。
 
-- The `.js`, `.jsx`, or `.tsx` file extensions can be used for `page`.
-- A `page` is always the **leaf** of the route subtree.
-- A `page` file is required to make a route segment **publicly accessible**.
-- Pages are [Server Components](https://react.dev/reference/rsc/server-components) by default, but can be set to a [Client Component](https://react.dev/reference/rsc/use-client).
+> **须知**：
+>
+> - 页面始终是[路由子树](/docs/app/building-your-application/routing#terminology)的[叶子节点](/docs/app/building-your-application/routing#terminology)。
+> - 除非[嵌套在 `pages` 目录](/docs/app/building-your-application/routing/pages-and-layouts#nesting-pages)内，否则 `.js`、`.jsx` 或 `.tsx` 文件扩展名可用于页面。
+> - 允许使用 `page.js` 文件创建专用 UI，但不是必需的。[特殊文件](/docs/app/api-reference/file-conventions) 可以独立存在。
 
-## Reference
+## Props
+
+### `params`（可选）
+
+表示从根布局到当前页面的动态路由参数对象。
+
+例如，如果文件路径是 `app/shop/[slug]/[item]/page.js`，对应的 URL 是 `/shop/shoes/nike-air-max-97`，那么 `params` 对象将是：
+
+```jsx
+{ slug: 'shoes', item: 'nike-air-max-97' }
+```
+
+了解更多关于[动态路由分段](/docs/app/building-your-application/routing/dynamic-routes)的信息。
+
+### `searchParams`（可选）
+
+包含当前 URL 的[搜索参数](https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/What_is_a_URL#parameters)。
+
+例如，对于 URL `/shop?a=1&b=2`，`searchParams` 将是：
+
+```jsx
+{ a: '1', b: '2' }
+```
+
+其他例子：
+
+| URL             | `searchParams` 对象  |
+| --------------- | -------------------- |
+| `/shop`         | `{}`                 |
+| `/shop?a=1`     | `{ a: '1' }`         |
+| `/shop?a=1&b=2` | `{ a: '1', b: '2' }` |
+| `/shop?a=1&a=2` | `{ a: ['1', '2'] }`  |
+
+> **须知**：
+>
+> - `searchParams` 等同于通过解析 [URL.search](https://developer.mozilla.org/zh-CN/docs/Web/API/URL/search) 得到的对象，但 Next.js 提供了自动解析。
+> - 与 `params` 不同，`searchParams` 包含当前 URL 的所有搜索参数，而不仅仅是当前段。
+> - 像其他页面 props 一样，你也可以使用 TypeScript 来设置 `searchParams` 的类型。
+
+## 良好实践
+
+### 页面间共享组件
+
+当你在不同页面之间共享 UI 时，你可以创建自己的组件并在多个页面之间导入它们。
+
+```tsx filename="app/components/button.tsx" switcher
+export default function Button() {
+  return <button>点击我</button>
+}
+```
+
+```jsx filename="app/components/button.js" switcher
+export default function Button() {
+  return <button>点击我</button>
+}
+```
+
+## 参考
 
 ### Props
 
-#### `params` (optional)
+#### `params`（可选）
 
-A promise that resolves to an object containing the [dynamic route parameters](/docs/app/building-your-application/routing/dynamic-routes) from the root segment down to that page.
+一个会解析成包含从根段到该页面的[动态路由参数](/docs/app/building-your-application/routing/dynamic-routes)的对象的 Promise。
 
 ```tsx filename="app/shop/[slug]/page.tsx" switcher
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
@@ -50,18 +108,18 @@ export default async function Page({ params }) {
 }
 ```
 
-| Example Route                        | URL         | `params`                                |
+| 示例路由                             | URL         | `params`                                |
 | ------------------------------------ | ----------- | --------------------------------------- |
 | `app/shop/[slug]/page.js`            | `/shop/1`   | `Promise<{ slug: '1' }>`                |
 | `app/shop/[category]/[item]/page.js` | `/shop/1/2` | `Promise<{ category: '1', item: '2' }>` |
 | `app/shop/[...slug]/page.js`         | `/shop/1/2` | `Promise<{ slug: ['1', '2'] }>`         |
 
-- Since the `params` prop is a promise. You must use `async/await` or React's [`use`](https://react.dev/reference/react/use) function to access the values.
-  - In version 14 and earlier, `params` was a synchronous prop. To help with backwards compatibility, you can still access it synchronously in Next.js 15, but this behavior will be deprecated in the future.
+- 由于 `params` 属性是一个 Promise，你必须使用 `async/await` 或 React 的 [`use`](https://react.dev/reference/react/use) 函数来访问其值。
+  - 在版本 14 及更早版本中，`params` 是一个同步属性。为了帮助向后兼容，在 Next.js 15 中你仍然可以同步访问它，但这种行为将在未来被废弃。
 
-#### `searchParams` (optional)
+#### `searchParams`（可选）
 
-A promise that resolves to an object containing the [search parameters](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_URL#parameters) of the current URL. For example:
+一个会解析成包含当前 URL 的[搜索参数](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_URL#parameters)的对象的 Promise。例如：
 
 ```tsx filename="app/shop/page.tsx" switcher
 export default async function Page({
@@ -79,40 +137,40 @@ export default async function Page({ searchParams }) {
 }
 ```
 
-| Example URL     | `searchParams`                |
+| 示例 URL        | `searchParams`                |
 | --------------- | ----------------------------- |
 | `/shop?a=1`     | `Promise<{ a: '1' }>`         |
 | `/shop?a=1&b=2` | `Promise<{ a: '1', b: '2' }>` |
 | `/shop?a=1&a=2` | `Promise<{ a: ['1', '2'] }>`  |
 
-- Since the `searchParams` prop is a promise. You must use `async/await` or React's [`use`](https://react.dev/reference/react/use) function to access the values.
-  - In version 14 and earlier, `searchParams` was a synchronous prop. To help with backwards compatibility, you can still access it synchronously in Next.js 15, but this behavior will be deprecated in the future.
-- `searchParams` is a **[Dynamic API](/docs/app/building-your-application/rendering/server-components#dynamic-apis)** whose values cannot be known ahead of time. Using it will opt the page into **[dynamic rendering](/docs/app/building-your-application/rendering/server-components#dynamic-rendering)** at request time.
-- `searchParams` is a plain JavaScript object, not a `URLSearchParams` instance.
+- 由于 `searchParams` 属性是一个 Promise，你必须使用 `async/await` 或 React 的 [`use`](https://react.dev/reference/react/use) 函数来访问其值。
+  - 在版本 14 及更早版本中，`searchParams` 是一个同步属性。为了帮助向后兼容，在 Next.js 15 中你仍然可以同步访问它，但这种行为将在未来被废弃。
+- `searchParams` 是一个**[动态 API](/docs/app/building-your-application/rendering/server-components#dynamic-apis)**，其值无法提前知道。使用它将使页面在请求时选择**[动态渲染](/docs/app/building-your-application/rendering/server-components#dynamic-rendering)**。
+- `searchParams` 是一个普通的 JavaScript 对象，而不是 `URLSearchParams` 实例。
 
-## Examples
+## 示例
 
-### Displaying content based on `params`
+### 基于 `params` 显示内容
 
-Using [dynamic route segments](/docs/app/building-your-application/routing/dynamic-routes), you can display or fetch specific content for the page based on the `params` prop.
+使用[动态路由段](/docs/app/building-your-application/routing/dynamic-routes)，你可以根据 `params` 属性为页面显示或获取特定内容。
 
 ```tsx filename="app/blog/[slug]/page.tsx" switcher
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  return <h1>Blog Post: {slug}</h1>
+  return <h1>博客文章: {slug}</h1>
 }
 ```
 
 ```jsx filename="app/blog/[slug]/page.js" switcher
 export default async function Page({ params }) {
   const { slug } = await params
-  return <h1>Blog Post: {slug}</h1>
+  return <h1>博客文章: {slug}</h1>
 }
 ```
 
-### Handling filtering with `searchParams`
+### 使用 `searchParams` 处理筛选
 
-You can use the `searchParams` prop to handle filtering, pagination, or sorting based on the query string of the URL.
+你可以使用 `searchParams` 属性根据 URL 的查询字符串处理筛选、分页或排序。
 
 ```tsx filename="app/shop/page.tsx" switcher
 export default async function Page({
@@ -124,10 +182,10 @@ export default async function Page({
 
   return (
     <div>
-      <h1>Product Listing</h1>
-      <p>Search query: {query}</p>
-      <p>Current page: {page}</p>
-      <p>Sort order: {sort}</p>
+      <h1>产品列表</h1>
+      <p>搜索查询: {query}</p>
+      <p>当前页面: {page}</p>
+      <p>排序顺序: {sort}</p>
     </div>
   )
 }
@@ -139,18 +197,18 @@ export default async function Page({ searchParams }) {
 
   return (
     <div>
-      <h1>Product Listing</h1>
-      <p>Search query: {query}</p>
-      <p>Current page: {page}</p>
-      <p>Sort order: {sort}</p>
+      <h1>产品列表</h1>
+      <p>搜索查询: {query}</p>
+      <p>当前页面: {page}</p>
+      <p>排序顺序: {sort}</p>
     </div>
   )
 }
 ```
 
-### Reading `searchParams` and `params` in Client Components
+### 在客户端组件中读取 `searchParams` 和 `params`
 
-To use `searchParams` and `params` in a Client Component (which cannot be `async`), you can use React's [`use`](https://react.dev/reference/react/use) function to read the promise:
+要在客户端组件（不能是 `async`）中使用 `searchParams` 和 `params`，你可以使用 React 的 [`use`](https://react.dev/reference/react/use) 函数来读取 Promise：
 
 ```tsx filename="app/page.tsx" switcher
 'use client'
@@ -180,9 +238,9 @@ export default function Page({ params, searchParams }) {
 }
 ```
 
-## Version History
+## 版本历史
 
-| Version      | Changes                                                                                                          |
-| ------------ | ---------------------------------------------------------------------------------------------------------------- |
-| `v15.0.0-RC` | `params` and `searchParams` are now promises. A [codemod](/docs/app/guides/upgrading/codemods#150) is available. |
-| `v13.0.0`    | `page` introduced.                                                                                               |
+| 版本         | 变更                                                                                                       |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| `v15.0.0-RC` | `params` 和 `searchParams` 现在是 Promise。提供了[代码转换工具](/docs/app/guides/upgrading/codemods#150)。 |
+| `v13.0.0`    | 引入 `page`。                                                                                              |

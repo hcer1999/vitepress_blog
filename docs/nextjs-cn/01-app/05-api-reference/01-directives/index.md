@@ -1,6 +1,6 @@
 ---
-title: Directives
-description: Directives are used to modify the behavior of your Next.js application.
+title: 指令
+description: Next.js 中 React 指令的 API 参考。
 ---
 
-The following directives are available:
+以下指令可用：

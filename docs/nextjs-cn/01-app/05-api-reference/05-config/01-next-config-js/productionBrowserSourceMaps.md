@@ -1,13 +1,13 @@
 ---
 title: productionBrowserSourceMaps
-description: Enables browser source map generation during the production build.
+description: 在生产构建过程中启用浏览器源映射生成
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-Source Maps are enabled by default during development. During production builds, they are disabled to prevent you leaking your source on the client, unless you specifically opt-in with the configuration flag.
+源映射在开发过程中默认启用。在生产构建期间，它们被禁用以防止你在客户端泄露源代码，除非你通过配置标志特别选择启用。
 
-Next.js provides a configuration flag you can use to enable browser source map generation during the production build:
+Next.js 提供了一个配置标志，你可以使用它在生产构建期间启用浏览器源映射生成：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
 }
 ```
 
-When the `productionBrowserSourceMaps` option is enabled, the source maps will be output in the same directory as the JavaScript files. Next.js will automatically serve these files when requested.
+当启用 `productionBrowserSourceMaps` 选项时，源映射将输出在与 JavaScript 文件相同的目录中。Next.js 将在请求时自动提供这些文件。
 
-- Adding source maps can increase `next build` time
-- Increases memory usage during `next build`
+- 添加源映射可能会增加 `next build` 时间
+- 增加 `next build` 期间的内存使用量

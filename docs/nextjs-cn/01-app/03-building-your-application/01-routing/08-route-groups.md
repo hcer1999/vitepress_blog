@@ -1,27 +1,27 @@
 ---
-title: Route Groups
-description: Route Groups can be used to partition your Next.js application into different sections.
+title: 路由组
+description: 路由组可用于将 Next.js 应用程序划分为不同的部分。
 ---
 
-In the `app` directory, nested folders are normally mapped to URL paths. However, you can mark a folder as a **Route Group** to prevent the folder from being included in the route's URL path.
+在 `app` 目录中，嵌套文件夹通常映射到 URL 路径。然而，您可以将文件夹标记为**路由组**，以防止该文件夹被包含在路由的 URL 路径中。
 
-This allows you to organize your route segments and project files into logical groups without affecting the URL path structure.
+这允许您将路由段和项目文件组织成逻辑组，而不影响 URL 路径结构。
 
-Route groups are useful for:
+路由组适用于：
 
-- Organizing routes into groups e.g. by site section, intent, or team.
-- Enabling nested layouts in the same route segment level:
-  - Creating multiple nested layouts in the same segment, including multiple root layouts
-  - Opting specific segments into a layout
-- Opting for loading skeletons on a specific route
+- 将路由组织成组，例如按网站部分、意图或团队。
+- 在同一路由段级别启用嵌套布局：
+  - 在同一段中创建多个嵌套布局，包括多个根布局
+  - 将特定段包含在布局中
+- 在特定路由上选择加载骨架屏
 
-## Convention
+## 约定
 
-A route group can be created by wrapping a folder's name in parenthesis: `(folderName)`
+路由组可以通过将文件夹名称包装在括号中来创建：`(folderName)`
 
-> **Good to know**:
+> **值得了解**：
 >
-> - The naming of route groups has no special significance other than for organization. They do not affect the URL path.
-> - Routes that include a route group **should not** resolve to the same URL path as other routes. For example, since route groups don't affect URL structure, `(marketing)/about/page.js` and `(shop)/about/page.js` would both resolve to `/about` and cause an error.
-> - If you use multiple root layouts without a top-level `layout.js` file, your home `page.js` file should be defined in one of the route groups, For example: `app/(marketing)/page.js`.
-> - Navigating **across multiple root layouts** will cause a **full page load** (as opposed to a client-side navigation). For example, navigating from `/cart` that uses `app/(shop)/layout.js` to `/blog` that uses `app/(marketing)/layout.js` will cause a full page load. This **only** applies to multiple root layouts.
+> - 路由组的命名除了组织目的外没有特殊意义。它们不影响 URL 路径。
+> - 包含路由组的路由**不应该**解析为与其他路由相同的 URL 路径。例如，由于路由组不影响 URL 结构，`(marketing)/about/page.js` 和 `(shop)/about/page.js` 都会解析为 `/about` 并导致错误。
+> - 如果您使用多个根布局而没有顶级 `layout.js` 文件，您的主页 `page.js` 文件应该定义在其中一个路由组中，例如：`app/(marketing)/page.js`。
+> - 在**多个根布局**之间导航将导致**完整页面加载**（而不是客户端导航）。例如，从使用 `app/(shop)/layout.js` 的 `/cart` 导航到使用 `app/(marketing)/layout.js` 的 `/blog` 将导致完整页面加载。这**仅**适用于多个根布局。

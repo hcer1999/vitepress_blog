@@ -1,9 +1,9 @@
 ---
 title: not-found.js
-description: API reference for the not-found.js file.
+description: not-found.js 特殊文件的 API 参考。
 ---
 
-The **not-found** file is used to render UI when the [`notFound`](/docs/app/api-reference/functions/not-found) function is thrown within a route segment. Along with serving a custom UI, Next.js will return a `200` HTTP status code for streamed responses, and `404` for non-streamed responses.
+**not-found** 文件用于在路由中找不到内容或使用 `notFound` 函数时渲染 UI。该文件应该导出一个返回 React JSX 的默认 React 组件。
 
 ```tsx filename="app/not-found.tsx" switcher
 import Link from 'next/link'
@@ -11,57 +11,9 @@ import Link from 'next/link'
 export default function NotFound() {
   return (
     <div>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
-    </div>
-  )
-}
-```
-
-```jsx filename="app/blog/not-found.js" switcher
-import Link from 'next/link'
-
-export default function NotFound() {
-  return (
-    <div>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
-    </div>
-  )
-}
-```
-
-## Reference
-
-### Props
-
-`not-found.js` components do not accept any props.
-
-> **Good to know**: In addition to catching expected `notFound()` errors, the root `app/not-found.js` file also handles any unmatched URLs for your whole application. This means users that visit a URL that is not handled by your app will be shown the UI exported by the `app/not-found.js` file.
-
-## Examples
-
-### Data Fetching
-
-By default, `not-found` is a Server Component. You can mark it as `async` to fetch and display data:
-
-```tsx filename="app/not-found.tsx" switcher
-import Link from 'next/link'
-import { headers } from 'next/headers'
-
-export default async function NotFound() {
-  const headersList = await headers()
-  const domain = headersList.get('host')
-  const data = await getSiteData(domain)
-  return (
-    <div>
-      <h2>Not Found: {data.name}</h2>
-      <p>Could not find requested resource</p>
-      <p>
-        View <Link href="/blog">all posts</Link>
-      </p>
+      <h2>找不到页面</h2>
+      <p>无法找到请求的资源</p>
+      <Link href="/">返回主页</Link>
     </div>
   )
 }
@@ -69,29 +21,97 @@ export default async function NotFound() {
 
 ```jsx filename="app/not-found.jsx" switcher
 import Link from 'next/link'
-import { headers } from 'next/headers'
 
-export default async function NotFound() {
-  const headersList = await headers()
-  const domain = headersList.get('host')
-  const data = await getSiteData(domain)
+export default function NotFound() {
   return (
     <div>
-      <h2>Not Found: {data.name}</h2>
-      <p>Could not find requested resource</p>
-      <p>
-        View <Link href="/blog">all posts</Link>
-      </p>
+      <h2>找不到页面</h2>
+      <p>无法找到请求的资源</p>
+      <Link href="/">返回主页</Link>
     </div>
   )
 }
 ```
 
-If you need to use Client Component hooks like `usePathname` to display content based on the path, you must fetch data on the client-side instead.
+> **须知**：`not-found.js` 不接受任何参数，返回的 UI 组件不会携带任何属性。
 
-## Version History
+## 参考
 
-| Version   | Changes                                             |
-| --------- | --------------------------------------------------- |
-| `v13.3.0` | Root `app/not-found` handles global unmatched URLs. |
-| `v13.0.0` | `not-found` introduced.                             |
+### `notFound` 函数
+
+除了创建专门的 `not-found` 文件外，你还可以使用 `notFound` 函数触发 `not-found` 文件。调用 `notFound()` 会抛出一个错误，并终止路由段的渲染。然后，将显示最近的 `not-found.js` 文件。
+
+<AppOnly>
+
+```tsx filename="app/dashboard/[team]/page.tsx" switcher
+import { notFound } from 'next/navigation'
+
+export default async function Team({ params }: { params: { team: string } }) {
+  const team = await fetchTeam(params.team)
+
+  if (!team) {
+    notFound()
+  }
+
+  return <TeamInfoPage team={team} />
+}
+```
+
+```jsx filename="app/dashboard/[team]/page.js" switcher
+import { notFound } from 'next/navigation'
+
+export default async function Team({ params }) {
+  const team = await fetchTeam(params.team)
+
+  if (!team) {
+    notFound()
+  }
+
+  return <TeamInfoPage team={team} />
+}
+```
+
+</AppOnly>
+
+## 示例
+
+### 文件结构
+
+当渲染 `not-found.js` 文件时，它将完全替换该路由段下的所有内容。例如，在 `app/dashboard` 中，如果使用 `notFound()`，那么 `not-found.js` 文件将替代 `layout.js` 和 `page.js`。
+
+然而，任何父段 `layout.js` 文件在 `app` 路径内都会继续渲染。这样就可以在 `not-found.js` 文件中保留其他导航和 UI 元素。
+
+```jsx filename="app/dashboard/[team]/not-found.js"
+export default function TeamNotFound() {
+  return <h1>未找到团队</h1>
+}
+```
+
+```jsx filename="app/dashboard/[team]/layout.js"
+export default function TeamLayout({ children }) {
+  return (
+    <div>
+      <h1>仪表板布局</h1>
+      {children}
+    </div>
+  )
+}
+```
+
+```jsx filename="app/dashboard/[team]/page.js"
+import { notFound } from 'next/navigation'
+
+export default function TeamPage({ params }) {
+  if (params.team === 'team-not-found') {
+    notFound()
+  }
+
+  return <h1>仪表板页面</h1>
+}
+```
+
+## 版本历史
+
+| 版本      | 变更               |
+| --------- | ------------------ |
+| `v13.0.0` | 引入 `not-found`。 |

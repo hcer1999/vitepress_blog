@@ -1,13 +1,13 @@
 ---
 title: forbidden.js
-description: API reference for the forbidden.js special file.
+description: forbidden.js 特殊文件的 API 参考。
 related:
   links:
     - app/api-reference/functions/forbidden
 version: experimental
 ---
 
-The **forbidden** file is used to render UI when the [`forbidden`](/docs/app/api-reference/functions/forbidden) function is invoked during authentication. Along with allowing you to customize the UI, Next.js will return a `403` status code.
+**forbidden** 文件用于在认证过程中调用 [`forbidden`](/docs/app/api-reference/functions/forbidden) 函数时渲染 UI。除了允许你自定义 UI 外，Next.js 还将返回 `403` 状态码。
 
 ```tsx filename="app/forbidden.tsx" switcher
 import Link from 'next/link'
@@ -15,9 +15,9 @@ import Link from 'next/link'
 export default function Forbidden() {
   return (
     <div>
-      <h2>Forbidden</h2>
-      <p>You are not authorized to access this resource.</p>
-      <Link href="/">Return Home</Link>
+      <h2>禁止访问</h2>
+      <p>您无权访问此资源。</p>
+      <Link href="/">返回首页</Link>
     </div>
   )
 }
@@ -29,22 +29,22 @@ import Link from 'next/link'
 export default function Forbidden() {
   return (
     <div>
-      <h2>Forbidden</h2>
-      <p>You are not authorized to access this resource.</p>
-      <Link href="/">Return Home</Link>
+      <h2>禁止访问</h2>
+      <p>您无权访问此资源。</p>
+      <Link href="/">返回首页</Link>
     </div>
   )
 }
 ```
 
-## Reference
+## 参考
 
 ### Props
 
-`forbidden.js` components do not accept any props.
+`forbidden.js` 组件不接受任何 props。
 
-## Version History
+## 版本历史
 
-| Version   | Changes                    |
-| --------- | -------------------------- |
-| `v15.1.0` | `forbidden.js` introduced. |
+| 版本      | 变更                  |
+| --------- | --------------------- |
+| `v15.1.0` | 引入 `forbidden.js`。 |

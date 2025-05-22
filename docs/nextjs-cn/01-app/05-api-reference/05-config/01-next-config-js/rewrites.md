@@ -1,25 +1,25 @@
 ---
 title: rewrites
-description: Add rewrites to your Next.js app.
+description: 向你的 Next.js 应用添加重写。
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-Rewrites allow you to map an incoming request path to a different destination path.
+重写允许你将传入的请求路径映射到不同的目标路径。
 
 <AppOnly>
 
-Rewrites act as a URL proxy and mask the destination path, making it appear the user hasn't changed their location on the site. In contrast, [redirects](/docs/app/api-reference/config/next-config-js/redirects) will reroute to a new page and show the URL changes.
+重写充当 URL 代理并掩盖目标路径，使其看起来用户没有改变他们在网站上的位置。相比之下，[重定向](/docs/app/api-reference/config/next-config-js/redirects)会路由到新页面并显示 URL 变化。
 
 </AppOnly>
 
 <PagesOnly>
 
-Rewrites act as a URL proxy and mask the destination path, making it appear the user hasn't changed their location on the site. In contrast, [redirects](/docs/pages/api-reference/config/next-config-js/redirects) will reroute to a new page and show the URL changes.
+重写充当 URL 代理并掩盖目标路径，使其看起来用户没有改变他们在网站上的位置。相比之下，[重定向](/docs/pages/api-reference/config/next-config-js/redirects)会路由到新页面并显示 URL 变化。
 
 </PagesOnly>
 
-To use rewrites you can use the `rewrites` key in `next.config.js`:
+要使用重写，你可以在 `next.config.js` 中使用 `rewrites` 键：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -34,27 +34,27 @@ module.exports = {
 }
 ```
 
-Rewrites are applied to client-side routing, a `<Link href="/about">` will have the rewrite applied in the above example.
+重写应用于客户端路由，在上面的例子中，`<Link href="/about">` 将应用重写规则。
 
-`rewrites` is an async function that expects to return either an array or an object of arrays (see below) holding objects with `source` and `destination` properties:
+`rewrites` 是一个异步函数，期望返回一个数组或一个数组对象（见下文），数组中包含具有 `source` 和 `destination` 属性的对象：
 
-- `source`: `String` - is the incoming request path pattern.
-- `destination`: `String` is the path you want to route to.
-- `basePath`: `false` or `undefined` - if false the basePath won't be included when matching, can be used for external rewrites only.
-- `locale`: `false` or `undefined` - whether the locale should not be included when matching.
-- `has` is an array of [has objects](#header-cookie-and-query-matching) with the `type`, `key` and `value` properties.
-- `missing` is an array of [missing objects](#header-cookie-and-query-matching) with the `type`, `key` and `value` properties.
+- `source`：`String` - 是传入请求路径模式。
+- `destination`：`String` - 是你想要路由到的路径。
+- `basePath`：`false` 或 `undefined` - 如果为 false，则在匹配时不会包含 basePath，只能用于外部重写。
+- `locale`：`false` 或 `undefined` - 是否在匹配时不应包含语言环境。
+- `has` 是一个 [has 对象](#头部-cookie-和查询匹配) 数组，具有 `type`、`key` 和 `value` 属性。
+- `missing` 是一个 [missing 对象](#头部-cookie-和查询匹配) 数组，具有 `type`、`key` 和 `value` 属性。
 
-When the `rewrites` function returns an array, rewrites are applied after checking the filesystem (pages and `/public` files) and before dynamic routes. When the `rewrites` function returns an object of arrays with a specific shape, this behavior can be changed and more finely controlled, as of `v10.1` of Next.js:
+当 `rewrites` 函数返回一个数组时，重写会在检查文件系统（页面和 `/public` 文件）之后和动态路由之前应用。当 `rewrites` 函数返回一个具有特定形状的数组对象时，这种行为可以被改变并更精细地控制，从 Next.js 的 `v10.1` 开始：
 
 ```js filename="next.config.js"
 module.exports = {
   async rewrites() {
     return {
       beforeFiles: [
-        // These rewrites are checked after headers/redirects
-        // and before all files including _next/public files which
-        // allows overriding page files
+        // 这些重写在 headers/redirects 之后
+        // 和所有文件（包括 _next/public 文件）之前检查，
+        // 这允许覆盖页面文件
         {
           source: '/some-page',
           destination: '/somewhere-else',
@@ -62,16 +62,16 @@ module.exports = {
         },
       ],
       afterFiles: [
-        // These rewrites are checked after pages/public files
-        // are checked but before dynamic routes
+        // 这些重写在检查页面/公共文件
+        // 之后但在动态路由之前检查
         {
           source: '/non-existent',
           destination: '/somewhere-else',
         },
       ],
       fallback: [
-        // These rewrites are checked after both pages/public files
-        // and dynamic routes are checked
+        // 这些重写在页面/公共文件
+        // 和动态路由都检查之后检查
         {
           source: '/:path*',
           destination: `https://my-old-site.com/:path*`,
@@ -82,35 +82,35 @@ module.exports = {
 }
 ```
 
-> **Good to know**: rewrites in `beforeFiles` do not check the filesystem/dynamic routes immediately after matching a source, they continue until all `beforeFiles` have been checked.
+> **须知**：`beforeFiles` 中的重写在匹配源后不会立即检查文件系统/动态路由，它们会继续检查直到所有 `beforeFiles` 都已被检查。
 
-The order Next.js routes are checked is:
+Next.js 路由检查的顺序是：
 
 <AppOnly>
 
-1. [headers](/docs/app/api-reference/config/next-config-js/headers) are checked/applied
-2. [redirects](/docs/app/api-reference/config/next-config-js/redirects) are checked/applied
-3. `beforeFiles` rewrites are checked/applied
-4. static files from the [public directory](/docs/app/api-reference/file-conventions/public-folder), `_next/static` files, and non-dynamic pages are checked/served
-5. `afterFiles` rewrites are checked/applied, if one of these rewrites is matched we check dynamic routes/static files after each match
-6. `fallback` rewrites are checked/applied, these are applied before rendering the 404 page and after dynamic routes/all static assets have been checked. If you use [fallback: true/'blocking'](/docs/pages/api-reference/functions/get-static-paths#fallback-true) in `getStaticPaths`, the fallback `rewrites` defined in your `next.config.js` will _not_ be run.
+1. [headers](/docs/app/api-reference/config/next-config-js/headers) 被检查/应用
+2. [redirects](/docs/app/api-reference/config/next-config-js/redirects) 被检查/应用
+3. `beforeFiles` 重写被检查/应用
+4. 来自 [public 目录](/docs/app/api-reference/file-conventions/public-folder) 的静态文件、`_next/static` 文件和非动态页面被检查/服务
+5. `afterFiles` 重写被检查/应用，如果这些重写之一被匹配，我们会在每次匹配后检查动态路由/静态文件
+6. `fallback` 重写被检查/应用，这些在渲染 404 页面之前和动态路由/所有静态资产被检查之后应用。如果你在 `getStaticPaths` 中使用 [fallback: true/'blocking'](/docs/pages/api-reference/functions/get-static-paths#fallback-true)，你在 `next.config.js` 中定义的 fallback `rewrites` 将*不会*运行。
 
 </AppOnly>
 
 <PagesOnly>
 
-1. [headers](/docs/pages/api-reference/config/next-config-js/headers) are checked/applied
-2. [redirects](/docs/pages/api-reference/config/next-config-js/redirects) are checked/applied
-3. `beforeFiles` rewrites are checked/applied
-4. static files from the [public directory](/docs/pages/api-reference/file-conventions/public-folder), `_next/static` files, and non-dynamic pages are checked/served
-5. `afterFiles` rewrites are checked/applied, if one of these rewrites is matched we check dynamic routes/static files after each match
-6. `fallback` rewrites are checked/applied, these are applied before rendering the 404 page and after dynamic routes/all static assets have been checked. If you use [fallback: true/'blocking'](/docs/pages/api-reference/functions/get-static-paths#fallback-true) in `getStaticPaths`, the fallback `rewrites` defined in your `next.config.js` will _not_ be run.
+1. [headers](/docs/pages/api-reference/config/next-config-js/headers) 被检查/应用
+2. [redirects](/docs/pages/api-reference/config/next-config-js/redirects) 被检查/应用
+3. `beforeFiles` 重写被检查/应用
+4. 来自 [public 目录](/docs/pages/api-reference/file-conventions/public-folder) 的静态文件、`_next/static` 文件和非动态页面被检查/服务
+5. `afterFiles` 重写被检查/应用，如果这些重写之一被匹配，我们会在每次匹配后检查动态路由/静态文件
+6. `fallback` 重写被检查/应用，这些在渲染 404 页面之前和动态路由/所有静态资产被检查之后应用。如果你在 `getStaticPaths` 中使用 [fallback: true/'blocking'](/docs/pages/api-reference/functions/get-static-paths#fallback-true)，你在 `next.config.js` 中定义的 fallback `rewrites` 将*不会*运行。
 
 </PagesOnly>
 
-## Rewrite parameters
+## 重写参数
 
-When using parameters in a rewrite the parameters will be passed in the query by default when none of the parameters are used in the `destination`.
+在重写中使用参数时，当没有参数用于 `destination` 时，参数默认会在查询中传递。
 
 ```js filename="next.config.js"
 module.exports = {
@@ -118,14 +118,14 @@ module.exports = {
     return [
       {
         source: '/old-about/:path*',
-        destination: '/about', // The :path parameter isn't used here so will be automatically passed in the query
+        destination: '/about', // :path 参数在这里没有使用，所以会自动在查询中传递
       },
     ]
   },
 }
 ```
 
-If a parameter is used in the destination none of the parameters will be automatically passed in the query.
+如果参数用于目标，则所有参数都不会自动在查询中传递。
 
 ```js filename="next.config.js"
 module.exports = {
@@ -133,14 +133,14 @@ module.exports = {
     return [
       {
         source: '/docs/:path*',
-        destination: '/:path*', // The :path parameter is used here so will not be automatically passed in the query
+        destination: '/:path*', // :path 参数在这里使用，所以不会自动在查询中传递
       },
     ]
   },
 }
 ```
 
-You can still pass the parameters manually in the query if one is already used in the destination by specifying the query in the `destination`.
+即使参数已经在目标中使用，你仍然可以通过在 `destination` 中指定查询来手动在查询中传递参数。
 
 ```js filename="next.config.js"
 module.exports = {
@@ -149,20 +149,20 @@ module.exports = {
       {
         source: '/:first/:second',
         destination: '/:first?second=:second',
-        // Since the :first parameter is used in the destination the :second parameter
-        // will not automatically be added in the query although we can manually add it
-        // as shown above
+        // 由于 :first 参数用于目标，:second 参数
+        // 不会自动添加到查询中，尽管我们可以手动添加它
+        // 如上所示
       },
     ]
   },
 }
 ```
 
-> **Good to know**: Static pages from [Automatic Static Optimization](/docs/pages/building-your-application/rendering/automatic-static-optimization) or [prerendering](/docs/pages/building-your-application/data-fetching/get-static-props) params from rewrites will be parsed on the client after hydration and provided in the query.
+> **须知**：来自[自动静态优化](/docs/pages/building-your-application/rendering/automatic-static-optimization)或[预渲染](/docs/pages/building-your-application/data-fetching/get-static-props)的静态页面，重写中的参数将在客户端水合后解析并在查询中提供。
 
-## Path Matching
+## 路径匹配
 
-Path matches are allowed, for example `/blog/:slug` will match `/blog/hello-world` (no nested paths):
+允许路径匹配，例如 `/blog/:slug` 将匹配 `/blog/hello-world`（不包括嵌套路径）：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -170,16 +170,16 @@ module.exports = {
     return [
       {
         source: '/blog/:slug',
-        destination: '/news/:slug', // Matched parameters can be used in the destination
+        destination: '/news/:slug', // 匹配的参数可以在目标中使用
       },
     ]
   },
 }
 ```
 
-### Wildcard Path Matching
+### 通配符路径匹配
 
-To match a wildcard path you can use `*` after a parameter, for example `/blog/:slug*` will match `/blog/a/b/c/d/hello-world`:
+要匹配通配符路径，可以在参数后使用 `*`，例如 `/blog/:slug*` 将匹配 `/blog/a/b/c/d/hello-world`：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -187,16 +187,16 @@ module.exports = {
     return [
       {
         source: '/blog/:slug*',
-        destination: '/news/:slug*', // Matched parameters can be used in the destination
+        destination: '/news/:slug*', // 匹配的参数可以在目标中使用
       },
     ]
   },
 }
 ```
 
-### Regex Path Matching
+### 正则表达式路径匹配
 
-To match a regex path you can wrap the regex in parenthesis after a parameter, for example `/blog/:slug(\\d{1,})` will match `/blog/123` but not `/blog/abc`:
+要匹配正则表达式路径，可以在参数后用括号包装正则表达式，例如 `/blog/:slug(\\d{1,})` 将匹配 `/blog/123` 但不匹配 `/blog/abc`：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -211,7 +211,7 @@ module.exports = {
 }
 ```
 
-The following characters `(`, `)`, `{`, `}`, `[`, `]`, `|`, `\`, `^`, `.`, `:`, `*`, `+`, `-`, `?`, `$` are used for regex path matching, so when used in the `source` as non-special values they must be escaped by adding `\\` before them:
+以下字符 `(`, `)`, `{`, `}`, `[`, `]`, `|`, `\`, `^`, `.`, `:`, `*`, `+`, `-`, `?`, `$` 用于正则表达式路径匹配，因此当在 `source` 中用作非特殊值时必须添加 `\\` 前缀：
 
 ```js filename="next.config.js"
 module.exports = {

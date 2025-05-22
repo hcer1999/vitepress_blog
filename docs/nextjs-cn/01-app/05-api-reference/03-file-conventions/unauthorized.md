@@ -1,13 +1,13 @@
 ---
 title: unauthorized.js
-description: API reference for the unauthorized.js special file.
+description: unauthorized.js 特殊文件的 API 参考。
 related:
   links:
     - app/api-reference/functions/unauthorized
 version: experimental
 ---
 
-The **unauthorized** file is used to render UI when the [`unauthorized`](/docs/app/api-reference/functions/unauthorized) function is invoked during authentication. Along with allowing you to customize the UI, Next.js will return a `401` status code.
+**unauthorized** 文件用于在认证过程中调用 [`unauthorized`](/docs/app/api-reference/functions/unauthorized) 函数时渲染 UI。除了允许你自定义 UI 外，Next.js 还将返回 `401` 状态码。
 
 ```tsx filename="app/unauthorized.tsx" switcher
 import Login from '@/app/components/Login'
@@ -15,8 +15,8 @@ import Login from '@/app/components/Login'
 export default function Unauthorized() {
   return (
     <main>
-      <h1>401 - Unauthorized</h1>
-      <p>Please log in to access this page.</p>
+      <h1>401 - 未授权</h1>
+      <p>请登录以访问此页面。</p>
       <Login />
     </main>
   )
@@ -29,25 +29,25 @@ import Login from '@/app/components/Login'
 export default function Unauthorized() {
   return (
     <main>
-      <h1>401 - Unauthorized</h1>
-      <p>Please log in to access this page.</p>
+      <h1>401 - 未授权</h1>
+      <p>请登录以访问此页面。</p>
       <Login />
     </main>
   )
 }
 ```
 
-## Reference
+## 参考
 
 ### Props
 
-`unauthorized.js` components do not accept any props.
+`unauthorized.js` 组件不接受任何 props。
 
-## Examples
+## 示例
 
-### Displaying login UI to unauthenticated users
+### 向未认证用户显示登录 UI
 
-You can use [`unauthorized`](/docs/app/api-reference/functions/unauthorized) function to render the `unauthorized.js` file with a login UI.
+你可以使用 [`unauthorized`](/docs/app/api-reference/functions/unauthorized) 函数来渲染带有登录 UI 的 `unauthorized.js` 文件。
 
 ```tsx filename="app/dashboard/page.tsx" switcher
 import { verifySession } from '@/app/lib/dal'
@@ -85,8 +85,8 @@ import Login from '@/app/components/Login'
 export default function UnauthorizedPage() {
   return (
     <main>
-      <h1>401 - Unauthorized</h1>
-      <p>Please log in to access this page.</p>
+      <h1>401 - 未授权</h1>
+      <p>请登录以访问此页面。</p>
       <Login />
     </main>
   )
@@ -99,16 +99,16 @@ import Login from '@/app/components/Login'
 export default function UnauthorizedPage() {
   return (
     <main>
-      <h1>401 - Unauthorized</h1>
-      <p>Please log in to access this page.</p>
+      <h1>401 - 未授权</h1>
+      <p>请登录以访问此页面。</p>
       <Login />
     </main>
   )
 }
 ```
 
-## Version History
+## 版本历史
 
-| Version   | Changes                       |
-| --------- | ----------------------------- |
-| `v15.1.0` | `unauthorized.js` introduced. |
+| 版本      | 变更                     |
+| --------- | ------------------------ |
+| `v15.1.0` | 引入 `unauthorized.js`。 |

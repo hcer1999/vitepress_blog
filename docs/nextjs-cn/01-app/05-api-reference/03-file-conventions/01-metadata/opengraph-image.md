@@ -1,37 +1,37 @@
 ---
-title: opengraph-image and twitter-image
-description: API Reference for the Open Graph Image and Twitter Image file conventions.
+title: opengraph-image 和 twitter-image
+description: Open Graph 图像和 Twitter 图像文件约定的 API 参考。
 ---
 
-The `opengraph-image` and `twitter-image` file conventions allow you to set Open Graph and Twitter images for a route segment.
+`opengraph-image` 和 `twitter-image` 文件约定允许你为路由段设置 Open Graph 和 Twitter 图像。
 
-They are useful for setting the images that appear on social networks and messaging apps when a user shares a link to your site.
+这些图像在用户分享你网站链接时，会显示在社交网络和消息应用中，非常有用。
 
-There are two ways to set Open Graph and Twitter images:
+设置 Open Graph 和 Twitter 图像有两种方式：
 
-- [Using image files (.jpg, .png, .gif)](#image-files-jpg-png-gif)
-- [Using code to generate images (.js, .ts, .tsx)](#generate-images-using-code-js-ts-tsx)
+- [使用图像文件 (.jpg, .png, .gif)](#图像文件-jpg-png-gif)
+- [使用代码生成图像 (.js, .ts, .tsx)](#使用代码生成图像-js-ts-tsx)
 
-## Image files (.jpg, .png, .gif)
+## 图像文件 (.jpg, .png, .gif)
 
-Use an image file to set a route segment's shared image by placing an `opengraph-image` or `twitter-image` image file in the segment.
+通过在路由段中放置 `opengraph-image` 或 `twitter-image` 图像文件，可以设置该路由段的共享图像。
 
-Next.js will evaluate the file and automatically add the appropriate tags to your app's `<head>` element.
+Next.js 将评估文件并自动将适当的标签添加到应用的 `<head>` 元素中。
 
-| File convention                                 | Supported file types            |
+| 文件约定                                        | 支持的文件类型                  |
 | ----------------------------------------------- | ------------------------------- |
 | [`opengraph-image`](#opengraph-image)           | `.jpg`, `.jpeg`, `.png`, `.gif` |
 | [`twitter-image`](#twitter-image)               | `.jpg`, `.jpeg`, `.png`, `.gif` |
 | [`opengraph-image.alt`](#opengraph-imagealttxt) | `.txt`                          |
 | [`twitter-image.alt`](#twitter-imagealttxt)     | `.txt`                          |
 
-> **Good to know**:
+> **须知**：
 >
-> The `twitter-image` file size must not exceed [5MB](https://developer.x.com/en/docs/x-for-websites/cards/overview/summary), and the `opengraph-image` file size must not exceed [8MB](https://developers.facebook.com/docs/sharing/webmasters/images). If the image file size exceeds these limits, the build will fail.
+> `twitter-image` 文件大小不得超过 [5MB](https://developer.x.com/en/docs/x-for-websites/cards/overview/summary)，`opengraph-image` 文件大小不得超过 [8MB](https://developers.facebook.com/docs/sharing/webmasters/images)。如果图像文件大小超过这些限制，构建将失败。
 
 ### `opengraph-image`
 
-Add an `opengraph-image.(jpg|jpeg|png|gif)` image file to any route segment.
+在任何路由段中添加 `opengraph-image.(jpg|jpeg|png|gif)` 图像文件。
 
 ```html filename="<head> output"
 <meta property="og:image" content="<generated>" />
@@ -42,7 +42,7 @@ Add an `opengraph-image.(jpg|jpeg|png|gif)` image file to any route segment.
 
 ### `twitter-image`
 
-Add a `twitter-image.(jpg|jpeg|png|gif)` image file to any route segment.
+在任何路由段中添加 `twitter-image.(jpg|jpeg|png|gif)` 图像文件。
 
 ```html filename="<head> output"
 <meta name="twitter:image" content="<generated>" />
@@ -53,7 +53,7 @@ Add a `twitter-image.(jpg|jpeg|png|gif)` image file to any route segment.
 
 ### `opengraph-image.alt.txt`
 
-Add an accompanying `opengraph-image.alt.txt` file in the same route segment as the `opengraph-image.(jpg|jpeg|png|gif)` image it's alt text.
+在与 `opengraph-image.(jpg|jpeg|png|gif)` 图像相同的路由段中添加 `opengraph-image.alt.txt` 文件作为其替代文本。
 
 ```txt filename="opengraph-image.alt.txt"
 About Acme
@@ -65,7 +65,7 @@ About Acme
 
 ### `twitter-image.alt.txt`
 
-Add an accompanying `twitter-image.alt.txt` file in the same route segment as the `twitter-image.(jpg|jpeg|png|gif)` image it's alt text.
+在与 `twitter-image.(jpg|jpeg|png|gif)` 图像相同的路由段中添加 `twitter-image.alt.txt` 文件作为其替代文本。
 
 ```txt filename="twitter-image.alt.txt"
 About Acme
@@ -75,31 +75,31 @@ About Acme
 <meta property="twitter:image:alt" content="About Acme" />
 ```
 
-## Generate images using code (.js, .ts, .tsx)
+## 使用代码生成图像 (.js, .ts, .tsx)
 
-In addition to using [literal image files](#image-files-jpg-png-gif), you can programmatically **generate** images using code.
+除了使用[实际图像文件](#图像文件-jpg-png-gif)外，你还可以使用代码以编程方式**生成**图像。
 
-Generate a route segment's shared image by creating an `opengraph-image` or `twitter-image` route that default exports a function.
+通过创建默认导出函数的 `opengraph-image` 或 `twitter-image` 路由来生成路由段的共享图像。
 
-| File convention   | Supported file types |
+| 文件约定          | 支持的文件类型       |
 | ----------------- | -------------------- |
 | `opengraph-image` | `.js`, `.ts`, `.tsx` |
 | `twitter-image`   | `.js`, `.ts`, `.tsx` |
 
-> **Good to know**:
+> **须知**：
 >
-> - By default, generated images are [**statically optimized**](/docs/app/building-your-application/rendering/server-components#static-rendering-default) (generated at build time and cached) unless they use [Dynamic APIs](/docs/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis) or uncached data.
-> - You can generate multiple Images in the same file using [`generateImageMetadata`](/docs/app/api-reference/functions/generate-image-metadata).
-> - `opengraph-image.js` and `twitter-image.js` are special Route Handlers that is cached by default unless it uses a [Dynamic API](/docs/app/deep-dive/caching#dynamic-apis) or [dynamic config](/docs/app/deep-dive/caching#segment-config-options) option.
+> - 默认情况下，生成的图像会进行[**静态优化**](/docs/app/building-your-application/rendering/server-components#static-rendering-default)（在构建时生成并缓存），除非它们使用[动态 API](/docs/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)或未缓存的数据。
+> - 你可以使用 [`generateImageMetadata`](/docs/app/api-reference/functions/generate-image-metadata) 在同一文件中生成多个图像。
+> - `opengraph-image.js` 和 `twitter-image.js` 是默认被缓存的特殊路由处理程序，除非它们使用了[动态 API](/docs/app/deep-dive/caching#dynamic-apis)或[动态配置](/docs/app/deep-dive/caching#segment-config-options)选项。
 
-The easiest way to generate an image is to use the [ImageResponse](/docs/app/api-reference/functions/image-response) API from `next/og`.
+生成图像最简单的方法是使用 `next/og` 中的 [ImageResponse](/docs/app/api-reference/functions/image-response) API。
 
 ```tsx filename="app/about/opengraph-image.tsx" switcher
 import { ImageResponse } from 'next/og'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-// Image metadata
+// 图像元数据
 export const alt = 'About Acme'
 export const size = {
   width: 1200,
@@ -108,14 +108,14 @@ export const size = {
 
 export const contentType = 'image/png'
 
-// Image generation
+// 图像生成
 export default async function Image() {
-  // Font loading, process.cwd() is Next.js project directory
+  // 字体加载，process.cwd() 是 Next.js 项目目录
   const interSemiBold = await readFile(join(process.cwd(), 'assets/Inter-SemiBold.ttf'))
 
   return new ImageResponse(
     (
-      // ImageResponse JSX element
+      // ImageResponse JSX 元素
       <div
         style={{
           fontSize: 128,
@@ -130,10 +130,10 @@ export default async function Image() {
         About Acme
       </div>
     ),
-    // ImageResponse options
+    // ImageResponse 选项
     {
-      // For convenience, we can re-use the exported opengraph-image
-      // size config to also set the ImageResponse's width and height.
+      // 为方便起见，我们可以重用导出的 opengraph-image
+      // 尺寸配置来设置 ImageResponse 的宽度和高度。
       ...size,
       fonts: [
         {
@@ -153,7 +153,7 @@ import { ImageResponse } from 'next/og'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-// Image metadata
+// 图像元数据
 export const alt = 'About Acme'
 export const size = {
   width: 1200,
@@ -162,14 +162,14 @@ export const size = {
 
 export const contentType = 'image/png'
 
-// Image generation
+// 图像生成
 export default async function Image() {
-  // Font loading, process.cwd() is Next.js project directory
+  // 字体加载，process.cwd() 是 Next.js 项目目录
   const interSemiBold = await readFile(join(process.cwd(), 'assets/Inter-SemiBold.ttf'))
 
   return new ImageResponse(
     (
-      // ImageResponse JSX element
+      // ImageResponse JSX 元素
       <div
         style={{
           fontSize: 128,
@@ -184,10 +184,10 @@ export default async function Image() {
         About Acme
       </div>
     ),
-    // ImageResponse options
+    // ImageResponse 选项
     {
-      // For convenience, we can re-use the exported opengraph-image
-      // size config to also set the ImageResponse's width and height.
+      // 为方便起见，我们可以重用导出的 opengraph-image
+      // 尺寸配置来设置 ImageResponse 的宽度和高度。
       ...size,
       fonts: [
         {
@@ -212,11 +212,11 @@ export default async function Image() {
 
 ### Props
 
-The default export function receives the following props:
+默认导出函数接收以下 props：
 
-#### `params` (optional)
+#### `params`（可选）
 
-An object containing the [dynamic route parameters](/docs/app/building-your-application/routing/dynamic-routes) object from the root segment down to the segment `opengraph-image` or `twitter-image` is colocated in.
+一个包含从根段到 `opengraph-image` 或 `twitter-image` 所在段的[动态路由参数](/docs/app/building-your-application/routing/dynamic-routes)对象。
 
 ```tsx filename="app/shop/[slug]/opengraph-image.tsx" switcher
 export default function Image({ params }: { params: { slug: string } }) {
@@ -230,27 +230,27 @@ export default function Image({ params }) {
 }
 ```
 
-| Route                                      | URL         | `params`                  |
+| 路由                                       | URL         | `params`                  |
 | ------------------------------------------ | ----------- | ------------------------- |
 | `app/shop/opengraph-image.js`              | `/shop`     | `undefined`               |
 | `app/shop/[slug]/opengraph-image.js`       | `/shop/1`   | `{ slug: '1' }`           |
 | `app/shop/[tag]/[item]/opengraph-image.js` | `/shop/1/2` | `{ tag: '1', item: '2' }` |
 
-### Returns
+### 返回值
 
-The default export function should return a `Blob` | `ArrayBuffer` | `TypedArray` | `DataView` | `ReadableStream` | `Response`.
+默认导出函数应返回 `Blob` | `ArrayBuffer` | `TypedArray` | `DataView` | `ReadableStream` | `Response`。
 
-> **Good to know**: `ImageResponse` satisfies this return type.
+> **须知**：`ImageResponse` 满足此返回类型。
 
-### Config exports
+### 配置导出
 
-You can optionally configure the image's metadata by exporting `alt`, `size`, and `contentType` variables from `opengraph-image` or `twitter-image` route.
+你可以通过从 `opengraph-image` 或 `twitter-image` 路由导出 `alt`、`size` 和 `contentType` 变量来选择性地配置图像的元数据。
 
-| Option                        | Type                                                                                                            |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| [`alt`](#alt)                 | `string`                                                                                                        |
-| [`size`](#size)               | `{ width: number; height: number }`                                                                             |
-| [`contentType`](#contenttype) | `string` - [image MIME type](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types#image_types) |
+| 选项                          | 类型                                                                                                           |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| [`alt`](#alt)                 | `string`                                                                                                       |
+| [`size`](#size)               | `{ width: number; height: number }`                                                                            |
+| [`contentType`](#contenttype) | `string` - [图像 MIME 类型](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types#image_types) |
 
 #### `alt`
 
@@ -307,18 +307,18 @@ export default function Image() {}
 <meta property="og:image:type" content="image/png" />
 ```
 
-#### Route Segment Config
+#### 路由段配置
 
-`opengraph-image` and `twitter-image` are specialized [Route Handlers](/docs/app/building-your-application/routing/route-handlers) that can use the same [route segment configuration](/docs/app/api-reference/file-conventions/route-segment-config) options as Pages and Layouts.
+`opengraph-image` 和 `twitter-image` 是专门的[路由处理程序](/docs/app/building-your-application/routing/route-handlers)，可以使用与页面和布局相同的[路由段配置](/docs/app/api-reference/file-conventions/route-segment-config)选项。
 
-### Examples
+### 示例
 
-#### Using external data
+#### 使用外部数据
 
-This example uses the `params` object and external data to generate the image.
+此示例使用 `params` 对象和外部数据生成图像。
 
-> **Good to know**:
-> By default, this generated image will be [statically optimized](/docs/app/building-your-application/rendering/server-components#static-rendering-default). You can configure the individual `fetch` [`options`](/docs/app/api-reference/functions/fetch) or route segments [options](/docs/app/api-reference/file-conventions/route-segment-config#revalidate) to change this behavior.
+> **须知**：
+> 默认情况下，这个生成的图像将被[静态优化](/docs/app/building-your-application/rendering/server-components#static-rendering-default)。你可以配置单个 `fetch` [`选项`](/docs/app/api-reference/functions/fetch)或路由段[选项](/docs/app/api-reference/file-conventions/route-segment-config#revalidate)来更改此行为。
 
 ```tsx filename="app/posts/[slug]/opengraph-image.tsx" switcher
 import { ImageResponse } from 'next/og'
@@ -392,9 +392,9 @@ export default async function Image({ params }) {
 }
 ```
 
-#### Using Node.js runtime with local assets
+#### 使用 Node.js 运行时和本地资源
 
-This example uses the Node.js runtime to fetch a local image on the file system and passes it as an `ArrayBuffer` to the `src` attribute of an `<img>` element. The local asset should be placed relative to the root of your project, rather than the location of the example source file.
+此示例使用 Node.js 运行时从文件系统获取本地图像，并将其作为 `ArrayBuffer` 传递给 `<img>` 元素的 `src` 属性。本地资源应放置在项目根目录下，而不是示例源文件的位置。
 
 ```tsx filename="app/opengraph-image.tsx" switcher
 import { ImageResponse } from 'next/og'
@@ -446,8 +446,8 @@ export default async function Image() {
 }
 ```
 
-## Version History
+## 版本历史
 
-| Version   | Changes                                           |
-| --------- | ------------------------------------------------- |
-| `v13.3.0` | `opengraph-image` and `twitter-image` introduced. |
+| 版本      | 变更                                        |
+| --------- | ------------------------------------------- |
+| `v13.3.0` | 引入 `opengraph-image` 和 `twitter-image`。 |

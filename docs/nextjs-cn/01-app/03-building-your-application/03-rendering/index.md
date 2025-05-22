@@ -1,78 +1,78 @@
 ---
-title: Rendering
-description: Learn the differences between Next.js rendering environments, strategies, and runtimes.
+title: 渲染
+description: 了解 Next.js 渲染环境、策略和运行时之间的差异。
 ---
 
-Rendering converts the code you write into user interfaces. React and Next.js allow you to create hybrid web applications where parts of your code can be rendered on the server or the client. This section will help you understand the differences between these rendering environments, strategies, and runtimes.
+渲染将你编写的代码转换为用户界面。React 和 Next.js 允许你创建混合 Web 应用程序，其中部分代码可以在服务器或客户端上渲染。本节将帮助你理解这些渲染环境、策略和运行时之间的差异。
 
-## Fundamentals
+## 基础知识
 
-To start, it's helpful to be familiar with three foundational web concepts:
+首先，了解三个基础性的 Web 概念会很有帮助：
 
-- The [Environments](#rendering-environments) your application code can be executed in: the server and the client.
-- The [Request-Response Lifecycle](#request-response-lifecycle) that's initiated when a user visits or interacts with your application.
-- The [Network Boundary](#network-boundary) that separates server and client code.
+- 你的应用程序代码可以执行的[环境](#渲染环境)：服务器和客户端。
+- 当用户访问或与你的应用程序交互时启动的[请求-响应生命周期](#请求-响应生命周期)。
+- 分隔服务器和客户端代码的[网络边界](#网络边界)。
 
-### Rendering Environments
+### 渲染环境
 
-There are two environments where web applications can be rendered: the client and the server.
+Web 应用程序可以在两种环境中渲染：客户端和服务器。
 
 <Image
-  alt="Client and Server Environments"
+  alt="客户端和服务器环境"
   srcLight="/docs/light/client-and-server-environments.png"
   srcDark="/docs/dark/client-and-server-environments.png"
   width="1600"
   height="672"
 />
 
-- The **client** refers to the browser on a user's device that sends a request to a server for your application code. It then turns the response from the server into a user interface.
-- The **server** refers to the computer in a data center that stores your application code, receives requests from a client, and sends back an appropriate response.
+- **客户端**指的是用户设备上的浏览器，它向服务器发送请求获取你的应用程序代码。然后它将服务器的响应转换为用户界面。
+- **服务器**指的是数据中心中存储你的应用程序代码的计算机，它接收来自客户端的请求，并发送回适当的响应。
 
-Historically, developers had to use different languages (e.g. JavaScript, PHP) and frameworks when writing code for the server and the client. With React, developers can use the **same language** (JavaScript), and the **same framework** (e.g. Next.js or your framework of choice). This flexibility allows you to seamlessly write code for both environments without context switching.
+历史上，开发者在编写服务器和客户端代码时必须使用不同的语言（例如 JavaScript、PHP）和框架。使用 React，开发者可以使用**相同的语言**（JavaScript）和**相同的框架**（例如 Next.js 或你选择的框架）。这种灵活性让你可以无缝地为两种环境编写代码，而无需转换上下文。
 
-However, each environment has its own set of capabilities and constraints. Therefore, the code you write for the server and the client is not always the same. There are certain operations (e.g. data fetching or managing user state) that are better suited for one environment over the other.
+然而，每个环境都有自己的能力和限制。因此，你为服务器和客户端编写的代码并不总是相同的。某些操作（例如数据获取或管理用户状态）更适合一种环境而非另一种。
 
-Understanding these differences is key to effectively using React and Next.js. We'll cover the differences and use cases in more detail on the [Server](/docs/app/building-your-application/rendering/server-components) and [Client](/docs/app/building-your-application/rendering/client-components) Components pages, for now, let's continue building on our foundation.
+理解这些差异是有效使用 React 和 Next.js 的关键。我们将在[服务器组件](/docs/app/building-your-application/rendering/server-components)和[客户端组件](/docs/app/building-your-application/rendering/client-components)页面中更详细地介绍这些差异和用例，现在，让我们继续构建我们的基础知识。
 
-### Request-Response Lifecycle
+### 请求-响应生命周期
 
-Broadly speaking, all websites follow the same **Request-Response Lifecycle**:
+广义上讲，所有网站都遵循相同的**请求-响应生命周期**：
 
-1. **User Action:** The user interacts with a web application. This could be clicking a link, submitting a form, or typing a URL directly into the browser's address bar.
-2. **HTTP Request:** The client sends an [HTTP](https://developer.mozilla.org/docs/Web/HTTP) request to the server that contains necessary information about what resources are being requested, what method is being used (e.g. `GET`, `POST`), and additional data if necessary.
-3. **Server:** The server processes the request and responds with the appropriate resources. This process may take a couple of steps like routing, fetching data, etc.
-4. **HTTP Response:** After processing the request, the server sends an HTTP response back to the client. This response contains a status code (which tells the client whether the request was successful or not) and requested resources (e.g. HTML, CSS, JavaScript, static assets, etc).
-5. **Client:** The client parses the resources to render the user interface.
-6. **User Action:** Once the user interface is rendered, the user can interact with it, and the whole process starts again.
+1. **用户操作：** 用户与 Web 应用程序交互。这可能是点击链接、提交表单或直接在浏览器地址栏中输入 URL。
+2. **HTTP 请求：** 客户端发送一个 [HTTP](https://developer.mozilla.org/docs/Web/HTTP) 请求到服务器，其中包含有关所请求资源的必要信息，使用的方法（例如 `GET`、`POST`），以及必要时的其他数据。
+3. **服务器：** 服务器处理请求并响应适当的资源。此过程可能包括路由、获取数据等几个步骤。
+4. **HTTP 响应：** 处理完请求后，服务器将 HTTP 响应发送回客户端。此响应包含状态码（告诉客户端请求是否成功）和请求的资源（例如 HTML、CSS、JavaScript、静态资产等）。
+5. **客户端：** 客户端解析资源以渲染用户界面。
+6. **用户操作：** 一旦用户界面被渲染，用户可以与之交互，整个过程重新开始。
 
-A major part of building a hybrid web application is deciding how to split the work in the lifecycle, and where to place the Network Boundary.
+构建混合 Web 应用程序的一个主要部分是决定如何在生命周期中分割工作，以及在哪里放置网络边界。
 
-### Network Boundary
+### 网络边界
 
-In web development, the **Network Boundary** is a conceptual line that separates the different environments. For example, the client and the server, or the server and the data store.
+在 Web 开发中，**网络边界**是一个概念性的线，它分隔不同的环境。例如，客户端和服务器，或服务器和数据存储。
 
-{/_ Diagram: Network Boundary _/}
+{/_ 图表：网络边界 _/}
 
-In React, you choose where to place the client-server network boundary wherever it makes the most sense.
+在 React 中，你可以选择在最合适的地方放置客户端-服务器网络边界。
 
-Behind the scenes, the work is split into two parts: the **client module graph** and the **server module graph**. The server module graph contains all the components that are rendered on the server, and the client module graph contains all components that are rendered on the client.
+在背后，工作被分为两部分：**客户端模块图**和**服务器模块图**。服务器模块图包含在服务器上渲染的所有组件，客户端模块图包含在客户端上渲染的所有组件。
 
-{/_ Diagram: Client and Server Module Graphs _/}
+{/_ 图表：客户端和服务器模块图 _/}
 
-It may be helpful to think about module graphs as a visual representation of how files in your application depend on each other.
+将模块图视为应用程序中文件相互依赖关系的可视化表示可能会有所帮助。
 
-{/_ For example, if you have a file called `Page.jsx` that imports a file called `Button.jsx` on the server, the module graph would look something like this: - Diagram - _/}
+{/_ 例如，如果你在服务器上有一个名为 `Page.jsx` 的文件导入了一个名为 `Button.jsx` 的文件，模块图会看起来像这样： - 图表 - _/}
 
-You can use the React `'use client'` convention to define the boundary. There's also a `"use server"` convention, which tells React to do some computational work on the server.
+你可以使用 React 的 `'use client'` 约定来定义边界。还有一个 `"use server"` 约定，它告诉 React 在服务器上执行一些计算工作。
 
-## Building Hybrid Applications
+## 构建混合应用程序
 
-When working in these environments, it's helpful to think of the flow of the code in your application as **unidirectional**. In other words, during a response, your application code flows in one direction: from the server to the client.
+在这些环境中工作时，将应用程序中代码的流程视为**单向的**会很有帮助。换句话说，在响应过程中，你的应用程序代码沿一个方向流动：从服务器到客户端。
 
-{/_ Diagram: Response flow _/}
+{/_ 图表：响应流 _/}
 
-If you need to access the server from the client, you send a **new** request to the server rather than re-use the same request. This makes it easier to understand where to render your components and where to place the Network Boundary.
+如果你需要从客户端访问服务器，你发送一个**新的**请求到服务器，而不是重用同一个请求。这使得更容易理解在哪里渲染你的组件以及在哪里放置网络边界。
 
-In practice, this model encourages developers to think about what they want to execute on the server first, before sending the result to the client and making the application interactive.
+实践中，这种模型鼓励开发人员首先考虑他们想要在服务器上执行什么，然后再将结果发送到客户端并使应用程序具有交互性。
 
-This concept will become clearer when we look at how you can [interleave Client and Server Components](/docs/app/building-your-application/rendering/composition-patterns) in the same component tree.
+当我们看到如何在同一组件树中[交错客户端和服务器组件](/docs/app/building-your-application/rendering/composition-patterns)时，这个概念将变得更加清晰。

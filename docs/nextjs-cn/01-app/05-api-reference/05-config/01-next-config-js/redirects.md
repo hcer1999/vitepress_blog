@@ -1,13 +1,13 @@
 ---
 title: redirects
-description: Add redirects to your Next.js app.
+description: 向你的 Next.js 应用添加重定向。
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-Redirects allow you to redirect an incoming request path to a different destination path.
+重定向允许你将传入的请求路径重定向到不同的目标路径。
 
-To use redirects you can use the `redirects` key in `next.config.js`:
+要使用重定向，你可以在 `next.config.js` 中使用 `redirects` 键：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -23,24 +23,24 @@ module.exports = {
 }
 ```
 
-`redirects` is an async function that expects an array to be returned holding objects with `source`, `destination`, and `permanent` properties:
+`redirects` 是一个异步函数，期望返回一个数组，数组中包含带有 `source`、`destination` 和 `permanent` 属性的对象：
 
-- `source` is the incoming request path pattern.
-- `destination` is the path you want to route to.
-- `permanent` `true` or `false` - if `true` will use the 308 status code which instructs clients/search engines to cache the redirect forever, if `false` will use the 307 status code which is temporary and is not cached.
+- `source` 是传入请求路径模式。
+- `destination` 是你想要路由到的路径。
+- `permanent` `true` 或 `false` - 如果为 `true`，将使用 308 状态码，指示客户端/搜索引擎永久缓存该重定向；如果为 `false`，将使用 307 状态码，这是临时的，不会被缓存。
 
-> **Why does Next.js use 307 and 308?** Traditionally a 302 was used for a temporary redirect, and a 301 for a permanent redirect, but many browsers changed the request method of the redirect to `GET`, regardless of the original method. For example, if the browser made a request to `POST /v1/users` which returned status code `302` with location `/v2/users`, the subsequent request might be `GET /v2/users` instead of the expected `POST /v2/users`. Next.js uses the 307 temporary redirect, and 308 permanent redirect status codes to explicitly preserve the request method used.
+> **为什么 Next.js 使用 307 和 308？** 传统上，302 用于临时重定向，301 用于永久重定向，但许多浏览器改变了重定向的请求方法为 `GET`，无论原始方法是什么。例如，如果浏览器向 `POST /v1/users` 发出请求，该请求返回状态码 `302` 和位置 `/v2/users`，那么随后的请求可能是 `GET /v2/users` 而不是预期的 `POST /v2/users`。Next.js 使用 307 临时重定向和 308 永久重定向状态码，明确保留所使用的请求方法。
 
-- `basePath`: `false` or `undefined` - if false the `basePath` won't be included when matching, can be used for external redirects only.
-- `locale`: `false` or `undefined` - whether the locale should not be included when matching.
-- `has` is an array of [has objects](#header-cookie-and-query-matching) with the `type`, `key` and `value` properties.
-- `missing` is an array of [missing objects](#header-cookie-and-query-matching) with the `type`, `key` and `value` properties.
+- `basePath`: `false` 或 `undefined` - 如果为 false，则在匹配时不会包含 `basePath`，只能用于外部重定向。
+- `locale`: `false` 或 `undefined` - 是否在匹配时不应包含语言环境。
+- `has` 是具有 `type`、`key` 和 `value` 属性的 [has 对象](#头部-cookie-和查询匹配) 数组。
+- `missing` 是具有 `type`、`key` 和 `value` 属性的 [missing 对象](#头部-cookie-和查询匹配) 数组。
 
-Redirects are checked before the filesystem which includes pages and `/public` files.
+重定向在文件系统之前检查，包括页面和 `/public` 文件。
 
-When using the Pages Router, redirects are not applied to client-side routing (`Link`, `router.push`) unless [Middleware](/docs/app/building-your-application/routing/middleware) is present and matches the path.
+当使用 Pages Router 时，重定向不会应用于客户端路由（`Link`，`router.push`），除非存在 [Middleware](/docs/app/building-your-application/routing/middleware) 并匹配路径。
 
-When a redirect is applied, any query values provided in the request will be passed through to the redirect destination. For example, see the following redirect configuration:
+当应用重定向时，请求中提供的任何查询值都将传递到重定向目标。例如，请看以下重定向配置：
 
 ```js
 {
@@ -50,13 +50,13 @@ When a redirect is applied, any query values provided in the request will be pas
 }
 ```
 
-> **Good to know**: Remember to include the forward slash `/` before the colon `:` in path parameters of the `source` and `destination` paths, otherwise the path will be treated as a literal string and you run the risk of causing infinite redirects.
+> **须知**：记得在 `source` 和 `destination` 路径中冒号 `:` 前包含正斜杠 `/`，否则路径将被视为字面字符串，你可能会导致无限重定向的风险。
 
-When `/old-blog/post-1?hello=world` is requested, the client will be redirected to `/blog/post-1?hello=world`.
+当请求 `/old-blog/post-1?hello=world` 时，客户端将被重定向到 `/blog/post-1?hello=world`。
 
-## Path Matching
+## 路径匹配
 
-Path matches are allowed, for example `/old-blog/:slug` will match `/old-blog/hello-world` (no nested paths):
+允许路径匹配，例如 `/old-blog/:slug` 将匹配 `/old-blog/hello-world`（不包括嵌套路径）：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -64,7 +64,7 @@ module.exports = {
     return [
       {
         source: '/old-blog/:slug',
-        destination: '/news/:slug', // Matched parameters can be used in the destination
+        destination: '/news/:slug', // 匹配的参数可以在目标中使用
         permanent: true,
       },
     ]
@@ -72,9 +72,9 @@ module.exports = {
 }
 ```
 
-### Wildcard Path Matching
+### 通配符路径匹配
 
-To match a wildcard path you can use `*` after a parameter, for example `/blog/:slug*` will match `/blog/a/b/c/d/hello-world`:
+要匹配通配符路径，可以在参数后使用 `*`，例如 `/blog/:slug*` 将匹配 `/blog/a/b/c/d/hello-world`：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -82,7 +82,7 @@ module.exports = {
     return [
       {
         source: '/blog/:slug*',
-        destination: '/news/:slug*', // Matched parameters can be used in the destination
+        destination: '/news/:slug*', // 匹配的参数可以在目标中使用
         permanent: true,
       },
     ]
@@ -90,9 +90,9 @@ module.exports = {
 }
 ```
 
-### Regex Path Matching
+### 正则表达式路径匹配
 
-To match a regex path you can wrap the regex in parentheses after a parameter, for example `/post/:slug(\\d{1,})` will match `/post/123` but not `/post/abc`:
+要匹配正则表达式路径，可以在参数后用括号包装正则表达式，例如 `/post/:slug(\\d{1,})` 将匹配 `/post/123` 但不匹配 `/post/abc`：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -100,7 +100,7 @@ module.exports = {
     return [
       {
         source: '/post/:slug(\\d{1,})',
-        destination: '/news/:slug', // Matched parameters can be used in the destination
+        destination: '/news/:slug', // 匹配的参数可以在目标中使用
         permanent: false,
       },
     ]
@@ -108,14 +108,14 @@ module.exports = {
 }
 ```
 
-The following characters `(`, `)`, `{`, `}`, `:`, `*`, `+`, `?` are used for regex path matching, so when used in the `source` as non-special values they must be escaped by adding `\\` before them:
+以下字符 `(`、`)`、`{`、`}`、`:`、`*`、`+`、`?` 用于正则表达式路径匹配，因此当在 `source` 中作为非特殊值使用时，必须通过在它们前面添加 `\\` 来转义：
 
 ```js filename="next.config.js"
 module.exports = {
   async redirects() {
     return [
       {
-        // this will match `/english(default)/something` being requested
+        // 这将匹配请求的 `/english(default)/something`
         source: '/english\\(default\\)/:slug',
         destination: '/en-us/:slug',
         permanent: false,
@@ -125,22 +125,22 @@ module.exports = {
 }
 ```
 
-## Header, Cookie, and Query Matching
+## 头部、Cookie 和查询匹配
 
-To only match a redirect when header, cookie, or query values also match the `has` field or don't match the `missing` field can be used. Both the `source` and all `has` items must match and all `missing` items must not match for the redirect to be applied.
+要只在头部、cookie 或查询值也匹配 `has` 字段或不匹配 `missing` 字段时匹配重定向，可以使用这两个字段。重定向只有在 `source` 和所有 `has` 项都匹配且所有 `missing` 项都不匹配时才会应用。
 
-`has` and `missing` items can have the following fields:
+`has` 和 `missing` 项可以具有以下字段：
 
-- `type`: `String` - must be either `header`, `cookie`, `host`, or `query`.
-- `key`: `String` - the key from the selected type to match against.
-- `value`: `String` or `undefined` - the value to check for, if undefined any value will match. A regex like string can be used to capture a specific part of the value, e.g. if the value `first-(?<paramName>.*)` is used for `first-second` then `second` will be usable in the destination with `:paramName`.
+- `type`: `String` - 必须是 `header`、`cookie`、`host` 或 `query` 之一。
+- `key`: `String` - 从所选类型中要匹配的键。
+- `value`: `String` 或 `undefined` - 要检查的值，如果未定义，则任何值都将匹配。可以使用类似正则表达式的字符串来捕获值的特定部分，例如，如果值 `first-(?<paramName>.*)` 用于 `first-second`，则 `second` 可以在目标中使用 `:paramName`。
 
 ```js filename="next.config.js"
 module.exports = {
   async redirects() {
     return [
-      // if the header `x-redirect-me` is present,
-      // this redirect will be applied
+      // 如果存在 `x-redirect-me` 头部，
+      // 将应用此重定向
       {
         source: '/:path((?!another-page$).*)',
         has: [
@@ -152,8 +152,8 @@ module.exports = {
         permanent: false,
         destination: '/another-page',
       },
-      // if the header `x-dont-redirect` is present,
-      // this redirect will NOT be applied
+      // 如果存在 `x-dont-redirect` 头部，
+      // 将不会应用此重定向
       {
         source: '/:path((?!another-page$).*)',
         missing: [
@@ -165,17 +165,16 @@ module.exports = {
         permanent: false,
         destination: '/another-page',
       },
-      // if the source, query, and cookie are matched,
-      // this redirect will be applied
+      // 如果源、查询和 cookie 都匹配，
+      // 将应用此重定向
       {
         source: '/specific/:path*',
         has: [
           {
             type: 'query',
             key: 'page',
-            // the page value will not be available in the
-            // destination since value is provided and doesn't
-            // use a named capture group e.g. (?<page>home)
+            // 由于提供了 value 且不使用命名捕获组
+            // 例如 (?<page>home)，所以页面值在目标中不可用
             value: 'home',
           },
           {
@@ -187,8 +186,8 @@ module.exports = {
         permanent: false,
         destination: '/another/:path*',
       },
-      // if the header `x-authorized` is present and
-      // contains a matching value, this redirect will be applied
+      // 如果存在 `x-authorized` 头部
+      // 且包含匹配值，将应用此重定向
       {
         source: '/',
         has: [
@@ -201,8 +200,8 @@ module.exports = {
         permanent: false,
         destination: '/home?authorized=:authorized',
       },
-      // if the host is `example.com`,
-      // this redirect will be applied
+      // 如果主机是 `example.com`，
+      // 将应用此重定向
       {
         source: '/:path((?!another-page$).*)',
         has: [
@@ -219,9 +218,9 @@ module.exports = {
 }
 ```
 
-### Redirects with basePath support
+### 支持 basePath 的重定向
 
-When leveraging [`basePath` support](/docs/app/api-reference/config/next-config-js/basePath) with redirects each `source` and `destination` is automatically prefixed with the `basePath` unless you add `basePath: false` to the redirect:
+当使用 [`basePath` 支持](/docs/app/api-reference/config/next-config-js/basePath) 与重定向时，每个 `source` 和 `destination` 会自动加上 `basePath` 前缀，除非你在重定向中添加 `basePath: false`：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -230,12 +229,12 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/with-basePath', // automatically becomes /docs/with-basePath
-        destination: '/another', // automatically becomes /docs/another
+        source: '/with-basePath', // 自动变为 /docs/with-basePath
+        destination: '/another', // 自动变为 /docs/another
         permanent: false,
       },
       {
-        // does not add /docs since basePath: false is set
+        // 由于设置了 basePath: false，所以不添加 /docs
         source: '/without-basePath',
         destination: 'https://example.com',
         basePath: false,
@@ -246,17 +245,17 @@ module.exports = {
 }
 ```
 
-### Redirects with i18n support
+### 支持 i18n 的重定向
 
 <AppOnly>
 
-When leveraging [`i18n` support](/docs/app/building-your-application/routing/internationalization) with redirects each `source` and `destination` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the redirect. If `locale: false` is used you must prefix the `source` and `destination` with a locale for it to be matched correctly.
+当使用 [`i18n` 支持](/docs/app/building-your-application/routing/internationalization) 与重定向时，每个 `source` 和 `destination` 会自动添加前缀以处理配置的 `locales`，除非你在重定向中添加 `locale: false`。如果使用了 `locale: false`，你必须为 `source` 和 `destination` 添加语言环境前缀，以便正确匹配。
 
 </AppOnly>
 
 <PagesOnly>
 
-When leveraging [`i18n` support](/docs/pages/building-your-application/routing/internationalization) with redirects each `source` and `destination` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the redirect. If `locale: false` is used you must prefix the `source` and `destination` with a locale for it to be matched correctly.
+当使用 [`i18n` 支持](/docs/pages/building-your-application/routing/internationalization) 与重定向时，每个 `source` 和 `destination` 会自动添加前缀以处理配置的 `locales`，除非你在重定向中添加 `locale: false`。如果使用了 `locale: false`，你必须为 `source` 和 `destination` 添加语言环境前缀，以便正确匹配。
 
 </PagesOnly>
 
@@ -270,25 +269,25 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/with-locale', // automatically handles all locales
-        destination: '/another', // automatically passes the locale on
+        source: '/with-locale', // 自动处理所有语言环境
+        destination: '/another', // 自动传递语言环境
         permanent: false,
       },
       {
-        // does not handle locales automatically since locale: false is set
+        // 由于设置了 locale: false，所以不自动处理语言环境
         source: '/nl/with-locale-manual',
         destination: '/nl/another',
         locale: false,
         permanent: false,
       },
       {
-        // this matches '/' since `en` is the defaultLocale
+        // 由于 `en` 是 defaultLocale，所以这匹配 '/'
         source: '/en',
         destination: '/en/another',
         locale: false,
         permanent: false,
       },
-      // it's possible to match all locales even when locale: false is set
+      // 即使设置了 locale: false，也可以匹配所有语言环境
       {
         source: '/:locale/page',
         destination: '/en/newpage',
@@ -296,8 +295,8 @@ module.exports = {
         locale: false,
       },
       {
-        // this gets converted to /(en|fr|de)/(.*) so will not match the top-level
-        // `/` or `/fr` routes like /:path* would
+        // 这会转换为 /(en|fr|de)/(.*) 所以不会匹配顶级
+        // `/` 或 `/fr` 路由，就像 /:path* 会匹配的那样
         source: '/(.*)',
         destination: '/another',
         permanent: false,
@@ -307,17 +306,17 @@ module.exports = {
 }
 ```
 
-In some rare cases, you might need to assign a custom status code for older HTTP Clients to properly redirect. In these cases, you can use the `statusCode` property instead of the `permanent` property, but not both. To to ensure IE11 compatibility, a `Refresh` header is automatically added for the 308 status code.
+在某些罕见情况下，你可能需要为较旧的 HTTP 客户端分配自定义状态码以正确重定向。在这些情况下，你可以使用 `statusCode` 属性而不是 `permanent` 属性，但不能同时使用两者。为确保 IE11 兼容性，对于 308 状态码会自动添加 `Refresh` 头部。
 
-## Other Redirects
+## 其他重定向
 
-- Inside [API Routes](/docs/pages/building-your-application/routing/api-routes) and [Route Handlers](/docs/app/building-your-application/routing/route-handlers), you can redirect based on the incoming request.
-- Inside [`getStaticProps`](/docs/pages/building-your-application/data-fetching/get-static-props) and [`getServerSideProps`](/docs/pages/building-your-application/data-fetching/get-server-side-props), you can redirect specific pages at request-time.
+- 在 [API 路由](/docs/pages/building-your-application/routing/api-routes) 和 [路由处理程序](/docs/app/building-your-application/routing/route-handlers) 内，你可以基于传入请求进行重定向。
+- 在 [`getStaticProps`](/docs/pages/building-your-application/data-fetching/get-static-props) 和 [`getServerSideProps`](/docs/pages/building-your-application/data-fetching/get-server-side-props) 内，你可以在请求时重定向特定页面。
 
-## Version History
+## 版本历史
 
-| Version   | Changes            |
+| 版本      | 变更               |
 | --------- | ------------------ |
-| `v13.3.0` | `missing` added.   |
-| `v10.2.0` | `has` added.       |
-| `v9.5.0`  | `redirects` added. |
+| `v13.3.0` | 添加 `missing`。   |
+| `v10.2.0` | 添加 `has`。       |
+| `v9.5.0`  | 添加 `redirects`。 |

@@ -1,13 +1,13 @@
 ---
 title: pageExtensions
-description: Extend the default page extensions used by Next.js when resolving pages in the Pages Router.
+description: 扩展 Next.js 在页面路由器中解析页面时使用的默认页面扩展名
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
 <AppOnly>
 
-By default, Next.js accepts files with the following extensions: `.tsx`, `.ts`, `.jsx`, `.js`. This can be modified to allow other extensions like markdown (`.md`, `.mdx`).
+默认情况下，Next.js 接受具有以下扩展名的文件：`.tsx`、`.ts`、`.jsx`、`.js`。这可以修改为允许其他扩展名，如 markdown（`.md`、`.mdx`）。
 
 ```js filename="next.config.js"
 const withMDX = require('@next/mdx')()
@@ -24,7 +24,7 @@ module.exports = withMDX(nextConfig)
 
 <PagesOnly>
 
-You can extend the default Page extensions (`.tsx`, `.ts`, `.jsx`, `.js`) used by Next.js. Inside `next.config.js`, add the `pageExtensions` config:
+你可以扩展 Next.js 使用的默认页面扩展名（`.tsx`、`.ts`、`.jsx`、`.js`）。在 `next.config.js` 中，添加 `pageExtensions` 配置：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
 }
 ```
 
-Changing these values affects _all_ Next.js pages, including the following:
+更改这些值会影响 _所有_ Next.js 页面，包括以下内容：
 
 - [`middleware.js`](/docs/pages/building-your-application/routing/middleware)
 - [`instrumentation.js`](/docs/pages/guides/instrumentation)
@@ -40,11 +40,11 @@ Changing these values affects _all_ Next.js pages, including the following:
 - `pages/_app.js`
 - `pages/api/`
 
-For example, if you reconfigure `.ts` page extensions to `.page.ts`, you would need to rename pages like `middleware.page.ts`, `instrumentation.page.ts`, `_app.page.ts`.
+例如，如果你将 `.ts` 页面扩展名重新配置为 `.page.ts`，你需要重命名页面，如 `middleware.page.ts`、`instrumentation.page.ts`、`_app.page.ts`。
 
-## Including non-page files in the `pages` directory
+## 在 `pages` 目录中包含非页面文件
 
-You can colocate test files or other files used by components in the `pages` directory. Inside `next.config.js`, add the `pageExtensions` config:
+你可以在 `pages` 目录中共同放置测试文件或组件使用的其他文件。在 `next.config.js` 中，添加 `pageExtensions` 配置：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -52,6 +52,6 @@ module.exports = {
 }
 ```
 
-Then, rename your pages to have a file extension that includes `.page` (e.g. rename `MyPage.tsx` to `MyPage.page.tsx`). Ensure you rename _all_ Next.js pages, including the files mentioned above.
+然后，将你的页面重命名为包含 `.page` 的文件扩展名（例如，将 `MyPage.tsx` 重命名为 `MyPage.page.tsx`）。确保你重命名 _所有_ Next.js 页面，包括上面提到的文件。
 
 </PagesOnly>

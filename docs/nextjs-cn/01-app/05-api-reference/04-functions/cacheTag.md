@@ -1,10 +1,10 @@
 ---
 title: cacheTag
-description: Learn how to use the cacheTag function to manage cache invalidation in your Next.js application.
+description: 了解如何使用 cacheTag 函数管理 Next.js 应用程序中的缓存失效。
 version: canary
 related:
-  title: Related
-  description: View related API references.
+  title: 相关内容
+  description: 查看相关的 API 参考。
   links:
     - app/api-reference/config/next-config-js/dynamicIO
     - app/api-reference/directives/use-cache
@@ -12,11 +12,11 @@ related:
     - app/api-reference/functions/cacheLife
 ---
 
-The `cacheTag` function allows you to tag cached data for on-demand invalidation. By associating tags with cache entries, you can selectively purge or revalidate specific cache entries without affecting other cached data.
+`cacheTag` 函数允许你为缓存数据添加标签，以便按需失效。通过将标签与缓存条目关联，你可以选择性地清除或重新验证特定的缓存条目，而不影响其他缓存数据。
 
-## Usage
+## 用法
 
-To use `cacheTag`, enable the [`dynamicIO` flag](/docs/app/api-reference/config/next-config-js/dynamicIO) in your `next.config.js` file:
+要使用 `cacheTag`，请在 `next.config.js` 文件中启用 [`dynamicIO` 标志](/docs/app/api-reference/config/next-config-js/dynamicIO)：
 
 ```ts filename="next.config.ts" switcher
 import type { NextConfig } from 'next'
@@ -40,7 +40,7 @@ const nextConfig = {
 export default nextConfig
 ```
 
-The `cacheTag` function takes a single string value, or a string array.
+`cacheTag` 函数接受单个字符串值或字符串数组。
 
 ```tsx filename="app/data.ts" switcher
 import { unstable_cacheTag as cacheTag } from 'next/cache'
@@ -64,7 +64,7 @@ export async function getData() {
 }
 ```
 
-You can then purge the cache on-demand using [`revalidateTag`](/docs/app/api-reference/functions/revalidateTag) API in another function, for example, a [route handler](/docs/app/building-your-application/routing/route-handlers) or [Server Action](/docs/app/building-your-application/data-fetching/server-actions-and-mutations):
+然后，你可以使用 [`revalidateTag`](/docs/app/api-reference/functions/revalidateTag) API 在另一个函数中按需清除缓存，例如，在[路由处理程序](/docs/app/building-your-application/routing/route-handlers)或[服务器操作](/docs/app/building-your-application/data-fetching/server-actions-and-mutations)中：
 
 ```tsx filename="app/action.ts" switcher
 'use server'
@@ -88,20 +88,20 @@ export default async function submit() {
 }
 ```
 
-## Good to know
+## 须知
 
-- **Idempotent Tags**: Applying the same tag multiple times has no additional effect.
-- **Multiple Tags**: You can assign multiple tags to a single cache entry by passing an array to `cacheTag`.
+- **幂等标签**：多次应用相同的标签没有额外的效果。
+- **多个标签**：你可以通过向 `cacheTag` 传递数组来为单个缓存条目分配多个标签。
 
 ```tsx
 cacheTag('tag-one', 'tag-two')
 ```
 
-## Examples
+## 示例
 
-### Tagging components or functions
+### 标记组件或函数
 
-Tag your cached data by calling `cacheTag` within a cached function or component:
+通过在缓存的函数或组件中调用 `cacheTag` 来标记你的缓存数据：
 
 ```tsx filename="app/components/bookings.tsx" switcher
 import { unstable_cacheTag as cacheTag } from 'next/cache'
@@ -139,9 +139,9 @@ export async function Bookings({ type = 'haircut' }) {
 }
 ```
 
-### Creating tags from external data
+### 从外部数据创建标签
 
-You can use the data returned from an async function to tag the cache entry.
+你可以使用从异步函数返回的数据来标记缓存条目。
 
 ```tsx filename="app/components/bookings.tsx" switcher
 import { unstable_cacheTag as cacheTag } from 'next/cache'
@@ -175,9 +175,9 @@ export async function Bookings({ type = 'haircut' }) {
 }
 ```
 
-### Invalidating tagged cache
+### 使标记的缓存失效
 
-Using [`revalidateTag`](/docs/app/api-reference/functions/revalidateTag), you can invalidate the cache for a specific tag when needed:
+使用 [`revalidateTag`](/docs/app/api-reference/functions/revalidateTag)，你可以在需要时使特定标签的缓存失效：
 
 ```tsx filename="app/actions.ts" switcher
 'use server'
@@ -200,3 +200,9 @@ export async function updateBookings() {
   revalidateTag('bookings-data')
 }
 ```
+
+## 版本历史
+
+| 版本      | 变更              |
+| --------- | ----------------- |
+| `v15.0.0` | 引入 `cacheTag`。 |

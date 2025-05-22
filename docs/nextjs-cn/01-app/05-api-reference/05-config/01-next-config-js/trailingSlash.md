@@ -1,13 +1,13 @@
 ---
 title: trailingSlash
-description: Configure Next.js pages to resolve with or without a trailing slash.
+description: 配置 Next.js 页面是否使用尾部斜杠进行解析
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-By default Next.js will redirect URLs with trailing slashes to their counterpart without a trailing slash. For example `/about/` will redirect to `/about`. You can configure this behavior to act the opposite way, where URLs without trailing slashes are redirected to their counterparts with trailing slashes.
+默认情况下，Next.js 会将带有尾部斜杠的 URL 重定向到不带尾部斜杠的对应 URL。例如，`/about/` 将重定向到 `/about`。你可以配置此行为以相反的方式运行，即将不带尾部斜杠的 URL 重定向到带有尾部斜杠的对应 URL。
 
-Open `next.config.js` and add the `trailingSlash` config:
+打开 `next.config.js` 并添加 `trailingSlash` 配置：
 
 ```js filename="next.config.js"
 module.exports = {
@@ -15,19 +15,19 @@ module.exports = {
 }
 ```
 
-With this option set, URLs like `/about` will redirect to `/about/`.
+设置此选项后，像 `/about` 这样的 URL 将重定向到 `/about/`。
 
-When using `trailingSlash: true`, certain URLs are exceptions and will not have a trailing slash appended:
+当使用 `trailingSlash: true` 时，某些 URL 是例外的，不会附加尾部斜杠：
 
-- Static file URLs, such as files with extensions.
-- Any paths under `.well-known/`.
+- 静态文件 URL，如带有扩展名的文件。
+- `.well-known/` 下的任何路径。
 
-For example, the following URLs will remain unchanged: `/file.txt`, `images/photos/picture.png`, and `.well-known/subfolder/config.json`.
+例如，以下 URL 将保持不变：`/file.txt`、`images/photos/picture.png` 和 `.well-known/subfolder/config.json`。
 
-When used with [`output: "export"`](/docs/app/guides/static-exports) configuration, the `/about` page will output `/about/index.html` (instead of the default `/about.html`).
+当与 [`output: "export"`](/docs/app/guides/static-exports) 配置一起使用时，`/about` 页面将输出 `/about/index.html`（而不是默认的 `/about.html`）。
 
-## Version History
+## 版本历史
 
-| Version  | Changes                |
-| -------- | ---------------------- |
-| `v9.5.0` | `trailingSlash` added. |
+| 版本     | 变更                     |
+| -------- | ------------------------ |
+| `v9.5.0` | 添加了 `trailingSlash`。 |

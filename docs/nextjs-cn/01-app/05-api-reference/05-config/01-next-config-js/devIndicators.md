@@ -1,28 +1,28 @@
 ---
 title: devIndicators
-description: Configuration options for the on-screen indicator that gives context about the current route you're viewing during development.
+description: 用于配置开发过程中为当前查看的路由提供上下文的屏幕指示器的配置选项。
 ---
 
-`devIndicators` allows you to configure the on-screen indicator that gives context about the current route you're viewing during development.
+`devIndicators` 允许您配置在开发过程中为当前查看的路由提供上下文的屏幕指示器。
 
 ```ts filename="Types"
   devIndicators: false | {
     position?: 'bottom-right'
     | 'bottom-left'
     | 'top-right'
-    | 'top-left', // defaults to 'bottom-left',
+    | 'top-left', // 默认为 'bottom-left',
   },
 ```
 
-Setting `devIndicators` to `false` will hide the indicator, however Next.js will continue to surface any build or runtime errors that were encountered.
+将 `devIndicators` 设置为 `false` 将隐藏指示器，但 Next.js 将继续显示遇到的任何构建或运行时错误。
 
-## Troubleshooting
+## 故障排除
 
-### Indicator not marking a route as static
+### 指示器没有将路由标记为静态
 
-If you expect a route to be static and the indicator has marked it as dynamic, it's likely the route has opted out of static rendering.
+如果您期望某个路由是静态的，但指示器将其标记为动态，那么很可能该路由已选择退出静态渲染。
 
-You can confirm if a route is [static](/docs/app/building-your-application/rendering/server-components#static-rendering-default) or [dynamic](/docs/app/building-your-application/rendering/server-components#dynamic-rendering) by building your application using `next build --debug`, and checking the output in your terminal. Static (or prerendered) routes will display a `○` symbol, whereas dynamic routes will display a `ƒ` symbol. For example:
+您可以通过使用 `next build --debug` 构建应用程序并检查终端中的输出来确认路由是[静态](/docs/app/building-your-application/rendering/server-components#static-rendering-default)还是[动态](/docs/app/building-your-application/rendering/server-components#dynamic-rendering)。静态（或预渲染）路由将显示一个 `○` 符号，而动态路由将显示一个 `ƒ` 符号。例如：
 
 ```bash filename="Build Output"
 Route (app)                              Size     First Load JS
@@ -35,24 +35,24 @@ Route (app)                              Size     First Load JS
 
 <AppOnly>
 
-There are two reasons a route might opt out of static rendering:
+路由选择退出静态渲染的原因有两个：
 
-- The presence of [Dynamic APIs](/docs/app/building-your-application/rendering/server-components#dynamic-apis) which rely on runtime information.
-- An [uncached data request](/docs/app/building-your-application/data-fetching/fetching), like a call to an ORM or database driver.
+- 存在依赖于运行时信息的[动态 API](/docs/app/building-your-application/rendering/server-components#dynamic-apis)。
+- [未缓存的数据请求](/docs/app/building-your-application/data-fetching/fetching)，例如对 ORM 或数据库驱动程序的调用。
 
-Check your route for any of these conditions, and if you are not able to statically render the route, then consider using [`loading.js`](/docs/app/api-reference/file-conventions/loading) or [`<Suspense />`](https://react.dev/reference/react/Suspense) to leverage [streaming](/docs/app/building-your-application/routing/loading-ui-and-streaming#what-is-streaming).
+检查您的路由是否存在这些条件，如果无法静态渲染路由，请考虑使用 [`loading.js`](/docs/app/api-reference/file-conventions/loading) 或 [`<Suspense />`](https://react.dev/reference/react/Suspense) 来利用[流式传输](/docs/app/building-your-application/routing/loading-ui-and-streaming#what-is-streaming)。
 
 </AppOnly>
 
 <PagesOnly>
 
-When exporting [`getServerSideProps`](/docs/pages/building-your-application/data-fetching/get-server-side-props) or [`getInitialProps`](/docs/pages/api-reference/functions/get-initial-props) from a page, it will be marked as dynamic.
+当从页面导出 [`getServerSideProps`](/docs/pages/building-your-application/data-fetching/get-server-side-props) 或 [`getInitialProps`](/docs/pages/api-reference/functions/get-initial-props) 时，该页面将被标记为动态。
 
 </PagesOnly>
 
-## Version History
+## 版本历史
 
-| Version   | Changes                                                                                                                                             |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `v15.2.0` | Improved on-screen indicator with new `position` option. `appIsrStatus`, `buildActivity`, and `buildActivityPosition` options have been deprecated. |
-| `v15.0.0` | Static on-screen indicator added with `appIsrStatus` option.                                                                                        |
+| 版本      | 变更                                                                                                                |
+| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| `v15.2.0` | 改进了带有新 `position` 选项的屏幕指示器。`appIsrStatus`、`buildActivity` 和 `buildActivityPosition` 选项已被弃用。 |
+| `v15.0.0` | 添加了带有 `appIsrStatus` 选项的静态屏幕指示器。                                                                    |

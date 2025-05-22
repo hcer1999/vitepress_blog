@@ -1,11 +1,11 @@
 ---
 title: useSelectedLayoutSegment
-description: API Reference for the useSelectedLayoutSegment hook.
+description: useSelectedLayoutSegment 钩子的 API 参考。
 ---
 
-`useSelectedLayoutSegment` is a **Client Component** hook that lets you read the active route segment **one level below** the Layout it is called from.
+`useSelectedLayoutSegment` 是一个**客户端组件**钩子，允许你读取调用它的 Layout 下**一级**的活动路由段。
 
-It is useful for navigation UI, such as tabs inside a parent layout that change style depending on the active child segment.
+它对导航 UI 很有用，例如父级布局中的标签，这些标签会根据活动的子段改变样式。
 
 ```tsx filename="app/example-client-component.tsx" switcher
 'use client'
@@ -31,39 +31,39 @@ export default function ExampleClientComponent() {
 }
 ```
 
-> **Good to know**:
+> **须知**：
 >
-> - Since `useSelectedLayoutSegment` is a [Client Component](/docs/app/building-your-application/rendering/client-components) hook, and Layouts are [Server Components](/docs/app/building-your-application/rendering/server-components) by default, `useSelectedLayoutSegment` is usually called via a Client Component that is imported into a Layout.
-> - `useSelectedLayoutSegment` only returns the segment one level down. To return all active segments, see [`useSelectedLayoutSegments`](/docs/app/api-reference/functions/use-selected-layout-segments)
+> - 由于 `useSelectedLayoutSegment` 是一个[客户端组件](/docs/app/building-your-application/rendering/client-components)钩子，而 Layout 默认是[服务器组件](/docs/app/building-your-application/rendering/server-components)，`useSelectedLayoutSegment` 通常通过导入到 Layout 中的客户端组件调用。
+> - `useSelectedLayoutSegment` 只返回下一级的段。要返回所有活动段，请参见 [`useSelectedLayoutSegments`](/docs/app/api-reference/functions/use-selected-layout-segments)。
 
-## Parameters
+## 参数
 
 ```tsx
 const segment = useSelectedLayoutSegment(parallelRoutesKey?: string)
 ```
 
-`useSelectedLayoutSegment` _optionally_ accepts a [`parallelRoutesKey`](/docs/app/building-your-application/routing/parallel-routes#useselectedlayoutsegments), which allows you to read the active route segment within that slot.
+`useSelectedLayoutSegment` *可选地*接受一个 [`parallelRoutesKey`](/docs/app/building-your-application/routing/parallel-routes#useselectedlayoutsegments)，允许你读取该插槽内的活动路由段。
 
-## Returns
+## 返回值
 
-`useSelectedLayoutSegment` returns a string of the active segment or `null` if one doesn't exist.
+`useSelectedLayoutSegment` 返回活动段的字符串，如果不存在则返回 `null`。
 
-For example, given the Layouts and URLs below, the returned segment would be:
+例如，给定以下的 Layout 和 URL，返回的段将是：
 
-| Layout                    | Visited URL                    | Returned Segment |
-| ------------------------- | ------------------------------ | ---------------- |
-| `app/layout.js`           | `/`                            | `null`           |
-| `app/layout.js`           | `/dashboard`                   | `'dashboard'`    |
-| `app/dashboard/layout.js` | `/dashboard`                   | `null`           |
-| `app/dashboard/layout.js` | `/dashboard/settings`          | `'settings'`     |
-| `app/dashboard/layout.js` | `/dashboard/analytics`         | `'analytics'`    |
-| `app/dashboard/layout.js` | `/dashboard/analytics/monthly` | `'analytics'`    |
+| Layout                    | 访问的 URL                     | 返回的段      |
+| ------------------------- | ------------------------------ | ------------- |
+| `app/layout.js`           | `/`                            | `null`        |
+| `app/layout.js`           | `/dashboard`                   | `'dashboard'` |
+| `app/dashboard/layout.js` | `/dashboard`                   | `null`        |
+| `app/dashboard/layout.js` | `/dashboard/settings`          | `'settings'`  |
+| `app/dashboard/layout.js` | `/dashboard/analytics`         | `'analytics'` |
+| `app/dashboard/layout.js` | `/dashboard/analytics/monthly` | `'analytics'` |
 
-## Examples
+## 示例
 
-### Creating an active link component
+### 创建活动链接组件
 
-You can use `useSelectedLayoutSegment` to create an active link component that changes style depending on the active segment. For example, a featured posts list in the sidebar of a blog:
+你可以使用 `useSelectedLayoutSegment` 创建一个活动链接组件，该组件根据活动段改变样式。例如，博客侧边栏中的精选文章列表：
 
 ```tsx filename="app/blog/blog-nav-link.tsx" switcher
 'use client'
@@ -71,7 +71,7 @@ You can use `useSelectedLayoutSegment` to create an active link component that c
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
 
-// This *client* component will be imported into a blog layout
+// 这个*客户端*组件将被导入到博客布局中
 export default function BlogNavLink({
   slug,
   children,
@@ -79,15 +79,15 @@ export default function BlogNavLink({
   slug: string
   children: React.ReactNode
 }) {
-  // Navigating to `/blog/hello-world` will return 'hello-world'
-  // for the selected layout segment
+  // 导航到 `/blog/hello-world` 将返回 'hello-world'
+  // 作为选定的布局段
   const segment = useSelectedLayoutSegment()
   const isActive = slug === segment
 
   return (
     <Link
       href={`/blog/${slug}`}
-      // Change style depending on whether the link is active
+      // 根据链接是否活动来改变样式
       style={{ fontWeight: isActive ? 'bold' : 'normal' }}
     >
       {children}
@@ -102,17 +102,17 @@ export default function BlogNavLink({
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
 
-// This *client* component will be imported into a blog layout
+// 这个*客户端*组件将被导入到博客布局中
 export default function BlogNavLink({ slug, children }) {
-  // Navigating to `/blog/hello-world` will return 'hello-world'
-  // for the selected layout segment
+  // 导航到 `/blog/hello-world` 将返回 'hello-world'
+  // 作为选定的布局段
   const segment = useSelectedLayoutSegment()
   const isActive = slug === segment
 
   return (
     <Link
       href={`/blog/${slug}`}
-      // Change style depending on whether the link is active
+      // 根据链接是否活动来改变样式
       style={{ fontWeight: isActive ? 'bold' : 'normal' }}
     >
       {children}
@@ -122,7 +122,7 @@ export default function BlogNavLink({ slug, children }) {
 ```
 
 ```tsx filename="app/blog/layout.tsx" switcher
-// Import the Client Component into a parent Layout (Server Component)
+// 将客户端组件导入到父级布局（服务器组件）中
 import { BlogNavLink } from './blog-nav-link'
 import getFeaturedPosts from './get-featured-posts'
 
@@ -142,7 +142,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
 ```
 
 ```jsx filename="app/blog/layout.js" switcher
-// Import the Client Component into a parent Layout (Server Component)
+// 将客户端组件导入到父级布局（服务器组件）中
 import { BlogNavLink } from './blog-nav-link'
 import getFeaturedPosts from './get-featured-posts'
 
@@ -161,8 +161,8 @@ export default async function Layout({ children }) {
 }
 ```
 
-## Version History
+## 版本历史
 
-| Version   | Changes                                |
-| --------- | -------------------------------------- |
-| `v13.0.0` | `useSelectedLayoutSegment` introduced. |
+| 版本      | 变更                              |
+| --------- | --------------------------------- |
+| `v13.0.0` | 引入 `useSelectedLayoutSegment`。 |

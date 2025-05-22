@@ -1,34 +1,34 @@
 ---
 title: loading.js
-description: API reference for the loading.js file.
+description: loading.js 文件的 API 参考。
 ---
 
-A **loading** file can create instant loading states built on [Suspense](/docs/app/building-your-application/routing/loading-ui-and-streaming).
+**loading** 文件可以基于 [Suspense](/docs/app/building-your-application/routing/loading-ui-and-streaming) 创建即时加载状态。
 
-By default, this file is a [Server Component](/docs/app/building-your-application/rendering/server-components) - but can also be used as a Client Component through the `'use client'` directive.
+默认情况下，这个文件是一个[服务器组件](/docs/app/building-your-application/rendering/server-components)，但也可以通过使用 `'use client'` 指令作为客户端组件使用。
 
 ```tsx filename="app/feed/loading.tsx" switcher
 export default function Loading() {
-  // Or a custom loading skeleton component
-  return <p>Loading...</p>
+  // 或者使用自定义加载骨架组件
+  return <p>加载中...</p>
 }
 ```
 
 ```jsx filename="app/feed/loading.js" switcher
 export default function Loading() {
-  // Or a custom loading skeleton component
-  return <p>Loading...</p>
+  // 或者使用自定义加载骨架组件
+  return <p>加载中...</p>
 }
 ```
 
-Loading UI components do not accept any parameters.
+加载 UI 组件不接受任何参数。
 
-> **Good to know**:
+> **须知**：
 >
-> - While designing loading UI, you may find it helpful to use the [React Developer Tools](https://react.dev/learn/react-developer-tools) to manually toggle Suspense boundaries.
+> - 在设计加载 UI 时，你可能会发现使用 [React 开发者工具](https://react.dev/learn/react-developer-tools) 手动触发 Suspense 边界很有帮助。
 
-## Version History
+## 版本历史
 
-| Version   | Changes               |
-| --------- | --------------------- |
-| `v13.0.0` | `loading` introduced. |
+| 版本      | 变更             |
+| --------- | ---------------- |
+| `v13.0.0` | 引入 `loading`。 |

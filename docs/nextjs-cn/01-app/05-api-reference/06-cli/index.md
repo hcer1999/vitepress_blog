@@ -1,11 +1,11 @@
 ---
 title: CLI
-description: API Reference for the Next.js Command Line Interface (CLI) tools.
+description: Next.js CLI（命令行界面）允许您启动、构建和导出您的应用程序。
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-Next.js comes with **two** Command Line Interface (CLI) tools:
+Next.js 提供了**两个**命令行界面 (CLI) 工具：
 
-- **`create-next-app`**: Quickly create a new Next.js application using the default template or an [example](https://github.com/vercel/next.js/tree/canary/examples) from a public GitHub repository.
-- **`next`**: Run the Next.js development server, build your application, and more.
+- **`create-next-app`**：使用默认模板或者 GitHub 公共仓库中的[示例](https://github.com/vercel/next.js/tree/canary/examples)快速创建一个新的 Next.js 应用。
+- **`next`**：运行 Next.js 开发服务器，构建您的应用程序，以及更多功能。

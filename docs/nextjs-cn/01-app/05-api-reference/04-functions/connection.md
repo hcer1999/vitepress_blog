@@ -1,18 +1,18 @@
 ---
 title: connection
-description: API Reference for the connection function.
+description: connection 函数的 API 参考。
 ---
 
-The `connection()` function allows you to indicate rendering should wait for an incoming user request before continuing.
+`connection()` 函数允许你指示渲染应等待传入的用户请求后再继续。
 
-It's useful when a component doesn’t use [Dynamic APIs](/docs/app/building-your-application/rendering/server-components#dynamic-apis), but you want it to be dynamically rendered at runtime and not statically rendered at build time. This usually occurs when you access external information that you intentionally want to change the result of a render, such as `Math.random()` or `new Date()`.
+当组件不使用[动态 API](/docs/app/building-your-application/rendering/server-components#dynamic-apis)，但你希望它在运行时动态渲染而不是在构建时静态渲染时，这个函数很有用。这通常发生在你访问外部信息，并有意让它改变渲染结果的情况下，例如 `Math.random()` 或 `new Date()`。
 
 ```ts filename="app/page.tsx" switcher
 import { connection } from 'next/server'
 
 export default async function Page() {
   await connection()
-  // Everything below will be excluded from prerendering
+  // 下面的所有内容将被排除在预渲染之外
   const rand = Math.random()
   return <span>{rand}</span>
 }
@@ -23,36 +23,36 @@ import { connection } from 'next/server'
 
 export default async function Page() {
   await connection()
-  // Everything below will be excluded from prerendering
+  // 下面的所有内容将被排除在预渲染之外
   const rand = Math.random()
   return <span>{rand}</span>
 }
 ```
 
-## Reference
+## 参考
 
-### Type
+### 类型
 
 ```jsx
 function connection(): Promise<void>
 ```
 
-### Parameters
+### 参数
 
-- The function does not accept any parameters.
+- 该函数不接受任何参数。
 
-### Returns
+### 返回值
 
-- The function returns a `void` Promise. It is not meant to be consumed.
+- 该函数返回一个 `void` Promise。它不需要被消费。
 
-## Good to know
+## 须知
 
-- `connection` replaces [`unstable_noStore`](/docs/app/api-reference/functions/unstable_noStore) to better align with the future of Next.js.
-- The function is only necessary when dynamic rendering is required and common Dynamic APIs are not used.
+- `connection` 替代了 [`unstable_noStore`](/docs/app/api-reference/functions/unstable_noStore)，以更好地与 Next.js 的未来发展方向保持一致。
+- 只有在需要动态渲染且没有使用常见的动态 API 时，才需要使用该函数。
 
-### Version History
+### 版本历史
 
-| Version      | Changes                  |
-| ------------ | ------------------------ |
-| `v15.0.0`    | `connection` stabilized. |
-| `v15.0.0-RC` | `connection` introduced. |
+| 版本         | 变更                      |
+| ------------ | ------------------------- |
+| `v15.0.0`    | `connection` 稳定版发布。 |
+| `v15.0.0-RC` | 引入 `connection`。       |

@@ -1,20 +1,20 @@
 ---
 title: useLinkStatus
-description: API Reference for the useLinkStatus hook.
+description: useLinkStatus 钩子的 API 参考。
 related:
-  title: Next Steps
-  description: Learn more about the features mentioned in this page by reading the API Reference.
+  title: 后续步骤
+  description: 通过阅读 API 参考来了解本页面中提到的功能。
   links:
     - app/api-reference/components/link
     - app/api-reference/file-conventions/loading
 ---
 
-The `useLinkStatus` hook lets you tracks the **pending** state of a `<Link>`. You can use it to show inline visual feedback to the user (like spinners or text glimmers) while a navigation to a new route completes.
+`useLinkStatus` 钩子让你能够跟踪 `<Link>` 的**挂起**状态。你可以使用它在导航到新路由完成时向用户显示内联视觉反馈（如加载旋转器或文本闪烁）。
 
-`useLinkStatus` is useful when:
+`useLinkStatus` 在以下情况下非常有用：
 
-- [Prefetching](/docs/app/building-your-application/routing/linking-and-navigating#2-prefetching) is disabled or in progress meaning navigation is blocked.
-- The destination route is dynamic **and** doesn't include a [`loading.js`](/docs/app/api-reference/file-conventions/loading) file that would allow an instant navigation.
+- [预获取](/docs/app/building-your-application/routing/linking-and-navigating#2-prefetching)被禁用或正在进行中，意味着导航被阻止。
+- 目标路由是动态的**并且**没有包含 [`loading.js`](/docs/app/api-reference/file-conventions/loading) 文件（该文件可以允许即时导航）。
 
 ```tsx filename="app/loading-indicator.tsx" switcher
 'use client'
@@ -68,35 +68,35 @@ export default function Header() {
 }
 ```
 
-> **Good to know**:
+> **须知**:
 >
-> - `useLinkStatus` must be used within a descendant component of a `Link` component
-> - The hook is most useful when `prefetch={false}` is set on the `Link` component
-> - If the linked route has been prefetched, the pending state will be skipped
-> - When clicking multiple links in quick succession, only the last link's pending state is shown
-> - This hook is not supported in the Pages Router and will always return `{ pending: false }`
+> - `useLinkStatus` 必须在 `Link` 组件的后代组件中使用
+> - 当在 `Link` 组件上设置 `prefetch={false}` 时，该钩子最为有用
+> - 如果链接的路由已被预获取，挂起状态将被跳过
+> - 当快速连续点击多个链接时，只显示最后一个链接的挂起状态
+> - 此钩子在 Pages 路由中不受支持，并且将始终返回 `{ pending: false }`
 
-## Parameters
+## 参数
 
 ```tsx
 const { pending } = useLinkStatus()
 ```
 
-`useLinkStatus` does not take any parameters.
+`useLinkStatus` 不接受任何参数。
 
-## Returns
+## 返回值
 
-`useLinkStatus` returns an object with a single property:
+`useLinkStatus` 返回一个具有单个属性的对象：
 
-| Property | Type    | Description                                  |
-| -------- | ------- | -------------------------------------------- |
-| pending  | boolean | `true` before history updates, `false` after |
+| 属性    | 类型    | 描述                                      |
+| ------- | ------- | ----------------------------------------- |
+| pending | boolean | 历史记录更新前为 `true`，更新后为 `false` |
 
-## Example
+## 示例
 
-### Inline loading indicator
+### 内联加载指示器
 
-It's helpful to add visual feedback that navigation is happening in case the user clicks a link before prefetching is complete.
+在用户在预获取完成前点击链接时，添加视觉反馈表明导航正在进行是很有帮助的。
 
 ```tsx filename="app/components/loading-indicator.tsx" switcher
 'use client'
@@ -184,9 +184,9 @@ export default function Layout({ children }) {
 }
 ```
 
-## Gracefully handling fast navigation
+## 优雅处理快速导航
 
-If the navigation to a new route is fast, users may see an unecessary flash of the loading indicator. One way to improve the user experience and only show the loading indicator when the navigation takes time to complete is to add an initial animation delay (e.g. 100ms) and start the animation as invisible (e.g. `opacity: 0`).
+如果导航到新路由很快，用户可能会看到不必要的加载指示器闪烁。改善用户体验的一种方法是添加初始动画延迟（例如 100ms）并从不可见状态开始动画（例如 `opacity: 0`），这样只有当导航需要时间完成时才显示加载指示器。
 
 ```css filename="app/styles/global.css"
 .spinner {
@@ -213,6 +213,6 @@ If the navigation to a new route is fast, users may see an unecessary flash of t
 }
 ```
 
-| Version   | Changes                     |
-| --------- | --------------------------- |
-| `v15.3.0` | `useLinkStatus` introduced. |
+| 版本      | 变更                   |
+| --------- | ---------------------- |
+| `v15.3.0` | 引入 `useLinkStatus`。 |

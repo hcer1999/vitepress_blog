@@ -1,45 +1,45 @@
 ---
-title: Middleware
-description: Learn how to use Middleware to run code before a request is completed.
+title: 中间件
+description: 了解如何使用中间件在请求完成前运行代码。
 ---
 
-{/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
+{/_ 此文档的内容在 app 和 pages 路由器之间共享。您可以使用 `<PagesOnly>Content</PagesOnly>` 组件添加特定于 Pages 路由器的内容。任何共享内容都不应该被包裹在组件中。 _/}
 
-Middleware allows you to run code before a request is completed. Then, based on the incoming request, you can modify the response by rewriting, redirecting, modifying the request or response headers, or responding directly.
+中间件允许您在请求完成前运行代码。然后，基于传入请求，您可以通过重写、重定向、修改请求或响应头，或直接响应来修改响应。
 
-Middleware runs before cached content and routes are matched. See [Matching Paths](#matching-paths) for more details.
+中间件在缓存内容和路由匹配之前运行。有关更多详细信息，请参阅[匹配路径](#匹配路径)。
 
-## Use Cases
+## 使用场景
 
-Some common scenarios where Middleware is effective include:
+中间件适用的一些常见场景包括：
 
-- Quick redirects after reading parts of the incoming request
-- Rewriting to different pages based on A/B tests or experiments
-- Modifying headers for all pages or a subset of pages
+- 在读取传入请求的部分内容后快速重定向
+- 基于 A/B 测试或实验重写到不同的页面
+- 为所有页面或部分页面修改头部信息
 
-Middleware is _not_ a good fit for:
+中间件**不**适合：
 
-- Slow data fetching
-- Session management
+- 缓慢的数据获取
+- 会话管理
 
-## Convention
+## 约定
 
-Use the file `middleware.ts` (or `.js`) in the root of your project to define Middleware. For example, at the same level as `pages` or `app`, or inside `src` if applicable.
+在项目根目录使用 `middleware.ts`（或 `.js`）文件来定义中间件。例如，与 `pages` 或 `app` 在同一级别，或在适用的情况下位于 `src` 内。
 
-> **Note**: While only one `middleware.ts` file is supported per project, you can still organize your middleware logic modularly. Break out middleware functionalities into separate `.ts` or `.js` files and import them into your main `middleware.ts` file. This allows for cleaner management of route-specific middleware, aggregated in the `middleware.ts` for centralized control. By enforcing a single middleware file, it simplifies configuration, prevents potential conflicts, and optimizes performance by avoiding multiple middleware layers.
+> **注意**：虽然每个项目只支持一个 `middleware.ts` 文件，但您仍然可以以模块化方式组织中间件逻辑。将中间件功能拆分为单独的 `.ts` 或 `.js` 文件，并将它们导入到您的主 `middleware.ts` 文件中。这允许更清晰地管理特定路由的中间件，并在 `middleware.ts` 中聚合以进行集中控制。通过强制使用单个中间件文件，可以简化配置，防止潜在冲突，并通过避免多个中间件层来优化性能。
 
-## Example
+## 示例
 
 ```ts filename="middleware.ts" switcher
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// This function can be marked `async` if using `await` inside
+// 如果在函数内使用 `await`，可以将此函数标记为 `async`
 export function middleware(request: NextRequest) {
   return NextResponse.redirect(new URL('/home', request.url))
 }
 
-// See "Matching Paths" below to learn more
+// 参见下面的"匹配路径"了解更多
 export const config = {
   matcher: '/about/:path*',
 }
@@ -48,38 +48,38 @@ export const config = {
 ```js filename="middleware.js" switcher
 import { NextResponse } from 'next/server'
 
-// This function can be marked `async` if using `await` inside
+// 如果在函数内使用 `await`，可以将此函数标记为 `async`
 export function middleware(request) {
   return NextResponse.redirect(new URL('/home', request.url))
 }
 
-// See "Matching Paths" below to learn more
+// 参见下面的"匹配路径"了解更多
 export const config = {
   matcher: '/about/:path*',
 }
 ```
 
-## Matching Paths
+## 匹配路径
 
-Middleware will be invoked for **every route in your project**. Given this, it's crucial to use matchers to precisely target or exclude specific routes. The following is the execution order:
+中间件将对**项目中的每个路由**调用。考虑到这一点，使用匹配器精确定位或排除特定路由至关重要。以下是执行顺序：
 
-1. `headers` from `next.config.js`
-2. `redirects` from `next.config.js`
-3. Middleware (`rewrites`, `redirects`, etc.)
-4. `beforeFiles` (`rewrites`) from `next.config.js`
-5. Filesystem routes (`public/`, `_next/static/`, `pages/`, `app/`, etc.)
-6. `afterFiles` (`rewrites`) from `next.config.js`
-7. Dynamic Routes (`/blog/[slug]`)
-8. `fallback` (`rewrites`) from `next.config.js`
+1. 来自 `next.config.js` 的 `headers`
+2. 来自 `next.config.js` 的 `redirects`
+3. 中间件（`rewrites`、`redirects` 等）
+4. 来自 `next.config.js` 的 `beforeFiles`（`rewrites`）
+5. 文件系统路由（`public/`、`_next/static/`、`pages/`、`app/` 等）
+6. 来自 `next.config.js` 的 `afterFiles`（`rewrites`）
+7. 动态路由（`/blog/[slug]`）
+8. 来自 `next.config.js` 的 `fallback`（`rewrites`）
 
-There are two ways to define which paths Middleware will run on:
+定义中间件将在哪些路径上运行有两种方式：
 
-1. [Custom matcher config](#matcher)
-2. [Conditional statements](#conditional-statements)
+1. [自定义匹配器配置](#matcher)
+2. [条件语句](#条件语句)
 
-### Matcher
+### 匹配器
 
-`matcher` allows you to filter Middleware to run on specific paths.
+`matcher` 允许您过滤中间件，使其在特定路径上运行。
 
 ```js filename="middleware.js"
 export const config = {
@@ -87,7 +87,7 @@ export const config = {
 }
 ```
 
-You can match a single path or multiple paths with an array syntax:
+您可以使用数组语法匹配单个路径或多个路径：
 
 ```js filename="middleware.js"
 export const config = {
@@ -95,34 +95,34 @@ export const config = {
 }
 ```
 
-The `matcher` config allows full regex so matching like negative lookaheads or character matching is supported. An example of a negative lookahead to match all except specific paths can be seen here:
+`matcher` 配置支持完整的正则表达式，因此支持匹配如否定前瞻或字符匹配等。下面是一个使用否定前瞻来匹配除特定路径外的所有路径的示例：
 
 ```js filename="middleware.js"
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico, sitemap.xml, robots.txt (metadata files)
+     * 匹配所有请求路径，除了以下开头的路径：
+     * - api（API 路由）
+     * - _next/static（静态文件）
+     * - _next/image（图片优化文件）
+     * - favicon.ico、sitemap.xml、robots.txt（元数据文件）
      */
     '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
   ],
 }
 ```
 
-You can also bypass Middleware for certain requests by using the `missing` or `has` arrays, or a combination of both:
+您也可以使用 `missing` 或 `has` 数组，或两者的组合，为特定请求绕过中间件：
 
 ```js filename="middleware.js"
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico, sitemap.xml, robots.txt (metadata files)
+     * 匹配所有请求路径，除了以下开头的路径：
+     * - api（API 路由）
+     * - _next/static（静态文件）
+     * - _next/image（图片优化文件）
+     * - favicon.ico、sitemap.xml、robots.txt（元数据文件）
      */
     {
       source: '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
@@ -149,20 +149,20 @@ export const config = {
 }
 ```
 
-> **Good to know**: The `matcher` values need to be constants so they can be statically analyzed at build-time. Dynamic values such as variables will be ignored.
+> **需要了解的是**：`matcher` 值需要是常量，以便在构建时进行静态分析。动态值（如变量）将被忽略。
 
-Configured matchers:
+配置的匹配器：
 
-1. MUST start with `/`
-2. Can include named parameters: `/about/:path` matches `/about/a` and `/about/b` but not `/about/a/c`
-3. Can have modifiers on named parameters (starting with `:`): `/about/:path*` matches `/about/a/b/c` because `*` is _zero or more_. `?` is _zero or one_ and `+` _one or more_
-4. Can use regular expression enclosed in parenthesis: `/about/(.*)` is the same as `/about/:path*`
+1. 必须以 `/` 开头
+2. 可以包含命名参数：`/about/:path` 匹配 `/about/a` 和 `/about/b`，但不匹配 `/about/a/c`
+3. 可以在命名参数上有修饰符（以 `:` 开头）：`/about/:path*` 匹配 `/about/a/b/c`，因为 `*` 表示*零个或多个*。`?` 表示*零个或一个*，`+` 表示*一个或多个*
+4. 可以使用括号内的正则表达式：`/about/(.*)` 与 `/about/:path*` 相同
 
-Read more details on [path-to-regexp](https://github.com/pillarjs/path-to-regexp#path-to-regexp-1) documentation.
+在 [path-to-regexp](https://github.com/pillarjs/path-to-regexp#path-to-regexp-1) 文档中阅读更多详细信息。
 
-> **Good to know**: For backward compatibility, Next.js always considers `/public` as `/public/index`. Therefore, a matcher of `/public/:path` will match.
+> **需要了解的是**：为了向后兼容，Next.js 始终将 `/public` 视为 `/public/index`。因此，`/public/:path` 的匹配器将匹配。
 
-### Conditional Statements
+### 条件语句
 
 ```ts filename="middleware.ts" switcher
 import { NextResponse } from 'next/server'
@@ -195,56 +195,56 @@ export function middleware(request) {
 
 ## NextResponse
 
-The `NextResponse` API allows you to:
+`NextResponse` API 允许您：
 
-- `redirect` the incoming request to a different URL
-- `rewrite` the response by displaying a given URL
-- Set request headers for API Routes, `getServerSideProps`, and `rewrite` destinations
-- Set response cookies
-- Set response headers
+- `redirect` 将传入请求重定向到不同的 URL
+- `rewrite` 通过显示给定 URL 重写响应
+- 为 API 路由、`getServerSideProps` 和重写目标设置请求头
+- 设置响应 cookies
+- 设置响应头
 
 <AppOnly>
 
-To produce a response from Middleware, you can:
+要生成中间件的响应，您可以：
 
-1. `rewrite` to a route ([Page](/docs/app/api-reference/file-conventions/page) or [Route Handler](/docs/app/building-your-application/routing/route-handlers)) that produces a response
-2. return a `NextResponse` directly. See [Producing a Response](#producing-a-response)
+1. `rewrite` 到生成响应的路由（[页面](/docs/app/api-reference/file-conventions/page)或[路由处理程序](/docs/app/building-your-application/routing/route-handlers))
+2. 直接返回 `NextResponse`。请参阅[生成响应](#生成响应)
 
 </AppOnly>
 
 <PagesOnly>
 
-To produce a response from Middleware, you can:
+要生成中间件的响应，您可以：
 
-1. `rewrite` to a route ([Page](/docs/pages/building-your-application/routing/pages-and-layouts) or [Edge API Route](/docs/pages/building-your-application/routing/api-routes)) that produces a response
-2. return a `NextResponse` directly. See [Producing a Response](#producing-a-response)
+1. `rewrite` 到生成响应的路由（[页面](/docs/pages/building-your-application/routing/pages-and-layouts)或[Edge API 路由](/docs/pages/building-your-application/routing/api-routes))
+2. 直接返回 `NextResponse`。请参阅[生成响应](#生成响应)
 
 </PagesOnly>
 
-## Using Cookies
+## 使用 Cookies
 
-Cookies are regular headers. On a `Request`, they are stored in the `Cookie` header. On a `Response` they are in the `Set-Cookie` header. Next.js provides a convenient way to access and manipulate these cookies through the `cookies` extension on `NextRequest` and `NextResponse`.
+Cookies 是常规头。在 `Request` 上，它们存储在 `Cookie` 头中。在 `Response` 上，它们在 `Set-Cookie` 头中。Next.js 提供了一种方便的方法来访问和操作这些 cookies 通过 `NextRequest` 和 `NextResponse` 的 `cookies` 扩展。
 
-1. For incoming requests, `cookies` comes with the following methods: `get`, `getAll`, `set`, and `delete` cookies. You can check for the existence of a cookie with `has` or remove all cookies with `clear`.
-2. For outgoing responses, `cookies` have the following methods `get`, `getAll`, `set`, and `delete`.
+1. 对于传入请求，`cookies` 带有以下方法：`get`、`getAll`、`set` 和 `delete` cookies。您可以使用 `has` 检查 cookie 的存在，或使用 `clear` 删除所有 cookies。
+2. 对于传出响应，`cookies` 具有以下方法 `get`、`getAll`、`set` 和 `delete`。
 
 ```ts filename="middleware.ts" switcher
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  // Assume a "Cookie:nextjs=fast" header to be present on the incoming request
-  // Getting cookies from the request using the `RequestCookies` API
+  // 假设传入请求中存在 "Cookie:nextjs=fast" 头
+  // 使用 `RequestCookies` API 从请求中获取 cookies
   let cookie = request.cookies.get('nextjs')
   console.log(cookie) // => { name: 'nextjs', value: 'fast', Path: '/' }
   const allCookies = request.cookies.getAll()
-  console.log(allCookies) // => [{ name: 'nextjs', value: 'fast' }]
+  console.log(allCookies) // => [{ name: 'nextjs', value: 'fast', Path: '/' }]
 
   request.cookies.has('nextjs') // => true
   request.cookies.delete('nextjs')
   request.cookies.has('nextjs') // => false
 
-  // Setting cookies on the response using the `ResponseCookies` API
+  // 使用 `ResponseCookies` API 在响应中设置 cookies
   const response = NextResponse.next()
   response.cookies.set('vercel', 'fast')
   response.cookies.set({
@@ -254,7 +254,7 @@ export function middleware(request: NextRequest) {
   })
   cookie = response.cookies.get('vercel')
   console.log(cookie) // => { name: 'vercel', value: 'fast', Path: '/' }
-  // The outgoing response will have a `Set-Cookie:vercel=fast;path=/` header.
+  // 传出响应将具有 `Set-Cookie:vercel=fast;path=/` 头。
 
   return response
 }
@@ -264,55 +264,55 @@ export function middleware(request: NextRequest) {
 import { NextResponse } from 'next/server'
 
 export function middleware(request) {
-  // Assume a "Cookie:nextjs=fast" header to be present on the incoming request
-  // Getting cookies from the request using the `RequestCookies` API
+  // 假设传入请求中存在 "Cookie:nextjs=fast" 头
+  // 使用 `RequestCookies` API 从请求中获取 cookies
   let cookie = request.cookies.get('nextjs')
   console.log(cookie) // => { name: 'nextjs', value: 'fast', Path: '/' }
   const allCookies = request.cookies.getAll()
-  console.log(allCookies) // => [{ name: 'nextjs', value: 'fast' }]
+  console.log(allCookies) // => [{ name: 'nextjs', value: 'fast', Path: '/' }]
 
   request.cookies.has('nextjs') // => true
   request.cookies.delete('nextjs')
   request.cookies.has('nextjs') // => false
 
-  // Setting cookies on the response using the `ResponseCookies` API
+  // 使用 `ResponseCookies` API 在响应中设置 cookies
   const response = NextResponse.next()
   response.cookies.set('vercel', 'fast')
   response.cookies.set({
     name: 'vercel',
     value: 'fast',
-    path: '/',
+    path: '/test',
   })
   cookie = response.cookies.get('vercel')
   console.log(cookie) // => { name: 'vercel', value: 'fast', Path: '/' }
-  // The outgoing response will have a `Set-Cookie:vercel=fast;path=/test` header.
+  // 传出响应将具有 `Set-Cookie:vercel=fast;path=/test` 头。
 
   return response
 }
 ```
 
-## Setting Headers
+## 设置头
 
-You can set request and response headers using the `NextResponse` API (setting _request_ headers is available since Next.js v13.0.0).
+您可以使用 `NextResponse` API（自 Next.js v13.0.0 起可用）设置请求和响应头。
 
 ```ts filename="middleware.ts" switcher
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  // Clone the request headers and set a new header `x-hello-from-middleware1`
+  // 克隆请求头并设置新头 `x-hello-from-middleware1`
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-hello-from-middleware1', 'hello')
 
-  // You can also set request headers in NextResponse.next
+  // 您也可以在 NextResponse.next 中设置请求头
   const response = NextResponse.next({
     request: {
-      // New request headers
+      // 新请求头
       headers: requestHeaders,
     },
   })
 
-  // Set a new response header `x-hello-from-middleware2`
+  // 设置新响应头 `x-hello-from-middleware2`
   response.headers.set('x-hello-from-middleware2', 'hello')
   return response
 }
@@ -322,29 +322,29 @@ export function middleware(request: NextRequest) {
 import { NextResponse } from 'next/server'
 
 export function middleware(request) {
-  // Clone the request headers and set a new header `x-hello-from-middleware1`
+  // 克隆请求头并设置新头 `x-hello-from-middleware1`
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-hello-from-middleware1', 'hello')
 
-  // You can also set request headers in NextResponse.next
+  // 您也可以在 NextResponse.next 中设置请求头
   const response = NextResponse.next({
     request: {
-      // New request headers
+      // 新请求头
       headers: requestHeaders,
     },
   })
 
-  // Set a new response header `x-hello-from-middleware2`
+  // 设置新响应头 `x-hello-from-middleware2`
   response.headers.set('x-hello-from-middleware2', 'hello')
   return response
 }
 ```
 
-> **Good to know**: Avoid setting large headers as it might cause [431 Request Header Fields Too Large](https://developer.mozilla.org/docs/Web/HTTP/Status/431) error depending on your backend web server configuration.
+> **需要了解的是**：避免设置大头，因为它可能会根据后端 Web 服务器配置导致 [431 Request Header Fields Too Large](https://developer.mozilla.org/docs/Web/HTTP/Status/431) 错误。
 
 ### CORS
 
-You can set CORS headers in Middleware to allow cross-origin requests, including [simple](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests) and [preflighted](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#preflighted_requests) requests.
+您可以在中间件中设置 CORS 头，以允许跨源请求，包括 [简单](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests) 和 [预检](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#preflighted_requests) 请求。
 
 ```tsx filename="middleware.ts" switcher
 import { NextRequest, NextResponse } from 'next/server'
@@ -357,11 +357,11 @@ const corsOptions = {
 }
 
 export function middleware(request: NextRequest) {
-  // Check the origin from the request
+  // 检查请求的来源
   const origin = request.headers.get('origin') ?? ''
   const isAllowedOrigin = allowedOrigins.includes(origin)
 
-  // Handle preflighted requests
+  // 处理预检请求
   const isPreflight = request.method === 'OPTIONS'
 
   if (isPreflight) {
@@ -372,7 +372,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.json({}, { headers: preflightHeaders })
   }
 
-  // Handle simple requests
+  // 处理简单请求
   const response = NextResponse.next()
 
   if (isAllowedOrigin) {
@@ -391,7 +391,7 @@ export const config = {
 }
 ```
 
-```jsx filename="middleware.js" switcher
+```js filename="middleware.js" switcher
 import { NextResponse } from 'next/server'
 
 const allowedOrigins = ['https://acme.com', 'https://my-app.org']
@@ -402,11 +402,11 @@ const corsOptions = {
 }
 
 export function middleware(request) {
-  // Check the origin from the request
+  // 检查请求的来源
   const origin = request.headers.get('origin') ?? ''
   const isAllowedOrigin = allowedOrigins.includes(origin)
 
-  // Handle preflighted requests
+  // 处理预检请求
   const isPreflight = request.method === 'OPTIONS'
 
   if (isPreflight) {
@@ -417,7 +417,7 @@ export function middleware(request) {
     return NextResponse.json({}, { headers: preflightHeaders })
   }
 
-  // Handle simple requests
+  // 处理简单请求
   const response = NextResponse.next()
 
   if (isAllowedOrigin) {
@@ -438,27 +438,27 @@ export const config = {
 
 <AppOnly>
 
-> **Good to know:** You can configure CORS headers for individual routes in [Route Handlers](/docs/app/building-your-application/routing/route-handlers#cors).
+> **需要了解的是**：您可以在 [路由处理程序](/docs/app/building-your-application/routing/route-handlers#cors) 中为单个路由配置 CORS 头。
 
 </AppOnly>
 
-## Producing a Response
+## 生成响应
 
-You can respond from Middleware directly by returning a `Response` or `NextResponse` instance. (This is available since [Next.js v13.1.0](https://nextjs.org/blog/next-13-1#nextjs-advanced-middleware))
+您可以直接从中间件返回响应，方法是返回 `Response` 或 `NextResponse` 实例。（自 [Next.js v13.1.0](https://nextjs.org/blog/next-13-1#nextjs-advanced-middleware) 起可用）
 
 ```ts filename="middleware.ts" switcher
 import type { NextRequest } from 'next/server'
 import { isAuthenticated } from '@lib/auth'
 
-// Limit the middleware to paths starting with `/api/`
+// 限制中间件仅在路径以 `/api/` 开头的路由上运行
 export const config = {
   matcher: '/api/:function*',
 }
 
 export function middleware(request: NextRequest) {
-  // Call our authentication function to check the request
+  // 调用我们的身份验证函数来检查请求
   if (!isAuthenticated(request)) {
-    // Respond with JSON indicating an error message
+    // 使用 JSON 响应表示错误消息
     return Response.json({ success: false, message: 'authentication failed' }, { status: 401 })
   }
 }
@@ -467,25 +467,25 @@ export function middleware(request: NextRequest) {
 ```js filename="middleware.js" switcher
 import { isAuthenticated } from '@lib/auth'
 
-// Limit the middleware to paths starting with `/api/`
+// 限制中间件仅在路径以 `/api/` 开头的路由上运行
 export const config = {
   matcher: '/api/:function*',
 }
 
 export function middleware(request) {
-  // Call our authentication function to check the request
+  // 调用我们的身份验证函数来检查请求
   if (!isAuthenticated(request)) {
-    // Respond with JSON indicating an error message
+    // 使用 JSON 响应表示错误消息
     return Response.json({ success: false, message: 'authentication failed' }, { status: 401 })
   }
 }
 ```
 
-### `waitUntil` and `NextFetchEvent`
+### `waitUntil` 和 `NextFetchEvent`
 
-The `NextFetchEvent` object extends the native [`FetchEvent`](https://developer.mozilla.org/docs/Web/API/FetchEvent) object, and includes the [`waitUntil()`](https://developer.mozilla.org/docs/Web/API/ExtendableEvent/waitUntil) method.
+`NextFetchEvent` 对象扩展了本机 [`FetchEvent`](https://developer.mozilla.org/docs/Web/API/FetchEvent) 对象，并包括 [`waitUntil()`](https://developer.mozilla.org/docs/Web/API/ExtendableEvent/waitUntil) 方法。
 
-The `waitUntil()` method takes a promise as an argument, and extends the lifetime of the Middleware until the promise settles. This is useful for performing work in the background.
+`waitUntil()` 方法接受一个 promise 作为参数，并延长中间件的生命周期，直到 promise 解决。这对于在后台执行工作非常有用。
 
 ```ts filename="middleware.ts"
 import { NextResponse } from 'next/server'
@@ -503,11 +503,11 @@ export function middleware(req: NextRequest, event: NextFetchEvent) {
 }
 ```
 
-## Advanced Middleware Flags
+## 高级中间件标志
 
-In `v13.1` of Next.js two additional flags were introduced for middleware, `skipMiddlewareUrlNormalize` and `skipTrailingSlashRedirect` to handle advanced use cases.
+在 Next.js 13.1 中，为中间件引入了两个额外的标志，`skipMiddlewareUrlNormalize` 和 `skipTrailingSlashRedirect` 以处理高级用例。
 
-`skipTrailingSlashRedirect` disables Next.js redirects for adding or removing trailing slashes. This allows custom handling inside middleware to maintain the trailing slash for some paths but not others, which can make incremental migrations easier.
+`skipTrailingSlashRedirect` 禁用 Next.js 重定向以添加或删除尾随斜杠。这允许中间件在某些路径中保持尾随斜杠，而在其他路径中则不保持，这可以使增量迁移更容易。
 
 ```js filename="next.config.js"
 module.exports = {
@@ -525,17 +525,18 @@ export default async function middleware(req) {
     return NextResponse.next()
   }
 
-  // apply trailing slash handling
+  // 应用尾随斜杠重定向此处
   if (
     !pathname.endsWith('/') &&
     !pathname.match(/((?!\.well-known(?:\/.*)?)(?:[^/]+\/)*[^/]+\.\w+)/)
   ) {
-    return NextResponse.redirect(new URL(`${req.nextUrl.pathname}/`, req.nextUrl))
+    req.nextUrl.pathname += '/'
+    return NextResponse.redirect(req.nextUrl)
   }
 }
 ```
 
-`skipMiddlewareUrlNormalize` allows for disabling the URL normalization in Next.js to make handling direct visits and client-transitions the same. In some advanced cases, this option provides full control by using the original URL.
+`skipMiddlewareUrlNormalize` 允许禁用 Next.js URL 规范化，以使直接访问和客户端转换相同。在某些高级情况下，此选项提供了完整的控制，方法是使用原始 URL。
 
 ```js filename="next.config.js"
 module.exports = {
@@ -547,54 +548,67 @@ module.exports = {
 export default async function middleware(req) {
   const { pathname } = req.nextUrl
 
-  // GET /_next/data/build-id/hello.json
-
+  // 获取不规范化的 URL
+  // `/dashboard/user/123` 而不是 `/dashboard/user/123%2Fpreferences%3Fitem%3Dbook`
+  // 用于直接访问 `/dashboard/user/123/preferences?item=book`
   console.log(pathname)
-  // with the flag this now /_next/data/build-id/hello.json
-  // without the flag this would be normalized to /hello
 }
 ```
 
-## Unit Testing (experimental)
+## 单元测试（实验）
 
-Starting in Next.js 15.1, the `next/experimental/testing/server` package contains utilities to help unit test middleware files. Unit testing middleware can help ensure that it's only run on desired paths and that custom routing logic works as intended before code reaches production.
+从 Next.js 15.1 开始，`next/experimental/testing/server` 包包含帮助单元测试中间件文件的实用程序。单元测试中间件可以帮助确保它仅在所需路径上运行，并且自定义路由逻辑按预期工作，在代码到达生产之前。
 
-The `unstable_doesMiddlewareMatch` function can be used to assert whether middleware will run for the provided URL, headers, and cookies.
+`unstable_doesMiddlewareMatch` 函数可用于断言中间件是否将为提供的 URL、头和 cookies 运行。
 
 ```js
 import { unstable_doesMiddlewareMatch } from 'next/experimental/testing/server'
 
-expect(
-  unstable_doesMiddlewareMatch({
-    config,
-    nextConfig,
-    url: '/test',
-  }),
-).toEqual(false)
+it('runs on /posts but not on /posts/123', async () => {
+  // 假设  /middleware.ts/.js 有 matcher: '/posts/:path*'
+  // 检测 matcher 配置是否按预期生效
+  const matchedPosts = await unstable_doesMiddlewareMatch({
+    url: new URL('/posts', 'http://localhost:3000'),
+  })
+  expect(matchedPosts).toBe(true)
+
+  const matchedPostId = await unstable_doesMiddlewareMatch({
+    url: new URL('/posts/123', 'http://localhost:3000'),
+  })
+  expect(matchedPostId).toBe(false)
+})
 ```
 
-The entire middleware function can also be tested.
+整个中间件函数也可以测试。
 
 ```js
-import { isRewrite, getRewrittenUrl } from 'next/experimental/testing/server'
+import { unstable_runMiddleware } from 'next/experimental/testing/server'
 
-const request = new NextRequest('https://nextjs.org/docs')
-const response = await middleware(request)
-expect(isRewrite(response)).toEqual(true)
-expect(getRewrittenUrl(response)).toEqual('https://other-domain.com/docs')
-// getRedirectUrl could also be used if the response were a redirect
+it('redirects to /docs based on a header', async () => {
+  const { response } = await unstable_runMiddleware({
+    url: new URL('/some-page', 'http://localhost:3000'),
+    headers: {
+      'x-docs-redirect': 'true',
+    },
+  })
+
+  expect(isRewrite(response)).toEqual(true)
+  expect(getRewrittenUrl(response)).toEqual('https://other-domain.com/docs')
+  // getRedirectUrl 也可以用于重定向响应
+})
 ```
 
-## Runtime
+## 运行时
 
-Middleware defaults to using the Edge runtime. As of v15.2 (canary), we have experimental support for using the Node.js runtime. To enable, add the flag to your `next.config` file:
+中间件默认使用 Edge 运行时。自 v15.2（canary）起，我们具有实验性支持使用 Node.js 运行时。要启用，请将标志添加到您的 `next.config` 文件中：
 
 ```ts filename="next.config.ts" switcher
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   experimental: {
-    nodeMiddleware: true,
+    instrumentationHook: true,
+    allowMiddlewareNodeRuntime: true,
   },
 }
 
@@ -602,49 +616,46 @@ export default nextConfig
 ```
 
 ```js filename="next.config.js" switcher
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    nodeMiddleware: true,
+    instrumentationHook: true,
+    allowMiddlewareNodeRuntime: true,
   },
 }
 
-export default nextConfig
+module.exports = nextConfig
 ```
 
-Then in your middleware file, set the runtime to `nodejs` in the `config` object:
+然后，在您的中间件文件中，将运行时设置为 `nodejs` 在 `config` 对象中：
 
 ```js highlight={2} filename="middleware.js" switcher
 export const config = {
   runtime: 'nodejs',
+  matcher: '/about/:path*',
 }
 ```
 
-```ts highlight={2} filename="middleware.ts" switcher
-export const config = {
-  runtime: 'nodejs',
-}
-```
+> **注意**：此功能尚未推荐用于生产使用。因此，Next.js 将抛出错误，除非您使用 next@canary 发布而不是稳定发布。
 
-> **Note**: This feature is not yet recommended for production use. Therefore, Next.js will throw an error unless you are using the next@canary release instead of the stable release.
+## 平台支持
 
-## Platform Support
-
-| Deployment Option                                                   | Supported         |
+| 部署选项                                                            | 支持              |
 | ------------------------------------------------------------------- | ----------------- |
-| [Node.js server](/docs/app/getting-started/deploying#nodejs-server) | Yes               |
-| [Docker container](/docs/app/getting-started/deploying#docker)      | Yes               |
-| [Static export](/docs/app/getting-started/deploying#static-export)  | No                |
-| [Adapters](/docs/app/getting-started/deploying#adapters)            | Platform-specific |
+| [Node.js 服务器](/docs/app/getting-started/deploying#nodejs-server) | Yes               |
+| [Docker 容器](/docs/app/getting-started/deploying#docker)           | Yes               |
+| [静态导出](/docs/app/getting-started/deploying#static-export)       | No                |
+| [适配器](/docs/app/getting-started/deploying#adapters)              | Platform-specific |
 
-Learn how to [configure Middleware](/docs/app/guides/self-hosting#middleware) when self-hosting Next.js.
+了解如何[配置中间件](/docs/app/guides/self-hosting#middleware)，当您自己托管 Next.js 时。
 
-## Version History
+## 版本历史
 
-| Version   | Changes                                                                                       |
-| --------- | --------------------------------------------------------------------------------------------- |
-| `v15.2.0` | Middleware can now use the Node.js runtime (experimental)                                     |
-| `v13.1.0` | Advanced Middleware flags added                                                               |
-| `v13.0.0` | Middleware can modify request headers, response headers, and send responses                   |
-| `v12.2.0` | Middleware is stable, please see the [upgrade guide](/docs/messages/middleware-upgrade-guide) |
-| `v12.0.9` | Enforce absolute URLs in Edge Runtime ([PR](https://github.com/vercel/next.js/pull/33410))    |
-| `v12.0.0` | Middleware (Beta) added                                                                       |
+| 版本      | 更改                                                                              |
+| --------- | --------------------------------------------------------------------------------- |
+| `v15.2.0` | 中间件现在可以使用 Node.js 运行时（实验）                                         |
+| `v13.1.0` | 添加高级中间件标志                                                                |
+| `v13.0.0` | 中间件可以修改请求头、响应头，并发送响应                                          |
+| `v12.2.0` | 中间件稳定，请参阅[升级指南](/docs/messages/middleware-upgrade-guide)             |
+| `v12.0.9` | 在 Edge 运行时中强制绝对 URL ([PR](https://github.com/vercel/next.js/pull/33410)) |
+| `v12.0.0` | 中间件（Beta）添加                                                                |

@@ -1,158 +1,149 @@
 ---
-title: use server
-description: Learn how to use the use server directive to execute code on the server.
+title: 'use server'
+description: 了解如何使用 'use server' 指令来标记可以从客户端代码中调用的异步函数。
 ---
 
-The `use server` directive designates a function or file to be executed on the **server side**. It can be used at the top of a file to indicate that all functions in the file are server-side, or inline at the top of a function to mark the function as a [Server Function](https://19.react.dev/reference/rsc/server-functions). This is a React feature.
+`'use server'` 指令允许你在客户端组件内调用服务器函数，启用仅服务器代码的服务器操作。这是一个 React 功能。
 
-## Using `use server` at the top of a file
+> **须知**
+>
+> 此功能要求使用 [服务器组件](/docs/app/building-your-application/rendering/server-components)，且仅在 [服务器组件](/docs/app/building-your-application/rendering/server-components) 和特定的工件（例如 [服务器操作](/docs/app/building-your-application/data-fetching/server-actions)）中可用。
 
-The following example shows a file with a `use server` directive at the top. All functions in the file are executed on the server.
+## 用法
 
-```tsx filename="app/actions.ts" highlight={1} switcher
+有两种方式使用 `'use server'` 指令：
+
+- 文件级别：将 `'use server'` 添加到文件顶部，使该文件中所有导出的函数都能作为服务器函数在客户端调用。
+- 函数级别：将 `'use server'` 添加到一个异步函数的正文顶部，使该特定函数能作为服务器函数被调用。
+
+### 文件级别
+
+```js filename="app/actions.js"
 'use server'
-import { db } from '@/lib/db' // Your database client
 
-export async function createUser(data: { name: string; email: string }) {
-  const user = await db.user.create({ data })
-  return user
+export async function addItem(data) {
+  await saveItemToDatabase(data)
 }
 ```
 
-```jsx filename="app/actions.js" highlight={1} switcher
-'use server'
-import { db } from '@/lib/db' // Your database client
+### 函数级别
 
-export async function createUser(data) {
-  const user = await db.user.create({ data })
-  return user
+```jsx filename="app/ui-components.jsx"
+export async function addItem(data) {
+  'use server'
+  await saveItemToDatabase(data)
 }
 ```
 
-### Using Server Functions in a Client Component
+### 带传递数据的表单
 
-To use Server Functions in Client Components you need to create your Server Functions in a dedicated file using the `use server` directive at the top of the file. These Server Functions can then be imported into Client and Server Components and executed.
-
-Assuming you have a `fetchUsers` Server Function in `actions.ts`:
-
-```tsx filename="app/actions.ts" highlight={1} switcher
-'use server'
-import { db } from '@/lib/db' // Your database client
-
-export async function fetchUsers() {
-  const users = await db.user.findMany()
-  return users
-}
-```
-
-```jsx filename="app/actions.js" highlight={1} switcher
-'use server'
-import { db } from '@/lib/db' // Your database client
-
-export async function fetchUsers() {
-  const users = await db.user.findMany()
-  return users
-}
-```
-
-Then you can import the `fetchUsers` Server Function into a Client Component and execute it on the client-side.
-
-```tsx filename="app/components/my-button.tsx" highlight={1,2,8} switcher
+```tsx filename="app/components/form.tsx" highlight={3, 6, 12, 19-21} switcher
 'use client'
-import { fetchUsers } from '../actions'
 
-export default function MyButton() {
-  return <button onClick={() => fetchUsers()}>Fetch Users</button>
+import { addItem } from '../actions'
+import { useState } from 'react'
+
+export default function AddForm() {
+  const [message, setMessage] = useState('')
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const result = await addItem(formData)
+    setMessage(result.message)
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="item" />
+        <button type="submit">添加项目</button>
+      </form>
+      <p>{message}</p>
+    </div>
+  )
 }
 ```
 
-```jsx filename="app/components/my-button.js" highlight={1,2,8} switcher
+```jsx filename="app/components/form.jsx" highlight={3, 6, 12, 19-21} switcher
 'use client'
-import { fetchUsers } from '../actions'
 
-export default function MyButton() {
-  return <button onClick={() => fetchUsers()}>Fetch Users</button>
-}
-```
+import { addItem } from '../actions'
+import { useState } from 'react'
 
-## Using `use server` inline
+export default function AddForm() {
+  const [message, setMessage] = useState('')
 
-In the following example, `use server` is used inline at the top of a function to mark it as a [Server Function](https://19.react.dev/reference/rsc/server-functions):
-
-```tsx filename="app/posts/[id]/page.tsx" switcher highlight={8}
-import { EditPost } from './edit-post'
-import { revalidatePath } from 'next/cache'
-
-export default async function PostPage({ params }: { params: { id: string } }) {
-  const post = await getPost(params.id)
-
-  async function updatePost(formData: FormData) {
-    'use server'
-    await savePost(params.id, formData)
-    revalidatePath(`/posts/${params.id}`)
+  async function handleSubmit(event) {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const result = await addItem(formData)
+    setMessage(result.message)
   }
 
-  return <EditPost updatePostAction={updatePost} post={post} />
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="item" />
+        <button type="submit">添加项目</button>
+      </form>
+      <p>{message}</p>
+    </div>
+  )
 }
 ```
 
-```jsx filename="app/posts/[id]/page.js" switcher highlight={8}
-import { EditPost } from './edit-post'
-import { revalidatePath } from 'next/cache'
+## 使用带有 TypeScript 的服务器操作
 
-export default async function PostPage({ params }) {
-  const post = await getPost(params.id)
+你可以使用 `FormData` 或原生序列化类型（例如字符串、数字等）来定义你的服务器动作。
 
-  async function updatePost(formData) {
-    'use server'
-    await savePost(params.id, formData)
-    revalidatePath(`/posts/${params.id}`)
-  }
-
-  return <EditPost updatePostAction={updatePost} post={post} />
-}
-```
-
-## Security considerations
-
-When using the `use server` directive, it's important to ensure that all server-side logic is secure and that sensitive data remains protected.
-
-### Authentication and authorization
-
-Always authenticate and authorize users before performing sensitive server-side operations.
-
-```tsx filename="app/actions.ts" highlight={1,7,8,9,10} switcher
+```tsx filename="app/actions.ts" switcher highlight={5}
 'use server'
 
-import { db } from '@/lib/db' // Your database client
-import { authenticate } from '@/lib/auth' // Your authentication library
-
-export async function createUser(data: { name: string; email: string }, token: string) {
-  const user = authenticate(token)
-  if (!user) {
-    throw new Error('Unauthorized')
+// 使用带类型注解的 `T` 形式参数
+// 客户端组件会推断此类型
+export async function addItem(formData: FormData) {
+  const item = formData.get('item')
+  if (!item || typeof item !== 'string') {
+    return { message: '无效的项目' }
   }
-  const newUser = await db.user.create({ data })
-  return newUser
+
+  // 操作数据库
+  await saveItemToDatabase(item)
+  return { message: '添加的项目: ' + item }
 }
 ```
 
-```jsx filename="app/actions.js" highlight={1,7,8,9,10} switcher
-'use server'
+```tsx filename="app/components/form.tsx" switcher highlight={3, 13}
+'use client'
 
-import { db } from '@/lib/db' // Your database client
-import { authenticate } from '@/lib/auth' // Your authentication library
+import { addItem } from '../actions'
+import { useState } from 'react'
 
-export async function createUser(data, token) {
-  const user = authenticate(token)
-  if (!user) {
-    throw new Error('Unauthorized')
+export default function AddForm() {
+  const [message, setMessage] = useState('')
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    // TypeScript 推断 `result` 的类型
+    const result = await addItem(formData)
+    // TypeScript 推断 `result.message` 的类型
+    setMessage(result.message)
   }
-  const newUser = await db.user.create({ data })
-  return newUser
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="item" />
+        <button type="submit">添加项目</button>
+      </form>
+      <p>{message}</p>
+    </div>
+  )
 }
 ```
 
-## Reference
+## 参考
 
-See the [React documentation](https://react.dev/reference/rsc/use-server) for more information on `use server`.
+有关 `'use server'` 的更多信息，请参阅 [React 文档](https://react.dev/reference/rsc/use-server)。

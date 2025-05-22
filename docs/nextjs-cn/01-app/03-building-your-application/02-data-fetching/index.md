@@ -1,4 +1,4 @@
 ---
-title: Data Fetching
-description: Learn how to fetch, cache, revalidate, and mutate data with Next.js.
+title: 数据获取
+description: 学习如何使用 Next.js 获取、缓存、重新验证和修改数据。
 ---

@@ -1,32 +1,32 @@
 ---
-title: Linking and Navigating
-description: Learn how navigation works in Next.js, and how to use the Link Component and `useRouter` hook.
+title: 链接和导航
+description: 了解 Next.js 中的导航如何工作，以及如何使用 Link 组件和 `useRouter` 钩子。
 related:
   links:
     - app/deep-dive/caching
     - app/api-reference/config/typescript
 ---
 
-There are four ways to navigate between routes in Next.js:
+在 Next.js 中有四种在路由之间导航的方式：
 
-- Using the [`<Link>` Component](#link-component)
-- Using the [`useRouter` hook](#userouter-hook) ([Client Components](/docs/app/building-your-application/rendering/client-components))
-- Using the [`redirect` function](#redirect-function) ([Server Components](/docs/app/building-your-application/rendering/server-components))
-- Using the native [History API](#using-the-native-history-api)
+- 使用 [`<Link>` 组件](#link-组件)
+- 使用 [`useRouter` 钩子](#userouter-钩子) ([客户端组件](/docs/app/building-your-application/rendering/client-components))
+- 使用 [`redirect` 函数](#redirect-函数) ([服务器组件](/docs/app/building-your-application/rendering/server-components))
+- 使用原生 [History API](#使用原生-history-api)
 
-This page will go through how to use each of these options, and dive deeper into how navigation works.
+本页将介绍如何使用这些选项，并深入探讨导航的工作原理。
 
-## `<Link>` Component
+## `<Link>` 组件
 
-`<Link>` is a built-in component that extends the HTML `<a>` tag to provide [prefetching](#2-prefetching) and client-side navigation between routes. It is the primary and recommended way to navigate between routes in Next.js.
+`<Link>` 是一个内置组件，它扩展了 HTML 的 `<a>` 标签，提供[预获取](#2-预获取)和路由之间的客户端导航功能。这是在 Next.js 中在路由之间导航的主要推荐方式。
 
-You can use it by importing it from `next/link`, and passing a `href` prop to the component:
+您可以通过从 `next/link` 导入并向组件传递 `href` 属性来使用它：
 
 ```tsx filename="app/page.tsx" switcher
 import Link from 'next/link'
 
 export default function Page() {
-  return <Link href="/dashboard">Dashboard</Link>
+  return <Link href="/dashboard">仪表盘</Link>
 }
 ```
 
@@ -34,15 +34,15 @@ export default function Page() {
 import Link from 'next/link'
 
 export default function Page() {
-  return <Link href="/dashboard">Dashboard</Link>
+  return <Link href="/dashboard">仪表盘</Link>
 }
 ```
 
-There are other optional props you can pass to `<Link>`. See the [API reference](/docs/app/api-reference/components/link) for more.
+您还可以传递其他可选属性给 `<Link>`。更多详情请参阅 [API 参考](/docs/app/api-reference/components/link)。
 
-## `useRouter()` hook
+## `useRouter()` 钩子
 
-The `useRouter` hook allows you to programmatically change routes from [Client Components](/docs/app/building-your-application/rendering/client-components).
+`useRouter` 钩子允许您在[客户端组件](/docs/app/building-your-application/rendering/client-components)中以编程方式更改路由。
 
 ```tsx filename="app/page.tsx" switcher
 'use client'
@@ -54,7 +54,7 @@ export default function Page() {
 
   return (
     <button type="button" onClick={() => router.push('/dashboard')}>
-      Dashboard
+      仪表盘
     </button>
   )
 }
@@ -70,19 +70,19 @@ export default function Page() {
 
   return (
     <button type="button" onClick={() => router.push('/dashboard')}>
-      Dashboard
+      仪表盘
     </button>
   )
 }
 ```
 
-For a full list of `useRouter` methods, see the [API reference](/docs/app/api-reference/functions/use-router).
+有关 `useRouter` 方法的完整列表，请参阅 [API 参考](/docs/app/api-reference/functions/use-router)。
 
-> **Recommendation:** Use the `<Link>` component to navigate between routes unless you have a specific requirement for using `useRouter`.
+> **建议：** 除非有使用 `useRouter` 的特定需求，否则请使用 `<Link>` 组件在路由之间导航。
 
-## `redirect` function
+## `redirect` 函数
 
-For [Server Components](/docs/app/building-your-application/rendering/server-components), use the `redirect` function instead.
+对于[服务器组件](/docs/app/building-your-application/rendering/server-components)，请使用 `redirect` 函数。
 
 ```tsx filename="app/team/[id]/page.tsx" switcher
 import { redirect } from 'next/navigation'
@@ -132,25 +132,25 @@ export default async function Profile({ params }) {
 }
 ```
 
-> **Good to know**:
+> **值得了解**：
 >
-> - `redirect` returns a 307 (Temporary Redirect) status code by default. When used in a Server Action, it returns a 303 (See Other), which is commonly used for redirecting to a success page as a result of a POST request.
-> - `redirect` internally throws an error so it should be called outside of `try/catch` blocks.
-> - `redirect` can be called in Client Components during the rendering process but not in event handlers. You can use the [`useRouter` hook](#userouter-hook) instead.
-> - `redirect` also accepts absolute URLs and can be used to redirect to external links.
-> - If you'd like to redirect before the render process, use [`next.config.js`](/docs/app/building-your-application/routing/redirecting#redirects-in-nextconfigjs) or [Middleware](/docs/app/building-your-application/routing/redirecting#nextresponseredirect-in-middleware).
+> - `redirect` 默认返回 307（临时重定向）状态码。当在服务器操作中使用时，它返回 303（查看其他），这通常用于在 POST 请求后重定向到成功页面。
+> - `redirect` 内部会抛出错误，所以应该在 `try/catch` 块之外调用。
+> - `redirect` 可以在渲染过程中在客户端组件中调用，但不能在事件处理程序中调用。您可以使用 [`useRouter` 钩子](#userouter-钩子)代替。
+> - `redirect` 也接受绝对 URL，可用于重定向到外部链接。
+> - 如果您想在渲染过程之前重定向，请使用 [`next.config.js`](/docs/app/building-your-application/routing/redirecting#redirects-in-nextconfigjs) 或 [中间件](/docs/app/building-your-application/routing/redirecting#nextresponseredirect-in-middleware)。
 
-See the [`redirect` API reference](/docs/app/api-reference/functions/redirect) for more information.
+更多信息请参阅 [`redirect` API 参考](/docs/app/api-reference/functions/redirect)。
 
-## Using the native History API
+## 使用原生 History API
 
-Next.js allows you to use the native [`window.history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) and [`window.history.replaceState`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState) methods to update the browser's history stack without reloading the page.
+Next.js 允许您使用原生 [`window.history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) 和 [`window.history.replaceState`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState) 方法来更新浏览器的历史堆栈，而无需重新加载页面。
 
-`pushState` and `replaceState` calls integrate into the Next.js Router, allowing you to sync with [`usePathname`](/docs/app/api-reference/functions/use-pathname) and [`useSearchParams`](/docs/app/api-reference/functions/use-search-params).
+`pushState` 和 `replaceState` 调用集成到 Next.js 路由器中，允许您与 [`usePathname`](/docs/app/api-reference/functions/use-pathname) 和 [`useSearchParams`](/docs/app/api-reference/functions/use-search-params) 同步。
 
 ### `window.history.pushState`
 
-Use it to add a new entry to the browser's history stack. The user can navigate back to the previous state. For example, to sort a list of products:
+使用它向浏览器的历史堆栈添加新条目。用户可以导航回上一状态。例如，对产品列表进行排序：
 
 ```tsx fileName="app/ui/sort-products.tsx" switcher
 'use client'
@@ -168,8 +168,8 @@ export default function SortProducts() {
 
   return (
     <>
-      <button onClick={() => updateSorting('asc')}>Sort Ascending</button>
-      <button onClick={() => updateSorting('desc')}>Sort Descending</button>
+      <button onClick={() => updateSorting('asc')}>升序排序</button>
+      <button onClick={() => updateSorting('desc')}>降序排序</button>
     </>
   )
 }
@@ -191,8 +191,8 @@ export default function SortProducts() {
 
   return (
     <>
-      <button onClick={() => updateSorting('asc')}>Sort Ascending</button>
-      <button onClick={() => updateSorting('desc')}>Sort Descending</button>
+      <button onClick={() => updateSorting('asc')}>升序排序</button>
+      <button onClick={() => updateSorting('desc')}>降序排序</button>
     </>
   )
 }
@@ -200,7 +200,7 @@ export default function SortProducts() {
 
 ### `window.history.replaceState`
 
-Use it to replace the current entry on the browser's history stack. The user is not able to navigate back to the previous state. For example, to switch the application's locale:
+使用它替换浏览器历史堆栈上的当前条目。用户无法导航回上一状态。例如，切换应用程序的语言环境：
 
 ```tsx fileName="app/ui/locale-switcher.tsx" switcher
 'use client'
@@ -211,15 +211,15 @@ export function LocaleSwitcher() {
   const pathname = usePathname()
 
   function switchLocale(locale: string) {
-    // e.g. '/en/about' or '/fr/contact'
+    // 例如 '/en/about' 或 '/fr/contact'
     const newPath = `/${locale}${pathname}`
     window.history.replaceState(null, '', newPath)
   }
 
   return (
     <>
-      <button onClick={() => switchLocale('en')}>English</button>
-      <button onClick={() => switchLocale('fr')}>French</button>
+      <button onClick={() => switchLocale('en')}>英文</button>
+      <button onClick={() => switchLocale('fr')}>法文</button>
     </>
   )
 }
@@ -234,83 +234,83 @@ export function LocaleSwitcher() {
   const pathname = usePathname()
 
   function switchLocale(locale) {
-    // e.g. '/en/about' or '/fr/contact'
+    // 例如 '/en/about' 或 '/fr/contact'
     const newPath = `/${locale}${pathname}`
     window.history.replaceState(null, '', newPath)
   }
 
   return (
     <>
-      <button onClick={() => switchLocale('en')}>English</button>
-      <button onClick={() => switchLocale('fr')}>French</button>
+      <button onClick={() => switchLocale('en')}>英文</button>
+      <button onClick={() => switchLocale('fr')}>法文</button>
     </>
   )
 }
 ```
 
-## How Routing and Navigation Works
+## 路由和导航工作原理
 
-The App Router uses a hybrid approach for routing and navigation. On the server, your application code is automatically [code-split](#1-code-splitting) by route segments. And on the client, Next.js [prefetches](#2-prefetching) and [caches](#3-caching) the route segments. This means, when a user navigates to a new route, the browser doesn't reload the page, and only the route segments that change re-render - improving the navigation experience and performance.
+App Router 使用混合方法进行路由和导航。在服务器上，您的应用程序代码会按路由段自动[代码分割](#1-代码分割)。在客户端，Next.js[预获取](#2-预获取)和[缓存](#3-缓存)路由段。这意味着，当用户导航到新路由时，浏览器不会重新加载页面，只有变化的路由段会重新渲染——改善导航体验和性能。
 
-### 1. Code Splitting
+### 1. 代码分割
 
-Code splitting allows you to split your application code into smaller bundles to be downloaded and executed by the browser. This reduces the amount of data transferred and execution time for each request, leading to improved performance.
+代码分割允许您将应用程序代码拆分为更小的包，由浏览器下载和执行。这减少了每个请求的数据传输量和执行时间，从而提高性能。
 
-[Server Components](/docs/app/building-your-application/rendering/server-components) allow your application code to be automatically code-split by route segments. This means only the code needed for the current route is loaded on navigation.
+[服务器组件](/docs/app/building-your-application/rendering/server-components)允许您的应用程序代码按路由段自动进行代码分割。这意味着在导航时只加载当前路由所需的代码。
 
-### 2. Prefetching
+### 2. 预获取
 
-Prefetching is a way to preload a route in the background before the user visits it.
+预获取是在用户访问路由之前在后台预加载路由的方式。
 
-There are two ways routes are prefetched in Next.js:
+在 Next.js 中，有两种预获取路由的方式：
 
-- **`<Link>` component**: Routes are automatically prefetched as they become visible in the user's viewport. Prefetching happens when the page first loads or when it comes into view through scrolling.
-- **`router.prefetch()`**: The `useRouter` hook can be used to prefetch routes programmatically.
+- **`<Link>` 组件**：路由会在它们进入用户视口时自动预获取。预获取发生在页面首次加载时，或通过滚动进入视图时。
+- **`router.prefetch()`**：`useRouter` 钩子可用于以编程方式预获取路由。
 
-The `<Link>`'s default prefetching behavior (i.e. when the `prefetch` prop is left unspecified or set to `null`) is different depending on your usage of [`loading.js`](/docs/app/api-reference/file-conventions/loading). Only the shared layout, down the rendered "tree" of components until the first `loading.js` file, is prefetched and cached for `30s`. This reduces the cost of fetching an entire dynamic route, and it means you can show an [instant loading state](/docs/app/building-your-application/routing/loading-ui-and-streaming#instant-loading-states) for better visual feedback to users.
+`<Link>` 的默认预获取行为（即当 `prefetch` 属性未指定或设置为 `null` 时）取决于您使用 [`loading.js`](/docs/app/api-reference/file-conventions/loading) 的情况。只有共享布局，沿着渲染的"树"一直到第一个 `loading.js` 文件，才会被预获取并缓存 `30s`。这减少了获取整个动态路由的成本，并且意味着您可以显示[即时加载状态](/docs/app/building-your-application/routing/loading-ui-and-streaming#instant-loading-states)，为用户提供更好的视觉反馈。
 
-You can disable prefetching by setting the `prefetch` prop to `false`. Alternatively, you can prefetch the full page data beyond the loading boundaries by setting the `prefetch` prop to `true`.
+您可以通过将 `prefetch` 属性设置为 `false` 来禁用预获取。或者，您可以通过将 `prefetch` 属性设置为 `true` 来预获取加载边界之外的完整页面数据。
 
-See the [`<Link>` API reference](/docs/app/api-reference/components/link) for more information.
+更多信息请参阅 [`<Link>` API 参考](/docs/app/api-reference/components/link)。
 
-> **Good to know**:
+> **值得了解**：
 >
-> - Prefetching is not enabled in development, only in production.
+> - 预获取在开发中不启用，只在生产中启用。
 
-### 3. Caching
+### 3. 缓存
 
-Next.js has an **in-memory client-side cache** called the [Router Cache](/docs/app/deep-dive/caching#client-side-router-cache). As users navigate around the app, the React Server Component Payload of [prefetched](#2-prefetching) route segments and visited routes are stored in the cache.
+Next.js 有一个称为[路由器缓存](/docs/app/deep-dive/caching#client-side-router-cache)的**内存客户端缓存**。当用户在应用程序中导航时，[预获取](#2-预获取)的路由段和访问过的路由的 React 服务器组件有效载荷会存储在缓存中。
 
-This means on navigation, the cache is reused as much as possible, instead of making a new request to the server - improving performance by reducing the number of requests and data transferred.
+这意味着在导航时，缓存会尽可能被重用，而不是向服务器发出新请求——通过减少请求数量和数据传输量来提高性能。
 
-Learn more about how the [Router Cache](/docs/app/deep-dive/caching#client-side-router-cache) works and how to configure it.
+了解[路由器缓存](/docs/app/deep-dive/caching#client-side-router-cache)如何工作以及如何配置它。
 
-### 4. Partial Rendering
+### 4. 部分渲染
 
-Partial rendering means only the route segments that change on navigation re-render on the client, and any shared segments are preserved.
+部分渲染意味着在导航时，只有在客户端上变化的路由段才会重新渲染，而任何共享段都会被保留。
 
-For example, when navigating between two sibling routes, `/dashboard/settings` and `/dashboard/analytics`, the `settings` page will be unmounted, the `analytics` page will be mounted with fresh state, and the shared `dashboard` layout will be preserved. This behavior is also present between two routes on the same dynamic segment e.g. with `/blog/[slug]/page` and navigating from `/blog/first` to `/blog/second`.
+例如，在两个兄弟路由 `/dashboard/settings` 和 `/dashboard/analytics` 之间导航时，`settings` 页面将被卸载，`analytics` 页面将以新状态挂载，共享的 `dashboard` 布局将被保留。这种行为也存在于同一动态段上的两个路由之间，例如使用 `/blog/[slug]/page` 并从 `/blog/first` 导航到 `/blog/second`。
 
 <Image
-  alt="How partial rendering works"
+  alt="部分渲染的工作原理"
   srcLight="/docs/light/partial-rendering.png"
   srcDark="/docs/dark/partial-rendering.png"
   width="1600"
   height="945"
 />
 
-Without partial rendering, each navigation would cause the full page to re-render on the client. Rendering only the segment that changes reduces the amount of data transferred and execution time, leading to improved performance.
+如果没有部分渲染，每次导航都会导致在客户端上重新渲染整个页面。只渲染改变的段减少了数据传输量和执行时间，从而提高性能。
 
-### 5. Soft Navigation
+### 5. 软导航
 
-Browsers perform a "hard navigation" when navigating between pages. The Next.js App Router enables "soft navigation" between pages, ensuring only the route segments that have changed are re-rendered (partial rendering). This enables client React state to be preserved during navigation.
+浏览器在页面之间导航时执行"硬导航"。Next.js App Router 启用页面之间的"软导航"，确保只有已更改的路由段才会重新渲染（部分渲染）。这使得客户端 React 状态在导航过程中得以保留。
 
-### 6. Back and Forward Navigation
+### 6. 前进和后退导航
 
-By default, Next.js will maintain the scroll position for backwards and forwards navigation, and re-use route segments in the [Router Cache](/docs/app/deep-dive/caching#client-side-router-cache).
+默认情况下，Next.js 将在后退和前进导航中维持滚动位置，并重用[路由器缓存](/docs/app/deep-dive/caching#client-side-router-cache)中的路由段。
 
-### 7. Routing between `pages/` and `app/`
+### 7. `pages/` 和 `app/` 之间的路由
 
-When incrementally migrating from `pages/` to `app/`, the Next.js router will automatically handle hard navigation between the two. To detect transitions from `pages/` to `app/`, there is a client router filter that leverages probabilistic checking of app routes, which can occasionally result in false positives. By default, such occurrences should be very rare, as we configure the false positive likelihood to be 0.01%. This likelihood can be customized via the `experimental.clientRouterFilterAllowedRate` option in `next.config.js`. It's important to note that lowering the false positive rate will increase the size of the generated filter in the client bundle.
+当从 `pages/` 增量迁移到 `app/` 时，Next.js 路由器会自动处理两者之间的硬导航。为了检测从 `pages/` 到 `app/` 的转换，有一个客户端路由器过滤器，它利用应用路由的概率检查，这有时可能会导致假阳性。默认情况下，这种情况应该非常罕见，因为我们将假阳性可能性配置为 0.01%。这种可能性可以通过 `next.config.js` 中的 `experimental.clientRouterFilterAllowedRate` 选项进行自定义。需要注意的是，降低假阳性率将增加客户端包中生成的过滤器的大小。
 
-Alternatively, if you prefer to disable this handling completely and manage the routing between `pages/` and `app/` manually, you can set `experimental.clientRouterFilter` to false in `next.config.js`. When this feature is disabled, any dynamic routes in pages that overlap with app routes won't be navigated to properly by default.
+或者，如果您更喜欢完全禁用此处理并手动管理 `pages/` 和 `app/` 之间的路由，可以在 `next.config.js` 中将 `experimental.clientRouterFilter` 设置为 false。当此功能被禁用时，pages 中与 app 路由重叠的任何动态路由默认情况下都无法正确导航。

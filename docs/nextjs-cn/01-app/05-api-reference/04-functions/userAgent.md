@@ -1,11 +1,11 @@
 ---
 title: userAgent
-description: The userAgent helper extends the Web Request API with additional properties and methods to interact with the user agent object from the request.
+description: userAgent 辅助函数扩展了 Web 请求 API，提供了额外的属性和方法来与请求中的用户代理对象进行交互。
 ---
 
 {/_ The content of this doc is shared between the app and pages router. You can use the `<PagesOnly>Content</PagesOnly>` component to add content that is specific to the Pages Router. Any shared content should not be wrapped in a component. _/}
 
-The `userAgent` helper extends the [Web Request API](https://developer.mozilla.org/docs/Web/API/Request) with additional properties and methods to interact with the user agent object from the request.
+`userAgent` 辅助函数扩展了 [Web 请求 API](https://developer.mozilla.org/docs/Web/API/Request)，提供了额外的属性和方法来与请求中的用户代理对象进行交互。
 
 ```ts filename="middleware.ts" switcher
 import { NextRequest, NextResponse, userAgent } from 'next/server'
@@ -14,8 +14,8 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl
   const { device } = userAgent(request)
 
-  // device.type can be: 'mobile', 'tablet', 'console', 'smarttv',
-  // 'wearable', 'embedded', or undefined (for desktop browsers)
+  // device.type 可以是：'mobile'、'tablet'、'console'、'smarttv'、
+  // 'wearable'、'embedded' 或 undefined（适用于桌面浏览器）
   const viewport = device.type || 'desktop'
 
   url.searchParams.set('viewport', viewport)
@@ -30,8 +30,8 @@ export function middleware(request) {
   const url = request.nextUrl
   const { device } = userAgent(request)
 
-  // device.type can be: 'mobile', 'tablet', 'console', 'smarttv',
-  // 'wearable', 'embedded', or undefined (for desktop browsers)
+  // device.type 可以是：'mobile'、'tablet'、'console'、'smarttv'、
+  // 'wearable'、'embedded' 或 undefined（适用于桌面浏览器）
   const viewport = device.type || 'desktop'
 
   url.searchParams.set('viewport', viewport)
@@ -41,39 +41,39 @@ export function middleware(request) {
 
 ## `isBot`
 
-A boolean indicating whether the request comes from a known bot.
+一个布尔值，表示请求是否来自已知的机器人。
 
 ## `browser`
 
-An object containing information about the browser used in the request.
+一个包含有关请求中使用的浏览器信息的对象。
 
-- `name`: A string representing the browser's name, or `undefined` if not identifiable.
-- `version`: A string representing the browser's version, or `undefined`.
+- `name`：表示浏览器名称的字符串，如果无法识别则为 `undefined`。
+- `version`：表示浏览器版本的字符串，或 `undefined`。
 
 ## `device`
 
-An object containing information about the device used in the request.
+一个包含有关请求中使用的设备信息的对象。
 
-- `model`: A string representing the model of the device, or `undefined`.
-- `type`: A string representing the type of the device, such as `console`, `mobile`, `tablet`, `smarttv`, `wearable`, `embedded`, or `undefined`.
-- `vendor`: A string representing the vendor of the device, or `undefined`.
+- `model`：表示设备型号的字符串，或 `undefined`。
+- `type`：表示设备类型的字符串，如 `console`、`mobile`、`tablet`、`smarttv`、`wearable`、`embedded` 或 `undefined`。
+- `vendor`：表示设备厂商的字符串，或 `undefined`。
 
 ## `engine`
 
-An object containing information about the browser's engine.
+一个包含有关浏览器引擎信息的对象。
 
-- `name`: A string representing the engine's name. Possible values include: `Amaya`, `Blink`, `EdgeHTML`, `Flow`, `Gecko`, `Goanna`, `iCab`, `KHTML`, `Links`, `Lynx`, `NetFront`, `NetSurf`, `Presto`, `Tasman`, `Trident`, `w3m`, `WebKit` or `undefined`.
-- `version`: A string representing the engine's version, or `undefined`.
+- `name`：表示引擎名称的字符串。可能的值包括：`Amaya`、`Blink`、`EdgeHTML`、`Flow`、`Gecko`、`Goanna`、`iCab`、`KHTML`、`Links`、`Lynx`、`NetFront`、`NetSurf`、`Presto`、`Tasman`、`Trident`、`w3m`、`WebKit` 或 `undefined`。
+- `version`：表示引擎版本的字符串，或 `undefined`。
 
 ## `os`
 
-An object containing information about the operating system.
+一个包含有关操作系统信息的对象。
 
-- `name`: A string representing the name of the OS, or `undefined`.
-- `version`: A string representing the version of the OS, or `undefined`.
+- `name`：表示操作系统名称的字符串，或 `undefined`。
+- `version`：表示操作系统版本的字符串，或 `undefined`。
 
 ## `cpu`
 
-An object containing information about the CPU architecture.
+一个包含有关 CPU 架构信息的对象。
 
-- `architecture`: A string representing the architecture of the CPU. Possible values include: `68k`, `amd64`, `arm`, `arm64`, `armhf`, `avr`, `ia32`, `ia64`, `irix`, `irix64`, `mips`, `mips64`, `pa-risc`, `ppc`, `sparc`, `sparc64` or `undefined`
+- `architecture`：表示 CPU 架构的字符串。可能的值包括：`68k`、`amd64`、`arm`、`arm64`、`armhf`、`avr`、`ia32`、`ia64`、`irix`、`irix64`、`mips`、`mips64`、`pa-risc`、`ppc`、`sparc`、`sparc64` 或 `undefined`

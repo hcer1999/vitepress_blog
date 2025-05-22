@@ -1,6 +1,6 @@
 ---
-title: API Reference
-description: Next.js API Reference for the App Router.
+title: API 参考
+description: App Router 的 Next.js API 参考。
 ---
 
-The Next.js API reference is divided into the following sections:
+Next.js API 参考分为以下几个部分：

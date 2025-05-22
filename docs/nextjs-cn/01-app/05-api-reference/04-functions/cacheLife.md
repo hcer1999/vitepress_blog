@@ -1,10 +1,10 @@
 ---
 title: cacheLife
-description: Learn how to use the cacheLife function to set the cache expiration time for a cached function or component.
+description: 了解如何使用 cacheLife 函数为缓存的函数或组件设置缓存过期时间。
 version: canary
 related:
-  title: Related
-  description: View related API references.
+  title: 相关内容
+  description: 查看相关的 API 参考。
   links:
     - app/api-reference/config/next-config-js/dynamicIO
     - app/api-reference/directives/use-cache
@@ -12,11 +12,11 @@ related:
     - app/api-reference/functions/cacheTag
 ---
 
-The `cacheLife` function is used to set the cache lifetime of a function or component. It should be used alongside the [`use cache`](/docs/app/api-reference/directives/use-cache) directive, and within the scope of the function or component.
+`cacheLife` 函数用于设置函数或组件的缓存生命周期。它应该与 [`use cache`](/docs/app/api-reference/directives/use-cache) 指令一起使用，并在函数或组件的作用域内使用。
 
-## Usage
+## 用法
 
-To use `cacheLife`, enable the [`dynamicIO` flag](/docs/app/api-reference/config/next-config-js/dynamicIO) in your `next.config.js` file:
+要使用 `cacheLife`，请在 `next.config.js` 文件中启用 [`dynamicIO` 标志](/docs/app/api-reference/config/next-config-js/dynamicIO)：
 
 ```ts filename="next.config.ts" switcher
 import type { NextConfig } from 'next'
@@ -40,7 +40,7 @@ const nextConfig = {
 export default nextConfig
 ```
 
-Then, import and invoke the `cacheLife` function within the scope of the function or component:
+然后，在函数或组件的作用域内导入并调用 `cacheLife` 函数：
 
 ```tsx filename="app/page.tsx" highlight={5} switcher
 'use cache'
@@ -62,49 +62,49 @@ export default async function Page() {
 }
 ```
 
-## Reference
+## 参考
 
-### Default cache profiles
+### 默认缓存配置文件
 
-Next.js provides a set of named cache profiles modeled on various timescales. If you don't specify a cache profile in the `cacheLife` function alongside the `use cache` directive, Next.js will automatically apply the `default` cache profile.
+Next.js 提供了一组基于各种时间尺度建模的命名缓存配置文件。如果你没有在 `cacheLife` 函数中与 `use cache` 指令一起指定缓存配置文件，Next.js 将自动应用 `default` 缓存配置文件。
 
-However, we recommend always adding a cache profile when using the `use cache` directive to explicitly define caching behavior.
+但是，我们建议在使用 `use cache` 指令时始终添加缓存配置文件，以显式定义缓存行为。
 
-| **Profile** | `stale`   | `revalidate` | `expire` | **Description**                                                          |
-| ----------- | --------- | ------------ | -------- | ------------------------------------------------------------------------ |
-| `default`   | 5 minutes | 15 minutes   | 1 year   | Default profile, suitable for content that doesn't need frequent updates |
-| `seconds`   | 0         | 1 second     | 1 second | For rapidly changing content requiring near real-time updates            |
-| `minutes`   | 5 minutes | 1 minute     | 1 hour   | For content that updates frequently within an hour                       |
-| `hours`     | 5 minutes | 1 hour       | 1 day    | For content that updates daily but can be slightly stale                 |
-| `days`      | 5 minutes | 1 day        | 1 week   | For content that updates weekly but can be a day old                     |
-| `weeks`     | 5 minutes | 1 week       | 30 days  | For content that updates monthly but can be a week old                   |
-| `max`       | 5 minutes | 30 days      | 1 year   | For very stable content that rarely needs updating                       |
+| **配置文件** | `stale` | `revalidate` | `expire` | **描述**                                 |
+| ------------ | ------- | ------------ | -------- | ---------------------------------------- |
+| `default`    | 5 分钟  | 15 分钟      | 1 年     | 默认配置文件，适用于不需要频繁更新的内容 |
+| `seconds`    | 0       | 1 秒         | 1 秒     | 用于需要近实时更新的快速变化内容         |
+| `minutes`    | 5 分钟  | 1 分钟       | 1 小时   | 用于在一小时内频繁更新的内容             |
+| `hours`      | 5 分钟  | 1 小时       | 1 天     | 用于每天更新但可以稍微过时的内容         |
+| `days`       | 5 分钟  | 1 天         | 1 周     | 用于每周更新但可以过时一天的内容         |
+| `weeks`      | 5 分钟  | 1 周         | 30 天    | 用于每月更新但可以过时一周的内容         |
+| `max`        | 5 分钟  | 30 天        | 1 年     | 用于很少需要更新的非常稳定的内容         |
 
-The string values used to reference cache profiles don't carry inherent meaning; instead they serve as semantic labels. This allows you to better understand and manage your cached content within your codebase.
+用于引用缓存配置文件的字符串值本身没有固有含义；它们只是作为语义标签。这使你能够更好地理解和管理代码库中的缓存内容。
 
-> **Good to know:** Updating the [`staleTimes`](/docs/app/api-reference/config/next-config-js/staleTimes) and [`expireTime`](/docs/app/api-reference/config/next-config-js/expireTime) config options also updates the `stale` and `expire` properties of the `default` cache profile.
+> **须知：** 更新 [`staleTimes`](/docs/app/api-reference/config/next-config-js/staleTimes) 和 [`expireTime`](/docs/app/api-reference/config/next-config-js/expireTime) 配置选项也会更新 `default` 缓存配置文件的 `stale` 和 `expire` 属性。
 
-### Custom cache profiles
+### 自定义缓存配置文件
 
-You can configure custom cache profiles by adding them to the [`cacheLife`](/docs/app/api-reference/config/next-config-js/cacheLife) option in your `next.config.ts` file.
+你可以通过在 `next.config.ts` 文件中的 [`cacheLife`](/docs/app/api-reference/config/next-config-js/cacheLife) 选项中添加自定义缓存配置文件。
 
-Cache profiles are objects that contain the following properties:
+缓存配置文件是包含以下属性的对象：
 
-| **Property** | **Value** | **Description**                                                                                                             | **Requirement**                             |
-| ------------ | --------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| `stale`      | `number`  | Duration the client should cache a value without checking the server.                                                       | Optional                                    |
-| `revalidate` | `number`  | Frequency at which the cache should refresh on the server; stale values may be served while revalidating.                   | Optional                                    |
-| `expire`     | `number`  | Maximum duration for which a value can remain stale before switching to dynamic fetching; must be longer than `revalidate`. | Optional - Must be longer than `revalidate` |
+| **属性**     | **值**   | **描述**                                                                      | **要求**                     |
+| ------------ | -------- | ----------------------------------------------------------------------------- | ---------------------------- |
+| `stale`      | `number` | 客户端应该缓存一个值而不检查服务器的持续时间。                                | 可选                         |
+| `revalidate` | `number` | 缓存应该在服务器上刷新的频率；在重新验证时可能会提供过时的值。                | 可选                         |
+| `expire`     | `number` | 一个值可以保持过时的最长持续时间，之后切换到动态获取；必须长于 `revalidate`。 | 可选 - 必须长于 `revalidate` |
 
-The "stale" property differs from the [`staleTimes`](/docs/app/api-reference/config/next-config-js/staleTimes) setting in that it specifically controls client-side router caching. While `staleTimes` is a global setting that affects all instances of both dynamic and static data, the `cacheLife` configuration allows you to define "stale" times on a per-function or per-route basis.
+"stale" 属性与 [`staleTimes`](/docs/app/api-reference/config/next-config-js/staleTimes) 设置不同，它专门控制客户端路由器缓存。虽然 `staleTimes` 是影响动态和静态数据所有实例的全局设置，但 `cacheLife` 配置允许你在每个函数或每个路由的基础上定义 "stale" 时间。
 
-> **Good to know**: The “stale” property does not set the `Cache-control: max-age` header. It instead controls the client-side router cache.
+> **须知**："stale" 属性不设置 `Cache-control: max-age` 头。它控制的是客户端路由器缓存。
 
-## Examples
+## 示例
 
-### Defining reusable cache profiles
+### 定义可重用的缓存配置文件
 
-You can create a reusable cache profile by defining them in your `next.config.ts` file. Choose a name that suits your use case and set values for the `stale`, `revalidate`, and `expire` properties. You can create as many custom cache profiles as needed. Each profile can be referenced by its name as a string value passed to the `cacheLife` function.
+你可以通过在 `next.config.ts` 文件中定义缓存配置文件来创建可重用的缓存配置文件。选择适合你用例的名称，并为 `stale`、`revalidate` 和 `expire` 属性设置值。你可以创建任意多个自定义缓存配置文件。每个配置文件可以通过其名称作为传递给 `cacheLife` 函数的字符串值引用。
 
 ```ts filename="next.config.ts" switcher
 import type { NextConfig } from 'next'
@@ -114,9 +114,9 @@ const nextConfig: NextConfig = {
     dynamicIO: true,
     cacheLife: {
       biweekly: {
-        stale: 60 * 60 * 24 * 14, // 14 days
-        revalidate: 60 * 60 * 24, // 1 day
-        expire: 60 * 60 * 24 * 14, // 14 days
+        stale: 60 * 60 * 24 * 14, // 14 天
+        revalidate: 60 * 60 * 24, // 1 天
+        expire: 60 * 60 * 24 * 14, // 14 天
       },
     },
   },
@@ -131,9 +131,9 @@ const nextConfig = {
     dynamicIO: true,
     cacheLife: {
       biweekly: {
-        stale: 60 * 60 * 24 * 14, // 14 days
-        revalidate: 60 * 60 * 24, // 1 day
-        expire: 60 * 60 * 24 * 14, // 14 days
+        stale: 60 * 60 * 24 * 14, // 14 天
+        revalidate: 60 * 60 * 24, // 1 天
+        expire: 60 * 60 * 24 * 14, // 14 天
       },
     },
   },
@@ -142,7 +142,7 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-The example above caches for 14 days, checks for updates daily, and expires the cache after 14 days. You can then reference this profile throughout your application by its name:
+上面的示例缓存 14 天，每天检查更新，并在 14 天后使缓存过期。然后，你可以通过其名称在整个应用程序中引用此配置文件：
 
 ```tsx filename="app/page.tsx" highlight={5}
 'use cache'
@@ -154,13 +154,13 @@ export default async function Page() {
 }
 ```
 
-### Overriding the default cache profiles
+### 覆盖默认缓存配置文件
 
-While the default cache profiles provide a useful way to think about how fresh or stale any given part of cacheable output can be, you may prefer different named profiles to better align with your applications caching strategies.
+虽然默认缓存配置文件提供了一种有用的方式来考虑可缓存输出的新鲜度或过时程度，但你可能更喜欢不同的命名配置文件，以更好地与应用程序的缓存策略保持一致。
 
-You can override the default named cache profiles by creating a new configuration with the same name as the defaults.
+你可以通过创建与默认名称相同的新配置来覆盖默认命名缓存配置文件。
 
-The example below shows how to override the default “days” cache profile:
+下面的示例展示了如何覆盖默认的 "days" 缓存配置文件：
 
 ```ts filename="next.config.ts"
 const nextConfig = {
@@ -168,9 +168,9 @@ const nextConfig = {
     dynamicIO: true,
     cacheLife: {
       days: {
-        stale: 3600, // 1 hour
-        revalidate: 900, // 15 minutes
-        expire: 86400, // 1 day
+        stale: 3600, // 1 小时
+        revalidate: 900, // 15 分钟
+        expire: 86400, // 1 天
       },
     },
   },
@@ -179,9 +179,9 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-### Defining cache profiles inline
+### 内联定义缓存配置文件
 
-For specific use cases, you can set a custom cache profile by passing an object to the `cacheLife` function:
+对于特定用例，你可以通过向 `cacheLife` 函数传递一个对象来设置自定义缓存配置文件：
 
 ```tsx filename="app/page.tsx" highlight={5-9} switcher
 'use cache'
@@ -189,9 +189,9 @@ import { unstable_cacheLife as cacheLife } from 'next/cache'
 
 export default async function Page() {
   cacheLife({
-    stale: 3600, // 1 hour
-    revalidate: 900, // 15 minutes
-    expire: 86400, // 1 day
+    stale: 3600, // 1 小时
+    revalidate: 900, // 15 分钟
+    expire: 86400, // 1 天
   })
 
   return <div>Page</div>
@@ -204,25 +204,25 @@ import { unstable_cacheLife as cacheLife } from 'next/cache'
 
 export default async function Page() {
   cacheLife({
-    stale: 3600, // 1 hour
-    revalidate: 900, // 15 minutes
-    expire: 86400, // 1 day
+    stale: 3600, // 1 小时
+    revalidate: 900, // 15 分钟
+    expire: 86400, // 1 天
   })
 
   return <div>Page</div>
 }
 ```
 
-This inline cache profile will only be applied to the function or file it was created in. If you want to reuse the same profile throughout your application, you can [add the configuration](#defining-reusable-cache-profiles) to the `cacheLife` property of your `next.config.ts` file.
+这个内联缓存配置文件将只应用于创建它的函数或文件。如果你想在整个应用程序中重复使用相同的配置文件，你可以[将配置](#定义可重用的缓存配置文件)添加到 `next.config.ts` 文件的 `cacheLife` 属性中。
 
-### Nested usage of `use cache` and `cacheLife`
+### `use cache` 和 `cacheLife` 的嵌套使用
 
-When defining multiple caching behaviors in the same route or component tree, if the inner caches specify their own `cacheLife` profile, the outer cache will respect the shortest cache duration among them. **This applies only if the outer cache does not have its own explicit `cacheLife` profile defined.**
+当在同一路由或组件树中定义多个缓存行为时，如果内部缓存指定了自己的 `cacheLife` 配置文件，外部缓存将尊重它们之间最短的缓存持续时间。**这仅适用于外部缓存没有定义自己的显式 `cacheLife` 配置文件的情况。**
 
-For example, if you add the `use cache` directive to your page, without specifying a cache profile, the default cache profile will be applied implicitly (`cacheLife(”default”)`). If a component imported into the page also uses the `use cache` directive with its own cache profile, the outer and inner cache profiles are compared, and shortest duration set in the profiles will be applied.
+例如，如果你在页面中添加了 `use cache` 指令，但没有指定缓存配置文件，将隐式应用默认缓存配置文件（`cacheLife("default")`）。如果导入到页面中的组件也使用了带有自己的缓存配置文件的 `use cache` 指令，则会比较外部和内部缓存配置文件，并应用配置文件中设置的最短持续时间。
 
 ```tsx filename="app/components/parent.tsx" highlight={5,6}
-// Parent component
+// 父组件
 import { unstable_cacheLife as cacheLife } from 'next/cache'
 import { ChildComponent } from './child'
 
@@ -238,17 +238,21 @@ export async function ParentComponent() {
 }
 ```
 
-And in a separate file, we defined the Child component that was imported:
+在另一个文件中，我们定义了导入的子组件：
 
 ```tsx filename="app/components/child.tsx" highlight={4,5}
-// Child component
+// 子组件
 import { unstable_cacheLife as cacheLife } from 'next/cache'
 
 export async function ChildComponent() {
   'use cache'
   cacheLife('hours')
   return <div>Child Content</div>
-
-  // This component's cache will respect the shorter 'hours' profile
 }
 ```
+
+## 版本历史
+
+| 版本      | 变更               |
+| --------- | ------------------ |
+| `v15.0.0` | 引入 `cacheLife`。 |
