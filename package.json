@@ -21,7 +21,8 @@
     "build:github": "cross-env APP_BASE_PATH=/vitepress_blog/ cross-env BASE_URL=/vitepress_blog/ npm run build",
     "lint": "prettier --write .",
     "prepare": "husky install",
-    "up:dist": "node upload.serve.mjs"
+    "up:dist": "node upload.serve.mjs",
+    "create:article": "node scripts/create-article.mjs"
   },
   "devDependencies": {
     "@femm/prettier": "^1.1.0",
