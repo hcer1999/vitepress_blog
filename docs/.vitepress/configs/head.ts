@@ -44,14 +44,7 @@ const statisticsOptions = [
     `  window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
     gtag('config', 'G-WKDQYCS7KC');`,
-  ],
-  ['script', { src: '//sdk.51.la/js-sdk-pro.min.js', charset: 'UTF-8', id: 'LA_COLLECT' }],
-  [
-    'script',
-    {},
-    `LA.init({id:"K1qi65GEQCfdOxT7",ck:"K1qi65GEQCfdOxT7",autoTrack:true,hashMode:true})`,
   ],
   [
     'script',

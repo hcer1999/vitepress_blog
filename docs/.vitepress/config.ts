@@ -17,7 +17,7 @@ export default defineConfig({
   title: '冰可乐的前端笔记',
   description: '冰可乐的成长之路，包含前端常用知识、源码阅读笔记、各种奇淫技巧、日常提效工具等',
   head,
-  mpa: true,
+  mpa: false,
 
   lastUpdated: true,
   cleanUrls: true,
