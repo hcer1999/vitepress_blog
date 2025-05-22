@@ -379,7 +379,6 @@ const hasDesc = computed(() => {
   // 悬停效果
   &:hover {
     .card {
-      transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       border-color: var(--vp-c-brand-dimm);
       
