@@ -5,7 +5,7 @@ description: Next.js has the preview mode for statically generated pages. You ca
 version: legacy
 ---
 
-> **Note**: This feature is superseded by [Draft Mode](/docs/nextjs-cn/pages/guides/configuring/draft-mode).
+> **Note**: This feature is superseded by [Draft Mode]().
 
 <details>
   <summary>Examples</summary>
@@ -40,7 +40,7 @@ version: legacy
 
 </details>
 
-In the [Pages documentation](/docs/nextjs-cn/pages/building-your-application/routing/pages-and-layouts) and the [Data Fetching documentation](/docs/nextjs-cn/pages/building-your-application/data-fetching), we talked about how to pre-render a page at build time (**Static Generation**) using `getStaticProps` and `getStaticPaths`.
+In the [Pages documentation](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts) and the [Data Fetching documentation](/nextjs-cn/pages/building-your-application/data-fetching/index), we talked about how to pre-render a page at build time (**Static Generation**) using `getStaticProps` and `getStaticPaths`.
 
 Static Generation is useful when your pages fetch data from a headless CMS. However, it’s not ideal when you’re writing a draft on your headless CMS and want to **preview** the draft immediately on your page. You’d want Next.js to render these pages at **request time** instead of build time and fetch the draft content instead of the published content. You’d want Next.js to bypass Static Generation only for this specific case.
 
@@ -48,7 +48,7 @@ Next.js has a feature called **Preview Mode** which solves this problem. Here ar
 
 ## Step 1: Create and access a preview API route
 
-> Take a look at the [API Routes documentation](/docs/nextjs-cn/pages/building-your-application/routing/api-routes) first if you’re not familiar with Next.js API Routes.
+> Take a look at the [API Routes documentation](/nextjs-cn/pages/building-your-application/routing/api-routes) first if you’re not familiar with Next.js API Routes.
 
 First, create a **preview API route**. It can have any name - e.g. `pages/api/preview.js` (or `.ts` if using TypeScript).
 
@@ -182,7 +182,7 @@ https://<your-site>/api/preview?secret=<token>&slug=<path>
 
 ## More Details
 
-> **Good to know**: during rendering `next/router` exposes an `isPreview` flag, see the [router object docs](/docs/nextjs-cn/pages/api-reference/functions/use-router#router-object) for more info.
+> **Good to know**: during rendering `next/router` exposes an `isPreview` flag, see the [router object docs](/nextjs-cn/pages/api-reference/functions/use-router#router-object) for more info.
 
 ### Specify the Preview Mode duration
 
@@ -210,7 +210,7 @@ export default function handler(req, res) {
 }
 ```
 
-Then, send a request to `/api/clear-preview-mode-cookies` to invoke the API Route. If calling this route using [`next/link`](/docs/nextjs-cn/pages/api-reference/components/link), you must pass `prefetch={false}` to prevent calling `clearPreviewData` during link prefetching.
+Then, send a request to `/api/clear-preview-mode-cookies` to invoke the API Route. If calling this route using [`next/link`](/nextjs-cn/pages/api-reference/components/link), you must pass `prefetch={false}` to prevent calling `clearPreviewData` during link prefetching.
 
 If a path was specified in the `setPreviewData` call, you must pass the same path to `clearPreviewData`:
 
@@ -230,7 +230,7 @@ You can pass an object to `setPreviewData` and have it be available in `getStati
 
 The preview mode works on `getServerSideProps` as well. It will also be available on the `context` object containing `preview` and `previewData`.
 
-> **Good to know**: You shouldn't set the `Cache-Control` header when using Preview Mode because it cannot be bypassed. Instead, we recommend using [ISR](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration).
+> **Good to know**: You shouldn't set the `Cache-Control` header when using Preview Mode because it cannot be bypassed. Instead, we recommend using [ISR](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration).
 
 ### Works with API Routes
 

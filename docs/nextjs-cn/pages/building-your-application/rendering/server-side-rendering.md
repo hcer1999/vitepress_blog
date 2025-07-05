@@ -29,4 +29,4 @@ export async function getServerSideProps() {
 
 As you can see, `getServerSideProps` is similar to `getStaticProps`, but the difference is that `getServerSideProps` is run on every request instead of on build time.
 
-To learn more about how `getServerSideProps` works, check out our [Data Fetching documentation](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props).
+To learn more about how `getServerSideProps` works, check out our [Data Fetching documentation](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props).

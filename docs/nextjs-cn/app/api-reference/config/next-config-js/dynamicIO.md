@@ -8,7 +8,7 @@ version: canary
 
 如果您的应用程序需要在运行时获取新鲜数据而不是从预渲染缓存中提供服务，这个功能会很有用。
 
-预期它会与 [`use cache`](/docs/nextjs-cn/app/api-reference/directives/use-cache) 一起使用，这样默认情况下您的数据获取会在运行时进行，除非您通过在页面、函数或组件级别使用 `use cache` 来定义应用程序的特定部分被缓存。
+预期它会与 [`use cache`](/nextjs-cn/app/api-reference/directives/use-cache) 一起使用，这样默认情况下您的数据获取会在运行时进行，除非您通过在页面、函数或组件级别使用 `use cache` 来定义应用程序的特定部分被缓存。
 
 ## 使用方法
 
@@ -28,9 +28,9 @@ export default nextConfig
 
 启用 `dynamicIO` 后，您可以使用以下缓存函数和配置：
 
-- [`use cache` 指令](/docs/nextjs-cn/app/api-reference/directives/use-cache)
-- 带有 `use cache` 的 [`cacheLife` 函数](/docs/nextjs-cn/app/api-reference/config/next-config-js/cacheLife)
-- [`cacheTag` 函数](/docs/nextjs-cn/app/api-reference/functions/cacheTag)
+- [`use cache` 指令](/nextjs-cn/app/api-reference/directives/use-cache)
+- 带有 `use cache` 的 [`cacheLife` 函数](/nextjs-cn/app/api-reference/config/next-config-js/cacheLife)
+- [`cacheTag` 函数](/nextjs-cn/app/api-reference/functions/cacheTag)
 
 ## 注意事项
 

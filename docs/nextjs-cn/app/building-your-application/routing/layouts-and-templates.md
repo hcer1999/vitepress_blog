@@ -126,14 +126,14 @@ export default function DashboardLayout({ children }) {
 > - 布局可以使用 `.js`、`.jsx` 或 `.tsx` 文件扩展名。
 > - 只有根布局可以包含 `<html>` 和 `<body>` 标签。
 > - 当在同一个文件夹中定义了 `layout.js` 和 `page.js` 文件时，布局将包裹页面。
-> - 布局默认是[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)，但可以设置为[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)。
-> - 布局可以获取数据。有关更多信息，请查看[数据获取](/docs/nextjs-cn/app/building-your-application/data-fetching)部分。
-> - 父布局和其子布局之间无法传递数据。但是，你可以在一个路由中多次获取相同的数据，React 将[自动删除重复请求](/docs/nextjs-cn/app/deep-dive/caching#request-memoization)，不会影响性能。
-> - 布局无法访问 `pathname` ([了解更多](/docs/nextjs-cn/app/api-reference/file-conventions/layout))。但是，导入的客户端组件可以使用 [`usePathname`](/docs/nextjs-cn/app/api-reference/functions/use-pathname) 钩子访问路径名。
-> - 布局无法访问其下面的路由段。要访问所有路由段，你可以在客户端组件中使用 [`useSelectedLayoutSegment`](/docs/nextjs-cn/app/api-reference/functions/use-selected-layout-segment) 或 [`useSelectedLayoutSegments`](/docs/nextjs-cn/app/api-reference/functions/use-selected-layout-segments)。
-> - 你可以使用[路由组](/docs/nextjs-cn/app/building-your-application/routing/index/route-groups)将特定路由段选择性地包含或排除在共享布局之外。
-> - 你可以使用[路由组](/docs/nextjs-cn/app/building-your-application/routing/index/route-groups)创建多个根布局。[点此查看示例](/docs/nextjs-cn/app/getting-started/project-structure#creating-multiple-root-layouts)。
-> - **从 `pages` 目录迁移：** 根布局替代了 [`_app.js`](/docs/nextjs-cn/pages/building-your-application/routing/custom-app) 和 [`_document.js`](/docs/nextjs-cn/pages/building-your-application/routing/custom-document) 文件。[查看迁移指南](/docs/nextjs-cn/app/guides/migrating/app-router-migration#migrating-_documentjs-and-_appjs)。
+> - 布局默认是[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，但可以设置为[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)。
+> - 布局可以获取数据。有关更多信息，请查看[数据获取](/nextjs-cn/app/building-your-application/data-fetching/index)部分。
+> - 父布局和其子布局之间无法传递数据。但是，你可以在一个路由中多次获取相同的数据，React 将[自动删除重复请求](/nextjs-cn/app/deep-dive/caching#request-memoization)，不会影响性能。
+> - 布局无法访问 `pathname` ([了解更多](/nextjs-cn/app/api-reference/file-conventions/layout))。但是，导入的客户端组件可以使用 [`usePathname`](/nextjs-cn/app/api-reference/functions/use-pathname) 钩子访问路径名。
+> - 布局无法访问其下面的路由段。要访问所有路由段，你可以在客户端组件中使用 [`useSelectedLayoutSegment`](/nextjs-cn/app/api-reference/functions/use-selected-layout-segment) 或 [`useSelectedLayoutSegments`](/nextjs-cn/app/api-reference/functions/use-selected-layout-segments)。
+> - 你可以使用[路由组](/nextjs-cn/app/building-your-application/routing/route-groups)将特定路由段选择性地包含或排除在共享布局之外。
+> - 你可以使用[路由组](/nextjs-cn/app/building-your-application/routing/route-groups)创建多个根布局。[点此查看示例](/nextjs-cn/app/getting-started/project-structure#creating-multiple-root-layouts)。
+> - **从 `pages` 目录迁移：** 根布局替代了 [`_app.js`](/nextjs-cn/pages/building-your-application/routing/custom-app) 和 [`_document.js`](/nextjs-cn/pages/building-your-application/routing/custom-document) 文件。[查看迁移指南](/nextjs-cn/app/guides/migrating/app-router-migration#migrating-_documentjs-and-_appjs)。
 
 ## 模板
 
@@ -179,9 +179,9 @@ export default function Template({ children }) {
 
 ### 元数据
 
-你可以使用[元数据 API](/docs/nextjs-cn/app/getting-started/metadata-and-og-images)修改 `<head>` HTML 元素，如 `title` 和 `meta`。
+你可以使用[元数据 API](/nextjs-cn/app/getting-started/metadata-and-og-images)修改 `<head>` HTML 元素，如 `title` 和 `meta`。
 
-可以通过在 [`layout.js`](/docs/nextjs-cn/app/api-reference/file-conventions/layout) 或 [`page.js`](/docs/nextjs-cn/app/api-reference/file-conventions/page) 文件中导出 [`metadata` 对象](/docs/nextjs-cn/app/api-reference/functions/generate-metadata#the-metadata-object)或 [`generateMetadata` 函数](/docs/nextjs-cn/app/api-reference/functions/generate-metadata#generatemetadata-function)来定义元数据。
+可以通过在 [`layout.js`](/nextjs-cn/app/api-reference/file-conventions/layout) 或 [`page.js`](/nextjs-cn/app/api-reference/file-conventions/page) 文件中导出 [`metadata` 对象](/nextjs-cn/app/api-reference/functions/generate-metadata#the-metadata-object)或 [`generateMetadata` 函数](/nextjs-cn/app/api-reference/functions/generate-metadata#generatemetadata-function)来定义元数据。
 
 ```tsx switcher
 import type { Metadata } from 'next'
@@ -205,13 +205,13 @@ export default function Page() {
 }
 ```
 
-> **提示**：你**不应该**手动在根布局中添加 `<head>` 标签，如 `<title>` 和 `<meta>`。相反，应使用[元数据 API](/docs/nextjs-cn/app/api-reference/functions/generate-metadata)，它会自动处理高级需求，如流式传输和去重 `<head>` 元素。
+> **提示**：你**不应该**手动在根布局中添加 `<head>` 标签，如 `<title>` 和 `<meta>`。相反，应使用[元数据 API](/nextjs-cn/app/api-reference/functions/generate-metadata)，它会自动处理高级需求，如流式传输和去重 `<head>` 元素。
 
-了解更多关于可用元数据选项，请参阅 [API 参考](/docs/nextjs-cn/app/api-reference/functions/generate-metadata)。
+了解更多关于可用元数据选项，请参阅 [API 参考](/nextjs-cn/app/api-reference/functions/generate-metadata)。
 
 ### 活动导航链接
 
-你可以使用 [usePathname()](/docs/nextjs-cn/app/api-reference/functions/use-pathname) 钩子来确定导航链接是否处于活动状态。
+你可以使用 [usePathname()](/nextjs-cn/app/api-reference/functions/use-pathname) 钩子来确定导航链接是否处于活动状态。
 
 由于 `usePathname()` 是一个客户端钩子，你需要将导航链接提取到客户端组件中，然后可以将其导入布局或模板：
 

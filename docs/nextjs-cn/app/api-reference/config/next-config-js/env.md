@@ -6,27 +6,27 @@ version: legacy
 
 <AppOnly>
 
-> 自 [Next.js 9.4](https://nextjs.org/blog/next-4) 发布以来，我们现在有了一种更直观和人性化的[添加环境变量](/docs/nextjs-cn/app/guides/configuring/environment-variables)的体验。快来试试吧！
+> 自 [Next.js 9.4](https://nextjs.org/blog/next-4) 发布以来，我们现在有了一种更直观和人性化的[添加环境变量]()的体验。快来试试吧！
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-> 自 [Next.js 9.4](https://nextjs.org/blog/next-4) 发布以来，我们现在有了一种更直观和人性化的[添加环境变量](/docs/nextjs-cn/pages/guides/configuring/environment-variables)的体验。快来试试吧！
+> 自 [Next.js 9.4](https://nextjs.org/blog/next-4) 发布以来，我们现在有了一种更直观和人性化的[添加环境变量]()的体验。快来试试吧！
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 <AppOnly>
 
-> **须知**：以这种方式指定的环境变量**始终**会被包含在 JavaScript 包中，只有在[通过环境或 .env 文件](/docs/nextjs-cn/app/guides/configuring/environment-variables)指定它们时，使用 `NEXT_PUBLIC_` 前缀才会产生效果。
+> **须知**：以这种方式指定的环境变量**始终**会被包含在 JavaScript 包中，只有在[通过环境或 .env 文件]()指定它们时，使用 `NEXT_PUBLIC_` 前缀才会产生效果。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-> **须知**：以这种方式指定的环境变量**始终**会被包含在 JavaScript 包中，只有在[通过环境或 .env 文件](/docs/nextjs-cn/pages/guides/configuring/environment-variables)指定它们时，使用 `NEXT_PUBLIC_` 前缀才会产生效果。
+> **须知**：以这种方式指定的环境变量**始终**会被包含在 JavaScript 包中，只有在[通过环境或 .env 文件]()指定它们时，使用 `NEXT_PUBLIC_` 前缀才会产生效果。
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 要将环境变量添加到 JavaScript 包中，打开 `next.config.js` 并添加 `env` 配置：
 

@@ -9,7 +9,7 @@ description: 了解如何添加客户端检测来跟踪和监控 Next.js 应用�
 
 ## 用法
 
-与[服务器端检测](/docs/nextjs-cn/app/guides/configuring/instrumentation)不同，你不需要导出任何特定函数。你可以直接在文件中编写监控代码：
+与[服务器端检测]()不同，你不需要导出任何特定函数。你可以直接在文件中编写监控代码：
 
 ```ts switcher
 // 设置性能监控

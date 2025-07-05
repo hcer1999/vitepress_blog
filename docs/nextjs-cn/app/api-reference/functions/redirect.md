@@ -6,16 +6,16 @@ related:
     - app/api-reference/functions/permanentRedirect
 ---
 
-`redirect` 函数允许你将用户重定向到另一个 URL。`redirect` 可以在[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)、[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)和[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中使用。
+`redirect` 函数允许你将用户重定向到另一个 URL。`redirect` 可以在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)、[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)和[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中使用。
 
-当在[流式上下文](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming#what-is-streaming)中使用时，这将插入一个 meta 标签，以在客户端执行重定向。当在服务器操作中使用时，它将向调用者提供 303 HTTP 重定向响应。否则，它将向调用者提供 307 HTTP 重定向响应。
+当在[流式上下文](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#what-is-streaming)中使用时，这将插入一个 meta 标签，以在客户端执行重定向。当在服务器操作中使用时，它将向调用者提供 303 HTTP 重定向响应。否则，它将向调用者提供 307 HTTP 重定向响应。
 
-如果资源不存在，你可以使用 [`notFound` 函数](/docs/nextjs-cn/app/api-reference/functions/not-found)。
+如果资源不存在，你可以使用 [`notFound` 函数](/nextjs-cn/app/api-reference/functions/not-found)。
 
 > **须知**：
 >
 > - 在服务器操作和路由处理程序中，应该在 `try/catch` 块之后调用 `redirect`。
-> - 如果你更喜欢返回 308（永久）HTTP 重定向而不是 307（临时），你可以使用 [`permanentRedirect` 函数](/docs/nextjs-cn/app/api-reference/functions/permanentRedirect)。
+> - 如果你更喜欢返回 308（永久）HTTP 重定向而不是 307（临时），你可以使用 [`permanentRedirect` 函数](/nextjs-cn/app/api-reference/functions/permanentRedirect)。
 
 ## 参数
 
@@ -30,7 +30,7 @@ redirect(path, type)
 | `path` | `string`                                               | 要重定向到的 URL。可以是相对或绝对路径。 |
 | `type` | `'replace'`（默认）或 `'push'`（服务器操作中的默认值） | 要执行的重定向类型。                     |
 
-默认情况下，`redirect` 在[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中使用 `push`（在浏览器历史栈中添加新条目），在其他地方使用 `replace`（替换浏览器历史栈中的当前 URL）。你可以通过指定 `type` 参数来覆盖此行为。
+默认情况下，`redirect` 在[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中使用 `push`（在浏览器历史栈中添加新条目），在其他地方使用 `replace`（替换浏览器历史栈中的当前 URL）。你可以通过指定 `type` 参数来覆盖此行为。
 
 在服务器组件中使用时，`type` 参数没有效果。
 
@@ -126,7 +126,7 @@ export function ClientRedirect() {
 
 > **须知**：在服务器端渲染（SSR）期间的初始页面加载时，在客户端组件中使用 `redirect` 时，它将执行服务器端重定向。
 
-可以通过服务器操作在客户端组件中使用 `redirect`。如果需要使用事件处理程序重定向用户，可以使用 [`useRouter`](/docs/nextjs-cn/app/api-reference/functions/use-router) 钩子。
+可以通过服务器操作在客户端组件中使用 `redirect`。如果需要使用事件处理程序重定向用户，可以使用 [`useRouter`](/nextjs-cn/app/api-reference/functions/use-router) 钩子。
 
 ```tsx switcher
 'use client'

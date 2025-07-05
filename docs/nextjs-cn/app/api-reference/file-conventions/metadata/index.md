@@ -12,5 +12,5 @@ description: 元数据文件约定的 API 文档。
 
 > **须知**：
 >
-> - 特殊路由处理程序如 [`sitemap.ts`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap)、[`opengraph-image.tsx`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image) 和 [`icon.tsx`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons) 以及其他[元数据文件](/docs/nextjs-cn/app/api-reference/file-conventions/metadata)默认情况下是被缓存的。
-> - 如果与 [`middleware.ts`](/docs/nextjs-cn/app/api-reference/file-conventions/middleware) 一起使用，请[配置匹配器](/docs/nextjs-cn/app/building-your-application/routing/index/middleware#matcher)以排除元数据文件。
+> - 特殊路由处理程序如 [`sitemap.ts`](/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap)、[`opengraph-image.tsx`](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image) 和 [`icon.tsx`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons) 以及其他[元数据文件](/nextjs-cn/app/api-reference/file-conventions/metadata/index)默认情况下是被缓存的。
+> - 如果与 [`middleware.ts`](/nextjs-cn/app/api-reference/file-conventions/middleware) 一起使用，请[配置匹配器](/nextjs-cn/app/building-your-application/routing/middleware#matcher)以排除元数据文件。

@@ -4,7 +4,7 @@ description: unstable_noStore 函数的 API 参考。
 version: legacy
 ---
 
-**在版本 15 中，我们建议使用 [`connection`](/docs/nextjs-cn/app/api-reference/functions/connection) 而不是 `unstable_noStore`。**
+**在版本 15 中，我们建议使用 [`connection`](/nextjs-cn/app/api-reference/functions/connection) 而不是 `unstable_noStore`。**
 
 `unstable_noStore` 可用于声明性地选择退出静态渲染，并指示特定组件不应被缓存。
 
@@ -23,7 +23,7 @@ export default async function ServerComponent() {
 > - `unstable_noStore` 等同于在 `fetch` 上使用 `cache: 'no-store'`
 > - `unstable_noStore` 优先于 `export const dynamic = 'force-dynamic'`，因为它更加精细，可以基于每个组件使用
 
-- 在 [`unstable_cache`](/docs/nextjs-cn/app/api-reference/functions/unstable_cache) 内使用 `unstable_noStore` 不会选择退出静态生成。相反，它将遵循缓存配置来决定是否缓存结果。
+- 在 [`unstable_cache`](/nextjs-cn/app/api-reference/functions/unstable_cache) 内使用 `unstable_noStore` 不会选择退出静态生成。相反，它将遵循缓存配置来决定是否缓存结果。
 
 ## 用法
 

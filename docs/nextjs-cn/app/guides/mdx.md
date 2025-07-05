@@ -73,9 +73,9 @@ const withMDX = createMDX({
 })
 ```
 
-> **须知**：[Turbopack](/docs/nextjs-cn/app/api-reference/turbopack) 目前不支持 `extension` 选项，因此不支持 `.md` 文件。
+> **须知**：[Turbopack](/nextjs-cn/app/api-reference/turbopack) 目前不支持 `extension` 选项，因此不支持 `.md` 文件。
 
-## 添加 `mdx-components.tsx` 文件
+## 添加 `mdx-components/nextjs-cn/
 
 在项目根目录创建一个 `mdx-components.tsx`（或 `.js`）文件，用于定义全局 MDX 组件。例如，与 `pages` 或 `app` 在同一级别，或者在适用的情况下放在 `src` 内。
 
@@ -100,8 +100,9 @@ export function useMDXComponents(components) {
 > **须知**：
 >
 > - 在 App Router 中使用 `@next/mdx` **必须**有 `mdx-components.tsx` 文件，否则将无法工作。
-> - 了解更多关于 [`mdx-components.tsx` 文件约定](/docs/nextjs-cn/app/api-reference/file-conventions/mdx-components)。
+> - 了解更多关于 [`mdx-components.tsx` 文件约定](/nextjs-cn/app/api-reference/file-conventions/mdx-components)。
 > - 了解如何[使用自定义样式和组件](#using-custom-styles-and-components)。
+>   /nextjs-cn/
 
 ## 渲染 MDX
 
@@ -113,9 +114,9 @@ export function useMDXComponents(components) {
 
 <AppOnly>
 
-在 App Router 应用中，这包括能够使用[元数据](/docs/nextjs-cn/app/getting-started/metadata-and-og-images)。
+在 App Router 应用中，这包括能够使用[元数据](/nextjs-cn/app/getting-started/metadata-and-og-images)。
 
-在 `/app` 目录中创建一个新的 MDX 页面：
+在 `/app` 目录中创建一个新的 MDX 页面：/nextjs-cn/
 
 ```txt
   my-project
@@ -178,9 +179,9 @@ import { MyComponent } from 'my-component'
   height="849"
 />
 
-可以使用 [`generateStaticParams`](/docs/nextjs-cn/app/api-reference/functions/generate-static-params) 预渲染提供的路由。通过将 `dynamicParams` 标记为 `false`，访问未在 `generateStaticParams` 中定义的路由将返回 404。
+可以使用 [`generateStaticParams`](/nextjs-cn/app/api-reference/functions/generate-static-params) 预渲染提供的路由。通过将 `dynamicParams` 标记为 `false`，访问未在 `generateStaticParams` 中定义的路由将返回 404。
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const { default: Post } = await import(`@/content/${slug}.mdx`)
@@ -210,9 +211,9 @@ export function generateStaticParams() {
 export const dynamicParams = false
 ```
 
-> **须知**：确保在导入中指定 `.mdx` 文件扩展名。虽然不需要使用[模块路径别名](/docs/nextjs-cn/app/getting-started/installation#set-up-absolute-imports-and-module-path-aliases)（例如 `@/content`），但它确实简化了你的导入路径。
+> **须知**：确保在导入中指定 `.mdx` 文件扩展名。虽然不需要使用[模块路径别名](/nextjs-cn/app/getting-started/installation#set-up-absolute-imports-and-module-path-aliases)（例如 `@/content`），但它确实简化了你的导入路径。
 
-## 使用自定义样式和组件
+## 使用自定义样式和组件/nextjs-cn/
 
 渲染后的 Markdown 会映射到原生 HTML 元素。例如，编写以下 markdown：
 
@@ -365,9 +366,9 @@ export default function Page() {
 
 <AppOnly>
 
-要在 MDX 页面之间共享布局，可以使用 App Router 的[内置布局支持](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#layouts)。
+要在 MDX 页面之间共享布局，可以使用 App Router 的[内置布局支持](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#layouts)。
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
   // 在此处创建任何共享布局或样式
   return <div style={{ color: 'blue' }}>{children}</div>
@@ -599,7 +600,7 @@ export default withMDX(nextConfig)
 
 ### 在 Turbopack 中使用插件
 
-要在 [Turbopack](/docs/nextjs-cn/app/api-reference/turbopack) 中使用插件，请升级到最新的 `@next/mdx` 并使用字符串指定插件名称：
+要在 [Turbopack](/nextjs-cn/app/api-reference/turbopack) 中使用插件，请升级到最新的 `@next/mdx` 并使用字符串指定插件名称：
 
 ```js
 import createMDX from '@next/mdx'
@@ -621,9 +622,9 @@ export default withMDX(nextConfig)
 
 > **须知**：
 >
-> 由于[无法将 JavaScript 函数传递给 Rust](https://github.com/vercel/next.js/issues/71819#issuecomment-2461802968)，没有可序列化选项的 remark 和 rehype 插件目前无法在 [Turbopack](/docs/nextjs-cn/app/api-reference/turbopack) 中使用。
+> 由于[无法将 JavaScript 函数传递给 Rust](https://github.com/vercel/next.js/issues/71819#issuecomment-2461802968)，没有可序列化选项的 remark 和 rehype 插件目前无法在 [Turbopack](/nextjs-cn/app/api-reference/turbopack) 中使用。
 
-## 远程 MDX
+## 远程 MDX/nextjs-cn/
 
 如果你的 MDX 文件或内容位于*其他地方*，你可以在服务器上动态获取它。这对于存储在 CMS、数据库或其他任何地方的内容非常有用。用于此用途的社区包是 [`next-mdx-remote-client`](https://github.com/ipikuka/next-mdx-remote-client?tab=readme-ov-file#the-part-associated-with-nextjs-app-router)。
 

@@ -64,7 +64,7 @@ export default function Layout({ children, team, analytics }) {
 }
 ```
 
-但是，插槽**不是**路由段，不会影响 URL 结构。例如，对于 `/@analytics/views`，URL 将是 `/views`，因为 `@analytics` 是一个插槽。插槽与常规的[页面](/docs/nextjs-cn/app/api-reference/file-conventions/page)组件结合，形成与路由段相关联的最终页面。因此，您不能在同一路由段级别有单独的[静态](/docs/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)和[动态](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)插槽。如果一个插槽是动态的，那么该级别的所有插槽都必须是动态的。
+但是，插槽**不是**路由段，不会影响 URL 结构。例如，对于 `/@analytics/views`，URL 将是 `/views`，因为 `@analytics` 是一个插槽。插槽与常规的[页面](/nextjs-cn/app/api-reference/file-conventions/page)组件结合，形成与路由段相关联的最终页面。因此，您不能在同一路由段级别有单独的[静态](/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)和[动态](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)插槽。如果一个插槽是动态的，那么该级别的所有插槽都必须是动态的。
 
 > **需要了解的是**：
 >
@@ -74,7 +74,7 @@ export default function Layout({ children, team, analytics }) {
 
 默认情况下，Next.js 会跟踪每个插槽的活动*状态*（或子页面）。但是，插槽内渲染的内容将取决于导航类型：
 
-- [**软导航**](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#soft-navigation)：在客户端导航期间，Next.js 将执行[部分渲染](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#partial-rendering)，更改插槽内的子页面，同时保持其他插槽的活动子页面，即使它们与当前 URL 不匹配。
+- [**软导航**](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#soft-navigation)：在客户端导航期间，Next.js 将执行[部分渲染](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#partial-rendering)，更改插槽内的子页面，同时保持其他插槽的活动子页面，即使它们与当前 URL 不匹配。
 - **硬导航**：在完整页面加载（浏览器刷新）后，Next.js 无法确定与当前 URL 不匹配的插槽的活动状态。相反，它将为不匹配的插槽渲染 [`default.js`](#defaultjs) 文件，如果 `default.js` 不存在，则渲染 `404`。
 
 > **需要了解的是**：
@@ -103,7 +103,7 @@ export default function Layout({ children, team, analytics }) {
 
 ### `useSelectedLayoutSegment(s)`
 
-[`useSelectedLayoutSegment`](/docs/nextjs-cn/app/api-reference/functions/use-selected-layout-segment) 和 [`useSelectedLayoutSegments`](/docs/nextjs-cn/app/api-reference/functions/use-selected-layout-segments) 都接受一个 `parallelRoutesKey` 参数，允许您读取插槽内的活动路由段。
+[`useSelectedLayoutSegment`](/nextjs-cn/app/api-reference/functions/use-selected-layout-segment) 和 [`useSelectedLayoutSegments`](/nextjs-cn/app/api-reference/functions/use-selected-layout-segments) 都接受一个 `parallelRoutesKey` 参数，允许您读取插槽内的活动路由段。
 
 ```tsx switcher
 'use client'
@@ -175,7 +175,7 @@ export default function Layout({ user, admin }) {
   height="768"
 />
 
-在 `@analytics` 内，创建一个 [`layout`](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates) 文件，在两个页面之间共享标签：
+在 `@analytics` 内，创建一个 [`layout`](/nextjs-cn/app/building-your-application/routing/layouts-and-templates) 文件，在两个页面之间共享标签：
 
 ```tsx switcher
 import Link from 'next/link'
@@ -211,7 +211,7 @@ export default function Layout({ children }) {
 
 ### Modals
 
-平行路由可以与[拦截路由](/docs/nextjs-cn/app/building-your-application/routing/index/intercepting-routes)结合使用，创建支持深度链接的模态。这允许您解决构建模态时遇到的常见问题，例如：
+平行路由可以与[拦截路由](/nextjs-cn/app/building-your-application/routing/intercepting-routes)结合使用，创建支持深度链接的模态。这允许您解决构建模态时遇到的常见问题，例如：
 
 - 使模态内容**通过 URL 共享**。
 - **保留上下文**，而不是在刷新时关闭模态。
@@ -254,7 +254,7 @@ export default function Page() {
 }
 ```
 
-然后，在 `@auth` 插槽中，添加 [`default.js`](/docs/nextjs-cn/app/api-reference/file-conventions/default) 文件，返回 `null`。这确保了当它不活动时，模态不会被渲染。
+然后，在 `@auth` 插槽中，添加 [`default.js`](/nextjs-cn/app/api-reference/file-conventions/default) 文件，返回 `null`。这确保了当它不活动时，模态不会被渲染。
 
 ```tsx switcher
 export default function Default() {
@@ -298,8 +298,8 @@ export default function Page() {
 
 > **需要了解的是**：
 >
-> - 用于拦截路由的约定，例如 `(.)`，取决于您的文件系统结构。请参阅 [拦截路由约定](/docs/nextjs-cn/app/building-your-application/routing/index/intercepting-routes#convention)。
-> - 通过将 `<Modal>` 功能与模态内容 (`<Login>`) 分离，您可以确保任何内容（例如 [表单](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations#forms)），都是服务器组件。请参阅 [交错客户端和服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/composition-patterns#supported-pattern-passing-server-components-to-client-components-as-props) 了解更多信息。
+> - 用于拦截路由的约定，例如 `(.)`，取决于您的文件系统结构。请参阅 [拦截路由约定](/nextjs-cn/app/building-your-application/routing/intercepting-routes#convention)。
+> - 通过将 `<Modal>` 功能与模态内容 (`<Login>`) 分离，您可以确保任何内容（例如 [表单](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations#forms)），都是服务器组件。请参阅 [交错客户端和服务器组件](/nextjs-cn/app/building-your-application/rendering/composition-patterns#supported-pattern-passing-server-components-to-client-components-as-props) 了解更多信息。
 
 #### 打开模态
 
@@ -469,4 +469,4 @@ export default function CatchAll() {
   height="1218"
 />
 
-请参阅 [加载 UI](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming) 和 [错误处理](/docs/nextjs-cn/app/building-your-application/routing/index/error-handling) 文档了解更多信息。
+请参阅 [加载 UI](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming) 和 [错误处理](/nextjs-cn/app/building-your-application/routing/error-handling) 文档了解更多信息。

@@ -7,9 +7,9 @@ related:
     - app/api-reference/file-conventions/forbidden
 ---
 
-`forbidden` 函数抛出一个错误，渲染 Next.js 403 错误页面。它对处理应用程序中的授权错误很有用。您可以使用 [`forbidden.js` 文件](/docs/nextjs-cn/app/api-reference/file-conventions/forbidden) 自定义 UI。
+`forbidden` 函数抛出一个错误，渲染 Next.js 403 错误页面。它对处理应用程序中的授权错误很有用。您可以使用 [`forbidden.js` 文件](/nextjs-cn/app/api-reference/file-conventions/forbidden) 自定义 UI。
 
-要开始使用 `forbidden`，请在 `next.config.js` 文件中启用实验性的 [`authInterrupts`](/docs/nextjs-cn/app/api-reference/config/next-config-js/authInterrupts) 配置选项：
+要开始使用 `forbidden`，请在 `next.config.js` 文件中启用实验性的 [`authInterrupts`](/nextjs-cn/app/api-reference/config/next-config-js/authInterrupts) 配置选项：
 
 ```ts switcher
 import type { NextConfig } from 'next'
@@ -31,7 +31,7 @@ module.exports = {
 }
 ```
 
-`forbidden` 可以在 [服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)、[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) 和 [路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) 中调用。
+`forbidden` 可以在 [服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)、[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) 和 [路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers) 中调用。
 
 ```tsx switcher
 import { verifySession } from '@/app/lib/dal'
@@ -69,7 +69,7 @@ export default async function AdminPage() {
 
 ## 须知
 
-- `forbidden` 函数不能在 [根布局](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#root-layout-required) 中调用。
+- `forbidden` 函数不能在 [根布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#root-layout-required) 中调用。
 
 ## 示例
 

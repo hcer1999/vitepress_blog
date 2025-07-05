@@ -33,9 +33,9 @@ Next.js 包含一个自定义的 TypeScript 插件和类型检查器，VSCode �
 
 TypeScript 插件可以帮助：
 
-- 在传递无效的[段配置选项](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config)值时发出警告。
+- 在传递无效的[段配置选项](/nextjs-cn/app/api-reference/file-conventions/route-segment-config)值时发出警告。
 - 显示可用选项和上下文文档。
-- 确保正确使用 `'use client'` 指令。
+- 确保正确使用 `'use c/nextjs-cn/
 - 确保客户端钩子（如 `useState`）仅在客户端组件中使用。
 
 > **🎥 观看：** 了解内置 TypeScript 插件 → [YouTube（3 分钟）](https://www.youtube.com/watch?v=pqMqn9fKEf8)
@@ -45,11 +45,11 @@ TypeScript 插件可以帮助：
 Next.js App Router 具有**增强的类型安全**。这包括：
 
 1. **获取函数和页面之间没有数据序列化**：你可以直接在服务器上的组件、布局和页面中使用 `fetch`。这些数据**不需要**被序列化（转换为字符串）以传递给客户端使用。相反，由于 `app` 默认使用服务器组件，我们可以直接使用 `Date`、`Map`、`Set` 等值，而无需额外步骤。以前，你需要使用 Next.js 特定类型来手动处理服务器和客户端之间的边界。
-2. **组件之间的简化数据流**：通过用根布局替代 `_app`，现在更容易可视化组件和页面之间的数据流。以前，在单个 `pages` 和 `_app` 之间流动的数据难以类型化，可能会引入令人困惑的错误。通过 App Router 中的[共存数据获取](/docs/nextjs-cn/app/building-your-application/data-fetching/fetching)，这不再是问题。
+2. **组件之间的简化数据流**：通过用根布局替代 `_app`，现在更容易可视化组件和页面之间的数据流。以前，在单个 `pages` 和 `_app` 之间流动的数据难以类型化，可能会引入令人困惑的错误。通过 App Router 中的[共存数据获取](/nextjs-cn/app/building-your-application/data-fetching/fetching)，这不再是问题。
 
-[Next.js 中的数据获取](/docs/nextjs-cn/app/building-your-application/data-fetching/fetching)现在提供了尽可能接近端到端类型安全的体验，而不对你的数据库或内容提供商选择做出规定。
+[Next.js 中的数据获取](/nextjs-cn/app/building-your-application/data-fetching/fetching)现在提供了尽可能接近端到端类型安全的体验，而不对你的数据库或内容提供商选择做出规定。/nextjs-cn/
 
-我们可以像在普通 TypeScript 中一样对响应数据进行类型化。例如：
+我们可以像在普通 TypeScri/nextjs-cn/。例如：
 
 ```tsx switcher
 async function getData() {
@@ -170,7 +170,7 @@ function Card<T extends string>({ href }: { href: Route<T> | URL }) {
 
 ### 静态生成和服务器端渲染
 
-对于 [`getStaticProps`](/docs/nextjs-cn/pages/api-reference/functions/get-static-props)、[`getStaticPaths`](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths) 和 [`getServerSideProps`](/docs/nextjs-cn/pages/api-reference/functions/get-server-side-props)，你可以分别使用 `GetStaticProps`、`GetStaticPaths` 和 `GetServerSideProps` 类型：
+对于 [`getStaticProps`](/nextjs-cn/pages/api-reference/functions/get-static-props)、[`getStaticPaths`](/nextjs-cn/pages/api-reference/functions/get-static-paths) 和 [`getServerSideProps`](/nextjs-cn/pages/api-reference/functions/get-server-side-props)，你可以分别使用 `GetStaticProps`、`GetStaticPaths` 和 `GetServerSideProps` 类型：
 
 ```tsx
 import type { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
@@ -253,5 +253,7 @@ When you need to declare custom types, you might be tempted to modify `next-env.
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `v15.0.0` | [`next.config.ts`](#type-checking-nextconfigts) support added for TypeScript projects.                                               |
 | `v13.2.0` | Statically typed links are available in beta.                                                                                        |
-| `v12.0.0` | [SWC](/docs/nextjs-cn/architecture/nextjs-compiler) is now used by default to compile TypeScript and TSX for faster builds.          |
+| `v12.0.0` | [SWC](/nextjs-cn/architecture/nextjs-compiler) is now used by default to compile TypeScript and TSX for faster builds.               |
 | `v10.2.1` | [Incremental type checking](https://www.typescriptlang.org/tsconfig#incremental) support added when enabled in your `tsconfig.json`. |
+
+/nextjs-cn/

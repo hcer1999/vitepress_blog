@@ -26,7 +26,7 @@ bun add next@12 react@17 react-dom@17 eslint-config-next@12
 
 ### Upgrading to 12.2
 
-[Middleware](/docs/messages/middleware-upgrade-guide) - If you were using Middleware prior to `12.2`, please see the [upgrade guide](/docs/messages/middleware-upgrade-guide) for more information.
+[Middleware](- If you were using Middleware prior to `12.2`, please see the [upgrade guide](for more information.
 
 ### Upgrading to 12.0
 
@@ -48,7 +48,7 @@ bun add react@latest react-dom@latest
 
 Next.js now uses the Rust-based compiler [SWC](https://swc.rs/) to compile JavaScript/TypeScript. This new compiler is up to 17x faster than Babel when compiling individual files and up to 5x faster Fast Refresh.
 
-Next.js provides full backward compatibility with applications that have [custom Babel configuration](/docs/nextjs-cn/pages/guides/configuring/babel). All transformations that Next.js handles by default like styled-jsx and tree-shaking of `getStaticProps` / `getStaticPaths` / `getServerSideProps` have been ported to Rust.
+Next.js provides full backward compatibility with applications that have [custom Babel configuration](). All transformations that Next.js handles by default like styled-jsx and tree-shaking of `getStaticProps` / `getStaticPaths` / `getServerSideProps` have been ported to Rust.
 
 When an application has a custom Babel configuration, Next.js will automatically opt-out of using SWC for compiling JavaScript/Typescript and will fall back to using Babel in the same way that it was used in Next.js 11.
 
@@ -88,7 +88,7 @@ If your application has specific CSS targeting the `next/image` `<div>` tag, for
 
 The `className` prop is unchanged and will still be passed to the underlying `<img>` element.
 
-See the [documentation](/docs/nextjs-cn/pages/api-reference/components/image#styling-images) for more info.
+See the [documentation](/nextjs-cn/pages/api-reference/components/image#styling-images) for more info.
 
 #### HMR connection now uses a WebSocket
 
@@ -138,9 +138,9 @@ app.all('/_next/webpack-hmr', (req, res) => {
 
 If you are already using webpack 5 you can skip this section.
 
-Next.js has adopted webpack 5 as the default for compilation in Next.js 11. As communicated in the [webpack 5 upgrading documentation](/docs/messages/webpack5) Next.js 12 removes support for webpack 4.
+Next.js has adopted webpack 5 as the default for compilation in Next.js 11. As communicated in the [webpack 5 upgrading documentation](Next.js 12 removes support for webpack 4.
 
-If your application is still using webpack 4 using the opt-out flag, you will now see an error linking to the [webpack 5 upgrading documentation](/docs/messages/webpack5).
+If your application is still using webpack 4 using the opt-out flag, you will now see an error linking to the [webpack 5 upgrading documentation]().
 
 #### `target` option deprecated
 
@@ -150,4 +150,4 @@ The target option has been deprecated in favor of built-in support for tracing w
 
 During `next build`, Next.js will automatically trace each page and its dependencies to determine all of the files that are needed for deploying a production version of your application.
 
-If you are currently using the `target` option set to `serverless`, please read the [documentation on how to leverage the new output](/docs/nextjs-cn/pages/api-reference/config/next-config-js/output).
+If you are currently using the `target` option set to `serverless`, please read the [documentation on how to leverage the new output](/nextjs-cn/pages/api-reference/config/next-config-js/output).

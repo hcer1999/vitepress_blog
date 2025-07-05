@@ -86,9 +86,9 @@ export default function StyledJsxRegistry({ children }) {
 }
 ```
 
-然后，用注册表包装你的[根布局](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#root-layout-required)：
+然后，用注册表包装你的[根布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#root-layout-required)：
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 import StyledJsxRegistry from './registry'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -223,9 +223,9 @@ export default function RootLayout({ children }) {
 > - 在服务器渲染期间，样式将被提取到全局注册表中，并刷新到 HTML 的 `<head>` 中。这确保了样式规则位于可能使用它们的任何内容之前。在未来，我们可能会使用即将推出的 React 功能来确定在哪里注入样式。
 > - 在流式传输期间，来自每个块的样式将被收集并附加到现有样式中。客户端水合完成后，`styled-components` 将照常接管并注入任何进一步的动态样式。
 > - 我们专门在树的顶层使用客户端组件作为样式注册表，因为这样提取 CSS 规则更有效。它避免在后续服务器渲染中重新生成样式，并防止它们被发送到服务器组件有效载荷中。
-> - 对于需要配置 styled-components 编译的各个属性的高级用例，你可以阅读我们的 [Next.js styled-components API 参考](/docs/nextjs-cn/architecture/nextjs-compiler#styled-components)了解更多信息。
+> - 对于需要配置 styled-components 编译的各个属性的高级用例，你可以阅读我们的 [Next.js styled-components API 参考](/nextjs-cn/architecture/nextjs-compiler#styled-components)了解更多信息。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 

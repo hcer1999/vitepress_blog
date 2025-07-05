@@ -36,15 +36,15 @@ Next.js 中的 Turbopack 针对常见用例提供**零配置**支持。以下是
 
 ### 语言功能
 
-| 功能                         | 状态       | 说明                                                                                                                                                                              |
-| ---------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **JavaScript 和 TypeScript** | **已支持** | 底层使用 SWC。Turbopack 不执行类型检查（运行 `tsc --watch` 或依赖你的 IDE 进行类型检查）。                                                                                        |
-| **ECMAScript (ESNext)**      | **已支持** | Turbopack 支持最新的 ECMAScript 特性，与 SWC 的覆盖范围相匹配。                                                                                                                   |
-| **CommonJS**                 | **已支持** | 开箱即用地处理 `require()` 语法。                                                                                                                                                 |
-| **ESM**                      | **已支持** | 完全支持静态和动态 `import`。                                                                                                                                                     |
-| **Babel**                    | 部分不支持 | Turbopack 默认不包含 Babel。但是，你可以[通过 Turbopack 配置配置 `babel-loader`](/docs/nextjs-cn/app/api-reference/config/next-config-js/turbopack#configuring-webpack-loaders)。 |
+| 功能                         | 状态       | 说明                                                                                                                                                                         |
+| ---------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **JavaScript 和 TypeScript** | **已支持** | 底层使用 SWC。Turbopack 不执行类型检查（运行 `tsc --watch` 或依赖你的 IDE 进行类型检查）。                                                                                   |
+| **ECMAScript (ESNext)**      | **已支持** | Turbopack 支持最新的 ECMAScript 特性，与 SWC 的覆盖范围相匹配。                                                                                                              |
+| **CommonJS**                 | **已支持** | 开箱即用地处理 `require()` 语法。                                                                                                                                            |
+| **ESM**                      | **已支持** | 完全支持静态和动态 `import`。                                                                                                                                                |
+| **Babel**                    | 部分不支持 | Turbopack 默认不包含 Babel。但是，你可以[通过 Turbopack 配置配置 `babel-loader`](/nextjs-cn/app/api-reference/config/next-config-js/turbopack#configuring-webpack-loaders)。 |
 
-### 框架和 React 功能
+### 框架和 React 功能/nextjs-cn/
 
 | 功能                              | 状态       | 说明                                                               |
 | --------------------------------- | ---------- | ------------------------------------------------------------------ |
@@ -75,12 +75,14 @@ Next.js 中的 Turbopack 针对常见用例提供**零配置**支持。以下是
 
 ### 模块解析
 
-| 功能             | 状态       | 说明                                                                                                                                                                 |
-| ---------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **路径别名**     | **已支持** | 读取 `tsconfig.json` 的 `paths` 和 `baseUrl`，匹配 Next.js 行为。                                                                                                    |
-| **手动别名**     | **已支持** | [在 `next.config.js` 中配置 `resolveAlias`](/docs/nextjs-cn/app/api-reference/config/next-config-js/turbopack#resolving-aliases)（类似于 `webpack.resolve.alias`）。 |
-| **自定义扩展名** | **已支持** | [在 `next.config.js` 中配置 `resolveExtensions`](/docs/nextjs-cn/app/api-reference/config/next-config-js/turbopack#resolving-custom-extensions)。                    |
-| **AMD**          | 部分支持   | 基本转换有效；高级 AMD 用法有限。                                                                                                                                    |
+| 功能             | 状态       | 说明                                                                                                                                                            |
+| ---------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **路径别名**     | **已支持** | 读取 `tsconfig.json` 的 `paths` 和 `baseUrl`，匹配 Next.js 行为。                                                                                               |
+| **手动别名**     | **已支持** | [在 `next.config.js` 中配置 `resolveAlias`](/nextjs-cn/app/api-reference/config/next-config-js/turbopack#resolving-aliases)（类似于 `webpack.resolve.alias`）。 |
+| **自定义扩展名** | **已支持** | [在 `next.config.js` 中配置 `resolveExtensions`](/nextjs-cn/app/api-reference/config/next-config-js/turbopack#resolving-custom-extensions)。                    |
+| **AMD**          | 部分支持   | 基本转换有效；高级 AMD 用法有限。 /nextjs-cn/                                                                                                                   |
+
+/nextjs-cn/
 
 ### 性能和 Fast Refresh
 
@@ -98,9 +100,9 @@ Next.js 中的 Turbopack 针对常见用例提供**零配置**支持。以下是
   - `@value` 规则（被 CSS 变量取代）。
   - `:import` 和 `:export` ICSS 规则。
 - **`next.config.js` 中的 `webpack()` 配置**
-  Turbopack 替代了 webpack，因此不识别 `webpack()` 配置。请改用 [`turbopack` 配置](/docs/nextjs-cn/app/api-reference/config/next-config-js/turbopack)。
+  Turbopack 替代了 webpack，因此不识别 `webpack()` 配置。请改用 [`turbopack` 配置](/nextjs-cn/app/api-reference/config/next-config-js/turbopack)。
 - **AMP**
-  在 Next.js 中不计划支持 Turbopack。
+  在 Next.js 中不计划支持 Turbopack。/nextjs-cn/
 - **Yarn PnP**
   在 Next.js 中不计划支持 Turbopack。
 - **`experimental.urlImports`**
@@ -114,16 +116,16 @@ Next.js 中的 Turbopack 针对常见用例提供**零配置**支持。以下是
   - `experimental.fallbackNodePolyfills`
     我们计划在未来实现这些功能。
 
-有关每个功能标志及其状态的完整详细分析，请参见 [Turbopack API 参考](/docs/nextjs-cn/app/api-reference/config/next-config-js/turbopack)。
+有关每个功能标志及其状态的完整详细分析，请参见 [Turbopack API 参考](/nextjs-cn/app/api-reference/config/next-config-js/turbopack)。
 
-## 配置
+## 配置/nextjs-cn/
 
 Turbopack 可以通过 `next.config.js`（或 `next.config.ts`）中的 `turbopack` 键进行配置。配置选项包括：
 
 - **`rules`**
-  定义用于文件转换的额外 [webpack 加载器](/docs/nextjs-cn/app/api-reference/config/next-config-js/turbopack#configuring-webpack-loaders)。
+  定义用于文件转换的额外 [webpack 加载器](/nextjs-cn/app/api-reference/config/next-config-js/turbopack#configuring-webpack-loaders)。
 - **`resolveAlias`**
-  创建手动别名（类似于 webpack 中的 `resolve.alias`）。
+  创建手动别名（类似于 webpack 中的 `res/nextjs-cn/
 - **`resolveExtensions`**
   更改或扩展用于模块解析的文件扩展名。
 - **`moduleIds`**
@@ -145,9 +147,9 @@ module.exports = {
 }
 ```
 
-有关更深入的配置示例，请参见 [Turbopack 配置文档](/docs/nextjs-cn/app/api-reference/config/next-config-js/turbopack)。
+有关更深入的配置示例，请参见 [Turbopack 配置文档](/nextjs-cn/app/api-reference/config/next-config-js/turbopack)。
 
-## 生成跟踪文件用于性能调试
+## 生成跟踪文件用于性能调试/nextjs-cn/
 
 如果你遇到性能或内存问题，并希望帮助 Next.js 团队诊断，可以通过在开发命令中附加 `NEXT_TURBOPACK_TRACING=1` 来生成跟踪文件：
 

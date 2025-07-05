@@ -7,7 +7,7 @@ related:
 version: experimental
 ---
 
-**forbidden** 文件用于在认证过程中调用 [`forbidden`](/docs/nextjs-cn/app/api-reference/functions/forbidden) 函数时渲染 UI。除了允许你自定义 UI 外，Next.js 还将返回 `403` 状态码。
+**forbidden** 文件用于在认证过程中调用 [`forbidden`](/nextjs-cn/app/api-reference/functions/forbidden) 函数时渲染 UI。除了允许你自定义 UI 外，Next.js 还将返回 `403` 状态码。
 
 ```tsx switcher
 import Link from 'next/link'

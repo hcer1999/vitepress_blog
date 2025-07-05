@@ -113,7 +113,7 @@ export async function GET() {
 
 ### 基于文件的元数据
 
-你可以在 [`opengraph-image.tsx`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image) 文件中使用 `ImageResponse` 来在构建时或请求时动态生成 Open Graph 图像。
+你可以在 [`opengraph-image.tsx`](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image) 文件中使用 `ImageResponse` 来在构建时或请求时动态生成 Open Graph 图像。
 
 ```tsx
 import { ImageResponse } from 'next/og'

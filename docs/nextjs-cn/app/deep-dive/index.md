@@ -10,7 +10,7 @@ description: 了解 Next.js 底层工作原理
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-<Card title="缓存" href="/docs/nextjs-cn/app/deep-dive/caching">
+<Card title="缓存" href="/nextjs-cn/app/deep-dive/caching">
   了解 Next.js 如何缓存渲染工作和数据请求。
 </Card>
 

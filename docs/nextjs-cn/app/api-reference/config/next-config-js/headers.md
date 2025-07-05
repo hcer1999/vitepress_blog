@@ -282,7 +282,7 @@ module.exports = {
 
 ## Headers with basePath support
 
-When leveraging [`basePath` support](/docs/nextjs-cn/app/api-reference/config/next-config-js/basePath) with headers each `source` is automatically prefixed with the `basePath` unless you add `basePath: false` to the header:
+When leveraging [`basePath` support](/nextjs-cn/app/api-reference/config/next-config-js/basePath) with headers each `source` is automatically prefixed with the `basePath` unless you add `basePath: false` to the header:
 
 ```js
 module.exports = {
@@ -318,15 +318,15 @@ module.exports = {
 
 <AppOnly>
 
-When leveraging [`i18n` support](/docs/nextjs-cn/app/building-your-application/routing/index/internationalization) with headers each `source` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the header. If `locale: false` is used you must prefix the `source` with a locale for it to be matched correctly.
+When leveraging [`i18n` support](/nextjs-cn/app/building-your-application/routing/internationalization) with headers each `source` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the header. If `locale: false` is used you must prefix the `source` with a locale for it to be matched correctly.
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-When leveraging [`i18n` support](/docs/nextjs-cn/pages/building-your-application/routing/internationalization) with headers each `source` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the header. If `locale: false` is used you must prefix the `source` with a locale for it to be matched correctly.
+When leveraging [`i18n` support](/nextjs-cn/pages/building-your-application/routing/internationalization) with headers each `source` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the header. If `locale: false` is used you must prefix the `source` with a locale for it to be matched correctly.
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 ```js
 module.exports = {
@@ -386,23 +386,23 @@ module.exports = {
 
 ## Cache-Control
 
-Next.js sets the `Cache-Control` header of `public, max-age=31536000, immutable` for truly immutable assets. It cannot be overridden. These immutable files contain a SHA-hash in the file name, so they can be safely cached indefinitely. For example, [Static Image Imports](/docs/nextjs-cn/app/getting-started/images#local-images). You cannot set `Cache-Control` headers in `next.config.js` for these assets.
+Next.js sets the `Cache-Control` header of `public, max-age=31536000, immutable` for truly immutable assets. It cannot be overridden. These immutable files contain a SHA-hash in the file name, so they can be safely cached indefinitely. For example, [Static Image Imports](/nextjs-cn/app/getting-started/images#local-images). You cannot set `Cache-Control` headers in `next.config.js` for these assets.
 
-However, you can set `Cache-Control` headers for other responses or data.
+However, you can set `Cache-Control` headers for other responses or data./nextjs-cn/
 
 <AppOnly>
 
-Learn more about [caching](/docs/nextjs-cn/app/deep-dive/caching) with the App Router.
+Learn more about [caching](/nextjs-cn/app/deep-dive/caching) with the App Router.
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-If you need to revalidate the cache of a page that has been [statically generated](/docs/nextjs-cn/pages/building-your-application/rendering/static-site-generation), you can do so by setting the `revalidate` prop in the page's [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) function.
+If you need to revalidate the cache of a page that has been [statically generated](/nextjs-cn/pages/building-your-application/rendering/static-site-generation), you can do so by setting the `revalidate` prop in the page's [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) function.
 
-To cache the response from an [API Route](/docs/nextjs-cn/pages/building-your-application/routing/api-routes), you can use `res.setHeader`:
+To cache the response from an [API Route](), you can use `res.setHeader`:/nextjs-cn/
 
-```ts switcher
+```ts switcher/nextjs-cn/
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type ResponseData = {
@@ -518,7 +518,7 @@ async headers() {
 
 [This header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options) indicates whether the site should be allowed to be displayed within an `iframe`. This can prevent against clickjacking attacks.
 
-**This header has been superseded by CSP's `frame-ancestors` option**, which has better support in modern browsers (see [Content Security Policy](/docs/nextjs-cn/app/guides/security/content-security-policy) for configuration details).
+**This header has been superseded by CSP's `frame-ancestors` option**, which has better support in modern browsers (see [Content Security Policy]() for configuration details).
 
 ```js
 {
@@ -564,9 +564,9 @@ For example, a user trying to download an image, but having it treated as a diff
 
 ### Content-Security-Policy
 
-Learn more about adding a [Content Security Policy](/docs/nextjs-cn/app/guides/security/content-security-policy) to your application.
+Learn more about adding a [Content Security Policy]() to your application.
 
-## Version History
+## Version History/nextjs-cn/
 
 | Version   | Changes          |
 | --------- | ---------------- |

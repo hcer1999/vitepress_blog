@@ -307,9 +307,9 @@ Google Analytics 会自动跟踪页面浏览，当浏览器历史状态发生变
 | --------------- | ---- | ---------------------------------------------------------------------------------------- |
 | `gaId`          | 必需 | 你的 [测量 ID](https://support.google.com/analytics/answer/12270356)。通常以 `G-` 开头。 |
 | `dataLayerName` | 可选 | 数据层的名称。默认为 `dataLayer`。                                                       |
-| `nonce`         | 可选 | 一个 [nonce](/docs/nextjs-cn/app/guides/security/content-security-policy#nonces)。       |
+| `nonce`         | 可选 | 一个 [nonce]()。                                                                         |
 
-### Google Maps Embed
+### Google Maps Embed/nextjs-cn/
 
 `GoogleMapsEmbed` 组件可用于向页面添加 [Google Maps Embed](https://developers.google.com/maps/documentation/embed/embedding-map)。默认情况下，它使用 `loading` 属性来延迟加载嵌入式地图，直到页面折叠以下。
 

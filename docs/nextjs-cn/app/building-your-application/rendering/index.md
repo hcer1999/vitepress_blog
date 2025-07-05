@@ -32,7 +32,7 @@ Web 应用程序可以在两种环境中渲染：客户端和服务器。
 
 然而，每个环境都有自己的能力和限制。因此，你为服务器和客户端编写的代码并不总是相同的。某些操作（例如数据获取或管理用户状态）更适合一种环境而非另一种。
 
-理解这些差异是有效使用 React 和 Next.js 的关键。我们将在[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)和[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)页面中更详细地介绍这些差异和用例，现在，让我们继续构建我们的基础知识。
+理解这些差异是有效使用 React 和 Next.js 的关键。我们将在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)和[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)页面中更详细地介绍这些差异和用例，现在，让我们继续构建我们的基础知识。
 
 ### 请求-响应生命周期
 
@@ -67,4 +67,5 @@ Web 应用程序可以在两种环境中渲染：客户端和服务器。
 
 实践中，这种模型鼓励开发人员首先考虑他们想要在服务器上执行什么，然后再将结果发送到客户端并使应用程序具有交互性。
 
-当我们看到如何在同一组件树中[交错客户端和服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/composition-patterns)时，这个概念将变得更加清晰。
+当我们看到如何在同一组件树中[交错客户端和服务器组件](/nextjs-cn/app/building-your-application/rendering/composition-patterns)时，这个概念将变得更加清晰。
+/nextjs-cn/

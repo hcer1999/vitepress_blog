@@ -3,7 +3,7 @@ title: generateStaticParams
 description: generateStaticParams 函数的 API 参考。
 ---
 
-`generateStaticParams` 函数可以与[动态路由段](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)结合使用，以在构建时[**静态生成**](/docs/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)路由，而不是在请求时按需生成。
+`generateStaticParams` 函数可以与[动态路由段](/nextjs-cn/app/building-your-application/routing/dynamic-routes)结合使用，以在构建时[**静态生成**](/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)路由，而不是在请求时按需生成。
 
 ```tsx switcher
 // 返回一个 `params` 列表来填充 [slug] 动态段
@@ -43,12 +43,12 @@ export default async function Page({ params }) {
 
 > **须知**:
 >
-> - 你可以使用[`dynamicParams`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamicparams)段配置选项来控制当访问未使用 `generateStaticParams` 生成的动态段时会发生什么。
-> - 你必须从 `generateStaticParams` 返回[一个空数组](#all-paths-at-build-time)或使用[`export const dynamic = 'force-static'`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic)以便在[运行时重新验证 (ISR) 路径](#all-paths-at-runtime)。
+> - 你可以使用[`dynamicParams`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamicparams)段配置选项来控制当访问未使用 `generateStaticParams` 生成的动态段时会发生什么。
+> - 你必须从 `generateStaticParams` 返回[一个空数组](#all-paths-at-build-time)或使用[`export const dynamic = 'force-static'`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic)以便在[运行时重新验证 (ISR) 路径](#all-paths-at-runtime)。
 > - 在 `next dev` 期间，当你导航到一个路由时，会调用 `generateStaticParams`。
 > - 在 `next build` 期间，`generateStaticParams` 在生成相应的布局或页面之前运行。
 > - 在重新验证 (ISR) 期间，不会再次调用 `generateStaticParams`。
-> - `generateStaticParams` 替代了 Pages Router 中的 [`getStaticPaths`](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths) 函数。
+> - `generateStaticParams` 替代了 Pages Router 中的 [`getStaticPaths`](/nextjs-cn/pages/api-reference/functions/get-static-paths) 函数。
 
 ## 参数
 
@@ -239,7 +239,7 @@ export async function generateStaticParams() {
 }
 ```
 
-然后，通过使用 [`dynamicParams`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamicparams) 段配置选项，你可以控制当访问未使用 `generateStaticParams` 生成的动态段时会发生什么。
+然后，通过使用 [`dynamicParams`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamicparams) 段配置选项，你可以控制当访问未使用 `generateStaticParams` 生成的动态段时会发生什么。
 
 ```tsx switcher
 // 除了前 10 篇文章外，所有文章都将是 404
@@ -271,7 +271,7 @@ export async function generateStaticParams() {
 
 #### 运行时的所有路径
 
-要在首次访问时静态渲染所有路径，请返回一个空数组（构建时不会渲染任何路径）或使用 [`export const dynamic = 'force-static'`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic)：
+要在首次访问时静态渲染所有路径，请返回一个空数组（构建时不会渲染任何路径）或使用 [`export const dynamic = 'force-static'`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic)：
 
 ```jsx
 export async function generateStaticParams() {
@@ -287,7 +287,7 @@ export const dynamic = 'force-static'
 
 ### 禁用未指定路径的渲染
 
-要防止未指定的路径在运行时被静态渲染，请在路由段中添加 `export const dynamicParams = false` 选项。使用此配置选项时，只有由 `generateStaticParams` 提供的路径才会被提供服务，未指定的路由将返回 404 或匹配（在[捕获所有路由](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes#catch-all-segments)的情况下）。
+要防止未指定的路径在运行时被静态渲染，请在路由段中添加 `export const dynamicParams = false` 选项。使用此配置选项时，只有由 `generateStaticParams` 提供的路径才会被提供服务，未指定的路由将返回 404 或匹配（在[捕获所有路由](/nextjs-cn/app/building-your-application/routing/dynamic-routes#catch-all-segments)的情况下）。
 
 ### 路由中的多个动态段
 
@@ -420,7 +420,7 @@ export default function Page({ params }) {
 }
 ```
 
-> **须知**：`fetch` 请求会在所有 `generate` 前缀的函数、布局、页面和服务器组件中自动为相同的数据[记忆化](/docs/nextjs-cn/app/deep-dive/caching#request-memoization)。如果 `fetch` 不可用，可以使用 React [`cache`](/docs/nextjs-cn/app/deep-dive/caching#react-cache-function)。
+> **须知**：`fetch` 请求会在所有 `generate` 前缀的函数、布局、页面和服务器组件中自动为相同的数据[记忆化](/nextjs-cn/app/deep-dive/caching#request-memoization)。如果 `fetch` 不可用，可以使用 React [`cache`](/nextjs-cn/app/deep-dive/caching#react-cache-function)。
 
 ## 版本历史
 

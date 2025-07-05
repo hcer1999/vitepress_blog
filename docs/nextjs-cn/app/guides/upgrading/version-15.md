@@ -35,13 +35,12 @@ npm i next@latest react@latest react-dom@latest eslint-config-next@latest
 
 以前依赖运行时信息的同步动态 API 现在是**异步的**：
 
-- [`cookies`](/docs/nextjs-cn/app/api-reference/functions/cookies)
-- [`headers`](/docs/nextjs-cn/app/api-reference/functions/headers)
-- [`draftMode`](/docs/nextjs-cn/app/api-reference/functions/draft-mode)
-- `params` 在 [`layout.js`](/docs/nextjs-cn/app/api-reference/file-conventions/layout)、[`page.js`](/docs/nextjs-cn/app/api-reference/file-conventions/page)、[`route.js`](/docs/nextjs-cn/app/api-reference/file-conventions/route)、[`default.js`](/docs/nextjs-cn/app/api-reference/file-conventions/default)、[`opengraph-image`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)、[`twitter-image`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)、[`icon`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons) 和 [`apple-icon`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons) 中。
-- `searchParams` 在 [`page.js`](/docs/nextjs-cn/app/api-reference/file-conventions/page) 中
-
-为了减轻迁移负担，提供了一个[代码修改工具](/docs/nextjs-cn/app/guides/upgrading/codemods#150)来自动化这个过程，并且可以临时同步访问这些 API。
+- [`cookies`](/nextjs-cn/app/api-reference/functions/cookies)
+- [`headers`](/nextjs-cn/app/api-reference/functions/headers)
+- [`draftMode`](/nextjs-cn/app/api-reference/functions/draft-mode)
+- [`params`] (/nextjs-cn/app/api-reference/file-conventions/layout)、[`page.js`](/nextjs-cn/app/api-reference/file-conventions/page)、[`route.js`](/nextjs-cn/app/api-reference/file-conventions/route)、[`default.js`](/nextjs-cn/app/api-reference/file-conventions/default)、[`opengraph-image`](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)、[`twitter-image`](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)、[`icon`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons) 和 [`apple-icon`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons) 中。
+- [`searchParams`](/nextjs-cn/app/api-reference/file-conventions/page) 中
+  为了减轻迁移负担，提供了一个[代码修改工具](/nextjs-cn/app/guides/upgrading/codemods#150)来自动化这个过程，并且可以临时同步访问这些 API。
 
 ### `cookies`
 
@@ -61,7 +60,7 @@ const token = cookieStore.get('token')
 
 #### 临时同步用法
 
-```tsx switcher
+```tsx
 import { cookies, type UnsafeUnwrappedCookies } from 'next/headers'
 
 // 之前
@@ -74,7 +73,7 @@ const cookieStore = cookies() as unknown as UnsafeUnwrappedCookies
 const token = cookieStore.get('token')
 ```
 
-```jsx switcher
+```jsx
 import { cookies } from 'next/headers'
 
 // 之前
@@ -105,7 +104,7 @@ const userAgent = headersList.get('user-agent')
 
 #### 临时同步用法
 
-```tsx switcher
+```tsx
 import { headers, type UnsafeUnwrappedHeaders } from 'next/headers'
 
 // 之前
@@ -118,7 +117,7 @@ const headersList = headers() as unknown as UnsafeUnwrappedHeaders
 const userAgent = headersList.get('user-agent')
 ```
 
-```jsx switcher
+```jsx
 import { headers } from 'next/headers'
 
 // 之前
@@ -147,7 +146,7 @@ const { isEnabled } = await draftMode()
 
 #### 临时同步用法
 
-```tsx switcher
+```tsx
 import { draftMode, type UnsafeUnwrappedDraftMode } from 'next/headers'
 
 // 之前
@@ -158,7 +157,7 @@ const { isEnabled } = draftMode()
 const { isEnabled } = draftMode() as unknown as UnsafeUnwrappedDraftMode
 ```
 
-```jsx switcher
+```jsx
 import { draftMode } from 'next/headers'
 
 // 之前
@@ -173,7 +172,7 @@ const { isEnabled } = draftMode()
 
 #### 异步布局
 
-```tsx switcher
+```tsx
 // 之前
 type Params = { slug: string }
 
@@ -209,7 +208,7 @@ export default async function Layout({
 }
 ```
 
-```jsx switcher
+```jsx
 // 之前
 export function generateMetadata({ params }) {
   const { slug } = params
@@ -231,7 +230,7 @@ export default async function Layout({ children, params }) {
 
 #### 同步布局
 
-```tsx switcher
+```tsx
 // 之前
 type Params = { slug: string }
 
@@ -256,7 +255,7 @@ export default function Layout(props: { children: React.ReactNode; params: Param
 }
 ```
 
-```jsx switcher
+```jsx
 // 之前
 export default function Layout({ children, params }) {
   const { slug } = params
@@ -273,7 +272,7 @@ export default async function Layout(props) {
 
 #### 异步页面
 
-```tsx switcher
+```tsx
 // 之前
 type Params = { slug: string }
 type SearchParams = { [key: string]: string | string[] | undefined }
@@ -319,7 +318,7 @@ export default async function Page(props: { params: Params; searchParams: Search
 }
 ```
 
-```jsx switcher
+```jsx
 // 之前
 export function generateMetadata({ params, searchParams }) {
   const { slug } = params
@@ -438,15 +437,15 @@ export async function GET(request, segmentData) {
 
 ## `runtime` 配置（破坏性变更）
 
-[段配置](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#runtime)中的 `runtime` 之前支持除 `edge` 以外的 `experimental-edge` 值。这两种配置指的是同一件事，为了简化选项，如果使用 `experimental-edge` 我们现在会报错。要修复此问题，请将 `runtime` 配置更新为 `edge`。提供了一个[代码修改工具](/docs/nextjs-cn/app/guides/upgrading/codemods#app-dir-runtime-config-experimental-edge)来自动执行此操作。
+[段配置](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#runtime)中的 `runtime` 之前支持除 `edge` 以外的 `experimental-edge` 值。这两种配置指的是同一件事，为了简化选项，如果使用 `experimental-edge` 我们现在会报错。要修复此问题，请将 `runtime` 配置更新为 `edge`。提供了一个[代码修改工具](/nextjs-cn/app/guides/upgrading/codemods#app-dir-runtime-config-experimental-edge)来自动执行此操作。
 
 </AppOnly>
 
 ## `fetch` 请求
 
-默认情况下，[`fetch` 请求](/docs/nextjs-cn/app/api-reference/functions/fetch)不再被缓存。
+默认情况下，[`fetch` 请求](/nextjs-cn/app/api-reference/functions/fetch)不再被缓存。
 
-要使特定的 `fetch` 请求选择缓存，你可以传递 `cache: 'force-cache'` 选项。
+要使特定的 `fetch` 请求选择缓/nextjs-cn/'force-cache'` 选项。
 
 ```js
 export default async function RootLayout() {
@@ -457,7 +456,7 @@ export default async function RootLayout() {
 }
 ```
 
-要使布局或页面中的所有 `fetch` 请求选择缓存，你可以使用 `export const fetchCache = 'default-cache'` [段配置选项](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config)。如果单个 `fetch` 请求指定了 `cache` 选项，则将使用该选项。
+要使布局或页面中的所有 `fetch` 请求选择缓存，你可以使用 `export const fetchCache = 'default-cache'` [段配置选项](/nextjs-cn/app/api-reference/file-conventions/route-segment-config)。如果单个 `fetch` 请求指定了 `cache` 选项，则将使用该选项。
 
 ```js
 // 由于这是根布局，应用程序中所有未设置自己的缓存选项的 fetch 请求都将被缓存。
@@ -473,7 +472,7 @@ export default async function RootLayout() {
 
 ## 路由处理程序
 
-默认情况下，[路由处理程序](/docs/nextjs-cn/app/api-reference/file-conventions/route)中的 `GET` 函数不再被缓存。要使 `GET` 方法选择缓存，你可以在路由处理程序文件中使用 [路由配置选项](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config)，如 `export const dynamic = 'force-static'`。
+默认情况下，[路由处理程序](/nextjs-cn/app/api-reference/file-conventions/route)中的 `GET` 函数不再被缓存。要使 `GET` 方法选择缓存，你可以在路由处理程序文件中使用 [路由配置选项](/nextjs-cn/app/api-reference/file-conventions/route-segment-config)，如 `export const dynamic = 'force-static'`。
 
 ```js
 export const dynamic = 'force-static'
@@ -483,9 +482,9 @@ export async function GET() {}
 
 ## 客户端路由器缓存
 
-通过 `<Link>` 或 `useRouter` 在页面之间导航时，[页面](/docs/nextjs-cn/app/api-reference/file-conventions/page)段不再从客户端路由器缓存中重用。但是，它们在浏览器的后退和前进导航以及共享布局中仍然被重用。
+通过 `<Link>` 或 `useRouter` 在页面之间导航时，[页面](/nextjs-cn/app/api-reference/file-conventions/page)段不再从客户端路由器缓存中重用。但是，它们在浏览器的后退和前进导航以及共享布局中仍然被重用。
 
-要让页面段选择缓存，你可以使用 [`staleTimes`](/docs/nextjs-cn/app/api-reference/config/next-config-js/staleTimes) 配置选项：
+要让页面段选择缓存，你可以使用 [`staleTimes`](/nextjs-cn/app/api-reference/config/next-config-js/staleTimes) 配置选项：
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -501,11 +500,11 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-在导航时，[布局](/docs/nextjs-cn/app/api-reference/file-conventions/layout)和[加载状态](/docs/nextjs-cn/app/api-reference/file-conventions/loading)仍然被缓存和重用。
+在导航时，[布局](/nextjs-cn/app/api-reference/file-conventions/layout)和[加载状态](/nextjs-cn/app/api-reference/file-conventions/loading)仍然被缓存和重用。
 
-## `next/font`
+## next/font
 
-`@next/font` 包已被移除，改为使用内置的 [`next/font`](/docs/nextjs-cn/app/api-reference/components/font)。有一个[代码修改工具](/docs/nextjs-cn/app/guides/upgrading/codemods#built-in-next-font)可以安全自动地重命名你的导入。
+`@next/font` 包已被移除，改为使用内置的 [`next/font`](/nextjs-cn/app/api-reference/components/font)。有一个[代码修改工具](/nextjs-cn/app/guides/upgrading/codemods#built-in-next-font)可以安全自动地重命名你的导入。
 
 ```js
 // 之前
@@ -561,9 +560,9 @@ Next.js 15 中移除了 Speed Insights 的自动检测。
 
 ## `NextRequest` 地理位置
 
-`NextRequest` 上的 `geo` 和 `ip` 属性已被移除，因为这些值由你的托管提供商提供。提供了一个[代码修改工具](/docs/nextjs-cn/app/guides/upgrading/codemods#150)来自动化此迁移。
+`NextRequest` 上的 `geo` 和 `ip` 属性已被移除，因为这些值由你的托管提供商提供。提供了一个[代码修改工具](/nextjs-cn/app/guides/upgrading/codemods#150)来自动化此迁移。
 
-如果你使用 Vercel，你可以使用 [`@vercel/functions`](https://vercel.com/docs/functions/vercel-functions-package) 中的 `geolocation` 和 `ipAddress` 函数：
+如果你使用 Vercel，你可以使用 [`@vercel/functions`](https://vercel.com/docs/fu/nextjs-cn/unctions-package) 中的 `geolocation` 和 `ipAddress` 函数：
 
 ```ts
 import { geolocation } from '@vercel/functions'

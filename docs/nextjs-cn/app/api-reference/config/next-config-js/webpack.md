@@ -10,22 +10,22 @@ description: 了解如何自定义 Next.js 使用的 webpack 配置
 
 <AppOnly>
 
-- [CSS 导入](/docs/nextjs-cn/app/getting-started/css)
-- [CSS 模块](/docs/nextjs-cn/app/getting-started/css#css-modules)
-- [Sass/SCSS 导入](/docs/nextjs-cn/app/guides/styling/sass)
-- [Sass/SCSS 模块](/docs/nextjs-cn/app/guides/styling/sass)
-
-</AppOnly>
+- [CSS 导入](/nextjs-cn/app/getting-started/css)
+- [CSS 模块](/nextjs-cn/app/getting-started/css#css-modules)
+- [Sass/SCS/nextjs-cn/js-cn/app/guides/styling/sass)
+- [Sass/SCS/nextjs-cn/js-cn/app/guides/styling/sass)
+  /nextjs-cn/
+  </AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-- [CSS 导入](/docs/nextjs-cn/app/getting-started/css)
-- [CSS 模块](/docs/nextjs-cn/app/getting-started/css)
-- [Sass/SCSS 导入](/docs/nextjs-cn/pages/guides/styling/sass)
-- [Sass/SCSS 模块](/docs/nextjs-cn/pages/guides/styling/sass)
-- [自定义 babel 配置](/docs/nextjs-cn/pages/guides/configuring/babel)
-
-</PagesOnly>
+- [CSS 导入](/nextjs-cn/app/getting-started/css)
+- [CSS 模块](/nextjs-cn/app/getting-started/css)
+- [Sass/SCS/nextjs-cn/js-cn/pages/guides/styling/sass)
+- [Sass/SCS/nextjs-cn/js-cn/pages/guides/styling/sass)
+- [自定义 babel 配置]()
+  /nextjs-cn/
+  </PagesOnly>/nextjs-cn/
 
 一些常见的功能以插件形式提供：
 

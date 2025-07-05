@@ -14,7 +14,7 @@ related:
 >
 > - `viewport` 对象和 `generateViewport` 函数导出**仅在服务器组件中支持**。
 > - 你不能从同一路由段同时导出 `viewport` 对象和 `generateViewport` 函数。
-> - 如果你是从 `metadata` 导出迁移过来的，可以使用 [metadata-to-viewport-export codemod](/docs/nextjs-cn/app/guides/upgrading/codemods#metadata-to-viewport-export) 来更新你的更改。
+> - 如果你是从 `metadata` 导出迁移过来的，可以使用 [metadata-to-viewport-export codemod](/nextjs-cn/app/guides/upgrading/codemods#metadata-to-viewport-export) 来更新你的更改。
 
 ## `viewport` 对象
 
@@ -174,7 +174,7 @@ export const viewport = {
 
 ## 类型
 
-你可以使用 `Viewport` 类型为你的视口对象添加类型安全。如果你在 IDE 中使用[内置 TypeScript 插件](/docs/nextjs-cn/app/api-reference/config/typescript)，则不需要手动添加类型，但你仍然可以明确添加。
+你可以使用 `Viewport` 类型为你的视口对象添加类型安全。如果你在 IDE 中使用[内置 TypeScript 插件](/nextjs-cn/app/api-reference/config/typescript)，则不需要手动添加类型，但你仍然可以明确添加。
 
 ### `viewport` 对象
 

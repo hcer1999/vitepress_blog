@@ -13,7 +13,7 @@ description: Next.js supports API Routes, which allow you to build your API with
 
 </details>
 
-> **Good to know**: If you are using the App Router, you can use [Server Components](/docs/nextjs-cn/app/building-your-application/rendering/server-components) or [Route Handlers](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) instead of API Routes.
+> **Good to know**: If you are using the App Router, you can use [Server Components](/nextjs-cn/app/building-your-application/rendering/server-components) or [Route Handlers](/nextjs-cn/app/building-your-application/routing/route-handlers) instead of API Routes.
 
 API routes provide a solution to build a **public API** with Next.js.
 
@@ -43,8 +43,8 @@ export default function handler(req, res) {
 >
 > - API Routes [do not specify CORS headers](https://developer.mozilla.org/docs/Web/HTTP/CORS), meaning they are **same-origin only** by default. You can customize such behavior by wrapping the request handler with the [CORS request helpers](https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors).
 
-- API Routes can't be used with [static exports](/docs/nextjs-cn/pages/guides/deployment/static-exports). However, [Route Handlers](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) in the App Router can.
-  > - API Routes will be affected by [`pageExtensions` configuration](/docs/nextjs-cn/pages/api-reference/config/next-config-js/pageExtensions) in `next.config.js`.
+- API Routes can't be used with [static exports](). However, [Route Handlers](/nextjs-cn/app/building-your-application/routing/route-handlers) in the App Router can.
+  > - API Routes will be affected by [`pageExtensions` configuration](/nextjs-cn/pages/api-reference/config/next-config-js/pageExtensions) in `next.config.js`.
 
 ## Parameters
 
@@ -174,7 +174,7 @@ The included helpers are:
 - `res.json(body)` - Sends a JSON response. `body` must be a [serializable object](https://developer.mozilla.org/docs/Glossary/Serialization)
 - `res.send(body)` - Sends the HTTP response. `body` can be a `string`, an `object` or a `Buffer`
 - `res.redirect([status,] path)` - Redirects to a specified path or URL. `status` must be a valid [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). If not specified, `status` defaults to "307" "Temporary redirect".
-- `res.revalidate(urlPath)` - [Revalidate a page on demand](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) using `getStaticProps`. `urlPath` must be a `string`.
+- `res.revalidate(urlPath)` - [Revalidate a page on demand](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) using `getStaticProps`. `urlPath` must be a `string`.
 
 ### Setting the status code of a response
 
@@ -315,7 +315,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
 
 ## Dynamic API Routes
 
-API Routes support [dynamic routes](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes), and follow the same file naming rules used for `pages/`.
+API Routes support [dynamic routes](/nextjs-cn/pages/building-your-application/routing/dynamic-routes), and follow the same file naming rules used for `pages/`.
 
 ```ts switcher
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -400,6 +400,6 @@ The `query` objects are as follows:
 
 ## Edge API Routes
 
-If you would like to use API Routes with the Edge Runtime, we recommend incrementally adopting the App Router and using [Route Handlers](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) instead.
+If you would like to use API Routes with the Edge Runtime, we recommend incrementally adopting the App Router and using [Route Handlers](/nextjs-cn/app/building-your-application/routing/route-handlers) instead.
 
 The Route Handlers function signature is isomorphic, meaning you can use the same function for both Edge and Node.js runtimes.

@@ -12,9 +12,9 @@ related:
 
 ## 约定
 
-要设置检测功能，请在项目的**根目录**中创建 `instrumentation.ts|js` 文件（或者如果使用 [`src`](/docs/nextjs-cn/app/api-reference/file-conventions/src-folder) 文件夹，则放在其中）。
+要设置检测功能，请在项目的**根目录**中创建 `instrumentation.ts|js` 文件（或者如果使用 [`src`](/nextjs-cn/app/api-reference/file-conventions/src-folder) 文件夹，则放在其中）。
 
-然后，在文件中导出 `register` 函数。当新的 Next.js 服务器实例启动时，这个函数将被调用**一次**。
+然后，在文件中导出 `register` 函数。当新的 Next.js 服务器实例启动时，这个函数将被调用**一次**。/nextjs-cn/
 
 例如，要将 Next.js 与 [OpenTelemetry](https://opentelemetry.io/) 和 [@vercel/otel](https://vercel.com/docs/observability/otel-overview) 一起使用：
 
@@ -39,9 +39,9 @@ export function register() {
 > **须知**：
 >
 > - `instrumentation` 文件应该位于项目的根目录，而不是在 `app` 或 `pages` 目录内。如果你使用的是 `src` 文件夹，那么将文件放在 `src` 中，与 `pages` 和 `app` 并列。
-> - 如果你使用 [`pageExtensions` 配置选项](/docs/nextjs-cn/app/api-reference/config/next-config-js/pageExtensions) 添加后缀，你还需要更新 `instrumentation` 文件名以匹配。
+> - 如果你使用 [`pageExtensions` 配置选项](/nextjs-cn/app/api-reference/config/next-config-js/pageExtensions) 添加后缀，你还需要更新 `instrumentation` 文件名以匹配。
 
-## 示例
+## 示例/nextjs-cn/
 
 ### 导入具有副作用的文件
 
@@ -67,9 +67,9 @@ export async function register() {
 
 ### 导入特定运行时的代码
 
-Next.js 在所有环境中调用 `register`，因此有条件地导入不支持特定运行时（例如 [Edge 或 Node.js](/docs/nextjs-cn/app/api-reference/edge)）的代码非常重要。你可以使用 `NEXT_RUNTIME` 环境变量获取当前环境：
+Next.js 在所有环境中调用 `register`，因此有条件地导入不支持特定运行时（例如 [Edge 或 Node.js](/nextjs-cn/app/api-reference/edge)）的代码非常重要。你可以使用 `NEXT_RUNTIME` 环境变量获取当前环境：
 
-```ts switcher
+```ts switcher/nextjs-cn/
 export async function register() {
   if (process.env.NEXT_RUNTIME === 'nodejs') {
     await import('./instrumentation-node')

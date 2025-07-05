@@ -29,7 +29,7 @@ bun add next@next-14 react@18 react-dom@18 && bun add eslint-config-next@next-14
 ### 第 14 版概述
 
 - 最低 Node.js 版本已从 16.14 提升到 18.17，因为 16.x 已达到生命周期结束。
-- `next export` 命令已被移除，改为使用 `output: 'export'` 配置。更多信息请参见[文档](/docs/nextjs-cn/nextjs-cn/app/guides/deployment/static-exports)。
-- `next/server` 中的 `ImageResponse` 导入已更名为 `next/og`。有一个[代码修改工具](/docs/nextjs-cn/app/guides/upgrading/codemods#next-og-import)可以安全自动地重命名你的导入。
-- `@next/font` 包已完全移除，改为使用内置的 `next/font`。有一个[代码修改工具](/docs/nextjs-cn/app/guides/upgrading/codemods#built-in-next-font)可以安全自动地重命名你的导入。
+- `next export` 命令已被移除，改为使用 `output: 'export'` 配置。更多信息请参见[文档]()。
+- `next/server` 中的 `ImageResponse` 导入已更名为 `next/og`。有一个[代码修改工具](/nextjs-cn/app/guides/upgrading/codemods#next-og-import)可以安全自动地重命名你的导入。
+- `@next/font` 包已完全移除，改为使用内置的 `next/font`。有一个[代码修改工具]()可以安全自动地重命名你的导入。
 - `next-swc` 的 WASM 目标已被移除。

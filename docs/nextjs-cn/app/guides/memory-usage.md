@@ -12,7 +12,7 @@ description: 优化应用程序在开发和生产环境中使用的内存。
 
 具有大量依赖项的应用程序将使用更多内存。
 
-[Bundle Analyzer](/docs/nextjs-cn/app/guides/package-bundling) 可以帮助你调查应用程序中可能可以移除的大型依赖项，以提高性能和减少内存使用。
+[Bundle Analyzer](/nextjs-cn/app/guides/package-bundling) 可以帮助你调查应用程序中可能可以移除的大型依赖项，以提高性能和减少内存使用。
 
 ## 尝试 `experimental.webpackMemoryOptimizations`
 
@@ -69,7 +69,7 @@ Webpack 构建工作器允许你在单独的 Node.js 工作器中运行 Webpack 
 
 [Webpack 缓存](https://webpack.js.org/configuration/cache/)将生成的 Webpack 模块保存在内存和/或磁盘中，以提高构建速度。这可以帮助提高性能，但也会增加应用程序的内存使用量来存储缓存数据。
 
-你可以通过向应用程序添加[自定义 Webpack 配置](/docs/nextjs-cn/app/api-reference/config/next-config-js/webpack)来禁用此行为：
+你可以通过向应用程序添加[自定义 Webpack 配置](/nextjs-cn/app/api-reference/config/next-config-js/webpack)来禁用此行为：
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -114,8 +114,8 @@ const nextConfig = {
 export default nextConfig
 ```
 
-- [忽略 TypeScript 错误](/docs/nextjs-cn/app/api-reference/config/typescript#disabling-typescript-errors-in-production)
-- [Next.js 配置中的 ESLint](/docs/nextjs-cn/pages/api-reference/config/next-config-js/eslint)
+- [忽略 TypeScript 错误](/nextjs-cn/app/api-reference/config/typescript#disabling-typescript-errors-in-production)
+- [Next.js 配置中的 ESLint](/nextjs-cn/pages/api-reference/config/next-config-js/eslint)
 
 请记住，这可能会由于类型错误或代码检查问题而产生有缺陷的部署。
 我们强烈建议仅在静态分析完成后将构建提升到生产环境。

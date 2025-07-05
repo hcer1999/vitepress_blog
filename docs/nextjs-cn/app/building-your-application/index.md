@@ -9,12 +9,12 @@ Next.js 提供了创建灵活的全栈 Web 应用程序的构建块。**构建�
 
 <AppOnly>
 
-如果你是 Next.js 的新手，我们建议首先了解[路由](/docs/nextjs-cn/app/building-your-application/routing/index)、[渲染](/docs/nextjs-cn/app/building-your-application/rendering)、[数据获取](/docs/nextjs-cn/app/building-your-application/data-fetching)和[样式](/docs/nextjs-cn/app/getting-started/css)部分，因为它们介绍了基本的 Next.js 和 Web 概念，帮助你开始使用。最后，一旦你准备好了，请查看[部署](/docs/nextjs-cn/app/getting-started/deploying)和[升级](/docs/nextjs-cn/app/guides/upgrading)部分。
+如果你是 Next.js 的新手，我们建议首先了解[路由](/nextjs-cn/app/building-your-application/routing/index)、[渲染](/nextjs-cn/app/building-your-application/rendering/index)、[数据获取](/nextjs-cn/app/building-your-application/data-fetching/index)和[样式](/nextjs-cn/app/getting-started/css)部分，因为它们介绍了基本的 Next.js 和 Web 概念，帮助你开始使用。最后，一旦你准备好了，请查看[部署]()和[升级](/nextjs-cn/app/guides/upgrading/index)部分。
 
 </AppOnly>
 
 <PagesOnly>
 
-如果你是 Next.js 的新手，我们建议首先了解[路由](/docs/nextjs-cn/pages/building-your-application/routing)、[渲染](/docs/nextjs-cn/pages/building-your-application/rendering)、[数据获取](/docs/nextjs-cn/pages/building-your-application/data-fetching)和[样式](/docs/nextjs-cn/app/getting-started/css)部分，因为它们介绍了基本的 Next.js 和 Web 概念，帮助你开始使用。然后，你可以深入了解其他部分，比如[配置](/docs/nextjs-cn/pages/building-your-application/configuring)。最后，一旦你准备好了，请查看[部署](/docs/nextjs-cn/pages/getting-started/deploying)和[升级](/docs/nextjs-cn/pages/guides/upgrading)部分。
+如果你是 Next.js 的新手，我们建议首先了解[路由](/nextjs-cn/pages/building-your-application/routing/index)、[渲染](/nextjs-cn/pages/building-your-application/rendering/index)、[数据获取](/nextjs-cn/pages/building-your-application/data-fetching/index)和[样式](/nextjs-cn/app/getting-started/css)部分，因为它们介绍了基本的 Next.js 和 Web 概念，帮助你开始使用。然后，你可以深入了解其他部分，比如[配置](/nextjs-cn/pages/building-your-application/configuring/index)。最后，一旦你准备好了，请查看[部署]()和[升级](/nextjs-cn/pages/guides/upgrading/index)部分。
 
 </PagesOnly>

@@ -218,7 +218,7 @@ export default function BlogPage() {
 
 ## 流式传输
 
-> **警告：** 以下内容假设你的应用程序中启用了 [`dynamicIO` 配置选项](/docs/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)。该标志在 Next.js 15 canary 版本中引入。
+> **警告：** 以下内容假设你的应用程序中启用了 [`dynamicIO` 配置选项](/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)。该标志在 Next.js 15 canary 版本中引入。
 
 当在服务器组件中使用 `async/await` 时，Next.js 将选择**动态渲染**。这意味着数据将在每个用户请求时在服务器上获取和渲染。如果有任何慢速的数据请求，整个路由的渲染都会被阻塞。
 

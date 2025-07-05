@@ -7,9 +7,9 @@ related:
     - app/building-your-application/routing/parallel-routes
 ---
 
-`default.js` 文件用于在 Next.js 无法在完整页面加载后恢复[插槽](/docs/nextjs-cn/app/building-your-application/routing/index/parallel-routes#slots)的活动状态时，在[并行路由](/docs/nextjs-cn/app/building-your-application/routing/index/parallel-routes)中渲染一个后备内容。
+`default.js` 文件用于在 Next.js 无法在完整页面加载后恢复[插槽](/nextjs-cn/app/building-your-application/routing/parallel-routes#slots)的活动状态时，在[并行路由](/nextjs-cn/app/building-your-application/routing/parallel-routes)中渲染一个后备内容。
 
-在[软导航](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#soft-navigation)期间，Next.js 会跟踪每个插槽的活动*状态*（子页面）。然而，对于硬导航（完整页面加载），Next.js 无法恢复活动状态。在这种情况下，对于不匹配当前 URL 的子页面，可以渲染一个 `default.js` 文件。
+在[软导航](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#soft-navigation)期间，Next.js 会跟踪每个插槽的活动*状态*（子页面）。然而，对于硬导航（完整页面加载），Next.js 无法恢复活动状态。在这种情况下，对于不匹配当前 URL 的子页面，可以渲染一个 `default.js` 文件。
 
 考虑以下文件夹结构。`@team` 插槽有一个 `settings` 页面，但 `@analytics` 没有。
 
@@ -31,7 +31,7 @@ related:
 
 ### `params`（可选）
 
-一个 Promise，解析为一个对象，该对象包含从根段到插槽子页面的[动态路由参数](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)。例如：
+一个 Promise，解析为一个对象，该对象包含从根段到插槽子页面的[动态路由参数](/nextjs-cn/app/building-your-application/routing/dynamic-routes)。例如：
 
 ```tsx switcher
 export default async function Default({ params }: { params: Promise<{ artist: string }> }) {
@@ -55,7 +55,7 @@ export default async function Default({ params }) {
 
 ## 版本历史
 
-| 版本       | 变更                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------ |
-| `v15.0.RC` | `params` 现在是一个 Promise。提供了[代码转换工具](/docs/nextjs-cn/app/guides/upgrading/codemods#150)。 |
-| `v13.0.0`  | 引入 `default`。                                                                                       |
+| 版本       | 变更                                                                                              |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `v15.0.RC` | `params` 现在是一个 Promise。提供了[代码转换工具](/nextjs-cn/app/guides/upgrading/codemods#150)。 |
+| `v13.0.0`  | 引入 `default`。                                                                                  |

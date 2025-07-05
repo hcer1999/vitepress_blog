@@ -7,15 +7,15 @@ description: 向你的 Next.js 应用添加重写。
 
 <AppOnly>
 
-重写充当 URL 代理并掩盖目标路径，使其看起来用户没有改变他们在网站上的位置。相比之下，[重定向](/docs/nextjs-cn/app/api-reference/config/next-config-js/redirects)会路由到新页面并显示 URL 变化。
+重写充当 URL 代理并掩盖目标路径，使其看起来用户没有改变他们在网站上的位置。相比之下，[重定向](/nextjs-cn/app/api-reference/config/next-config-js/redirects)会路由到新页面并显示 URL 变化。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-重写充当 URL 代理并掩盖目标路径，使其看起来用户没有改变他们在网站上的位置。相比之下，[重定向](/docs/nextjs-cn/pages/api-reference/config/next-config-js/redirects)会路由到新页面并显示 URL 变化。
+重写充当 URL 代理并掩盖目标路径，使其看起来用户没有改变他们在网站上的位置。相比之下，[重定向](/nextjs-cn/pages/api-reference/config/next-config-js/redirects)会路由到新页面并显示 URL 变化。
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 要使用重写，你可以在 `next.config.js` 中使用 `rewrites` 键：
 
@@ -86,25 +86,25 @@ Next.js 路由检查的顺序是：
 
 <AppOnly>
 
-1. [headers](/docs/nextjs-cn/app/api-reference/config/next-config-js/headers) 被检查/应用
-2. [redirects](/docs/nextjs-cn/app/api-reference/config/next-config-js/redirects) 被检查/应用
-3. `beforeFiles` 重写被检查/应用
-4. 来自 [public 目录](/docs/nextjs-cn/app/api-reference/file-conventions/public-folder) 的静态文件、`_next/static` 文件和非动态页面被检查/服务
+1. [headers](/nextjs-cn/app/api-reference/config/next-config-js/headers) 被检查/应用
+2. [redirects](/nextjs-cn/app/api-reference/config/next-config-js/redirects) 被检查/应用
+3. `beforeFil/nextjs-cn/
+4. 来自 [public 目/nextjs-cn/cn/app/api-reference/file-conventions/public-folder) 的静态文件、`_next/static` 文件和非动态页面被检查/服务
 5. `afterFiles` 重写被检查/应用，如果这些重写之一被匹配，我们会在每次匹配后检查动态路由/静态文件
-6. `fallback` 重写被检查/应用，这些在渲染 404 页面之前和动态路由/所有静态资产被检查之后应用。如果你在 `getStaticPaths` 中使用 [fallback: true/'blocking'](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true)，你在 `next.config.js` 中定义的 fallback `rewrites` 将*不会*运行。
+6. `fallback` 重写被检/nextjs-cn/面之前和动态路由/所有静态资产被检查之后应用。如果你在 `getStaticPaths` 中使用 [fallback: true/'blocking'](/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true)，你在 `next.config.js` 中定义的 fallback `rewrites` 将*不会*运行。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-1. [headers](/docs/nextjs-cn/pages/api-reference/config/next-config-js/headers) 被检查/应用
-2. [redirects](/docs/nextjs-cn/pages/api-reference/config/next-config-js/redirects) 被检查/应用
-3. `beforeFiles` 重写被检查/应用
-4. 来自 [public 目录](/docs/nextjs-cn/pages/api-reference/file-conventions/public-folder) 的静态文件、`_next/static` 文件和非动态页面被检查/服务
+1. [headers](/nextjs-cn/pages/api-reference/config/next-config-js/headers) 被检查/应用
+2. [redirects](/nextjs-cn/pages/api-reference/config/next-config-js/redirects) 被检查/应用
+3. `beforeFil/nextjs-cn/
+4. 来自 [public 目/nextjs-cn/cn/pages/api-reference/file-conventions/public-folder) 的静态文件、`_next/static` 文件和非动态页面被检查/服务
 5. `afterFiles` 重写被检查/应用，如果这些重写之一被匹配，我们会在每次匹配后检查动态路由/静态文件
-6. `fallback` 重写被检查/应用，这些在渲染 404 页面之前和动态路由/所有静态资产被检查之后应用。如果你在 `getStaticPaths` 中使用 [fallback: true/'blocking'](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true)，你在 `next.config.js` 中定义的 fallback `rewrites` 将*不会*运行。
+6. `fallback` 重写被检/nextjs-cn/面之前和动态路由/所有静态资产被检查之后应用。如果你在 `getStaticPaths` 中使用 [fallback: true/'blocking'](/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true)，你在 `next.config.js` 中定义的 fallback `rewrites` 将*不会*运行。
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 ## 重写参数
 
@@ -156,7 +156,7 @@ module.exports = {
 }
 ```
 
-> **须知**：来自[自动静态优化](/docs/nextjs-cn/pages/building-your-application/rendering/automatic-static-optimization)或[预渲染](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)的静态页面，重写中的参数将在客户端水合后解析并在查询中提供。
+> **须知**：来自[自动静态优化](/nextjs-cn/pages/building-your-application/rendering/automatic-static-optimization)或[预渲染](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)的静态页面，重写中的参数将在客户端水合后解析并在查询中提供。
 
 ## 路径匹配
 
@@ -385,7 +385,7 @@ module.exports = {
 
 ### Rewrites with basePath support
 
-When leveraging [`basePath` support](/docs/nextjs-cn/app/api-reference/config/next-config-js/basePath) with rewrites each `source` and `destination` is automatically prefixed with the `basePath` unless you add `basePath: false` to the rewrite:
+When leveraging [`basePath` support](/nextjs-cn/app/api-reference/config/next-config-js/basePath) with rewrites each `source` and `destination` is automatically prefixed with the `basePath` unless you add `basePath: false` to the rewrite:
 
 ```js
 module.exports = {
@@ -413,7 +413,7 @@ module.exports = {
 
 ### Rewrites with i18n support
 
-When leveraging [`i18n` support](/docs/nextjs-cn/pages/building-your-application/routing/internationalization) with rewrites each `source` and `destination` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the rewrite. If `locale: false` is used you must prefix the `source` and `destination` with a locale for it to be matched correctly.
+When leveraging [`i18n` support](/nextjs-cn/pages/building-your-application/routing/internationalization) with rewrites each `source` and `destination` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the rewrite. If `locale: false` is used you must prefix the `source` and `destination` with a locale for it to be matched correctly.
 
 ```js
 module.exports = {

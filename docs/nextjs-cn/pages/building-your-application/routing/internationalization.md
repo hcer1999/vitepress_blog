@@ -144,7 +144,7 @@ When using Sub-path Routing, the user would be redirected to `/fr`.
 
 ### Prefixing the Default Locale
 
-With Next.js 12 and [Middleware](/docs/nextjs-cn/pages/building-your-application/routing/middleware), we can add a prefix to the default locale with a [workaround](https://github.com/vercel/next.js/discussions/18419).
+With Next.js 12 and [Middleware](/nextjs-cn/pages/building-your-application/routing/middleware), we can add a prefix to the default locale with a [workaround](https://github.com/vercel/next.js/discussions/18419).
 
 For example, here's a `next.config.js` file with support for a few languages. Note the `"default"` locale has been added intentionally.
 
@@ -159,7 +159,7 @@ module.exports = {
 }
 ```
 
-Next, we can use [Middleware](/docs/nextjs-cn/pages/building-your-application/routing/middleware) to add custom routing rules:
+Next, we can use [Middleware](/nextjs-cn/pages/building-your-application/routing/middleware) to add custom routing rules:
 
 ```ts
 import { NextRequest, NextResponse } from 'next/server'
@@ -185,7 +185,7 @@ export async function middleware(req: NextRequest) {
 }
 ```
 
-This [Middleware](/docs/nextjs-cn/pages/building-your-application/routing/middleware) skips adding the default prefix to [API Routes](/docs/nextjs-cn/pages/building-your-application/routing/api-routes) and [public](/docs/nextjs-cn/pages/api-reference/file-conventions/public-folder) files like fonts or images. If a request is made to the default locale, we redirect to our prefix `/en`.
+This [Middleware](/nextjs-cn/pages/building-your-application/routing/middleware) skips adding the default prefix to [API Routes](/nextjs-cn/pages/building-your-application/routing/api-routes) and [public](/nextjs-cn/pages/api-reference/file-conventions/public-folder) files like fonts or images. If a request is made to the default locale, we redirect to our prefix `/en`.
 
 ### Disabling Automatic Locale Detection
 
@@ -203,13 +203,13 @@ When `localeDetection` is set to `false` Next.js will no longer automatically re
 
 ## Accessing the locale information
 
-You can access the locale information via the Next.js router. For example, using the [`useRouter()`](/docs/nextjs-cn/pages/api-reference/functions/use-router) hook the following properties are available:
+You can access the locale information via the Next.js router. For example, using the [`useRouter()`](/nextjs-cn/pages/api-reference/functions/use-router) hook the following properties are available:
 
 - `locale` contains the currently active locale.
 - `locales` contains all configured locales.
 - `defaultLocale` contains the configured default locale.
 
-When [pre-rendering](/docs/nextjs-cn/pages/building-your-application/rendering/static-site-generation) pages with `getStaticProps` or `getServerSideProps`, the locale information is provided in [the context](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) provided to the function.
+When [pre-rendering](/nextjs-cn/pages/building-your-application/rendering/static-site-generation) pages with `getStaticProps` or `getServerSideProps`, the locale information is provided in [the context](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) provided to the function.
 
 When leveraging `getStaticPaths`, the configured locales are provided in the context parameter of the function under `locales` and the configured defaultLocale under `defaultLocale`.
 
@@ -251,7 +251,7 @@ export default function IndexPage(props) {
 }
 ```
 
-Note that to handle switching only the `locale` while preserving all routing information such as [dynamic route](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes) query values or hidden href query values, you can provide the `href` parameter as an object:
+Note that to handle switching only the `locale` while preserving all routing information such as [dynamic route](/nextjs-cn/pages/building-your-application/routing/dynamic-routes) query values or hidden href query values, you can provide the `href` parameter as an object:
 
 ```jsx
 import { useRouter } from 'next/router'
@@ -261,7 +261,7 @@ const { pathname, asPath, query } = router
 router.push({ pathname, query }, asPath, { locale: nextLocale })
 ```
 
-See [here](/docs/nextjs-cn/pages/api-reference/functions/use-router#with-url-object) for more information on the object structure for `router.push`.
+See [here](/nextjs-cn/pages/api-reference/functions/use-router#with-url-object) for more information on the object structure for `router.push`.
 
 If you have a `href` that already includes the locale you can opt-out of automatically handling the locale prefixing:
 
@@ -287,15 +287,15 @@ For example, if a user prefers the locale `fr` in their accept-language header b
 
 Since Next.js knows what language the user is visiting it will automatically add the `lang` attribute to the `<html>` tag.
 
-Next.js doesn't know about variants of a page so it's up to you to add the `hreflang` meta tags using [`next/head`](/docs/nextjs-cn/pages/api-reference/components/head). You can learn more about `hreflang` in the [Google Webmasters documentation](https://support.google.com/webmasters/answer/189077).
+Next.js doesn't know about variants of a page so it's up to you to add the `hreflang` meta tags using [`next/head`](). You can learn more about `hreflang` in the [Google Webmasters documentation](https://support.google.com/webmasters/answer/189077).
 
 ## How does this work with Static Generation?
 
-> Note that Internationalized Routing does not integrate with [`output: 'export'`](/docs/nextjs-cn/pages/guides/deployment/static-exports) as it does not leverage the Next.js routing layer. Hybrid Next.js applications that do not use `output: 'export'` are fully supported.
+> Note that Internationalized Routing does not integrate with [`output: 'export'`]() as it does not leverage the Next.js routing layer. Hybrid Next.js applications that do not use `output: 'export'` are fully supported.
 
 ### Dynamic Routes and `getStaticProps` Pages
 
-For pages using `getStaticProps` with [Dynamic Routes](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes), all locale variants of the page desired to be prerendered need to be returned from [`getStaticPaths`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths). Along with the `params` object returned for `paths`, you can also return a `locale` field specifying which locale you want to render. For example:
+For pages using `getStaticProps` with [Dynamic Routes](/nextjs-cn/pages/building-your-application/routing/dynamic-routes), all locale variants of the page desired to be prerendered need to be returned from [`getStaticPaths`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths). Along with the `params` object returned for `paths`, you can also return a `locale` field specifying which locale you want to render. For example:
 
 ```jsx
 export const getStaticPaths = ({ locales }) => {
@@ -310,15 +310,15 @@ export const getStaticPaths = ({ locales }) => {
 }
 ```
 
-For [Automatically Statically Optimized](/docs/nextjs-cn/pages/building-your-application/rendering/automatic-static-optimization) and non-dynamic `getStaticProps` pages, **a version of the page will be generated for each locale**. This is important to consider because it can increase build times depending on how many locales are configured inside `getStaticProps`.
+For [Automatically Statically Optimized](/nextjs-cn/pages/building-your-application/rendering/automatic-static-optimization) and non-dynamic `getStaticProps` pages, **a version of the page will be generated for each locale**. This is important to consider because it can increase build times depending on how many locales are configured inside `getStaticProps`.
 
 For example, if you have 50 locales configured with 10 non-dynamic pages using `getStaticProps`, this means `getStaticProps` will be called 500 times. 50 versions of the 10 pages will be generated during each build.
 
-To decrease the build time of dynamic pages with `getStaticProps`, use a [`fallback` mode](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true). This allows you to return only the most popular paths and locales from `getStaticPaths` for prerendering during the build. Then, Next.js will build the remaining pages at runtime as they are requested.
+To decrease the build time of dynamic pages with `getStaticProps`, use a [`fallback` mode](/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true). This allows you to return only the most popular paths and locales from `getStaticPaths` for prerendering during the build. Then, Next.js will build the remaining pages at runtime as they are requested.
 
 ### Automatically Statically Optimized Pages
 
-For pages that are [automatically statically optimized](/docs/nextjs-cn/pages/building-your-application/rendering/automatic-static-optimization), a version of the page will be generated for each locale.
+For pages that are [automatically statically optimized](/nextjs-cn/pages/building-your-application/rendering/automatic-static-optimization), a version of the page will be generated for each locale.
 
 ### Non-dynamic getStaticProps Pages
 
@@ -352,4 +352,4 @@ export async function getStaticProps({ locale }) {
 - `locales`: 100 total locales
 - `domains`: 100 total locale domain items
 
-> **Good to know**: These limits have been added initially to prevent potential [performance issues at build time](#dynamic-routes-and-getstaticprops-pages). You can workaround these limits with custom routing using [Middleware](/docs/nextjs-cn/pages/building-your-application/routing/middleware) in Next.js 12.
+> **Good to know**: These limits have been added initially to prevent potential [performance issues at build time](#dynamic-routes-and-getstaticprops-pages). You can workaround these limits with custom routing using [Middleware](/nextjs-cn/pages/building-your-application/routing/middleware) in Next.js 12.

@@ -44,16 +44,16 @@ You can import modules in top-level scope for use in `getStaticProps`. Imports u
 
 The `context` parameter is an object containing the following keys:
 
-| Name               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `params`           | Contains the route parameters for pages using [dynamic routes](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes). For example, if the page name is `[id].js`, then `params` will look like `{ id: ... }`. You should use this together with `getStaticPaths`, which we'll explain later.                                                                                                                                                                            |
-| `preview`          | (Deprecated for `draftMode`) `preview` is `true` if the page is in the [Preview Mode](/docs/nextjs-cn/pages/guides/configuring/preview-mode) and `false` otherwise.                                                                                                                                                                                                                                                                                                                       |
-| `previewData`      | (Deprecated for `draftMode`) The [preview](/docs/nextjs-cn/pages/guides/configuring/preview-mode) data set by `setPreviewData`.                                                                                                                                                                                                                                                                                                                                                           |
-| `draftMode`        | `draftMode` is `true` if the page is in the [Draft Mode](/docs/nextjs-cn/pages/guides/configuring/draft-mode) and `false` otherwise.                                                                                                                                                                                                                                                                                                                                                      |
-| `locale`           | Contains the active locale (if enabled).                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `locales`          | Contains all supported locales (if enabled).                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `defaultLocale`    | Contains the configured default locale (if enabled).                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `revalidateReason` | Provides a reason for why the function was called. Can be one of: "build" (run at build time), "stale" (revalidate period expired, or running in [development mode](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props#runs-on-every-request-in-development)), "on-demand" (triggered via [on-demand revalidation](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath)) |
+| Name               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `params`           | Contains the route parameters for pages using [dynamic routes](/nextjs-cn/pages/building-your-application/routing/dynamic-routes). For example, if the page name is `[id].js`, then `params` will look like `{ id: ... }`. You should use this together with `getStaticPaths`, which we'll explain later.                                                                                                                                                                       |
+| `preview`          | (Deprecated for `draftMode`) `preview` is `true` if the page is in the [Preview Mode]() and `false` otherwise.                                                                                                                                                                                                                                                                                                                                                                  |
+| `previewData`      | (Deprecated for `draftMode`) The [preview]() data set by `setPreviewData`.                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `draftMode`        | `draftMode` is `true` if the page is in the [Draft Mode]() and `false` otherwise.                                                                                                                                                                                                                                                                                                                                                                                               |
+| `locale`           | Contains the active locale (if enabled).                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `locales`          | Contains all supported locales (if enabled).                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `defaultLocale`    | Contains the configured default locale (if enabled).                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `revalidateReason` | Provides a reason for why the function was called. Can be one of: "build" (run at build time), "stale" (revalidate period expired, or running in [development mode](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props#runs-on-every-request-in-development)), "on-demand" (triggered via [on-demand revalidation](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath)) |
 
 ## getStaticProps return values
 
@@ -95,7 +95,7 @@ export async function getStaticProps() {
 }
 ```
 
-Learn more about [Incremental Static Regeneration](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration).
+Learn more about [Incremental Static Regeneration](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration).
 
 The cache status of a page leveraging ISR can be determined by reading the value of the `x-nextjs-cache` response header. The possible values are the following:
 
@@ -105,7 +105,7 @@ The cache status of a page leveraging ISR can be determined by reading the value
 
 ### `notFound`
 
-The `notFound` boolean allows the page to return a `404` status and [404 Page](/docs/nextjs-cn/pages/building-your-application/routing/custom-error#page). With `notFound: true`, the page will return a `404` even if there was a successfully generated page before. This is meant to support use cases like user-generated content getting removed by its author. Note, `notFound` follows the same `revalidate` behavior [described here](#revalidate).
+The `notFound` boolean allows the page to return a `404` status and [404 Page](/nextjs-cn/pages/building-your-application/routing/custom-error#page). With `notFound: true`, the page will return a `404` even if there was a successfully generated page before. This is meant to support use cases like user-generated content getting removed by its author. Note, `notFound` follows the same `revalidate` behavior [described here](#revalidate).
 
 ```js
 export async function getStaticProps(context) {
@@ -124,7 +124,7 @@ export async function getStaticProps(context) {
 }
 ```
 
-> **Good to know**: `notFound` is not needed for [`fallback: false`](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-false) mode as only paths returned from `getStaticPaths` will be pre-rendered.
+> **Good to know**: `notFound` is not needed for [`fallback: false`](/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-false) mode as only paths returned from `getStaticPaths` will be pre-rendered.
 
 ### `redirect`
 
@@ -153,7 +153,7 @@ export async function getStaticProps(context) {
 }
 ```
 
-If the redirects are known at build-time, they should be added in [`next.config.js`](/docs/nextjs-cn/pages/api-reference/config/next-config-js/redirects) instead.
+If the redirects are known at build-time, they should be added in [`next.config.js`](/nextjs-cn/pages/api-reference/config/next-config-js/redirects) instead.
 
 ## Reading files: Use `process.cwd()`
 
@@ -216,12 +216,12 @@ export default Blog
 
 ## Version History
 
-| Version   | Changes                                                                                                                                                                                             |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `v13.4.0` | [App Router](/docs/nextjs-cn/app/building-your-application/data-fetching) is now stable with simplified data fetching                                                                               |
-| `v12.2.0` | [On-Demand Incremental Static Regeneration](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) is stable.    |
-| `v12.1.0` | [On-Demand Incremental Static Regeneration](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) added (beta). |
-| `v10.0.0` | `locale`, `locales`, `defaultLocale`, and `notFound` options added.                                                                                                                                 |
-| `v10.0.0` | `fallback: 'blocking'` return option added.                                                                                                                                                         |
-| `v9.5.0`  | Stable [Incremental Static Regeneration](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration)                                                             |
-| `v9.3.0`  | `getStaticProps` introduced.                                                                                                                                                                        |
+| Version   | Changes                                                                                                                                                                                        |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `v13.4.0` | [App Router](/nextjs-cn/app/building-your-application/data-fetching/index) is now stable with simplified data fetching                                                                         |
+| `v12.2.0` | [On-Demand Incremental Static Regeneration](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) is stable.    |
+| `v12.1.0` | [On-Demand Incremental Static Regeneration](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) added (beta). |
+| `v10.0.0` | `locale`, `locales`, `defaultLocale`, and `notFound` options added.                                                                                                                            |
+| `v10.0.0` | `fallback: 'blocking'` return option added.                                                                                                                                                    |
+| `v9.5.0`  | Stable [Incremental Static Regeneration](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration)                                                             |
+| `v9.3.0`  | `getStaticProps` introduced.                                                                                                                                                                   |

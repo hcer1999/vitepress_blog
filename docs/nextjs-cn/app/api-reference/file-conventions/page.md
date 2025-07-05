@@ -23,13 +23,13 @@ export default function Page({ params, searchParams }) {
 }
 ```
 
-页面是[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)，但可以设置为[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)。
+页面是[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，但可以设置为[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)。
 
 > **须知**：
 >
-> - 页面始终是[路由子树](/docs/nextjs-cn/app/building-your-application/routing/index#terminology)的[叶子节点](/docs/nextjs-cn/app/building-your-application/routing/index#terminology)。
-> - 除非[嵌套在 `pages` 目录](/docs/nextjs-cn/app/building-your-application/routing/index/pages-and-layouts#nesting-pages)内，否则 `.js`、`.jsx` 或 `.tsx` 文件扩展名可用于页面。
-> - 允许使用 `page.js` 文件创建专用 UI，但不是必需的。[特殊文件](/docs/nextjs-cn/app/api-reference/file-conventions) 可以独立存在。
+> - 页面始终是[路由子树](/nextjs-cn/app/building-your-application/routing/index#terminology)的[叶子节点](/nextjs-cn/app/building-your-application/routing/index#terminology)。
+> - 除非[嵌套在 `pages` 目录]()内，否则 `.js`、`.jsx` 或 `.tsx` 文件扩展名可用于页面。
+> - 允许使用 `page.js` 文件创建专用 UI，但不是必需的。[特殊文件](/nextjs-cn/app/api-reference/file-conventions/index) 可以独立存在。
 
 ## Props
 
@@ -43,7 +43,7 @@ export default function Page({ params, searchParams }) {
 { slug: 'shoes', item: 'nike-air-max-97' }
 ```
 
-了解更多关于[动态路由分段](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)的信息。
+了解更多关于[动态路由分段](/nextjs-cn/app/building-your-application/routing/dynamic-routes)的信息。
 
 ### `searchParams`（可选）
 
@@ -94,7 +94,7 @@ export default function Button() {
 
 #### `params`（可选）
 
-一个会解析成包含从根段到该页面的[动态路由参数](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)的对象的 Promise。
+一个会解析成包含从根段到该页面的[动态路由参数](/nextjs-cn/app/building-your-application/routing/dynamic-routes)的对象的 Promise。
 
 ```tsx switcher
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
@@ -145,14 +145,14 @@ export default async function Page({ searchParams }) {
 
 - 由于 `searchParams` 属性是一个 Promise，你必须使用 `async/await` 或 React 的 [`use`](https://react.dev/reference/react/use) 函数来访问其值。
   - 在版本 14 及更早版本中，`searchParams` 是一个同步属性。为了帮助向后兼容，在 Next.js 15 中你仍然可以同步访问它，但这种行为将在未来被废弃。
-- `searchParams` 是一个**[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-apis)**，其值无法提前知道。使用它将使页面在请求时选择**[动态渲染](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)**。
+- `searchParams` 是一个**[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-apis)**，其值无法提前知道。使用它将使页面在请求时选择**[动态渲染](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)**。
 - `searchParams` 是一个普通的 JavaScript 对象，而不是 `URLSearchParams` 实例。
 
 ## 示例
 
 ### 基于 `params` 显示内容
 
-使用[动态路由段](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)，你可以根据 `params` 属性为页面显示或获取特定内容。
+使用[动态路由段](/nextjs-cn/app/building-your-application/routing/dynamic-routes)，你可以根据 `params` 属性为页面显示或获取特定内容。
 
 ```tsx switcher
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
@@ -240,7 +240,7 @@ export default function Page({ params, searchParams }) {
 
 ## 版本历史
 
-| 版本       | 变更                                                                                                                 |
-| ---------- | -------------------------------------------------------------------------------------------------------------------- |
-| `v15.0.RC` | `params` 和 `searchParams` 现在是 Promise。提供了[代码转换工具](/docs/nextjs-cn/app/guides/upgrading/codemods#150)。 |
-| `v13.0.0`  | 引入 `page`。                                                                                                        |
+| 版本       | 变更                                                                                                            |
+| ---------- | --------------------------------------------------------------------------------------------------------------- |
+| `v15.0.RC` | `params` 和 `searchParams` 现在是 Promise。提供了[代码转换工具](/nextjs-cn/app/guides/upgrading/codemods#150)。 |
+| `v13.0.0`  | 引入 `page`。                                                                                                   |

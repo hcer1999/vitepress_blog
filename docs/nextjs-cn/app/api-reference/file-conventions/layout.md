@@ -45,9 +45,9 @@ export default function RootLayout({ children }) {
 > - 根布局必须定义 `<html>` 和 `<body>` 标签，因为 Next.js 不会自动创建它们。
 > - 根布局默认替换了 `pages` 目录中的 `_app.js` 和 `_document.js` 文件。
 > - Next.js 框架和 React 框架会自动添加 `<div>` 元素到每个布局和页面中。这些元素是必需的，用于 React 管理渲染，类似于 React 的行为。
-> - 布局默认是[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)，但也可以设置为[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)。
+> - 布局默认是[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，但也可以设置为[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)。
 > - 父布局和它们的子布局必须使用相同的组件类型：服务器或客户端。默认情况下，它们都是服务器组件，所以会共享相同的类型。
-> - 布局可以获取数据。查看[数据获取](/docs/nextjs-cn/app/building-your-application/data-fetching)部分了解更多。
+> - 布局可以获取数据。查看[数据获取](/nextjs-cn/app/building-your-application/data-fetching/index)部分了解更多。
 
 ## Props
 
@@ -161,23 +161,23 @@ export default function RootLayout({ children }) {
 ```
 
 - The root layout **must** define `<html>` and `<body>` tags.
-  - You should **not** manually add `<head>` tags such as `<title>` and `<meta>` to root layouts. Instead, you should use the [Metadata API](/docs/nextjs-cn/app/getting-started/metadata-and-og-images) which automatically handles advanced requirements such as streaming and de-duplicating `<head>` elements.
-- You can use [route groups](/docs/nextjs-cn/app/building-your-application/routing/index/route-groups) to create multiple root layouts.
+  - You should **not** manually add `<head>` tags such as `<title>` and `<meta>` to root layouts. Instead, you should use the [Metadata API](/nextjs-cn/app/getting-started/metadata-and-og-images) which automatically handles advanced requirements such as streaming and de-duplicating `<head>` elements.
+- You can use [route groups](/nextjs-cn/app/building-your-application/routing/route-groups) to create multiple root layouts.
   - Navigating **across multiple root layouts** will cause a **full page load** (as opposed to a client-side navigation). For example, navigating from `/cart` that uses `app/(shop)/layout.js` to `/blog` that uses `app/(marketing)/layout.js` will cause a full page load. This **only** applies to multiple root layouts.
 
 ## Caveats
 
 ### How can I access the request object in a layout?
 
-You intentionally cannot access the raw request object in a layout. However, you can access [`headers`](/docs/nextjs-cn/app/api-reference/functions/headers) and [`cookies`](/docs/nextjs-cn/app/api-reference/functions/cookies) through server-only functions.
+You intentionally cannot access the raw request object in a layout. However, you can access [`headers`](/nextjs-cn/app/api-reference/functions/headers) and [`cookies`](/nextjs-cn/app/api-reference/functions/cookies) through server-only functions.
 
-[Layouts](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#layouts) do not rerender. They can be cached and reused to avoid unnecessary computation when navigating between pages. By restricting layouts from accessing the raw request, Next.js can prevent the execution of potentially slow or expensive user code within the layout, which could negatively impact performance.
+[Layouts](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#layouts) do not rerender. They can be cached and reused to avoid unnecessary computation when navigating between pages. By restricting layouts from accessing the raw request, Next.js can prevent the execution of potentially slow or expensive user code within the layout, which could negatively impact performance.
 
 This design also enforces consistent and predictable behavior for layouts across different pages, which simplifies development and debugging.
 
 ### Layouts do not receive `searchParams`
 
-Unlike [Pages](/docs/nextjs-cn/app/api-reference/file-conventions/page), Layout components **do not** receive the `searchParams` prop. This is because a shared layout is [not re-rendered during navigation](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#partial-rendering) which could lead to stale `searchParams` between navigations.
+Unlike [Pages](/nextjs-cn/app/api-reference/file-conventions/page), Layout components **do not** receive the `searchParams` prop. This is because a shared layout is [not re-rendered during navigation](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#partial-rendering) which could lead to stale `searchParams` between navigations.
 
 When using client-side navigation, Next.js automatically only renders the part of the page below the common layout between two routes.
 
@@ -197,13 +197,13 @@ This performance optimization allows navigation between pages that share a layou
 
 Because `dashboard/layout.tsx` doesn't re-render, the `searchParams` prop in the layout Server Component might become **stale** after navigation.
 
-Instead, use the Page [`searchParams`](/docs/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional) prop or the [`useSearchParams`](/docs/nextjs-cn/app/api-reference/functions/use-search-params) hook in a Client Component within the layout, which is rerendered on the client with the latest `searchParams`.
+Instead, use the Page [`searchParams`](/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional) prop or the [`useSearchParams`](/nextjs-cn/app/api-reference/functions/use-search-params) hook in a Client Component within the layout, which is rerendered on the client with the latest `searchParams`.
 
 ### Layouts cannot access `pathname`
 
-Layouts cannot access `pathname`. This is because layouts are Server Components by default, and [don't rerender during client-side navigation](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#partial-rendering), which could lead to `pathname` becoming stale between navigations. To prevent staleness, Next.js would need to refetch all segments of a route, losing the benefits of caching and increasing the [RSC payload](/docs/nextjs-cn/app/building-your-application/rendering/server-components#what-is-the-react-server-component-payload-rsc) size on navigation.
+Layouts cannot access `pathname`. This is because layouts are Server Components by default, and [don't rerender during client-side navigation](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#partial-rendering), which could lead to `pathname` becoming stale between navigations. To prevent staleness, Next.js would need to refetch all segments of a route, losing the benefits of caching and increasing the [RSC payload](/nextjs-cn/app/building-your-application/rendering/server-components#what-is-the-react-server-component-payload-rsc) size on navigation.
 
-Instead, you can extract the logic that depends on pathname into a Client Component and import it into your layouts. Since Client Components rerender (but are not refetched) during navigation, you can use Next.js hooks such as [`usePathname`](/docs/nextjs-cn/nextjs-cn/app/api-reference/functions/use-pathname) to access the current pathname and prevent staleness.
+Instead, you can extract the logic that depends on pathname into a Client Component and import it into your layouts. Since Client Components rerender (but are not refetched) during navigation, you can use Next.js hooks such as [`usePathname`](/nextjs-cn/app/api-reference/functions/use-pathname) to access the current pathname and prevent staleness.
 
 ```tsx switcher
 import { ClientComponent } from '@/app/ui/ClientComponent'
@@ -235,13 +235,13 @@ export default function Layout({ children }) {
 
 Common `pathname` patterns can also be implemented with [`params`](#params-optional) prop.
 
-See the [examples](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#examples) section for more information.
+See the [examples](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#examples) section for more information.
 
 ## Examples
 
 ### Displaying content based on `params`
 
-Using [dynamic route segments](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes), you can display or fetch specific content based on the `params` prop.
+Using [dynamic route segments](/nextjs-cn/app/building-your-application/routing/dynamic-routes), you can display or fetch specific content based on the `params` prop.
 
 ```tsx switcher
 export default async function DashboardLayout({
@@ -305,10 +305,10 @@ export default function Page({ params }) {
 
 ## Version History
 
-| Version    | Changes                                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------------------------- |
-| `v15.0.RC` | `params` is now a promise. A [codemod](/docs/nextjs-cn/app/guides/upgrading/codemods#150) is available. |
-| `v13.0.0`  | `layout` introduced.                                                                                    |
+| Version    | Changes                                                                                            |
+| ---------- | -------------------------------------------------------------------------------------------------- |
+| `v15.0.RC` | `params` is now a promise. A [codemod](/nextjs-cn/app/guides/upgrading/codemods#150) is available. |
+| `v13.0.0`  | `layout` introduced.                                                                               |
 
 ## 良好实践
 
@@ -320,7 +320,7 @@ Next.js 鼓励使用 Web 平台的标准元素和功能。
 
 ### 流布局
 
-布局支持使用 React 的流式传输和 [Suspense boundaries](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming)。这允许从服务器到客户端逐步流式传输布局，包括即时显示已加载部分的 UI。同时为其他部分加载 UI 的[后备内容](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming#streaming-with-suspense)。
+布局支持使用 React 的流式传输和 [Suspense boundaries](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)。这允许从服务器到客户端逐步流式传输布局，包括即时显示已加载部分的 UI。同时为其他部分加载 UI 的[后备内容](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)。
 
 例如，你可以在导航带下使用 Suspense 边界来流式传输产品页面的内容：
 
@@ -368,13 +368,13 @@ export default async function Layout({ children, params }) {
 }
 ```
 
-使用 Suspense 的更多信息，请参阅[加载 UI](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming) 和 [Streaming](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming#streaming-with-suspense)。
+使用 Suspense 的更多信息，请参阅[加载 UI](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming) 和 [Streaming](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)。
 
 ## 示例
 
 ### Root Layout
 
-下面是一个与 [Tailwind CSS](/docs/nextjs-cn/app/building-your-application/styling/tailwind-css) 一起使用的根布局示例：
+下面是一个与 [Tailwind CSS]() 一起使用的根布局示例：
 
 ```tsx switcher
 import '@/styles/globals.css'
@@ -403,7 +403,7 @@ export default function RootLayout({ children }) {
 > **须知**：
 >
 > - 根布局默认替换了 `_app.js` 和 `_document.js` 文件。
-> - 你可以使用 [`head.js` 文件](/docs/nextjs-cn/app/api-reference/file-conventions/head) 来定义页面的头部元数据。
+> - 你可以使用 [`head.js` 文件]() 来定义页面的头部元数据。
 
 ### 创建嵌套布局
 
@@ -515,11 +515,11 @@ export default function RootLayout({ children }) {
 }
 ```
 
-查看[元数据 API 参考](/docs/nextjs-cn/app/api-reference/functions/generate-metadata)了解更多信息。
+查看[元数据 API 参考](/nextjs-cn/app/api-reference/functions/generate-metadata)了解更多信息。
 
 ### 将状态保持在导航之间
 
-布局可以包装多个页面，这种情况下布局在导航过程中是**保持状态的**，而不会重新渲染。这可以通过使用[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)和 React 的状态来实现。
+布局可以包装多个页面，这种情况下布局在导航过程中是**保持状态的**，而不会重新渲染。这可以通过使用[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)和 React 的状态来实现。
 
 ```tsx switcher
 'use client'
@@ -561,11 +561,11 @@ export default function DashboardLayout({ children }) {
 }
 ```
 
-> **须知**：在页面组件重新渲染时，客户端组件发送的布局不会在导航过程中重新渲染。查看[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)了解更多信息。
+> **须知**：在页面组件重新渲染时，客户端组件发送的布局不会在导航过程中重新渲染。查看[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)了解更多信息。
 
 ### 从布局中获取数据
 
-从布局中获取数据时有多种选择，包括使用 `fetch` API 或 React 服务器组件。这些方法在[数据获取](/docs/nextjs-cn/app/building-your-application/data-fetching)部分有详细描述。
+从布局中获取数据时有多种选择，包括使用 `fetch` API 或 React 服务器组件。这些方法在[数据获取](/nextjs-cn/app/building-your-application/data-fetching/index)部分有详细描述。
 
 ```tsx switcher
 export default async function Layout({ children }: { children: React.ReactNode }) {

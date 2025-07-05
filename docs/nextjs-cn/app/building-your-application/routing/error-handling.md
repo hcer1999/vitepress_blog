@@ -13,7 +13,7 @@ related:
 
 ## 处理预期错误
 
-预期错误是那些可能在应用程序正常操作过程中发生的错误，如来自[服务器端表单验证](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-form-validation)或失败的请求。这些错误应该被明确处理并返回给客户端。
+预期错误是那些可能在应用程序正常操作过程中发生的错误，如来自[服务器端表单验证](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-form-validation)或失败的请求。这些错误应该被明确处理并返回给客户端。
 
 ### 处理来自服务器操作的预期错误
 
@@ -109,7 +109,7 @@ export function Signup() {
 
 ### 处理来自服务器组件的预期错误
 
-在服务器组件内部获取数据时，您可以使用响应有条件地渲染错误消息或[`redirect`](/docs/nextjs-cn/app/building-your-application/routing/index/redirecting#redirect-function)。
+在服务器组件内部获取数据时，您可以使用响应有条件地渲染错误消息或[`redirect`](/nextjs-cn/app/building-your-application/routing/redirecting#redirect-function)。
 
 ```tsx switcher
 export default async function Page() {
@@ -215,7 +215,7 @@ export default function Error({ error, reset }) {
 
 ### 处理嵌套路由中的错误
 
-错误将冒泡到最近的父错误边界。这允许通过在[路由层次结构](/docs/nextjs-cn/app/getting-started/project-structure#component-hierarchy)的不同级别放置 `error.tsx` 文件来进行细粒度的错误处理。
+错误将冒泡到最近的父错误边界。这允许通过在[路由层次结构](/nextjs-cn/app/getting-started/project-structure#component-hierarchy)的不同级别放置 `error.tsx` 文件来进行细粒度的错误处理。
 
 <Image
   alt="嵌套错误组件层次结构"
@@ -227,7 +227,7 @@ export default function Error({ error, reset }) {
 
 ### 处理全局错误
 
-虽然不太常见，但您可以使用位于根 app 目录中的 `app/global-error.js` 处理根布局中的错误，即使在利用[国际化](/docs/nextjs-cn/app/building-your-application/routing/index/internationalization)时也是如此。全局错误 UI 必须定义自己的 `<html>` 和 `<body>` 标签，因为它在激活时会替换根布局或模板。
+虽然不太常见，但您可以使用位于根 app 目录中的 `app/global-error.js` 处理根布局中的错误，即使在利用[国际化](/nextjs-cn/app/building-your-application/routing/internationalization)时也是如此。全局错误 UI 必须定义自己的 `<html>` 和 `<body>` 标签，因为它在激活时会替换根布局或模板。
 
 ```tsx switcher
 'use client' // 错误边界必须是客户端组件

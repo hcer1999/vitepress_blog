@@ -9,13 +9,13 @@ related:
     - app/api-reference/functions/draft-mode
 ---
 
-**Draft Mode** allows you to preview draft content from your headless CMS in your Next.js application. This is useful for static pages that are generated at build time as it allows you to switch to [dynamic rendering](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering) and see the draft changes without having to rebuild your entire site.
+**Draft Mode** allows you to preview draft content from your headless CMS in your Next.js application. This is useful for static pages that are generated at build time as it allows you to switch to [dynamic rendering](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering) and see the draft changes without having to rebuild your entire site.
 
 This page walks through how to enable and use Draft Mode.
 
 ## Step 1: Create a Route Handler
 
-Create a [Route Handler](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers). It can have any name, for example, `app/api/draft/route.ts`.
+Create a [Route Handler](/nextjs-cn/app/building-your-application/routing/route-handlers). It can have any name, for example, `app/api/draft/route.ts`.
 
 ```ts switcher
 export async function GET(request: Request) {
@@ -29,7 +29,7 @@ export async function GET() {
 }
 ```
 
-Then, import the [`draftMode`](/docs/nextjs-cn/app/api-reference/functions/draft-mode) function and call the `enable()` method.
+Then, import the [`draftMode`](/nextjs-cn/app/api-reference/functions/draft-mode) function and call the `enable()` method.
 
 ```ts switcher
 import { draftMode } from 'next/headers'

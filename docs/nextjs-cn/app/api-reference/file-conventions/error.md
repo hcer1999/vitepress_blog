@@ -153,7 +153,7 @@ export default function Error({ error, reset }) {
 
 ### 全局错误
 
-虽然不太常见，但你可以使用 `global-error.js` 处理根布局或模板中的错误，该文件位于根 app 目录中，即使在使用[国际化](/docs/nextjs-cn/app/building-your-application/routing/index/internationalization)时也是如此。全局错误 UI 必须定义自己的 `<html>` 和 `<body>` 标签。当激活时，此文件替换根布局或模板。
+虽然不太常见，但你可以使用 `global-error.js` 处理根布局或模板中的错误，该文件位于根 app 目录中，即使在使用[国际化](/nextjs-cn/app/building-your-application/routing/internationalization)时也是如此。全局错误 UI 必须定义自己的 `<html>` 和 `<body>` 标签。当激活时，此文件替换根布局或模板。
 
 ```tsx switcher
 'use client' // 错误边界必须是客户端组件

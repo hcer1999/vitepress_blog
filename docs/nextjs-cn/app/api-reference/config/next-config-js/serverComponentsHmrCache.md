@@ -33,4 +33,4 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-> **须知：** 为了更好的可观察性，我们建议使用 [`logging.fetches`](/docs/nextjs-cn/app/api-reference/config/next-config-js/logging) 选项，它在开发过程中在控制台中记录 fetch 缓存命中和未命中情况。
+> **须知：** 为了更好的可观察性，我们建议使用 [`logging.fetches`](/nextjs-cn/app/api-reference/config/next-config-js/logging) 选项，它在开发过程中在控制台中记录 fetch 缓存命中和未命中情况。

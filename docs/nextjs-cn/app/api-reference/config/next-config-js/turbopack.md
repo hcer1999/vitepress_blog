@@ -3,9 +3,9 @@ title: turbopack
 description: 使用 Turbopack 特定选项配置 Next.js
 ---
 
-`turbopack` 选项允许你自定义 [Turbopack](/docs/nextjs-cn/app/api-reference/turbopack) 来转换不同的文件并更改模块的解析方式。
+`turbopack` 选项允许你自定义 [Turbopack](/nextjs-cn/app/api-reference/turbopack) 来转换不同的文件并更改模块的解析方式。
 
-```ts switcher
+```ts switcher/nextjs-cn/
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {

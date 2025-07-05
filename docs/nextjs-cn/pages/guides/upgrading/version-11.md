@@ -26,7 +26,7 @@ bun add next@11 react@17 react-dom@17
 
 ### Webpack 5
 
-Webpack 5 is now the default for all Next.js applications. If you did not have a custom webpack configuration, your application is already using webpack 5. If you do have a custom webpack configuration, you can refer to the [Next.js webpack 5 documentation](/docs/messages/webpack5) for upgrade guidance.
+Webpack 5 is now the default for all Next.js applications. If you did not have a custom webpack configuration, your application is already using webpack 5. If you do have a custom webpack configuration, you can refer to the [Next.js webpack 5 documentation](for upgrade guidance.
 
 ### Cleaning the `distDir` is now a default
 
@@ -66,13 +66,13 @@ If your `pages/_app.js` has a custom `componentDidCatch` method you can remove `
 
 This export was deprecated in Next.js 9 as it's no longer needed and has since been a no-op with a warning during development. In Next.js 11 it was removed.
 
-If your `pages/_app.js` imports `Container` from `next/app` you can remove `Container` as it was removed. Learn more in [the documentation](/docs/messages/app-container-deprecated).
+If your `pages/_app.js` imports `Container` from `next/app` you can remove `Container` as it was removed. Learn more in [the documentation]().
 
 ### Remove `props.url` usage from page components
 
 This property was deprecated in Next.js 4 and has since shown a warning during development. With the introduction of `getStaticProps` / `getServerSideProps` these methods already disallowed the usage of `props.url`. In Next.js 11, it was removed completely.
 
-You can learn more in [the documentation](/docs/messages/url-deprecated).
+You can learn more in [the documentation]().
 
 ### Remove `unsized` property on `next/image`
 
@@ -84,7 +84,7 @@ The `modules` and `render` option for `next/dynamic` were deprecated in Next.js 
 
 This option hasn't been mentioned in the documentation since Next.js 8 so it's less likely that your application is using it.
 
-If your application does use `modules` and `render` you can refer to [the documentation](/docs/messages/next-dynamic-modules).
+If your application does use `modules` and `render` you can refer to [the documentation]().
 
 ### Remove `Head.rewind`
 
@@ -129,7 +129,7 @@ If your application uses `router.router.events` which was an internal property t
 
 ## React 16 to 17
 
-React 17 introduced a new [JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) that brings a long-time Next.js feature to the wider React ecosystem: Not having to `import React from 'react'` when using JSX. When using React 17 Next.js will automatically use the new transform. This transform does not make the `React` variable global, which was an unintended side-effect of the previous Next.js implementation. A [codemod is available](/docs/nextjs-cn/pages/guides/upgrading/codemods#add-missing-react-import) to automatically fix cases where you accidentally used `React` without importing it.
+React 17 introduced a new [JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) that brings a long-time Next.js feature to the wider React ecosystem: Not having to `import React from 'react'` when using JSX. When using React 17 Next.js will automatically use the new transform. This transform does not make the `React` variable global, which was an unintended side-effect of the previous Next.js implementation. A [codemod is available](#add-missing-react-import) to automatically fix cases where you accidentally used `React` without importing it.
 
 Most applications already use the latest version of React, with Next.js 11 the minimum React version has been updated to 17.0.2.
 

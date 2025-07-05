@@ -14,7 +14,7 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-Explicitly opt-out certain packages from being bundled using the [`serverExternalPackages`](/docs/nextjs-cn/pages/api-reference/config/next-config-js/serverExternalPackages) option.
+Explicitly opt-out certain packages from being bundled using the [`serverExternalPackages`](/nextjs-cn/pages/api-reference/config/next-config-js/serverExternalPackages) option.
 
 ## Version History
 

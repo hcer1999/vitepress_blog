@@ -37,7 +37,7 @@ Next.js 支持**现代浏览器**，无需任何配置。
 
 如果你自己的代码或任何外部 npm 依赖项需要目标浏览器（如 IE 11）不支持的功能，你需要自己添加 polyfills。
 
-在这种情况下，你应该在[自定义 `<App>`](/docs/nextjs-cn/pages/building-your-application/routing/custom-app) 或单个组件中添加对**特定 polyfill** 的顶级导入。
+在这种情况下，你应该在[自定义 `<App>`](/nextjs-cn/pages/building-your-application/routing/custom-app) 或单个组件中添加对**特定 polyfill** 的顶级导入。
 
 ## JavaScript 语言功能
 
@@ -53,8 +53,8 @@ Next.js 允许你开箱即用地使用最新的 JavaScript 功能。除了 [ES6 
 
 ### TypeScript 功能
 
-Next.js 内置了 TypeScript 支持。[在此了解更多](/docs/nextjs-cn/pages/api-reference/config/typescript)。
+Next.js 内置了 TypeScript 支持。[在此了解更多](/nextjs-cn/pages/api-reference/config/typescript)。
 
 ### 自定义 Babel 配置（高级）
 
-你可以自定义 babel 配置。[在此了解更多](/docs/nextjs-cn/pages/guides/configuring/babel)。
+你可以自定义 babel 配置。[在此了解更多]()。

@@ -7,9 +7,9 @@ related:
     - app/api-reference/file-conventions/unauthorized
 ---
 
-`unauthorized` 函数抛出一个错误，用于渲染 Next.js 401 错误页面。它对于处理应用程序中的授权错误非常有用。你可以使用 [`unauthorized.js` 文件](/docs/nextjs-cn/app/api-reference/file-conventions/unauthorized)自定义用户界面。
+`unauthorized` 函数抛出一个错误，用于渲染 Next.js 401 错误页面。它对于处理应用程序中的授权错误非常有用。你可以使用 [`unauthorized.js` 文件](/nextjs-cn/app/api-reference/file-conventions/unauthorized)自定义用户界面。
 
-要开始使用 `unauthorized`，请在 `next.config.js` 文件中启用实验性的 [`authInterrupts`](/docs/nextjs-cn/app/api-reference/config/next-config-js/authInterrupts) 配置选项：
+要开始使用 `unauthorized`，请在 `next.config.js` 文件中启用实验性的 [`authInterrupts`](/nextjs-cn/app/api-reference/config/next-config-js/authInterrupts) 配置选项：
 
 ```ts switcher
 import type { NextConfig } from 'next'
@@ -31,7 +31,7 @@ module.exports = {
 }
 ```
 
-`unauthorized` 可以在[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)、[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)和[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)中调用。
+`unauthorized` 可以在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)、[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)和[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中调用。
 
 ```tsx switcher
 import { verifySession } from '@/app/lib/dal'
@@ -77,7 +77,7 @@ export default async function DashboardPage() {
 
 ## 须知
 
-- `unauthorized` 函数不能在[根布局](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#root-layout-required)中调用。
+- `unauthorized` 函数不能在[根布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#root-layout-required)中调用。
 
 ## 示例
 

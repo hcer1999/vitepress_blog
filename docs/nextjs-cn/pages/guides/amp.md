@@ -17,11 +17,11 @@ You can read more about AMP in the official [amp.dev](https://amp.dev/) site.
 
 ## Enabling AMP
 
-To enable AMP support for a page, and to learn more about the different AMP configs, read the [API documentation for `next/amp`](/docs/nextjs-cn/pages/guides/rendering/amp).
+To enable AMP support for a page, and to learn more about the different AMP configs, read the [API documentation for `next/amp`]().
 
 ## Caveats
 
-- Only CSS-in-JS is supported. [CSS Modules](/docs/nextjs-cn/app/getting-started/css) aren't supported by AMP pages at the moment. You can [contribute CSS Modules support to Next.js](https://github.com/vercel/next.js/issues/10549).
+- Only CSS-in-JS is supported. [CSS Modules](/nextjs-cn/app/getting-started/css) aren't supported by AMP pages at the moment. You can [contribute CSS Modules support to Next.js](https://github.com/vercel/next.js/issues/10549).
 
 ## Adding AMP Components
 
@@ -84,7 +84,7 @@ export default MyAmpPage
 
 AMP pages are automatically validated with [amphtml-validator](https://www.npmjs.com/package/amphtml-validator) during development. Errors and warnings will appear in the terminal where you started Next.js.
 
-Pages are also validated during [Static HTML export](/docs/nextjs-cn/pages/guides/deployment/static-exports) and any warnings / errors will be printed to the terminal. Any AMP errors will cause the export to exit with status code `1` because the export is not valid AMP.
+Pages are also validated during [Static HTML export]() and any warnings / errors will be printed to the terminal. Any AMP errors will cause the export to exit with status code `1` because the export is not valid AMP.
 
 ### Custom Validators
 
@@ -112,7 +112,7 @@ experimental: {
 
 ### AMP in Static HTML Export
 
-When using [Static HTML export](/docs/nextjs-cn/pages/guides/deployment/static-exports) statically prerender pages, Next.js will detect if the page supports AMP and change the exporting behavior based on that.
+When using [Static HTML export]() statically prerender pages, Next.js will detect if the page supports AMP and change the exporting behavior based on that.
 
 For example, the hybrid AMP page `pages/about.js` would output:
 
@@ -135,7 +135,7 @@ And the AMP version of your page will include a link to the HTML page:
 <link rel="canonical" href="/about" />
 ```
 
-When [`trailingSlash`](/docs/nextjs-cn/pages/api-reference/config/next-config-js/trailingSlash) is enabled the exported pages for `pages/about.js` would be:
+When [`trailingSlash`](/nextjs-cn/pages/api-reference/config/next-config-js/trailingSlash) is enabled the exported pages for `pages/about.js` would be:
 
 - `out/about/index.html` - HTML page
 - `out/about.amp/index.html` - AMP page

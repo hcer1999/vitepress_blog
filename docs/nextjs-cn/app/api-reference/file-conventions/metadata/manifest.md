@@ -21,7 +21,7 @@ description: manifest.json 文件的 API 参考。
 
 添加一个返回 [`Manifest` 对象](#manifest-对象)的 `manifest.js` 或 `manifest.ts` 文件。
 
-> 须知: `manifest.js` 是一个默认被缓存的特殊路由处理程序，除非它使用了[动态 API](/docs/nextjs-cn/app/deep-dive/caching#dynamic-apis) 或[动态配置](/docs/nextjs-cn/app/deep-dive/caching#segment-config-options)选项。
+> 须知: `manifest.js` 是一个默认被缓存的特殊路由处理程序，除非它使用了[动态 API](/nextjs-cn/app/deep-dive/caching#dynamic-apis) 或[动态配置](/nextjs-cn/app/deep-dive/caching#segment-config-options)选项。
 
 ```ts switcher
 import type { MetadataRoute } from 'next'
@@ -69,4 +69,4 @@ export default function manifest() {
 
 ### Manifest 对象
 
-清单对象包含广泛的选项列表，可能会因新的 Web 标准而更新。有关所有当前选项的信息，如果使用 [TypeScript](/docs/nextjs-cn/nextjs-cn/app/api-reference/config/typescript#ide-plugin)，请参考代码编辑器中的 `MetadataRoute.Manifest` 类型，或查看 [MDN](https://developer.mozilla.org/docs/Web/Manifest) 文档。
+清单对象包含广泛的选项列表，可能会因新的 Web 标准而更新。有关所有当前选项的信息，如果使用 [TypeScript](/nextjs-cn/app/api-reference/config/typescript#ide-plugin)，请参考代码编辑器中的 `MetadataRoute.Manifest` 类型，或查看 [MDN](https://developer.mozilla.org/docs/Web/Manifest) 文档。

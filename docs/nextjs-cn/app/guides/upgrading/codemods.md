@@ -36,7 +36,7 @@ npx @next/codemod <transform> <path>
 npx @next/codemod@latest app-dir-runtime-config-experimental-edge .
 ```
 
-此代码修改工具将[路由段配置 `runtime`](/docs/nextjs-cn/nextjs-cn/app/api-reference/file-conventions/route-segment-config#runtime) 值 `experimental-edge` 转换为 `edge`。
+此代码修改工具将[路由段配置 `runtime`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#runtime) 值 `experimental-edge` 转换为 `edge`。
 
 例如：
 
@@ -52,7 +52,7 @@ export const runtime = 'edge'
 
 #### 迁移到异步动态 API
 
-之前支持同步访问的动态渲染 API 现在是异步的。你可以在[升级指南](/docs/nextjs-cn/app/guides/upgrading/version-15)中阅读有关此破坏性变更的更多信息。
+之前支持同步访问的动态渲染 API 现在是异步的。你可以在[升级指南](/nextjs-cn/app/guides/upgrading/version-15)中阅读有关此破坏性变更的更多信息。
 
 ##### `next-async-request-api`
 
@@ -161,7 +161,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 ```
 
 > **提示：** 当此代码修改工具识别出可能需要手动干预但我们无法确定确切修复方法的地方时，它会在代码中添加注释或类型转换，通知用户需要手动更新。这些注释以 **@next/codemod** 为前缀，类型转换以 `UnsafeUnwrapped` 为前缀。
-> 在这些注释被明确删除之前，你的构建将会出错。[阅读更多](/docs/messages/sync-dynamic-apis)。
+> 在这些注释被明确删除之前，你的构建将会出错。[阅读更多]()。
 
 #### 用 `@vercel/functions` 替换 `NextRequest` 的 `geo` 和 `ip` 属性
 
@@ -205,7 +205,7 @@ export function GET(req: NextRequest) {
 npx @next/codemod@latest next-og-import .
 ```
 
-此代码修改工具将 [动态 OG 图像生成](/docs/nextjs-cn/app/getting-started/metadata-and-og-images#generated-open-graph-images) 的导入从 `next/server` 移至 `next/og`。
+此代码修改工具将 [动态 OG 图像生成](/nextjs-cn/app/getting-started/metadata-and-og-images#generated-open-graph-images) 的导入从 `next/server` 移至 `next/og`。
 
 例如：
 
@@ -350,13 +350,13 @@ npx @next/codemod@latest new-link .
 
 <AppOnly>
 
-从 [Link 组件](/docs/nextjs-cn/app/api-reference/components/link) 中移除 `<a>` 标签，或为无法自动修复的 Link 添加 `legacyBehavior` 属性。
+从 [Link 组件](/nextjs-cn/app/api-reference/components/link) 中移除 `<a>` 标签，或为无法自动修复的 Link 添加 `legacyBehavior` 属性。
 
 </AppOnly>
 
 <PagesOnly>
 
-从 [Link 组件](/docs/nextjs-cn/pages/api-reference/components/link) 中移除 `<a>` 标签，或为无法自动修复的 Link 添加 `legacyBehavior` 属性。
+从 [Link 组件](/nextjs-cn/pages/api-reference/components/link) 中移除 `<a>` 标签，或为无法自动修复的 Link 添加 `legacyBehavior` 属性。
 
 </PagesOnly>
 
@@ -519,7 +519,7 @@ export const config = {
 npx @next/codemod url-to-withrouter
 ```
 
-转换已弃用的自动注入到顶级页面的 `url` 属性，使用 `withRouter` 和它注入的 `router` 属性。在此处阅读更多信息：[https://nextjs.org/docs/messages/url-deprecated](/docs/messages/url-deprecated)
+转换已弃用的自动注入到顶级页面的 `url` 属性，使用 `withRouter` 和它注入的 `router` 属性。在此处阅读更多信息：[https://nextjs.org/docs/messages/url-deprecated]()
 
 例如：
 

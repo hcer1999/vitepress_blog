@@ -7,7 +7,7 @@ Next.js uses the `App` component to initialize pages. You can override it and co
 
 - Create a shared layout between page changes
 - Inject additional data into pages
-- [Add global CSS](/docs/nextjs-cn/app/getting-started/css)
+- [Add global CSS](/nextjs-cn/app/getting-started/css)
 
 ## Usage
 
@@ -29,18 +29,18 @@ export default function MyApp({ Component, pageProps }) {
 
 The `Component` prop is the active `page`, so whenever you navigate between routes, `Component` will change to the new `page`. Therefore, any props you send to `Component` will be received by the `page`.
 
-`pageProps` is an object with the initial props that were preloaded for your page by one of our [data fetching methods](/docs/nextjs-cn/pages/building-your-application/data-fetching), otherwise it's an empty object.
+`pageProps` is an object with the initial props that were preloaded for your page by one of our [data fetching methods](/nextjs-cn/pages/building-your-application/data-fetching/index), otherwise it's an empty object.
 
 > **Good to know**:
 >
 > - If your app is running and you added a custom `App`, you'll need to restart the development server. Only required if `pages/_app.js` didn't exist before.
-> - `App` does not support Next.js [Data Fetching methods](/docs/nextjs-cn/pages/building-your-application/data-fetching) like [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) or [`getServerSideProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props).
+> - `App` does not support Next.js [Data Fetching methods](/nextjs-cn/pages/building-your-application/data-fetching/index) like [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) or [`getServerSideProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props).
 
 ## `getInitialProps` with `App`
 
-Using [`getInitialProps`](/docs/nextjs-cn/pages/api-reference/functions/get-initial-props) in `App` will disable [Automatic Static Optimization](/docs/nextjs-cn/pages/building-your-application/rendering/automatic-static-optimization) for pages without [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props).
+Using [`getInitialProps`](/nextjs-cn/pages/api-reference/functions/get-initial-props) in `App` will disable [Automatic Static Optimization](/nextjs-cn/pages/building-your-application/rendering/automatic-static-optimization) for pages without [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props).
 
-**We do not recommend using this pattern.** Instead, consider [incrementally adopting](/docs/nextjs-cn/app/guides/migrating/app-router-migration) the App Router, which allows you to more easily fetch data for [pages and layouts](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates).
+**We do not recommend using this pattern.** Instead, consider [incrementally adopting](/nextjs-cn/app/guides/migrating/app-router-migration) the App Router, which allows you to more easily fetch data for [pages and layouts](/nextjs-cn/app/building-your-application/routing/layouts-and-templates).
 
 ```tsx switcher
 import App, { AppContext, AppInitialProps, AppProps } from 'next/app'

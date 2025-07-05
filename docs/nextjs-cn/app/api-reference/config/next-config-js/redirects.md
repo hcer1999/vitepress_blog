@@ -36,9 +36,9 @@ module.exports = {
 
 重定向在文件系统之前检查，包括页面和 `/public` 文件。
 
-当使用 Pages Router 时，重定向不会应用于客户端路由（`Link`，`router.push`），除非存在 [Middleware](/docs/nextjs-cn/app/building-your-application/routing/index/middleware) 并匹配路径。
+当使用 Pages Router 时，重定向不会应用于客户端路由（`Link`，`router.push`），除非存在 [Middleware](/nextjs-cn/app/building-your-application/routing/middleware) 并匹配路径。
 
-当应用重定向时，请求中提供的任何查询值都将传递到重定向目标。例如，请看以下重定向配置：
+当应用重定向时，请求中提供的任何查询值都将传递到重定向目标。例如，请看以下重定向配置：/nextjs-cn/
 
 ```js
 {
@@ -218,7 +218,7 @@ module.exports = {
 
 ### 支持 basePath 的重定向
 
-当使用 [`basePath` 支持](/docs/nextjs-cn/app/api-reference/config/next-config-js/basePath) 与重定向时，每个 `source` 和 `destination` 会自动加上 `basePath` 前缀，除非你在重定向中添加 `basePath: false`：
+当使用 [`basePath` 支持](/nextjs-cn/app/api-reference/config/next-config-js/basePath) 与重定向时，每个 `source` 和 `destination` 会自动加上 `basePath` 前缀，除非你在重定向中添加 `basePath: false`：
 
 ```js
 module.exports = {
@@ -247,15 +247,15 @@ module.exports = {
 
 <AppOnly>
 
-当使用 [`i18n` 支持](/docs/nextjs-cn/app/building-your-application/routing/index/internationalization) 与重定向时，每个 `source` 和 `destination` 会自动添加前缀以处理配置的 `locales`，除非你在重定向中添加 `locale: false`。如果使用了 `locale: false`，你必须为 `source` 和 `destination` 添加语言环境前缀，以便正确匹配。
+当使用 [`i18n` 支持](/nextjs-cn/app/building-your-application/routing/internationalization) 与重定向时，每个 `source` 和 `destination` 会自动添加前缀以处理配置的 `locales`，除非你在重定向中添加 `locale: false`。如果使用了 `locale: false`，你必须为 `source` 和 `destination` 添加语言环境前缀，以便正确匹配。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-当使用 [`i18n` 支持](/docs/nextjs-cn/pages/building-your-application/routing/internationalization) 与重定向时，每个 `source` 和 `destination` 会自动添加前缀以处理配置的 `locales`，除非你在重定向中添加 `locale: false`。如果使用了 `locale: false`，你必须为 `source` 和 `destination` 添加语言环境前缀，以便正确匹配。
+当使用 [`i18n` 支持](/nextjs-cn/pages/building-your-application/routing/internationalization) 与重定向时，每个 `source` 和 `destination` 会自动添加前缀以处理配置的 `locales`，除非你在重定向中添加 `locale: false`。如果使用了 `locale: false`，你必须为 `source` 和 `destination` 添加语言环境前缀，以便正确匹配。
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 ```js
 module.exports = {
@@ -308,8 +308,8 @@ module.exports = {
 
 ## 其他重定向
 
-- 在 [API 路由](/docs/nextjs-cn/pages/building-your-application/routing/api-routes) 和 [路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) 内，你可以基于传入请求进行重定向。
-- 在 [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) 和 [`getServerSideProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props) 内，你可以在请求时重定向特定页面。
+- 在 [API 路由](/nextjs-cn/pages/building-your-application/routing/api-routes) 和 [路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers) 内，你可以基于传入请求进行重定向。
+- 在 [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) 和 [`getServerSideProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props) 内，你可以在请求时重定向特定页面。
 
 ## 版本历史
 

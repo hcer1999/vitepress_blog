@@ -31,11 +31,11 @@ npm install next@latest
 npm run dev --turbopack
 ```
 
-[了解更多关于 Turbopack](/blog/turbopack-for-development-stable)。查看我们的[升级指南](/docs/nextjs-cn/app/guides/upgrading)和代码模块获取更多信息。
+[了解更多关于 Turbopack]()。查看我们的[升级指南](/nextjs-cn/app/guides/upgrading/index)和代码模块获取更多信息。
 
 ### 3. 检查你的导入
 
-导入代码的方式可能会极大地影响编译和打包时间。了解更多关于[优化包打包](/docs/nextjs-cn/app/guides/package-bundling)并探索诸如 [Dependency Cruiser](https://github.com/sverweij/dependency-cruiser) 或 [Madge](https://github.com/pahen/madge) 等工具。
+导入代码的方式可能会极大地影响编译和打包时间。了解更多关于[优化包打包](/nextjs-cn/app/guides/package-bundling)并探索诸如 [Dependency Cruiser](https://github.com/sverweij/dependency-cruiser) 或 [Madge](https://github.com/pahen/madge) 等工具。
 
 ### 图标库
 
@@ -117,13 +117,13 @@ Tailwind CSS 3.4.8 或更新版本会警告你可能会减慢构建速度的设�
 
 如果你添加了自定义 webpack 设置，它们可能会减慢编译速度。
 
-考虑是否真的需要它们用于本地开发。你可以选择只在生产构建中包含某些工具，或者考虑迁移到 Turbopack 并使用[加载器](/docs/nextjs-cn/app/api-reference/config/next-config-js/turbopack#supported-loaders)。
+考虑是否真的需要它们用于本地开发。你可以选择只在生产构建中包含某些工具，或者考虑迁移到 Turbopack 并使用[加载器](/nextjs-cn/app/api-reference/config/next-config-js/turbopack#supported-loaders)。
 
 ### 6. 优化内存使用
 
 如果你的应用程序非常大，它可能需要更多内存。
 
-[了解更多关于优化内存使用](/docs/nextjs-cn/app/guides/memory-usage)。
+[了解更多关于优化内存使用](/nextjs-cn/app/guides/memory-usage)。
 
 ### 7. 服务器组件和数据获取
 
@@ -131,7 +131,7 @@ Tailwind CSS 3.4.8 或更新版本会警告你可能会减慢构建速度的设�
 
 实验性的 `serverComponentsHmrCache` 选项允许你在本地开发中跨热模块替换 (HMR) 刷新缓存服务器组件中的 `fetch` 响应。这会带来更快的响应时间，并减少计费 API 调用的成本。
 
-[了解更多关于实验性选项](/docs/nextjs-cn/app/api-reference/config/next-config-js/serverComponentsHmrCache)。
+[了解更多关于实验性选项](/nextjs-cn/app/api-reference/config/next-config-js/serverComponentsHmrCache)。
 
 ## 查找问题的工具
 

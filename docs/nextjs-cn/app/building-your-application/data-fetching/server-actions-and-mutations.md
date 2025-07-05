@@ -120,12 +120,12 @@ export default function ClientComponent({ updateItemAction }) {
   - 在客户端组件中，如果 JavaScript 尚未加载，调用服务器操作的表单将排队提交，优先考虑客户端水合。
   - 水合后，浏览器在表单提交时不会刷新。
 - 服务器操作不限于 `<form>`，可以从事件处理程序、`useEffect`、第三方库和其他表单元素（如 `<button>`）中调用。
-- 服务器操作与 Next.js [缓存和重新验证](/docs/nextjs-cn/app/deep-dive/caching)架构集成。当调用操作时，Next.js 可以在单个服务器往返中返回更新的 UI 和新数据。
+- 服务器操作与 Next.js [缓存和重新验证](/nextjs-cn/app/deep-dive/caching)架构集成。当调用操作时，Next.js 可以在单个服务器往返中返回更新的 UI 和新数据。
 - 在幕后，操作使用 `POST` 方法，并且只有这种 HTTP 方法可以调用它们。
 - 服务器操作的参数和返回值必须可被 React 序列化。查看 React 文档了解[可序列化的参数和值](https://react.dev/reference/react/use-server#serializable-parameters-and-return-values)列表。
 - 服务器操作是函数。这意味着它们可以在应用程序的任何地方重用。
 - 服务器操作继承其所使用的页面或布局的运行时。
-- 服务器操作继承其所使用的页面或布局的[路由段配置](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config)，包括 `maxDuration` 等字段。
+- 服务器操作继承其所使用的页面或布局的[路由段配置](/nextjs-cn/app/api-reference/file-conventions/route-segment-config)，包括 `maxDuration` 等字段。
 
 ## 示例
 
@@ -713,7 +713,7 @@ export default function ViewCount({ initialViews }) {
 
 ### 错误处理
 
-当抛出错误时，它将被客户端上最近的 `error.js` 或 `<Suspense>` 边界捕获。有关更多信息，请参阅[错误处理](/docs/nextjs-cn/app/building-your-application/routing/index/error-handling)。
+当抛出错误时，它将被客户端上最近的 `error.js` 或 `<Suspense>` 边界捕获。有关更多信息，请参阅[错误处理](/nextjs-cn/app/building-your-application/routing/error-handling)。
 
 > **值得了解：**
 >
@@ -721,7 +721,7 @@ export default function ViewCount({ initialViews }) {
 
 ### 重新验证数据
 
-你可以在服务器操作内使用 [`revalidatePath`](/docs/nextjs-cn/app/api-reference/functions/revalidatePath) API 重新验证 [Next.js 缓存](/docs/nextjs-cn/app/deep-dive/caching)：
+你可以在服务器操作内使用 [`revalidatePath`](/nextjs-cn/app/api-reference/functions/revalidatePath) API 重新验证 [Next.js 缓存](/nextjs-cn/app/deep-dive/caching)：
 
 ```ts switcher
 'use server'
@@ -739,7 +739,7 @@ export async function createPost() {
 }
 ```
 
-或者使用 [`revalidateTag`](/docs/nextjs-cn/app/api-reference/functions/revalidateTag) 通过缓存标签使特定的数据获取失效：
+或者使用 [`revalidateTag`](/nextjs-cn/app/api-reference/functions/revalidateTag) 通过缓存标签使特定的数据获取失效：
 
 ```ts switcher
 'use server'
@@ -775,7 +775,7 @@ export async function createPost() {
 
 ### 重定向
 
-如果你想在服务器操作完成后将用户重定向到不同的路由，可以使用 [`redirect`](/docs/nextjs-cn/app/api-reference/functions/redirect) API。`redirect` 需要在 `try/catch` 块外调用：
+如果你想在服务器操作完成后将用户重定向到不同的路由，可以使用 [`redirect`](/nextjs-cn/app/api-reference/functions/redirect) API。`redirect` 需要在 `try/catch` 块外调用：
 
 ```ts switcher
 'use server'
@@ -815,7 +815,7 @@ export async function createPost(id) {
 
 ### Cookies
 
-你可以使用 [`cookies`](/docs/nextjs-cn/app/api-reference/functions/cookies) API 在服务器操作内 `获取`、`设置` 和 `删除` cookies：
+你可以使用 [`cookies`](/nextjs-cn/app/api-reference/functions/cookies) API 在服务器操作内 `获取`、`设置` 和 `删除` cookies：
 
 ```ts switcher
 'use server'
@@ -856,7 +856,7 @@ export async function exampleAction() {
 }
 ```
 
-有关从服务器操作删除 cookie 的[其他示例](/docs/nextjs-cn/app/api-reference/functions/cookies#deleting-cookies)，请参阅文档。
+有关从服务器操作删除 cookie 的[其他示例](/nextjs-cn/app/api-reference/functions/cookies#deleting-cookies)，请参阅文档。
 
 ## 安全性
 
@@ -955,7 +955,7 @@ export default async function Page() {
 
 然而，为了实现这一点，捕获的变量会发送到客户端，并在调用操作时发回服务器。为了防止敏感数据暴露给客户端，Next.js 自动对闭包变量进行加密。每次构建 Next.js 应用程序时，都会为每个操作生成一个新的私钥。这意味着操作只能针对特定的构建调用。
 
-> **值得了解：** 我们不建议仅依靠加密来防止敏感值在客户端上暴露。相反，你应该使用 [React 污点 API](/docs/nextjs-cn/app/building-your-application/data-fetching/fetching#preventing-sensitive-data-from-being-exposed-to-the-client) 主动防止特定数据发送到客户端。
+> **值得了解：** 我们不建议仅依靠加密来防止敏感值在客户端上暴露。相反，你应该使用 [React 污点 API](/nextjs-cn/app/building-your-application/data-fetching/fetching#preventing-sensitive-data-from-being-exposed-to-the-client) 主动防止特定数据发送到客户端。
 
 ### 覆盖加密密钥（高级）
 
@@ -975,7 +975,7 @@ export default async function Page() {
 
 作为额外的保护，Next.js 中的服务器操作还会比较 [Origin 标头](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin)和 [Host 标头](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host)（或 `X-Forwarded-Host`）。如果这些不匹配，请求将被中止。换句话说，服务器操作只能在托管它的页面的同一主机上调用。
 
-对于使用反向代理或多层后端架构的大型应用程序（其中服务器 API 与生产域不同），建议使用配置选项 [`serverActions.allowedOrigins`](/docs/nextjs-cn/app/api-reference/config/next-config-js/serverActions) 来指定安全来源列表。该选项接受字符串数组。
+对于使用反向代理或多层后端架构的大型应用程序（其中服务器 API 与生产域不同），建议使用配置选项 [`serverActions.allowedOrigins`](/nextjs-cn/app/api-reference/config/next-config-js/serverActions) 来指定安全来源列表。该选项接受字符串数组。
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -988,7 +988,7 @@ module.exports = {
 }
 ```
 
-Learn more about [Security and Server Actions](/docs/nextjs-cn/nextjs-cn/blog/security-nextjs-server-components-actions).
+Learn more about [Security and Server Actions]().
 
 ## Additional resources
 

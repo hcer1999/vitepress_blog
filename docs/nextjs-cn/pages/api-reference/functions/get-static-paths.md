@@ -3,7 +3,7 @@ title: getStaticPaths
 description: API reference for `getStaticPaths`. Learn how to fetch data and generate static pages with `getStaticPaths`.
 ---
 
-When exporting a function called `getStaticPaths` from a page that uses [Dynamic Routes](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes), Next.js will statically pre-render all the paths specified by `getStaticPaths`.
+When exporting a function called `getStaticPaths` from a page that uses [Dynamic Routes](/nextjs-cn/pages/building-your-application/routing/dynamic-routes), Next.js will statically pre-render all the paths specified by `getStaticPaths`.
 
 ```tsx switcher
 import type { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from 'next'
@@ -70,7 +70,7 @@ The `getStaticPaths` function should return an object with the following **requi
 
 ### `paths`
 
-The `paths` key determines which paths will be pre-rendered. For example, suppose that you have a page that uses [Dynamic Routes](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes) named `pages/posts/[id].js`. If you export `getStaticPaths` from this page and return the following for `paths`:
+The `paths` key determines which paths will be pre-rendered. For example, suppose that you have a page that uses [Dynamic Routes](/nextjs-cn/pages/building-your-application/routing/dynamic-routes) named `pages/posts/[id].js`. If you export `getStaticPaths` from this page and return the following for `paths`:
 
 ```js
 return {
@@ -91,12 +91,12 @@ Then, Next.js will statically generate `/posts/1` and `/posts/2` during `next bu
 The value for each `params` object must match the parameters used in the page name:
 
 - If the page name is `pages/posts/[postId]/[commentId]`, then `params` should contain `postId` and `commentId`.
-- If the page name uses [catch-all routes](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes#catch-all-segments) like `pages/[...slug]`, then `params` should contain `slug` (which is an array). If this array is `['hello', 'world']`, then Next.js will statically generate the page at `/hello/world`.
-- If the page uses an [optional catch-all route](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes#optional-catch-all-segments), use `null`, `[]`, `undefined` or `false` to render the root-most route. For example, if you supply `slug: false` for `pages/[[...slug]]`, Next.js will statically generate the page `/`.
+- If the page name uses [catch-all routes](/nextjs-cn/pages/building-your-application/routing/dynamic-routes#catch-all-segments) like `pages/[...slug]`, then `params` should contain `slug` (which is an array). If this array is `['hello', 'world']`, then Next.js will statically generate the page at `/hello/world`.
+- If the page uses an [optional catch-all route](/nextjs-cn/pages/building-your-application/routing/dynamic-routes#optional-catch-all-segments), use `null`, `[]`, `undefined` or `false` to render the root-most route. For example, if you supply `slug: false` for `pages/[[...slug]]`, Next.js will statically generate the page `/`.
 
 The `params` strings are **case-sensitive** and ideally should be normalized to ensure the paths are generated correctly. For example, if `WoRLD` is returned for a param it will only match if `WoRLD` is the actual path visited, not `world` or `World`.
 
-Separate of the `params` object a `locale` field can be returned when [i18n is configured](/docs/nextjs-cn/pages/building-your-application/routing/internationalization), which configures the locale for the path being generated.
+Separate of the `params` object a `locale` field can be returned when [i18n is configured](/nextjs-cn/pages/building-your-application/routing/internationalization), which configures the locale for the path being generated.
 
 ### `fallback: false`
 
@@ -104,7 +104,7 @@ If `fallback` is `false`, then any paths not returned by `getStaticPaths` will r
 
 When `next build` is run, Next.js will check if `getStaticPaths` returned `fallback: false`, it will then build **only** the paths returned by `getStaticPaths`. This option is useful if you have a small number of paths to create, or new page data is not added often. If you find that you need to add more paths, and you have `fallback: false`, you will need to run `next build` again so that the new paths can be generated.
 
-The following example pre-renders one blog post per page called `pages/posts/[id].js`. The list of blog posts will be fetched from a CMS and returned by `getStaticPaths`. Then, for each page, it fetches the post data from a CMS using [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props).
+The following example pre-renders one blog post per page called `pages/posts/[id].js`. The list of blog posts will be fetched from a CMS and returned by `getStaticPaths`. Then, for each page, it fetches the post data from a CMS using [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props).
 
 ```jsx
 function Post({ post }) {
@@ -159,7 +159,7 @@ If `fallback` is `true`, then the behavior of `getStaticProps` changes in the fo
 - When complete, the browser receives the `JSON` for the generated path. This will be used to automatically render the page with the required props. From the user’s perspective, the page will be swapped from the fallback page to the full page.
 - At the same time, Next.js adds this path to the list of pre-rendered pages. Subsequent requests to the same path will serve the generated page, like other pages pre-rendered at build time.
 
-> **Good to know**: `fallback: true` is not supported when using [`output: 'export'`](/docs/nextjs-cn/pages/guides/deployment/static-exports).
+> **Good to know**: `fallback: true` is not supported when using [`output: 'export'`]().
 
 #### When is `fallback: true` useful?
 
@@ -171,7 +171,7 @@ Shortly after, `getStaticProps` finishes and the page will be rendered with the 
 
 This ensures that users always have a fast experience while preserving fast builds and the benefits of Static Generation.
 
-`fallback: true` will not _update_ generated pages, for that take a look at [Incremental Static Regeneration](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration).
+`fallback: true` will not _update_ generated pages, for that take a look at [Incremental Static Regeneration](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration).
 
 ### `fallback: 'blocking'`
 
@@ -184,16 +184,16 @@ If `fallback` is `'blocking'`, new paths not returned by `getStaticPaths` will w
 - When complete, the browser receives the `HTML` for the generated path. From the user’s perspective, it will transition from "the browser is requesting the page" to "the full page is loaded". There is no flash of loading/fallback state.
 - At the same time, Next.js adds this path to the list of pre-rendered pages. Subsequent requests to the same path will serve the generated page, like other pages pre-rendered at build time.
 
-`fallback: 'blocking'` will not _update_ generated pages by default. To update generated pages, use [Incremental Static Regeneration](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration) in conjunction with `fallback: 'blocking'`.
+`fallback: 'blocking'` will not _update_ generated pages by default. To update generated pages, use [Incremental Static Regeneration](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration) in conjunction with `fallback: 'blocking'`.
 
-> **Good to know**: `fallback: 'blocking'` is not supported when using [`output: 'export'`](/docs/nextjs-cn/pages/guides/deployment/static-exports).
+> **Good to know**: `fallback: 'blocking'` is not supported when using [`output: 'export'`]().
 
 ### Fallback pages
 
 In the “fallback” version of a page:
 
 - The page’s props will be empty.
-- Using the [router](/docs/nextjs-cn/pages/api-reference/functions/use-router), you can detect if the fallback is being rendered, `router.isFallback` will be `true`.
+- Using the [router](/nextjs-cn/pages/api-reference/functions/use-router), you can detect if the fallback is being rendered, `router.isFallback` will be `true`.
 
 The following example showcases using `isFallback`:
 
@@ -244,10 +244,10 @@ export default Post
 
 ## Version History
 
-| Version   | Changes                                                                                                                                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `v13.4.0` | [App Router](/docs/nextjs-cn/app/building-your-application/data-fetching) is now stable with simplified data fetching, including [`generateStaticParams()`](/docs/nextjs-cn/app/api-reference/functions/generate-static-params) |
-| `v12.2.0` | [On-Demand Incremental Static Regeneration](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) is stable.                                |
-| `v12.1.0` | [On-Demand Incremental Static Regeneration](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) added (beta).                             |
-| `v9.5.0`  | Stable [Incremental Static Regeneration](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration)                                                                                         |
-| `v9.3.0`  | `getStaticPaths` introduced.                                                                                                                                                                                                    |
+| Version   | Changes                                                                                                                                                                                                                     |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `v13.4.0` | [App Router](/nextjs-cn/app/building-your-application/data-fetching/index) is now stable with simplified data fetching, including [`generateStaticParams()`](/nextjs-cn/app/api-reference/functions/generate-static-params) |
+| `v12.2.0` | [On-Demand Incremental Static Regeneration](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) is stable.                                 |
+| `v12.1.0` | [On-Demand Incremental Static Regeneration](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration#on-demand-revalidation-with-revalidatepath) added (beta).                              |
+| `v9.5.0`  | Stable [Incremental Static Regeneration](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration)                                                                                          |
+| `v9.3.0`  | `getStaticPaths` introduced.                                                                                                                                                                                                |

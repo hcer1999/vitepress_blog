@@ -39,18 +39,18 @@ npx next [command] [options]
 
 `next dev` 以开发模式启动应用程序，包含热模块替换 (HMR)、错误报告等功能。运行 `next dev` 时可使用以下选项：
 
-| 选项                                     | 描述                                                                              |
-| ---------------------------------------- | --------------------------------------------------------------------------------- |
-| `-h, --help`                             | 显示所有可用选项。                                                                |
-| `[directory]`                            | 构建应用程序的目录。如果未提供，则使用当前目录。                                  |
-| `--turbopack`                            | 使用 [Turbopack](/docs/nextjs-cn/app/api-reference/turbopack) 启动开发模式。      |
-| `-p` 或 `--port <port>`                  | 指定启动应用程序的端口号。默认值：3000，环境变量：PORT                            |
-| `-H` 或 `--hostname <hostname>`          | 指定启动应用程序的主机名。用于使应用程序在网络上的其他设备上可用。默认值：0.0.0.0 |
-| `--experimental-https`                   | 使用 HTTPS 启动服务器并生成自签名证书。                                           |
-| `--experimental-https-key <path>`        | HTTPS 密钥文件的路径。                                                            |
-| `--experimental-https-cert <path>`       | HTTPS 证书文件的路径。                                                            |
-| `--experimental-https-ca <path>`         | HTTPS 证书颁发机构文件的路径。                                                    |
-| `--experimental-upload-trace <traceUrl>` | 将调试跟踪的子集报告到远程 HTTP URL。                                             |
+| 选项                                     | 描述                                                                    |
+| ---------------------------------------- | ----------------------------------------------------------------------- |
+| `-h, --help`                             | 显示所有可用选项。                                                      |
+| `[directory]`                            | 构建应用程序的目录。如果未提供，则使用当前目录。                        |
+| `--turbopack`                            | 使用 [Turbopack](/nextjs-cn/app/api-reference/turbopack) 启动开发模式。 |
+| `-p` 或 `--port <port>`                  | 指定启动应用程序的端口号。默认值：3000，环境变量：PORT                  |
+| `-H` 或 `--hostname <hostname>`          | 指定启动应用程序的主机名。用于使/nextjs-cn/。默认值：0.0.0.0            |
+| `--experimental-https`                   | 使用 HTTPS 启动服务器并生成自签名证书。                                 |
+| `--experimental-https-key <path>`        | HTTPS 密钥文件的路径。                                                  |
+| `--experimental-https-cert <path>`       | HTTPS 证书文件的路径。                                                  |
+| `--experimental-https-ca <path>`         | HTTPS 证书颁发机构文件的路径。                                          |
+| `--experimental-upload-trace <traceUrl>` | 将调试跟踪的子集报告到远程 HTTP URL。                                   |
 
 ### `next build` 选项
 
@@ -68,9 +68,9 @@ Route (app)                              Size     First Load JS
 - **Size**：客户端导航到页面时下载的资产大小。每个路由的大小仅包括其依赖项。
 - **First Load JS**：从服务器访问页面时下载的资产大小。所有共享的 JS 大小显示为单独的指标。
 
-这两个值都是使用 [**gzip 压缩**](/docs/nextjs-cn/app/api-reference/config/next-config-js/compress)。首次加载用绿色、黄色或红色表示。高性能应用应该以绿色为目标。
+这两个值都是使用 [**gzip 压缩**](/nextjs-cn/app/api-reference/config/next-config-js/compress)。首次加载用绿色、黄色或红色表示。高性能应用应该以绿色为目标。
 
-`next build` 命令可用的选项如下：
+`next build` 命令可用的选项如下：/nextjs-cn/
 
 | 选项                               | 描述                                                                                              |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -177,7 +177,7 @@ Next.js 收集**完全匿名**的遥测数据，用于一般使用情况。参�
 | `--enable`   | 启用 Next.js 的遥测收集。 |
 | `--disable`  | 禁用 Next.js 的遥测收集。 |
 
-了解更多关于[遥测](/docs/nextjs-cn/architecture/docs/nextjs-cn/architecture/docs/nextjs-cn/architecture/telemetry)的信息。
+了解更多关于[遥测]()的信息。
 
 ## 示例
 

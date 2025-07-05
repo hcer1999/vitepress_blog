@@ -3,7 +3,7 @@ title: Form
 description: 了解如何使用 `<Form>` 组件处理表单提交和使用客户端导航更新搜索参数。
 ---
 
-`<Form>` 组件扩展了 HTML `<form>` 元素，提供了<AppOnly>[**预获取**](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#prefetching) [加载 UI](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming)、</AppOnly>**客户端导航**提交和**渐进式增强**功能。
+`<Form>` 组件扩展了 HTML `<form>` 元素，提供了<AppOnly>[**预获取**](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#prefetching) [加载 UI](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)、</AppOnly>**客户端导航**提交和**渐进式增强**功能。
 
 它对于更新 URL 搜索参数的表单非常有用，因为它减少了实现上述功能所需的模板代码。
 
@@ -80,8 +80,8 @@ export default function Search() {
 <AppOnly>
 
 - 当 `action` 是**字符串**时，`<Form>` 的行为类似于使用 **`GET`** 方法的原生 HTML 表单。表单数据被编码为 URL 中的搜索参数，当表单提交时，它会导航到指定的 URL。此外，Next.js 还会：
-  - 当表单变为可见时[预获取](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#prefetching)路径，这会预加载共享 UI（例如 `layout.js` 和 `loading.js`），从而实现更快的导航。
-  - 当表单提交时执行[客户端导航](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#soft-navigation)，而不是完全页面重新加载。这保留了共享 UI 和客户端状态。
+  - 当表单变为可见时[预获取](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#prefetching)路径，这会预加载共享 UI（例如 `layout.js` 和 `loading.js`），从而实现更快的导航。
+  - 当表单提交时执行[客户端导航](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#soft-navigation)，而不是完全页面重新加载。这保留了共享 UI 和客户端状态。
 - 当 `action` 是**函数**（服务器操作）时，`<Form>` 的行为类似于 [React 表单](https://react.dev/reference/react-dom/components/form)，在表单提交时执行操作。
 
 </AppOnly>
@@ -89,7 +89,7 @@ export default function Search() {
 <PagesOnly>
 
 - 当 `action` 是**字符串**时，`<Form>` 的行为类似于使用 **`GET`** 方法的原生 HTML 表单。表单数据被编码为 URL 中的搜索参数，当表单提交时，它会导航到指定的 URL。此外，Next.js 还会：
-  - 当表单提交时执行[客户端导航](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#soft-navigation)，而不是完全页面重新加载。这保留了共享 UI 和客户端状态。
+  - 当表单提交时执行[客户端导航](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#soft-navigation)，而不是完全页面重新加载。这保留了共享 UI 和客户端状态。
 
 </PagesOnly>
 
@@ -148,7 +148,7 @@ export default function Search() {
 <AppOnly>
 
 - **`formAction`**：可以在 `<button>` 或 `<input type="submit">` 字段中使用，以覆盖 `action` 属性。Next.js 将执行客户端导航，但是，这种方法不支持预获取。
-  - 当使用 [`basePath`](/docs/nextjs-cn/app/api-reference/config/next-config-js/basePath) 时，你还必须在 `formAction` 路径中包含它。例如 `formAction="/base-path/search"`。
+  - 当使用 [`basePath`](/nextjs-cn/app/api-reference/config/next-config-js/basePath) 时，你还必须在 `formAction` 路径中包含它。例如 `formAction="/base-path/search"`。
 - **`key`**：不支持为字符串 `action` 传递 `key` 属性。如果你想触发重新渲染或执行变更，请考虑使用函数 `action` 代替。
 
 </AppOnly>
@@ -197,7 +197,7 @@ export default function Page() {
 
 > **须知**：如果你将空字符串 `""` 传递给 `action`，表单将导航到带有更新后搜索参数的相同路由。
 
-在结果页面上，你可以使用 [`searchParams`](/docs/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional) `page.js` 属性访问查询，并使用它从外部源获取数据。
+在结果页面上，你可以使用 [`searchParams`](/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional) `page.js` 属性访问查询，并使用它从外部源获取数据。
 
 ```tsx switcher
 import { getSearchResults } from '@/lib/search'
@@ -223,7 +223,7 @@ export default async function SearchPage({ searchParams }) {
 }
 ```
 
-当 `<Form>` 在用户视口中可见时，`/search` 页面上的共享 UI（如 `layout.js` 和 `loading.js`）将被预获取。提交时，表单将立即导航到新路由，并在获取结果时显示加载 UI。你可以使用 [`loading.js`](/docs/nextjs-cn/app/api-reference/file-conventions/loading) 设计备用 UI：
+当 `<Form>` 在用户视口中可见时，`/search` 页面上的共享 UI（如 `layout.js` 和 `loading.js`）将被预获取。提交时，表单将立即导航到新路由，并在获取结果时显示加载 UI。你可以使用 [`loading.js`](/nextjs-cn/app/api-reference/file-conventions/loading) 设计备用 UI：
 
 ```tsx switcher
 export default function Loading() {
@@ -325,7 +325,7 @@ export default function Page() {
 }
 ```
 
-在数据变更后，通常需要重定向到新资源。你可以使用 `next/navigation` 中的 [`redirect`](/docs/nextjs-cn/app/building-your-application/routing/index/redirecting) 函数导航到新的文章页面。
+在数据变更后，通常需要重定向到新资源。你可以使用 `next/navigation` 中的 [`redirect`](/nextjs-cn/app/building-your-application/routing/redirecting) 函数导航到新的文章页面。
 
 > **须知**：由于表单提交的"目的地"在操作执行前不知道，因此 `<Form>` 无法自动预获取共享 UI。
 
@@ -389,6 +389,6 @@ export default async function PostPage({ params }) {
 }
 ```
 
-有关更多示例，请参阅[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)文档。
+有关更多示例，请参阅[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)文档。
 
 </AppOnly>

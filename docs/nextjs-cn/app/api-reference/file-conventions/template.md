@@ -3,7 +3,7 @@ title: template.js
 description: template.js 文件的 API 参考。
 ---
 
-**template** 文件类似于[布局](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#layouts)，它包装一个布局或页面。与在路由之间保持不变并维持状态的布局不同，模板被赋予一个唯一的键，这意味着子客户端组件在导航时会重置它们的状态。
+**template** 文件类似于[布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#layouts)，它包装一个布局或页面。与在路由之间保持不变并维持状态的布局不同，模板被赋予一个唯一的键，这意味着子客户端组件在导航时会重置它们的状态。
 
 ```tsx switcher
 export default function Template({ children }: { children: React.ReactNode }) {
@@ -45,7 +45,7 @@ export default function Template({ children }) {
 
 > **须知**：
 >
-> - 默认情况下，`template` 是一个[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)，但也可以通过 `'use client'` 指令用作[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)。
+> - 默认情况下，`template` 是一个[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，但也可以通过 `'use client'` 指令用作[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)。
 > - 当用户在共享 `template` 的路由之间导航时，组件的新实例会被挂载，DOM 元素会被重新创建，客户端组件中的状态**不会**被保留，并且效果会重新同步。
 
 ## 版本历史

@@ -19,7 +19,7 @@ PWA 允许你：
 
 ### 1. 创建 Web 应用清单
 
-Next.js 提供了内置支持，使用 App Router 创建 [Web 应用清单](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/manifest)。你可以创建静态或动态清单文件：
+Next.js 提供了内置支持，使用 App Router 创建 [Web 应用清单](/nextjs-cn/app/api-reference/file-conventions/metadata/manifest)。你可以创建静态或动态清单文件：
 
 例如，创建一个 `app/manifest.ts` 或 `app/manifest.json` 文件：
 
@@ -573,7 +573,7 @@ self.addEventListener('notificationclick', function (event) {
 
 为了确保你可以在本地查看通知，请确保：
 
-- 你正在[使用 HTTPS 本地运行](/docs/nextjs-cn/app/api-reference/cli/next#using-https-during-development)
+- 你正在[使用 HTTPS 本地运行](/nextjs-cn/app/api-reference/cli/next#using-https-during-development)
   - 使用 `next dev --experimental-https` 进行测试
 - 你的浏览器（Chrome、Safari、Firefox）已启用通知
   - 在本地提示时，接受使用通知的权限
@@ -638,12 +638,12 @@ module.exports = {
    2. `Cache-Control: no-cache, no-store, must-revalidate`：防止服务工作线程被缓存，确保用户始终获得最新版本。
    3. `Content-Security-Policy: default-src 'self'; script-src 'self'`：为服务工作线程实施严格的内容安全策略，只允许来自同一源的脚本。
 
-了解更多关于使用 Next.js 定义[内容安全策略](/docs/nextjs-cn/app/guides/security/content-security-policy)的信息。
+了解更多关于使用 Next.js 定义[内容安全策略]()的信息。
 
 ## 下一步
 
 1. **探索 PWA 功能**：PWA 可以利用各种 Web API 提供高级功能。考虑探索背景同步、周期性背景同步或文件系统访问 API 等功能来增强你的应用程序。要获取灵感和关于 PWA 功能的最新信息，你可以参考诸如 [PWA 现今能做什么](https://whatpwacando.today/) 之类的资源。
-2. **静态导出**：如果你的应用程序不需要运行服务器，而是使用文件的静态导出，你可以更新 Next.js 配置以启用此更改。在 [Next.js 静态导出文档](/docs/nextjs-cn/app/guides/deployment/static-exports)中了解更多信息。但是，你需要从服务器操作转移到调用外部 API，以及将定义的头信息移动到你的代理。
+2. **静态导出**：如果你的应用程序不需要运行服务器，而是使用文件的静态导出，你可以更新 Next.js 配置以启用此更改。在 [Next.js 静态导出文档]中了解更多信息。但是，你需要从服务器操作转移到调用外部 API，以及将定义的头信息移动到你的代理。
 3. **离线支持**：要提供离线功能，一种选择是使用 Next.js 的 [Serwist](https://github.com/serwist/serwist)。你可以在他们的[文档](https://github.com/serwist/serwist/tree/main/examples/next-basic)中找到如何将 Serwist 与 Next.js 集成的示例。**注意**：此插件目前需要 webpack 配置。
 4. **安全考虑**：确保你的服务工作线程得到适当的安全保护。这包括使用 HTTPS、验证推送消息的来源以及实现适当的错误处理。
 5. **用户体验**：考虑实现渐进增强技术，以确保即使用户的浏览器不支持某些 PWA 功能，你的应用也能正常工作。

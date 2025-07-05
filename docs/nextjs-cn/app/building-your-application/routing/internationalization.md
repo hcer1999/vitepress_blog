@@ -30,7 +30,7 @@ let defaultLocale = 'en-US'
 match(languages, locales, defaultLocale) // -> 'en-US'
 ```
 
-路由可以通过子路径（`/fr/products`）或域名（`my-site.fr/products`）进行国际化。有了这些信息，您现在可以在[中间件](/docs/nextjs-cn/app/building-your-application/routing/index/middleware)中基于区域设置重定向用户。
+路由可以通过子路径（`/fr/products`）或域名（`my-site.fr/products`）进行国际化。有了这些信息，您现在可以在[中间件](/nextjs-cn/app/building-your-application/routing/middleware)中基于区域设置重定向用户。
 
 ```js
 import { NextResponse } from "next/server";
@@ -161,7 +161,7 @@ export default async function Page({ params }) {
 }
 ```
 
-因为 `app/` 目录中的所有布局和页面默认为[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)，我们不需要担心翻译文件的大小影响我们的客户端 JavaScript 包大小。这段代码将**仅在服务器上运行**，只有生成的 HTML 会被发送到浏览器。
+因为 `app/` 目录中的所有布局和页面默认为[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，我们不需要担心翻译文件的大小影响我们的客户端 JavaScript 包大小。这段代码将**仅在服务器上运行**，只有生成的 HTML 会被发送到浏览器。
 
 ## 静态生成
 

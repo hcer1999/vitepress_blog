@@ -37,15 +37,15 @@ export default {
 
 ## 导入样式
 
-在应用程序中添加 [Tailwind CSS 指令](https://tailwindcss.com/docs/functions-and-directives#directives)，Tailwind 将使用这些指令将其生成的样式注入到[全局样式表](/docs/nextjs-cn/app/getting-started/css#global-css)中，例如：
+在应用程序中添加 [Tailwind CSS 指令](https://tailwindcss.com/docs/functions-and-directives#directives)，Tailwind 将使用这些指令将其生成的样式注入到[全局样式表](/nextjs-cn/app/getting-started/css#global-css)中，例如：
 
 ```css
 @import 'tailwindcss';
 ```
 
-在[根布局](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#root-layout-required)（`app/layout.tsx`）中，导入 `globals.css` 样式表，将样式应用于应用程序中的每个路由。
+在[根布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#root-layout-required)（`app/layout.tsx`）中，导入 `globals.css` 样式表，将样式应用于应用程序中的每个路由。
 
-```tsx switcher
+```tsx /nextjs-cn/
 import type { Metadata } from 'next'
 
 // 这些样式适用于应用程序中的每个路由
@@ -105,15 +105,15 @@ export default function Page() {
 
 ## 导入样式
 
-在应用程序中添加 [Tailwind CSS 指令](https://tailwindcss.com/docs/functions-and-directives#directives)，Tailwind 将使用这些指令将其生成的样式注入到[全局样式表](/docs/nextjs-cn/app/getting-started/css#global-css)中，例如：
+在应用程序中添加 [Tailwind CSS 指令](https://tailwindcss.com/docs/functions-and-directives#directives)，Tailwind 将使用这些指令将其生成的样式注入到[全局样式表](/nextjs-cn/app/getting-started/css#global-css)中，例如：
 
 ```css
 @import 'tailwindcss';
 ```
 
-在[自定义应用文件](/docs/nextjs-cn/pages/building-your-application/routing/custom-app)（`pages/_app.js`）中，导入 `globals.css` 样式表，将样式应用于应用程序中的每个路由。
+在[自定义应用文件](/nextjs-cn/pages/building-your-application/routing/custom-app)（`pages/_app.js`）中，导入 `globals.css` 样式表，将样式应用于应用程序中的每个路由。
 
-```tsx switcher
+```tsx swit/nextjs-cn/
 // 这些样式适用于应用程序中的每个路由
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'

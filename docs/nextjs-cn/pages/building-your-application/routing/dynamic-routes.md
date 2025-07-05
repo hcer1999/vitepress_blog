@@ -9,13 +9,13 @@ related:
     - pages/api-reference/functions/use-router
 ---
 
-When you don't know the exact segment names ahead of time and want to create routes from dynamic data, you can use Dynamic Segments that are filled in at request time or [prerendered](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths) at build time.
+When you don't know the exact segment names ahead of time and want to create routes from dynamic data, you can use Dynamic Segments that are filled in at request time or [prerendered](/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths) at build time.
 
 ## Convention
 
 A Dynamic Segment can be created by wrapping a file or folder name in square brackets: `[segmentName]`. For example, `[id]` or `[slug]`.
 
-Dynamic Segments can be accessed from [`useRouter`](/docs/nextjs-cn/pages/api-reference/functions/use-router).
+Dynamic Segments can be accessed from [`useRouter`](/nextjs-cn/pages/api-reference/functions/use-router).
 
 ## Example
 

@@ -4,7 +4,7 @@ nav_title: Draft Mode
 description: Next.js has draft mode to toggle between static and dynamic pages. You can learn how it works with Pages Router.
 ---
 
-In the [Pages documentation](/docs/nextjs-cn/pages/building-your-application/routing/pages-and-layouts) and the [Data Fetching documentation](/docs/nextjs-cn/pages/building-your-application/data-fetching), we talked about how to pre-render a page at build time (**Static Generation**) using `getStaticProps` and `getStaticPaths`.
+In the [Pages documentation](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts) and the [Data Fetching documentation](/nextjs-cn/pages/building-your-application/data-fetching/index), we talked about how to pre-render a page at build time (**Static Generation**) using `getStaticProps` and `getStaticPaths`.
 
 Static Generation is useful when your pages fetch data from a headless CMS. However, it’s not ideal when you’re writing a draft on your headless CMS and want to view the draft immediately on your page. You’d want Next.js to render these pages at **request time** instead of build time and fetch the draft content instead of the published content. You’d want Next.js to bypass Static Generation only for this specific case.
 
@@ -12,7 +12,7 @@ Next.js has a feature called **Draft Mode** which solves this problem. Here are 
 
 ## Step 1: Create and access the API route
 
-> Take a look at the [API Routes documentation](/docs/nextjs-cn/pages/building-your-application/routing/api-routes) first if you’re not familiar with Next.js API Routes.
+> Take a look at the [API Routes documentation](/nextjs-cn/pages/building-your-application/routing/api-routes) first if you’re not familiar with Next.js API Routes.
 
 First, create the **API route**. It can have any name - e.g. `pages/api/draft.ts`
 
@@ -151,13 +151,13 @@ export default function handler(req, res) {
 }
 ```
 
-Then, send a request to `/api/disable-draft` to invoke the API Route. If calling this route using [`next/link`](/docs/nextjs-cn/pages/api-reference/components/link), you must pass `prefetch={false}` to prevent accidentally deleting the cookie on prefetch.
+Then, send a request to `/api/disable-draft` to invoke the API Route. If calling this route using [`next/link`](/nextjs-cn/pages/api-reference/components/link), you must pass `prefetch={false}` to prevent accidentally deleting the cookie on prefetch.
 
 ### Works with `getServerSideProps`
 
-Draft Mode works with `getServerSideProps`, and is available as a `draftMode` key in the [`context`](/docs/nextjs-cn/pages/api-reference/functions/get-server-side-props#context-parameter) object.
+Draft Mode works with `getServerSideProps`, and is available as a `draftMode` key in the [`context`](/nextjs-cn/pages/api-reference/functions/get-server-side-props#context-parameter) object.
 
-> **Good to know**: You shouldn't set the `Cache-Control` header when using Draft Mode because it cannot be bypassed. Instead, we recommend using [ISR](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration).
+> **Good to know**: You shouldn't set the `Cache-Control` header when using Draft Mode because it cannot be bypassed. Instead, we recommend using [ISR](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration).
 
 ### Works with API Routes
 

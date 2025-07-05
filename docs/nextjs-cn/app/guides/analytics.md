@@ -4,9 +4,9 @@ nav_title: 分析
 description: 使用 Next.js Speed Insights 测量和跟踪页面性能
 ---
 
-Next.js 内置了对测量和报告性能指标的支持。你可以使用 [`useReportWebVitals`](/docs/nextjs-cn/app/api-reference/functions/use-report-web-vitals) hook 来自行管理报告，或者使用 Vercel 提供的[托管服务](https://vercel.com/analytics?utm_source=next-site&utm_medium=docs&utm_campaign=next-website)来自动收集和可视化指标。
+Next.js 内置了对测量和报告性能指标的支持。你可以使用 [`useReportWebVitals`](/nextjs-cn/app/api-reference/functions/use-report-web-vitals) hook 来自行管理报告，或者使用 Vercel 提供的[托管服务](https://vercel.com/analytics?utm_source=next-site&utm_medium=docs&utm_campaign=next-website)来自动收集和可视化指标。
 
-## 客户端检测
+## 客户端检测/nextjs-cn/
 
 对于更高级的分析和监控需求，Next.js 提供了一个 `instrumentation-client.js|ts` 文件，该文件会在你的应用程序的前端代码开始执行之前运行。这非常适合设置全局分析、错误跟踪或性能监控工具。
 
@@ -39,9 +39,9 @@ function MyApp({ Component, pageProps }) {
 }
 ```
 
-查看 [API 参考](/docs/nextjs-cn/pages/api-reference/functions/use-report-web-vitals)了解更多信息。
+查看 [API 参考](/nextjs-cn/pages/api-reference/functions/use-report-web-vitals)了解更多信息。
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 <AppOnly>
 
@@ -74,9 +74,9 @@ export default function Layout({ children }) {
 
 > 由于 `useReportWebVitals` hook 需要 `'use client'` 指令，最高性能的方法是创建一个单独的组件，由根布局导入。这样可以将客户端边界仅限制在 `WebVitals` 组件中。
 
-查看 [API 参考](/docs/nextjs-cn/app/api-reference/functions/use-report-web-vitals)了解更多信息。
+查看 [API 参考](/nextjs-cn/app/api-reference/functions/use-report-web-vitals)了解更多信息。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 ## Web Vitals
 

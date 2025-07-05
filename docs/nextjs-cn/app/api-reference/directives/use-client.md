@@ -7,7 +7,7 @@ description: 了解如何使用 'use client' 指令在客户端渲染组件。
 
 > **须知：**
 >
-> 你不需要在每个包含客户端组件的文件中添加 `'use client'` 指令。你只需要在希望直接在服务器组件内渲染的组件文件中添加它。`'use client'` 指令定义了客户端-服务器[边界](/docs/nextjs-cn/nextjs-cn/app/building-your-application/rendering#network-boundary)，从这类文件导出的组件作为客户端的入口点。
+> 你不需要在每个包含客户端组件的文件中添加 `'use client'` 指令。你只需要在希望直接在服务器组件内渲染的组件文件中添加它。`'use client'` 指令定义了客户端-服务器[边界](/nextjs-cn/app/building-your-application/rendering/index#network-boundary)，从这类文件导出的组件作为客户端的入口点。
 
 ## 用法
 

@@ -18,11 +18,11 @@ related:
   height="444"
 />
 
-> **需要了解的是**：路由处理程序仅在 `app` 目录中可用。它们相当于 `pages` 目录中的 [API 路由](/docs/nextjs-cn/pages/building-your-application/routing/api-routes)，这意味着您**不需要**同时使用 API 路由和路由处理程序。
+> **需要了解的是**：路由处理程序仅在 `app` 目录中可用。它们相当于 `pages` 目录中的 [API 路由](/nextjs-cn/pages/building-your-application/routing/api-routes)，这意味着您**不需要**同时使用 API 路由和路由处理程序。
 
 ## 约定
 
-路由处理程序在 `app` 目录内的 [`route.js|ts` 文件](/docs/nextjs-cn/app/api-reference/file-conventions/route)中定义：
+路由处理程序在 `app` 目录内的 [`route.js|ts` 文件](/nextjs-cn/app/api-reference/file-conventions/route)中定义：
 
 ```ts switcher
 export async function GET(request: Request) {}
@@ -40,13 +40,13 @@ export async function GET(request) {}
 
 ### 扩展的 `NextRequest` 和 `NextResponse` API
 
-除了支持原生 [Request](https://developer.mozilla.org/docs/Web/API/Request) 和 [Response](https://developer.mozilla.org/docs/Web/API/Response) API 外，Next.js 还通过 [`NextRequest`](/docs/nextjs-cn/app/api-reference/functions/next-request) 和 [`NextResponse`](/docs/nextjs-cn/app/api-reference/functions/next-response) 扩展了它们，为高级用例提供了便捷的辅助函数。
+除了支持原生 [Request](https://developer.mozilla.org/docs/Web/API/Request) 和 [Response](https://developer.mozilla.org/docs/Web/API/Response) API 外，Next.js 还通过 [`NextRequest`](/nextjs-cn/app/api-reference/functions/next-request) 和 [`NextResponse`](/nextjs-cn/app/api-reference/functions/next-response) 扩展了它们，为高级用例提供了便捷的辅助函数。
 
 ## 行为
 
 ### 缓存
 
-路由处理程序默认不缓存。但是，您可以选择缓存 `GET` 方法。其他支持的 HTTP 方法**不**缓存。要缓存 `GET` 方法，请在路由处理程序文件中使用[路由配置选项](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic)，例如 `export const dynamic = 'force-static'`。
+路由处理程序默认不缓存。但是，您可以选择缓存 `GET` 方法。其他支持的 HTTP 方法**不**缓存。要缓存 `GET` 方法，请在路由处理程序文件中使用[路由配置选项](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic)，例如 `export const dynamic = 'force-static'`。
 
 ```ts switcher
 export const dynamic = 'force-static'
@@ -84,7 +84,7 @@ export async function GET() {
 
 ### 特殊路由处理程序
 
-特殊路由处理程序如 [`sitemap.ts`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap)、[`opengraph-image.tsx`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image) 和 [`icon.tsx`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons) 以及其他[元数据文件](/docs/nextjs-cn/app/api-reference/file-conventions/metadata)默认保持静态，除非它们使用动态 API 或动态配置选项。
+特殊路由处理程序如 [`sitemap.ts`](/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap)、[`opengraph-image.tsx`](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image) 和 [`icon.tsx`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons) 以及其他[元数据文件](/nextjs-cn/app/api-reference/file-conventions/metadata/index)默认保持静态，除非它们使用动态 API 或动态配置选项。
 
 ### 路由解析
 
@@ -127,7 +127,7 @@ export async function POST(request) {}
 
 ### 重新验证缓存数据
 
-您可以使用增量静态再生成 (ISR) [重新验证缓存数据](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)：
+您可以使用增量静态再生成 (ISR) [重新验证缓存数据](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)：
 
 ```ts switcher
 export const revalidate = 60
@@ -153,7 +153,7 @@ export async function GET() {
 
 ### Cookies
 
-您可以使用 `next/headers` 中的 [`cookies`](/docs/nextjs-cn/app/api-reference/functions/cookies) 读取或设置 cookies。这个服务器函数可以直接在路由处理程序中调用，也可以嵌套在另一个函数中。
+您可以使用 `next/headers` 中的 [`cookies`](/nextjs-cn/app/api-reference/functions/cookies) 读取或设置 cookies。这个服务器函数可以直接在路由处理程序中调用，也可以嵌套在另一个函数中。
 
 或者，您可以使用 [`Set-Cookie`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie) 头部返回一个新的 `Response`。
 
@@ -185,7 +185,7 @@ export async function GET(request) {
 }
 ```
 
-您还可以使用底层 Web API 从请求中读取 cookies（[`NextRequest`](/docs/nextjs-cn/app/api-reference/functions/next-request)）：
+您还可以使用底层 Web API 从请求中读取 cookies（[`NextRequest`](/nextjs-cn/app/api-reference/functions/next-request)）：
 
 ```ts switcher
 import { type NextRequest } from 'next/server'
@@ -203,7 +203,7 @@ export async function GET(request) {
 
 ### Headers
 
-您可以使用 `next/headers` 中的 [`headers`](/docs/nextjs-cn/app/api-reference/functions/headers) 读取头部信息。这个服务器函数可以直接在路由处理程序中调用，也可以嵌套在另一个函数中。
+您可以使用 `next/headers` 中的 [`headers`](/nextjs-cn/app/api-reference/functions/headers) 读取头部信息。这个服务器函数可以直接在路由处理程序中调用，也可以嵌套在另一个函数中。
 
 这个 `headers` 实例是只读的。要设置头部，您需要返回带有新 `headers` 的新 `Response`。
 
@@ -235,7 +235,7 @@ export async function GET(request) {
 }
 ```
 
-您还可以使用底层 Web API 从请求中读取头部信息（[`NextRequest`](/docs/nextjs-cn/app/api-reference/functions/next-request)）：
+您还可以使用底层 Web API 从请求中读取头部信息（[`NextRequest`](/nextjs-cn/app/api-reference/functions/next-request)）：
 
 ```ts switcher
 import { type NextRequest } from 'next/server'
@@ -271,7 +271,7 @@ export async function GET(request) {
 
 ### 动态路由段
 
-路由处理程序可以使用[动态段](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)从动态数据创建请求处理程序。
+路由处理程序可以使用[动态段](/nextjs-cn/app/building-your-application/routing/dynamic-routes)从动态数据创建请求处理程序。
 
 ```ts switcher
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {
@@ -293,7 +293,7 @@ export async function GET(request, { params }) {
 
 ### URL 查询参数
 
-传递给路由处理程序的请求对象是一个 `NextRequest` 实例，它包括[一些额外的便捷方法](/docs/nextjs-cn/app/api-reference/functions/next-request#nexturl)，例如用于更轻松处理查询参数的方法。
+传递给路由处理程序的请求对象是一个 `NextRequest` 实例，它包括[一些额外的便捷方法](/nextjs-cn/app/api-reference/functions/next-request#nexturl)，例如用于更轻松处理查询参数的方法。
 
 ```ts switcher
 import { type NextRequest } from 'next/server'
@@ -503,7 +503,7 @@ export async function GET(request) {
 
 > **需要了解的是**：
 >
-> - 要为多个路由处理程序添加 CORS 头，您可以使用[中间件](/docs/nextjs-cn/app/building-your-application/routing/index/middleware#cors)或 [`next.config.js` 文件](/docs/nextjs-cn/app/api-reference/config/next-config-js/headers#cors)。
+> - 要为多个路由处理程序添加 CORS 头，您可以使用[中间件](/nextjs-cn/app/building-your-application/routing/middleware#cors)或 [`next.config.js` 文件](/nextjs-cn/app/api-reference/config/next-config-js/headers#cors)。
 > - 或者，查看我们的 [CORS 示例](https://github.com/vercel/examples/blob/main/edge-functions/cors/lib/cors.ts)包。
 
 ### Webhooks
@@ -548,7 +548,7 @@ export async function POST(request) {
 
 ### 非 UI 响应
 
-您可以使用路由处理程序返回非 UI 内容。请注意，[`sitemap.xml`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap#generating-a-sitemap-using-code-js-ts)、[`robots.txt`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/robots#generate-a-robots-file)、[`app icons`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#generate-icons-using-code-js-ts-tsx) 和 [open graph 图像](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)都有内置支持。
+您可以使用路由处理程序返回非 UI 内容。请注意，[`sitemap.xml`](/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap#generating-a-sitemap-using-code-js-ts)、[`robots.txt`](/nextjs-cn/app/api-reference/file-conventions/metadata/robots#generate-a-robots-file)、[`app icons`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#generate-icons-using-code-js-ts-tsx) 和 [open graph 图像](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)都有内置支持。
 
 ```ts switcher
 export async function GET() {
@@ -589,7 +589,7 @@ export async function GET() {
 
 ### 段配置选项
 
-路由处理程序使用与页面和布局相同的[路由段配置](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config)。
+路由处理程序使用与页面和布局相同的[路由段配置](/nextjs-cn/app/api-reference/file-conventions/route-segment-config)。
 
 ```ts switcher
 export const dynamic = 'auto'
@@ -609,4 +609,4 @@ export const runtime = 'nodejs'
 export const preferredRegion = 'auto'
 ```
 
-有关更多详细信息，请参阅 [API 参考](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config)。
+有关更多详细信息，请参阅 [API 参考](/nextjs-cn/app/api-reference/file-conventions/route-segment-config)。

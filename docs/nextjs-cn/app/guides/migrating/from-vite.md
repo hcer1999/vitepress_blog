@@ -29,7 +29,7 @@ description: 学习如何将现有的 React 应用程序从 Vite 迁移到 Next.
 
 ### 快速且有意图的加载状态
 
-通过对 [React Suspense 流式传输](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming#streaming-with-suspense)的内置支持，你可以更有意图地决定 UI 的哪些部分想要首先加载以及以何种顺序加载，而不会引入网络瀑布。
+通过对 [React Suspense 流式传输](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)的内置支持，你可以更有意图地决定 UI 的哪些部分想要首先加载以及以何种顺序加载，而不会引入网络瀑布。
 
 这使你能够构建加载更快的页面并消除[布局偏移](https://vercel.com/blog/how-core-web-vitals-affect-seo)。
 
@@ -39,11 +39,11 @@ description: 学习如何将现有的 React 应用程序从 Vite 迁移到 Next.
 
 ### 中间件
 
-[Next.js 中间件](/docs/nextjs-cn/app/building-your-application/routing/index/middleware)允许你在请求完成前在服务器上运行代码。这对于避免用户访问仅认证页面时出现未认证内容闪烁特别有用，可以通过将用户重定向到登录页面来实现。中间件也适用于实验和[国际化](/docs/nextjs-cn/app/building-your-application/routing/index/internationalization)。
+[Next.js 中间件](/nextjs-cn/app/building-your-application/routing/middleware)允许你在请求完成前在服务器上运行代码。这对于避免用户访问仅认证页面时出现未认证内容闪烁特别有用，可以通过将用户重定向到登录页面来实现。中间件也适用于实验和[国际化](/nextjs-cn/app/building-your-application/routing/internationalization)。
 
 ### 内置优化
 
-[图片](/docs/nextjs-cn/app/api-reference/components/image)、[字体](/docs/nextjs-cn/app/api-reference/components/font)和[第三方脚本](/docs/nextjs-cn/app/guides/optimizing/scripts)通常对应用程序的性能有显著影响。Next.js 自带内置组件，可以自动为你优化这些内容。
+[图片](/nextjs-cn/app/api-reference/components/image)、[字体](/nextjs-cn/app/api-reference/components/font)和[第三方脚本](/nextjs-cn/app/building-your-application/routing/layouts-and-templates)通常对应用程序的性能有显著影响。Next.js 自带内置组件，可以自动为你优化这些内容。
 
 ## 迁移步骤
 
@@ -59,7 +59,7 @@ npm install next@latest
 
 ### 步骤 2：创建 Next.js 配置文件
 
-在项目根目录创建一个 `next.config.mjs` 文件。该文件将保存你的 [Next.js 配置选项](/docs/nextjs-cn/app/api-reference/config/next-config-js)。
+在项目根目录创建一个 `next.config.mjs` 文件。该文件将保存你的 [Next.js 配置选项](/nextjs-cn/app/api-reference/config/next-config-js/index)。
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -118,13 +118,13 @@ export default nextConfig
 }
 ```
 
-你可以在 [Next.js 文档](/docs/nextjs-cn/app/api-reference/config/typescript#ide-plugin)中找到更多关于配置 TypeScript 的信息。
+你可以在 [Next.js 文档](/nextjs-cn/app/api-reference/config/typescript#ide-plugin)中找到更多关于配置 TypeScript 的信息。
 
 ### 步骤 4：创建根布局
 
-Next.js [App Router](/docs/app) 应用程序必须包含一个
-[根布局](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#root-layout-required)
-文件，该文件是一个 [React 服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)，
+Next.js [App Router](/nextjs-cn/app/index) 应用程序必须包含一个
+[根布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#root-layout-required)
+文件，该文件是一个 [React 服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，
 将包裹应用程序中的所有页面。此文件定义在 `app` 目录的顶层。
 
 在 Vite 应用程序中，与根布局文件最接近的等效物是
@@ -230,9 +230,9 @@ export default function RootLayout({ children }) {
 }
 ```
 
-5. 任何 [元数据文件](/docs/nextjs-cn/app/getting-started/metadata-and-og-images#file-based-metadata)，
+5. 任何 [元数据文件](/nextjs-cn/app/getting-started/metadata-and-og-images#file-based-metadata)，
    如 `favicon.ico`、`icon.png`、`robots.txt` 等，只要放置在 `app` 目录的顶层，就会自动添加到应用程序的
-   `<head>` 标签中。在将[所有支持的文件](/docs/nextjs-cn/app/getting-started/metadata-and-og-images#file-based-metadata)
+   `<head>` 标签中。在将[所有支持的文件](/nextjs-cn/app/getting-started/metadata-and-og-images#file-based-metadata)
    移动到 `app` 目录后，你可以安全地删除它们的 `<link>` 标签：
 
 ```tsx switcher
@@ -267,8 +267,8 @@ export default function RootLayout({ children }) {
 }
 ```
 
-6. 最后，Next.js 可以使用 [元数据 API](/docs/nextjs-cn/app/getting-started/metadata-and-og-images) 管理你的最后几个 `<head>` 标签。
-   将你的最终元数据信息移动到导出的 [`metadata` 对象](/docs/nextjs-cn/app/api-reference/functions/generate-metadata#metadata-object) 中：
+6. 最后，Next.js 可以使用 [元数据 API](/nextjs-cn/app/getting-started/metadata-and-og-images) 管理你的最后几个 `<head>` 标签。
+   将你的最终元数据信息移动到导出的 [`metadata` 对象](/nextjs-cn/app/api-reference/functions/generate-metadata#metadata-object) 中：
 
 ```tsx switcher
 import type { Metadata } from 'next'
@@ -307,7 +307,7 @@ export default function RootLayout({ children }) {
 ```
 
 通过上述更改，你从在 `index.html` 中声明所有内容转变为使用 Next.js 内置于框架中的基于约定的方法
-（[元数据 API](/docs/nextjs-cn/app/getting-started/metadata-and-og-images)）。这种方法使你能够更轻松地改进 SEO 和页面的网络共享性。
+（[元数据 API](/nextjs-cn/app/getting-started/metadata-and-og-images)）。这种方法使你能够更轻松地改进 SEO 和页面的网络共享性。
 
 ### 步骤 5：创建入口点页面
 
@@ -318,7 +318,7 @@ export default function RootLayout({ children }) {
 
 由于在本指南中，我们首先旨在将 Next.js 设置为 SPA（单页应用程序），因此你需要让页面入口点捕获应用程序的所有可能路由。为此，在 `app` 目录中创建一个新的 `[[...slug]]` 目录。
 
-这个目录被称为[可选的全捕获路由段](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes#optional-catch-all-segments)。Next.js 使用基于文件系统的路由器，其中文件夹用于定义路由。这个特殊目录将确保应用程序的所有路由都指向其包含的 `page.tsx` 文件。
+这个目录被称为[可选的全捕获路由段](/nextjs-cn/app/building-your-application/routing/dynamic-routes#optional-catch-all-segments)。Next.js 使用基于文件系统的路由器，其中文件夹用于定义路由。这个特殊目录将确保应用程序的所有路由都指向其包含的 `page.tsx` 文件。
 
 2. **在 `app/[[...slug]]` 目录中创建一个包含以下内容的新 `page.tsx` 文件：**
 
@@ -350,8 +350,8 @@ export default function Page() {
 
 > **需要了解**：页面文件可以使用 `.js`、`.jsx` 或 `.tsx` 扩展名。
 
-这个文件是一个 [客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)，由 `'use client'`
-指令定义。客户端组件在发送到客户端之前仍然在服务器上[预渲染为 HTML](/docs/nextjs-cn/app/building-your-application/rendering/client-components#how-are-client-components-rendered)。
+这个文件是一个 [客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)，由 `'use client'`
+指令定义。客户端组件在发送到客户端之前仍然在服务器上[预渲染为 HTML](/nextjs-cn/app/building-your-application/rendering/client-components#how-are-client-components-rendered)。
 
 由于我们希望从一个仅客户端的应用程序开始，我们可以配置 Next.js 从 `App` 组件开始禁用预渲染。
 
@@ -399,11 +399,11 @@ export default function App() {
 }
 ```
 
-使用 Next.js，静态图片导入返回一个对象。然后，该对象可以直接与 Next.js [`<Image>` 组件](/docs/nextjs-cn/app/api-reference/components/image) 一起使用，或者你可以将对象的 `src` 属性与现有的 `<img>` 标签一起使用。
+使用 Next.js，静态图片导入返回一个对象。然后，该对象可以直接与 Next.js [`<Image>` 组件](/nextjs-cn/app/api-reference/components/image) 一起使用，或者你可以将对象的 `src` 属性与现有的 `<img>` 标签一起使用。
 
-`<Image>` 组件具有 [自动图像优化](/docs/nextjs-cn/app/api-reference/components/image) 的额外好处。`<Image>` 组件会根据图像的尺寸自动设置结果 `<img>` 的 `width` 和 `height` 属性。这可以防止图像加载时出现布局偏移。然而，如果你的应用程序包含仅对其中一个维度进行样式设置而没有将另一个设置为 `auto` 的图像，这可能会导致问题。当维度没有设置为 `auto` 时，维度将默认为 `<img>` 维度属性的值，这可能导致图像显示失真。
+`<Image>` 组件具有 [自动图像优化](/nextjs-cn/app/api-reference/components/image) 的额外好处。`<Image>` 组件会根据图像的尺寸自动设置结果 `<img>` 的 `width` 和 `height` 属性。这可以防止图像加载时出现布局偏移。然而，如果你的应用程序包含仅对其中一个维度进行样式设置而没有将另一个设置为 `auto` 的图像，这可能会导致问题。当维度没有设置为 `auto` 时，维度将默认为 `<img>` 维度属性的值，这可能导致图像显示失真。
 
-保留 `<img>` 标签将减少应用程序中的更改量并防止上述问题。然后，你可以选择稍后迁移到 `<Image>` 组件，以通过[配置加载器](/docs/nextjs-cn/app/api-reference/components/image#loader)利用图像优化的优势，或移动到默认的 Next.js 服务器，该服务器具有自动图像优化功能。
+保留 `<img>` 标签将减少应用程序中的更改量并防止上述问题。然后，你可以选择稍后迁移到 `<Image>` 组件，以通过[配置加载器](/nextjs-cn/app/api-reference/components/image#loader)利用图像优化的优势，或移动到默认的 Next.js 服务器，该服务器具有自动图像优化功能。
 
 1. **将从 `/public` 导入的图像的绝对导入路径转换为相对导入：**
 
@@ -431,7 +431,7 @@ import logo from '../public/logo.png'
 
 ### 步骤 7：迁移环境变量
 
-Next.js 支持 `.env` [环境变量](/docs/nextjs-cn/app/guides/configuring/environment-variables)，类似于 Vite。主要区别在于用于在客户端暴露环境变量的前缀。
+Next.js 支持 `.env` [环境变量]()，类似于 Vite。主要区别在于用于在客户端暴露环境变量的前缀。
 
 - 将所有带有 `VITE_` 前缀的环境变量更改为 `NEXT_PUBLIC_`。
 
@@ -451,7 +451,7 @@ Next.js 也不提供内置的 `BASE_URL` 环境变量。但是，如果需要，
 NEXT_PUBLIC_BASE_PATH="/some-base-path"
 ```
 
-2. **在你的 `next.config.mjs` 文件中将 [`basePath`](/docs/nextjs-cn/app/api-reference/config/next-config-js/basePath) 设置为 `process.env.NEXT_PUBLIC_BASE_PATH`：**
+2. **在你的 `next.config.mjs` 文件中将 [`basePath`](/nextjs-cn/app/api-reference/config/next-config-js/basePath) 设置为 `process.env.NEXT_PUBLIC_BASE_PATH`：**
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -487,7 +487,7 @@ next-env.d.ts
 dist
 ```
 
-现在运行 `npm run dev`，并打开 [`http://localhost:3000`](http://localhost:3000)。你应该看到你的应用程序现在运行在 Next.js 上。
+现在运行 `npm run dev`，并打开`http://localhost:3000`, 你应该看到你的应用程序现在运行在 Next.js 上。
 
 > **示例：** 查看[这个拉取请求](https://github.com/inngest/vite-to-nextjs/pull/1)，了解从 Vite 迁移到 Next.js 的工作示例。
 
@@ -506,11 +506,11 @@ dist
 
 如果一切按计划进行，你现在拥有一个作为单页应用程序运行的功能正常的 Next.js 应用程序。然而，你尚未利用 Next.js 的大多数优势，但你现在可以开始进行增量更改，以获得所有好处。以下是你可能想要做的下一步：
 
-- 从 React Router 迁移到 [Next.js App Router](/docs/nextjs-cn/app/building-your-application/routing/index) 以获取：
+- 从 React Router 迁移到 [Next.js App Router](/nextjs-cn/app/building-your-application/routing/index) 以获取：
   - 自动代码分割
-  - [流式服务器渲染](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming)
-  - [React 服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)
-- [使用 `<Image>` 组件优化图像](/docs/nextjs-cn/app/api-reference/components/image)
-- [使用 `next/font` 优化字体](/docs/nextjs-cn/app/api-reference/components/font)
-- [使用 `<Script>` 组件优化第三方脚本](/docs/nextjs-cn/app/guides/optimizing/scripts)
-- [更新你的 ESLint 配置以支持 Next.js 规则](/docs/nextjs-cn/app/api-reference/config/eslint)
+  - [流式服务器渲染](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)
+  - [React 服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)
+- [使用 `<Image>` 组件优化图像](/nextjs-cn/app/api-reference/components/image)
+- [使用 `next/font` 优化字体](/nextjs-cn/app/api-reference/components/font)
+- [使用 `<Script>` 组件优化第三方脚本](/nextjs-cn/app/building-your-application/routing/layouts-and-templates)
+- [更新你的 ESLint 配置以支持 Next.js 规则](/nextjs-cn/app/api-reference/config/eslint)

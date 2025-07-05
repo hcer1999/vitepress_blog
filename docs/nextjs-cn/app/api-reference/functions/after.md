@@ -5,7 +5,7 @@ description: after 函数的 API 参考。
 
 `after` 允许你安排在响应（或预渲染）完成后执行的工作。这对于不应阻塞响应的任务和其他副作用（如日志记录和分析）非常有用。
 
-它可以在[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)（包括 [`generateMetadata`](/docs/nextjs-cn/nextjs-cn/app/api-reference/functions/generate-metadata)）、[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)、[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)和[中间件](/docs/nextjs-cn/app/building-your-application/routing/index/middleware)中使用。
+它可以在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)（包括 [`generateMetadata`](/nextjs-cn/app/api-reference/functions/generate-metadata)）、[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)、[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)和[中间件](/nextjs-cn/app/building-your-application/routing/middleware)中使用。
 
 该函数接受一个回调，该回调将在响应（或预渲染）完成后执行：
 
@@ -37,7 +37,7 @@ export default function Layout({ children }) {
 }
 ```
 
-> **须知：** `after` 不是[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-apis)，调用它不会导致路由变为动态。如果它在静态页面中使用，回调将在构建时执行，或者在页面重新验证时执行。
+> **须知：** `after` 不是[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-apis)，调用它不会导致路由变为动态。如果它在静态页面中使用，回调将在构建时执行，或者在页面重新验证时执行。
 
 ## 参考
 
@@ -47,7 +47,7 @@ export default function Layout({ children }) {
 
 ### 持续时间
 
-`after` 将运行平台的默认或配置的路由最大持续时间。如果你的平台支持，你可以使用 [`maxDuration`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#maxduration) 路由段配置来配置超时限制。
+`after` 将运行平台的默认或配置的路由最大持续时间。如果你的平台支持，你可以使用 [`maxDuration`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#maxduration) 路由段配置来配置超时限制。
 
 ## 须知
 
@@ -59,7 +59,7 @@ export default function Layout({ children }) {
 
 ### 使用请求 API
 
-你可以在[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)和[路由处理程序](/docs/nextjs-cn/app/api-reference/file-conventions/route)中的 `after` 内部使用 [`cookies`](/docs/nextjs-cn/app/api-reference/functions/cookies) 和 [`headers`](/docs/nextjs-cn/app/api-reference/functions/headers) 等请求 API。这对于在突变后记录活动很有用。例如：
+你可以在[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)和[路由处理程序](/nextjs-cn/app/api-reference/file-conventions/route)中的 `after` 内部使用 [`cookies`](/nextjs-cn/app/api-reference/functions/cookies) 和 [`headers`](/nextjs-cn/app/api-reference/functions/headers) 等请求 API。这对于在突变后记录活动很有用。例如：
 
 ```ts highlight={2,9} switcher
 import { after } from 'next/server'
@@ -109,18 +109,18 @@ export async function POST(request) {
 }
 ```
 
-然而，你不能在[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)中的 `after` 内部使用这些请求 API。这是因为 Next.js 需要知道树的哪一部分访问请求 API 以支持[部分预渲染](/docs/nextjs-cn/app/getting-started/partial-prerendering)，但 `after` 在 React 的渲染生命周期之后运行。
+然而，你不能在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)中的 `after` 内部使用这些请求 API。这是因为 Next.js 需要知道树的哪一部分访问请求 API 以支持[部分预渲染](/nextjs-cn/app/getting-started/partial-prerendering)，但 `after` 在 React 的渲染生命周期之后运行。
 
 ## 平台支持
 
-| 部署选项                                                                      | 支持     |
-| ----------------------------------------------------------------------------- | -------- |
-| [Node.js 服务器](/docs/nextjs-cn/app/getting-started/deploying#nodejs-server) | 是       |
-| [Docker 容器](/docs/nextjs-cn/app/getting-started/deploying#docker)           | 是       |
-| [静态导出](/docs/nextjs-cn/app/getting-started/deploying#static-export)       | 否       |
-| [适配器](/docs/nextjs-cn/app/getting-started/deploying#adapters)              | 平台特定 |
+| 部署选项                                                                 | 支持     |
+| ------------------------------------------------------------------------ | -------- |
+| [Node.js 服务器](/nextjs-cn/app/getting-started/deploying#nodejs-server) | 是       |
+| [Docker 容器](/nextjs-cn/app/getting-started/deploying#docker)           | 是       |
+| [静态导出](/nextjs-cn/app/getting-started/deploying#static-export)       | 否       |
+| [适配器](/nextjs-cn/app/getting-started/deploying#adapters)              | 平台特定 |
 
-了解如何在[自托管 Next.js](/docs/nextjs-cn/app/guides/deployment/self-hosting#after) 时配置 `after`。
+了解如何在[自托管 Next.js]() 时配置 `after`。
 
 <details id="after-serverless">
   <summary>参考：为无服务器平台支持 `after`</summary>

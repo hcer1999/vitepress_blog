@@ -49,9 +49,9 @@ export default async function Page() {
 
 ## 参考
 
-- [`fetch`](/docs/nextjs-cn/app/api-reference/functions/fetch)
+- [`fetch`](/nextjs-cn/app/api-reference/functions/fetch)
 - React [`cache`](https://react.dev/reference/react/cache)
-- Next.js [`unstable_cache`](/docs/nextjs-cn/app/api-reference/functions/unstable_cache)
+- Next.js [`unstable_cache`](/nextjs-cn/app/api-reference/functions/unstable_cache)
 
 ## 示例
 
@@ -87,7 +87,7 @@ export default async function Page() {
 }
 ```
 
-如果你在此路由中其他地方没有使用任何[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)，它将在 `next build` 期间预渲染为静态页面。然后可以使用[增量静态再生](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)更新数据。
+如果你在此路由中其他地方没有使用任何[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)，它将在 `next build` 期间预渲染为静态页面。然后可以使用[增量静态再生](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)更新数据。
 
 要防止页面预渲染，你可以在文件中添加以下内容：
 
@@ -131,7 +131,7 @@ export default async function Page() {
 }
 ```
 
-如果你在此路由中其他地方没有使用任何[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)，它将在 `next build` 期间预渲染为静态页面。然后可以使用[增量静态再生](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)更新数据。
+如果你在此路由中其他地方没有使用任何[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)，它将在 `next build` 期间预渲染为静态页面。然后可以使用[增量静态再生](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)更新数据。
 
 要防止页面预渲染，你可以在文件中添加以下内容：
 
@@ -259,13 +259,13 @@ export default async function Page() {
 }
 ```
 
-此示例将数据库查询结果缓存 1 小时（3600 秒）。它还添加了缓存标签 `posts`，随后可以通过[增量静态再生](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)使其失效。
+此示例将数据库查询结果缓存 1 小时（3600 秒）。它还添加了缓存标签 `posts`，随后可以通过[增量静态再生](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)使其失效。
 
 ### 跨多个函数重用数据
 
 Next.js 使用 `generateMetadata` 和 `generateStaticParams` 等 API，你将需要在 `page` 中使用相同的获取数据。
 
-如果你使用 `fetch`，通过添加 `cache: 'force-cache'` 可以[记忆化](/docs/nextjs-cn/app/deep-dive/caching#request-memoization)请求。这意味着你可以安全地使用相同的 URL 和相同的选项多次调用，但只会发出一个请求。
+如果你使用 `fetch`，通过添加 `cache: 'force-cache'` 可以[记忆化](/nextjs-cn/app/deep-dive/caching#request-memoization)请求。这意味着你可以安全地使用相同的 URL 和相同的选项多次调用，但只会发出一个请求。
 
 > **值得了解：**
 >
@@ -380,7 +380,7 @@ export const getPost = cache(async (id) => {
 
 ### 重新验证缓存数据
 
-了解有关使用[增量静态再生](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)重新验证缓存数据的更多信息。
+了解有关使用[增量静态再生](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)重新验证缓存数据的更多信息。
 
 ## 模式
 
@@ -401,7 +401,7 @@ export const getPost = cache(async (id) => {
 
 #### 顺序数据获取
 
-如果你有嵌套组件，并且每个组件获取自己的数据，则如果这些数据请求未被[记忆化](/docs/nextjs-cn/app/deep-dive/caching#request-memoization)，数据获取将按顺序进行。
+如果你有嵌套组件，并且每个组件获取自己的数据，则如果这些数据请求未被[记忆化](/nextjs-cn/app/deep-dive/caching#request-memoization)，数据获取将按顺序进行。
 
 在某些情况下，你可能希望采用这种模式，因为一个获取依赖于另一个的结果。例如，一旦 `Artist` 组件完成数据获取，`Playlists` 组件才会开始获取数据，因为 `Playlists` 依赖于 `artistID` 属性：
 
@@ -469,7 +469,7 @@ async function Playlists({ artistID }) {
 }
 ```
 
-你可以使用 [`loading.js`](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming)（用于路由段）或 [React `<Suspense>`](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming#streaming-with-suspense)（用于嵌套组件）在 React 流式传输结果时显示即时加载状态。
+你可以使用 [`loading.js`](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)（用于路由段）或 [React `<Suspense>`](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)（用于嵌套组件）在 React 流式传输结果时显示即时加载状态。
 
 这将防止整个路由被数据请求阻塞，用户将能够与页面中已准备好的部分进行交互。
 
@@ -543,7 +543,7 @@ export default async function Page({ params }) {
 }
 ```
 
-此外，你可以添加 [Suspense 边界](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming)来拆分渲染工作，并尽快显示部分结果。
+此外，你可以添加 [Suspense 边界](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)来拆分渲染工作，并尽快显示部分结果。
 
 ### 预加载数据
 
@@ -639,13 +639,13 @@ export const getItem = cache(async (id) => {
 })
 ```
 
-通过这种方法，你可以热切地获取数据、缓存响应，并确保这种数据获取[仅在服务器上发生](/docs/nextjs-cn/app/building-your-application/rendering/composition-patterns#keeping-server-only-code-out-of-the-client-environment)。
+通过这种方法，你可以热切地获取数据、缓存响应，并确保这种数据获取[仅在服务器上发生](/nextjs-cn/app/building-your-application/rendering/composition-patterns#keeping-server-only-code-out-of-the-client-environment)。
 
 布局、页面或其他组件可以使用 `utils/get-item` 导出，以控制何时获取项目的数据。
 
 > **值得了解：**
 >
-> - 我们建议使用 [`server-only` 包](/docs/nextjs-cn/app/building-your-application/rendering/composition-patterns#keeping-server-only-code-out-of-the-client-environment)来确保服务器数据获取函数永远不会在客户端使用。
+> - 我们建议使用 [`server-only` 包](/nextjs-cn/app/building-your-application/rendering/composition-patterns#keeping-server-only-code-out-of-the-client-environment)来确保服务器数据获取函数永远不会在客户端使用。
 
 ### 防止敏感数据暴露给客户端
 

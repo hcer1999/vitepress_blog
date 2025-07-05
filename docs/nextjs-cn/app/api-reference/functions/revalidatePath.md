@@ -3,13 +3,13 @@ title: revalidatePath
 description: revalidatePath 函数的 API 参考。
 ---
 
-`revalidatePath` 允许你按需为特定路径清除[缓存数据](/docs/nextjs-cn/app/deep-dive/caching)。
+`revalidatePath` 允许你按需为特定路径清除[缓存数据](/nextjs-cn/app/deep-dive/caching)。
 
 > **须知**：
 >
 > - `revalidatePath` 仅在下次访问包含的路径时才会使缓存失效。这意味着使用动态路由段调用 `revalidatePath` 不会立即触发多个重新验证。失效仅在下次访问路径时发生。
-> - 目前，当在服务器操作中使用时，`revalidatePath` 会使[客户端路由器缓存](/docs/nextjs-cn/app/deep-dive/caching#client-side-router-cache)中的所有路由失效。这种行为是临时的，将来会更新为仅应用于特定路径。
-> - 使用 `revalidatePath` 仅使[服务器端路由缓存](/docs/nextjs-cn/app/deep-dive/caching#full-route-cache)中的**特定路径**失效。
+> - 目前，当在服务器操作中使用时，`revalidatePath` 会使[客户端路由器缓存](/nextjs-cn/app/deep-dive/caching#client-side-router-cache)中的所有路由失效。这种行为是临时的，将来会更新为仅应用于特定路径。
+> - 使用 `revalidatePath` 仅使[服务器端路由缓存](/nextjs-cn/app/deep-dive/caching#full-route-cache)中的**特定路径**失效。
 
 ## 参数
 

@@ -88,22 +88,22 @@ module.exports = createJestConfig(config)
 
 在底层，`next/jest` 会自动为你配置 Jest，包括：
 
-- 使用 [Next.js 编译器](/docs/nextjs-cn/architecture/nextjs-compiler) 设置 `transform`。
-- 自动模拟样式表（`.css`、`.module.css` 及其 scss 变体）、图像导入和 [`next/font`](/docs/nextjs-cn/app/api-reference/components/font)。
-- 将 `.env`（及所有变体）加载到 `process.env` 中。
+- 使用 [Next.js 编译器](/nextjs-cn/architecture/nextjs-compiler) 设置 `transform`。
+- 自动模拟样式表（`.css`、`.module.css` 及其 scss 变体）、图像导入和 [`next/font`](/nextjs-cn/app/api-reference/components/font)。
+- 将 `.env`（及所有变体）加载中。
 - 从测试解析和转换中忽略 `node_modules`。
 - 从测试解析中忽略 `.next`。
 - 加载 `next.config.js` 以获取启用 SWC 转换的标志。
 
-> **提示**：要直接测试环境变量，请在单独的设置脚本或 `jest.config.ts` 文件中手动加载它们。有关更多信息，请参阅[测试环境变量](/docs/nextjs-cn/app/guides/configuring/environment-variables#test-environment-variables)。
+> **提示**：要直接测试环境变量，请在单独的设置脚本或 `jest.config.ts` 文件中手动加载它们。有关更多信息，请参阅[测试环境变量]()。
 
 <PagesOnly>
 
 ## 设置 Jest（使用 Babel）
 
-如果你选择退出 [Next.js 编译器](/docs/nextjs-cn/architecture/nextjs-compiler) 而使用 Babel，你将需要手动配置 Jest，并在上述包之外安装 `babel-jest` 和 `identity-obj-proxy`。
+如果你选择退出 [Next.js 编译器](/nextjs-cn/architecture/nextjs-compiler) 而使用 Babel，你将需要手动配置 Jest，并在上述包之外安装 `babel-jest` 和 `identity-obj-proxy`。
 
-以下是为 Next.js 配置 Jest 的推荐选项：
+以下是为 Next.js 配置 Jest 的/nextjs-cn/
 
 ```js
 module.exports = {
@@ -195,7 +195,7 @@ module.exports = new Proxy(
 
 ## 可选：处理绝对导入和模块路径别名
 
-如果你的项目使用了[模块路径别名](/docs/nextjs-cn/app/getting-started/installation#set-up-absolute-imports-and-module-path-aliases)，你需要配置 Jest 来解析导入，方法是将 `jsconfig.json` 文件中的 paths 选项与 `jest.config.js` 文件中的 `moduleNameMapper` 选项匹配。例如：
+如果你的项目使用了[模块路径别名](/nextjs-cn/app/getting-started/installation#set-up-absolute-imports-and-module-path-aliases)，你需要配置 Jest 来解析导入，方法是将 `jsconfig.json` 文件中的 paths 选项与 `jest.config.js` 文件中的 `moduleNameMapper` 选项匹配。例如：
 
 ```json
 {

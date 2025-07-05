@@ -6,15 +6,15 @@ description: Edge 运行时的 API 参考。
 Next.js 提供了两种服务器运行时环境，你可以在应用程序中使用：
 
 - **Node.js 运行时**（默认），可以访问所有 Node.js API，用于渲染你的应用程序。
-- **Edge 运行时**，包含更有限的 [API 集合](#参考)，用于 [Middleware](/docs/nextjs-cn/app/api-reference/file-conventions/middleware)。
+- **Edge 运行时**，包含更有限的 [API 集合](#参考)，用于 [Middleware](/nextjs-cn/app/api-reference/file-conventions/middleware)。
 
-## 注意事项
+## 注意事项/nextjs-cn/
 
 - Edge 运行时不支持所有 Node.js API。某些包可能无法按预期工作。
 - Edge 运行时不支持增量静态再生成 (ISR)。
-- 根据你的部署适配器，两种运行时都可以支持[流式传输](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming)。
+- 根据你的部署适配器，两种运行时都可以支持[流式传输](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)。
 
-## 参考
+## 参考/nextjs-cn/
 
 Edge 运行时支持以下 API：
 
@@ -137,9 +137,9 @@ Edge 运行时支持以下 API：
 
 ### 环境变量
 
-你可以使用 `process.env` 在 `next dev` 和 `next build` 中访问[环境变量](/docs/nextjs-cn/app/guides/configuring/environment-variables)。
+你可以使用 `process.env` 在 `next dev` 和 `next build` 中访问[环境变量]()。
 
-### 不支持的 API
+### 不支持的 API/nextjs-cn/
 
 Edge 运行时有一些限制，包括：
 

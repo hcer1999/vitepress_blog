@@ -20,30 +20,31 @@ Next.js 提供了一个 ESLint 插件，[`eslint-plugin-next`](https://www.npmjs
 
 完整的规则集如下：
 
-|  在推荐配置中启用   | 规则                                                                                                                     | 描述                                                                                                           |
-| :-----------------: | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
-| <Check size={18} /> | [@next/next/google-font-display](/docs/messages/google-font-display)                                                     | 强制使用 Google Fonts 时的字体显示行为。                                                                       |
-| <Check size={18} /> | [@next/next/google-font-preconnect](/docs/messages/google-font-preconnect)                                               | 确保使用 Google Fonts 时使用 `preconnect`。                                                                    |
-| <Check size={18} /> | [@next/next/inline-script-id](/docs/messages/inline-script-id)                                                           | 在具有内联内容的 `next/script` 组件上强制使用 `id` 属性。                                                      |
-| <Check size={18} /> | [@next/next/next-script-for-ga](/docs/messages/next-script-for-ga)                                                       | 使用 Google Analytics 的内联脚本时，推荐使用 `next/script` 组件。                                              |
-| <Check size={18} /> | [@next/next/no-assign-module-variable](/docs/messages/no-assign-module-variable)                                         | 防止对 `module` 变量进行赋值。                                                                                 |
-| <Check size={18} /> | [@next/next/no-async-client-component](/docs/messages/no-async-client-component)                                         | 防止客户端组件成为异步函数。                                                                                   |
-| <Check size={18} /> | [@next/next/no-before-interactive-script-outside-document](/docs/messages/no-before-interactive-script-outside-document) | 防止在 `pages/_document.js` 外使用 `next/script` 的 `beforeInteractive` 策略。                                 |
-| <Check size={18} /> | [@next/next/no-css-tags](/docs/messages/no-css-tags)                                                                     | 防止手动添加样式表标签。                                                                                       |
-| <Check size={18} /> | [@next/next/no-document-import-in-page](/docs/messages/no-document-import-in-page)                                       | 防止在 `pages/_document.js` 外导入 `next/document`。                                                           |
-| <Check size={18} /> | [@next/next/no-duplicate-head](/docs/messages/no-duplicate-head)                                                         | 防止在 `pages/_document.js` 中重复使用 `<Head>`。                                                              |
-| <Check size={18} /> | [@next/next/no-head-element](/docs/messages/no-head-element)                                                             | 防止使用 `<head>` 元素。                                                                                       |
-| <Check size={18} /> | [@next/next/no-head-import-in-document](/docs/messages/no-head-import-in-document)                                       | 防止在 `pages/_document.js` 中使用 `next/head`。                                                               |
-| <Check size={18} /> | [@next/next/no-html-link-for-pages](/docs/messages/no-html-link-for-pages)                                               | 防止使用 `<a>` 元素导航到内部 Next.js 页面。                                                                   |
-| <Check size={18} /> | [@next/next/no-img-element](/docs/messages/no-img-element)                                                               | 由于较慢的 LCP 和更高的带宽，防止使用 `<img>` 元素。                                                           |
-| <Check size={18} /> | [@next/next/no-page-custom-font](/docs/messages/no-page-custom-font)                                                     | 防止仅页面使用的自定义字体。                                                                                   |
-| <Check size={18} /> | [@next/next/no-script-component-in-head](/docs/messages/no-script-component-in-head)                                     | 防止在 `next/head` 组件中使用 `next/script`。                                                                  |
-| <Check size={18} /> | [@next/next/no-styled-jsx-in-document](/docs/messages/no-styled-jsx-in-document)                                         | 防止在 `pages/_document.js` 中使用 `styled-jsx`。                                                              |
-| <Check size={18} /> | [@next/next/no-sync-scripts](/docs/messages/no-sync-scripts)                                                             | 防止同步脚本。                                                                                                 |
-| <Check size={18} /> | [@next/next/no-title-in-document-head](/docs/messages/no-title-in-document-head)                                         | 防止使用来自 `next/document` 的 `Head` 组件中的 `<title>`。                                                    |
-| <Check size={18} /> | @next/next/no-typos                                                                                                      | 防止在 [Next.js 的数据获取函数](/docs/nextjs-cn/pages/building-your-application/data-fetching)中的常见拼写错误 |
-| <Check size={18} /> | [@next/next/no-unwanted-polyfillio](/docs/messages/no-unwanted-polyfillio)                                               | 防止来自 Polyfill.io 的重复 polyfill。                                                                         |
+|  在推荐配置中启用   | 规则                                                        | 描述                                                                                                            |
+| :-----------------: | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| <Check size={18} /> | [@next/next/google-font-display](                           | 强制使用 Google Fonts 时的字体显示行为。                                                                        |
+| <Check size={18} /> | [@next/next/google-font-preconnect](                        | 确保使用 Google Fonts 时使用 `preconnect`。                                                                     |
+| <Check size={18} /> | [@next/next/inline-script-id](                              | 在具有内联内容的 `next/script` 组件上强制使用 `id` 属性。                                                       |
+| <Check size={18} /> | [@next/next/next-script-for-ga](                            | 使用 Google Analytics 的内联脚本时，推荐使用 `next/script` 组件。                                               |
+| <Check size={18} /> | [@next/next/no-assign-module-variable](                     | 防止对 `module` 变量进行赋值。                                                                                  |
+| <Check size={18} /> | [@next/next/no-async-client-component](                     | 防止客户端组件成为异步函数。                                                                                    |
+| <Check size={18} /> | [@next/next/no-before-interactive-script-outside-document]( | 防止在 `pages/_document.js` 外使用 `next/script` 的 `beforeInteractive` 策略。                                  |
+| <Check size={18} /> | [@next/next/no-css-tags](                                   | 防止手动添加样式表标签。                                                                                        |
+| <Check size={18} /> | [@next/next/no-document-import-in-page](                    | 防止在 `pages/_document.js` 外导入 `next/document`。                                                            |
+| <Check size={18} /> | [@next/next/no-duplicate-head](                             | 防止在 `pages/_document.js` 中重复使用 `<Head>`。                                                               |
+| <Check size={18} /> | [@next/next/no-head-element](                               | 防止使用 `<head>` 元素。                                                                                        |
+| <Check size={18} /> | [@next/next/no-head-import-in-document](                    | 防止在 `pages/_document.js` 中使用 `next/head`。                                                                |
+| <Check size={18} /> | [@next/next/no-html-link-for-pages](                        | 防止使用 `<a>` 元素导航到内部 Next.js 页面。                                                                    |
+| <Check size={18} /> | [@next/next/no-img-element](                                | 由于较慢的 LCP 和更高的带宽，防止使用 `<img>` 元素。                                                            |
+| <Check size={18} /> | [@next/next/no-page-custom-font](                           | 防止仅页面使用的自定义字体。                                                                                    |
+| <Check size={18} /> | [@next/next/no-script-component-in-head](                   | 防止在 `next/head` 组件中使用 `next/script`。                                                                   |
+| <Check size={18} /> | [@next/next/no-styled-jsx-in-document](                     | 防止在 `pages/_document.js` 中使用 `styled-jsx`。                                                               |
+| <Check size={18} /> | [@next/next/no-sync-scripts](                               | 防止同步脚本。                                                                                                  |
+| <Check size={18} /> | [@next/next/no-title-in-document-head](                     | 防止使用来自 `next/document` 的 `Head` 组件中的 `<title>`。                                                     |
+| <Check size={18} /> | @next/next/no-typos                                         | 防止在 [Next.js 的数据获取函数](/nextjs-cn/pages/building-your-application/data-fetching/index)中的常见拼写错误 |
+| <Check size={18} /> | [@next/next/no-unwanted-polyfillio](                        | 防止来自 Polyfill.io 的重复 polyfill。                                                                          |
 
+/nextjs-cn/
 我们建议使用适当的[集成](https://eslint.org/docs/user-guide/integrations#editors)，以便在开发过程中直接在代码编辑器中查看警告和错误。
 
 ## 示例
@@ -96,7 +97,7 @@ export default eslintConfig
 
 ### 禁用缓存
 
-为了提高性能，ESLint 处理的文件信息默认会被缓存。这存储在 `.next/cache` 或你定义的[构建目录](/docs/nextjs-cn/app/api-reference/config/next-config-js/distDir)中。如果你包含任何依赖于单个源文件内容以外的 ESLint 规则并需要禁用缓存，请使用 `next lint` 的 `--no-cache` 标志。
+为了提高性能，ESLint 处理的文件信息默认会被缓存。这存储在 `.next/cache` 或你定义的[构建目录](/nextjs-cn/app/api-reference/config/next-config-js/distDir)中。如果你包含任何依赖于单个源文件内容以外的 ESLint 规则并需要禁用缓存，请使用 `next lint` 的 `--no-cache` 标志。
 
 ```bash
 next lint --no-cache
@@ -150,9 +151,9 @@ export default eslintConfig
 
 `next/core-web-vitals` 更新 `eslint-plugin-next`，如果某些规则影响[核心网络指标](https://web.dev/vitals/)，则将默认为警告的规则改为错误。
 
-> 使用 [Create Next App](/docs/nextjs-cn/app/api-reference/cli/create-next-app) 构建的新应用程序会自动包含 `next/core-web-vitals` 入口点。
+> 使用 [Create Next App](/nextjs-cn/app/api-reference/cli/create-next-app) 构建的新应用程序会自动包含 `next/core-web-vitals` 入口点。
 
-### 与 TypeScript
+### 与 TypeScript/nextjs-cn/
 
 除了 Next.js ESLint 规则外，`create-next-app --typescript` 还会使用 `next/typescript` 将特定于 TypeScript 的 lint 规则添加到你的配置中：
 
@@ -269,10 +270,10 @@ If the following conditions are true:
   - `react-hooks`
   - `jsx-a11y`
   - `import`
-- You've defined specific `parserOptions` that are different from how Babel is configured within Next.js (this is not recommended unless you have [customized your Babel configuration](/docs/nextjs-cn/pages/guides/configuring/babel))
+- You've defined specific `parserOptions` that are different from how Babel is configured within Next.js (this is not recommended unless you have customized your Babel configuration)
 - You have `eslint-plugin-import` installed with Node.js and/or TypeScript [resolvers](https://github.com/benmosher/eslint-plugin-import#resolvers) defined to handle imports
-
-Then we recommend either removing these settings if you prefer how these properties have been configured within [`eslint-config-next`](https://github.com/vercel/next.js/blob/canary/packages/eslint-config-next/index.js) or extending directly from the Next.js ESLint plugin instead:
+  /nextjs-cn/
+  Then we recommend either removing these settings if you prefer how these properties have been configured within [`eslint-config-next`](https://github.com/vercel/next.js/blob/canary/packages/eslint-config-next/index.js) or extending directly from the Next.js ESLint plugin instead:
 
 ```js
 module.exports = {

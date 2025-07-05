@@ -16,7 +16,7 @@ related:
 
 ## 用法
 
-要使用 `cacheTag`，请在 `next.config.js` 文件中启用 [`dynamicIO` 标志](/docs/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)：
+要使用 `cacheTag`，请在 `next.config.js` 文件中启用 [`dynamicIO` 标志](/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)：
 
 ```ts switcher
 import type { NextConfig } from 'next'
@@ -64,7 +64,7 @@ export async function getData() {
 }
 ```
 
-然后，你可以使用 [`revalidateTag`](/docs/nextjs-cn/app/api-reference/functions/revalidateTag) API 在另一个函数中按需清除缓存，例如，在[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)或[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中：
+然后，你可以使用 [`revalidateTag`](/nextjs-cn/app/api-reference/functions/revalidateTag) API 在另一个函数中按需清除缓存，例如，在[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)或[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中：
 
 ```tsx switcher
 'use server'
@@ -177,7 +177,7 @@ export async function Bookings({ type = 'haircut' }) {
 
 ### 使标记的缓存失效
 
-使用 [`revalidateTag`](/docs/nextjs-cn/app/api-reference/functions/revalidateTag)，你可以在需要时使特定标签的缓存失效：
+使用 [`revalidateTag`](/nextjs-cn/app/api-reference/functions/revalidateTag)，你可以在需要时使特定标签的缓存失效：
 
 ```tsx switcher
 'use server'

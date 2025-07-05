@@ -41,7 +41,7 @@ related:
 
 你可以使用 `sitemap.(js|ts)` 文件约定通过导出返回 URL 数组的默认函数来以编程方式**生成**站点地图。如果使用 TypeScript，可以使用 [`Sitemap`](#返回值) 类型。
 
-> **须知**：`sitemap.js` 是一个默认被缓存的特殊路由处理程序，除非它使用了[动态 API](/docs/nextjs-cn/app/deep-dive/caching#dynamic-apis) 或[动态配置](/docs/nextjs-cn/app/deep-dive/caching#segment-config-options)选项。
+> **须知**：`sitemap.js` 是一个默认被缓存的特殊路由处理程序，除非它使用了[动态 API](/nextjs-cn/app/deep-dive/caching#dynamic-apis) 或[动态配置](/nextjs-cn/app/deep-dive/caching#segment-config-options)选项。
 
 ```ts switcher
 import type { MetadataRoute } from 'next'
@@ -336,7 +336,7 @@ export default function sitemap() {
 有两种方法可以创建多个站点地图：
 
 - 通过在多个路由段内嵌套 `sitemap.(xml|js|ts)`，例如 `app/sitemap.xml` 和 `app/products/sitemap.xml`。
-- 通过使用 [`generateSitemaps`](/docs/nextjs-cn/app/api-reference/functions/generate-sitemaps) 函数。
+- 通过使用 [`generateSitemaps`](/nextjs-cn/app/api-reference/functions/generate-sitemaps) 函数。
 
 例如，要使用 `generateSitemaps` 拆分站点地图，返回带有站点地图 `id` 的对象数组。然后，使用 `id` 生成唯一的站点地图。
 
@@ -387,7 +387,7 @@ export default async function sitemap({ id }) {
 
 你生成的站点地图将可在 `/.../sitemap/[id]` 获取。例如，`/product/sitemap/1.xml`。
 
-有关更多信息，请参阅 [`generateSitemaps` API 参考](/docs/nextjs-cn/app/api-reference/functions/generate-sitemaps)。
+有关更多信息，请参阅 [`generateSitemaps` API 参考](/nextjs-cn/app/api-reference/functions/generate-sitemaps)。
 
 ## 返回值
 

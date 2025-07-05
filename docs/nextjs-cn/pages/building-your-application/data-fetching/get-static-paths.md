@@ -3,7 +3,7 @@ title: getStaticPaths
 description: Fetch data and generate static pages with `getStaticPaths`. Learn more about this API for data fetching in Next.js.
 ---
 
-If a page has [Dynamic Routes](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes) and uses `getStaticProps`, it needs to define a list of paths to be statically generated.
+If a page has [Dynamic Routes](/nextjs-cn/pages/building-your-application/routing/dynamic-routes) and uses `getStaticProps`, it needs to define a list of paths to be statically generated.
 
 When you export a function called `getStaticPaths` (Static Site Generation) from a page that uses dynamic routes, Next.js will statically pre-render all the paths specified by `getStaticPaths`.
 
@@ -66,7 +66,7 @@ export default function Page({ repo }) {
 }
 ```
 
-The [`getStaticPaths` API reference](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths) covers all parameters and props that can be used with `getStaticPaths`.
+The [`getStaticPaths` API reference](/nextjs-cn/pages/api-reference/functions/get-static-paths) covers all parameters and props that can be used with `getStaticPaths`.
 
 ## When should I use getStaticPaths?
 
@@ -91,8 +91,8 @@ You should use `getStaticPaths` if you’re statically pre-rendering pages that 
 ## Where can I use getStaticPaths
 
 - `getStaticPaths` **must** be used with `getStaticProps`
-- You **cannot** use `getStaticPaths` with [`getServerSideProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props)
-- You can export `getStaticPaths` from a [Dynamic Route](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes) that also uses `getStaticProps`
+- You **cannot** use `getStaticPaths` with [`getServerSideProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props)
+- You can export `getStaticPaths` from a [Dynamic Route](/nextjs-cn/pages/building-your-application/routing/dynamic-routes) that also uses `getStaticProps`
 - You **cannot** export `getStaticPaths` from non-page file (e.g. your `components` folder)
 - You must export `getStaticPaths` as a standalone function, and not a property of the page component
 
@@ -102,7 +102,7 @@ In development (`next dev`), `getStaticPaths` will be called on every request.
 
 ## Generating paths on-demand
 
-`getStaticPaths` allows you to control which pages are generated during the build instead of on-demand with [`fallback`](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-blocking). Generating more pages during a build will cause slower builds.
+`getStaticPaths` allows you to control which pages are generated during the build instead of on-demand with [`fallback`](/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-blocking). Generating more pages during a build will cause slower builds.
 
 You can defer generating all pages on-demand by returning an empty array for `paths`. This can be especially helpful when deploying your Next.js application to multiple environments. For example, you can have faster builds by generating all pages on-demand for previews (but not production builds). This is helpful for sites with hundreds/thousands of static pages.
 

@@ -32,13 +32,13 @@ Cache-Control: public, max-age=0
 
 <PagesOnly>
 
-该文件夹对于 `robots.txt`、`favicon.ico`、Google 站点验证和任何其他静态文件（包括 `.html`）也很有用。但请确保没有与 `pages/` 目录中的文件同名的静态文件，因为这将导致错误。[了解更多](/docs/messages/conflicting-public-file-page)。
+该文件夹对于 `robots.txt`、`favicon.ico`、Google 站点验证和任何其他静态文件（包括 `.html`）也很有用。但请确保没有与 `pages/` 目录中的文件同名的静态文件，因为这将导致错误。[了解更多]()。
 
 </PagesOnly>
 
 <AppOnly>
 
-对于静态元数据文件，如 `robots.txt`、`favicon.ico` 等，你应该使用 `app` 文件夹中的[特殊元数据文件](/docs/nextjs-cn/app/api-reference/file-conventions/metadata)。
+对于静态元数据文件，如 `robots.txt`、`favicon.ico` 等，你应该使用 `app` 文件夹中的[特殊元数据文件](/nextjs-cn/app/api-reference/file-conventions/metadata/index)。
 
 </AppOnly>
 

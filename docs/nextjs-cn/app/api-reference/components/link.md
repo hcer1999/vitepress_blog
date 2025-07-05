@@ -3,7 +3,7 @@ title: Link
 description: 使用内置的 `next/link` 组件实现快速的客户端导航。
 ---
 
-`<Link>` 是一个 React 组件，它扩展了 HTML 的 `<a>` 元素，提供了路由之间的[预加载](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#prefetching)和客户端导航功能。这是在 Next.js 中路由间导航的主要方式。
+`<Link>` 是一个 React 组件，它扩展了 HTML 的 `<a>` 元素，提供了路由之间的[预加载](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#prefetching)和客户端导航功能。这是在 Next.js 中路由间导航的主要方式。
 
 基本用法：
 
@@ -136,9 +136,9 @@ export default function Page() {
 >
 > - 预加载在生产环境中启用。在开发环境中，页面是按需加载的。
 > - 当使用静态生成的页面（不考虑是动态路由还是非动态路由）时，Next.js 预加载整个页面的 JSON，使得客户端导航更快。
-> - 当使用服务器渲染的路由时，Next.js 预加载路由的 [Flight 数据](/docs/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies)，包括布局和页面数据。
+> - 当使用服务器渲染的路由时，Next.js 预加载路由的 [Flight 数据](/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies)，包括布局和页面数据。
 > - 你可以通过 Chrome DevTools 网络选项卡查看预加载工作。
-> - 如果你的页面使用了 [`useSearchParams()`](/docs/nextjs-cn/app/api-reference/functions/use-search-params) hook，那么带有 `prefetch={true}` 的页面将被预渲染，但没有搜索参数。还有一个已知限制是，如果你的应用使用 i18n 路由，则当前不支持该路由的预加载。
+> - 如果你的页面使用了 [`useSearchParams()`](/nextjs-cn/app/api-reference/functions/use-search-params) hook，那么带有 `prefetch={true}` 的页面将被预渲染，但没有搜索参数。还有一个已知限制是，如果你的应用使用 i18n 路由，则当前不支持该路由的预加载。
 
 </AppOnly>
 
@@ -148,10 +148,10 @@ export default function Page() {
 >
 > - 预加载在生产环境中启用。在开发环境中，页面是按需加载的。
 > - 当使用静态生成的页面（不考虑是动态路由还是非动态路由）时，Next.js 预加载整个页面内容，使得客户端导航几乎瞬间完成。
-> - 当使用服务器渲染的路由或用 [`getServerSideProps`](/docs/nextjs-cn/pages/api-reference/functions/get-server-side-props) 的页面时，Next.js 预加载路由的数据，所以它至少会预加载 JSON 文件，在导航时 React 组件依然需要运行。
+> - 当使用服务器渲染的路由或用 [`getServerSideProps`](/nextjs-cn/pages/api-reference/functions/get-server-side-props) 的页面时，Next.js 预加载路由的数据，所以它至少会预加载 JSON 文件，在导航时 React 组件依然需要运行。
 > - 你可以通过 Chrome DevTools 网络选项卡查看预加载工作。使用 `(CMD/CTRL+SHIFT+p)` 搜索 "Show Coverage"，点击页面上的任何链接，你会看到已预加载的 JavaScript。
-
-</PagesOnly>
+>   /nextjs-cn/
+>   </PagesOnly>
 
 ## 示例
 

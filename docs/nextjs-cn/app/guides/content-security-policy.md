@@ -29,9 +29,9 @@ related:
 
 ### 使用中间件添加随机数
 
-[中间件](/docs/nextjs-cn/app/building-your-application/routing/index/middleware)使你能够在页面渲染之前添加头部和生成随机数。
+[中间件](/nextjs-cn/app/building-your-application/routing/middleware)使你能够在页面渲染之前添加头部和生成随机数。
 
-每次查看页面时，都应生成一个新的随机数。这意味着你**必须使用动态渲染来添加随机数**。
+每次查看页面/nextjs-cn/味着你**必须使用动态渲染来添加随机数**。
 
 例如：
 
@@ -106,9 +106,9 @@ export function middleware(request) {
 }
 ```
 
-默认情况下，中间件在所有请求上运行。你可以使用 [`matcher`](/docs/nextjs-cn/app/building-your-application/routing/index/middleware#matcher) 过滤中间件，使其仅在特定路径上运行。
+默认情况下，中间件在所有请求上运行。你可以使用 [`matcher`](/nextjs-cn/app/building-your-application/routing/middleware#matcher) 过滤中间件，使其仅在特定路径上运行。
 
-我们建议忽略匹配预取请求（来自 `next/link`）和不需要 CSP 头部的静态资源。
+我们建议忽略匹配预取请求（来自 `next/link`）和不需要 CSP/nextjs-cn/
 
 ```ts switcher
 export const config = {
@@ -155,9 +155,9 @@ export const config = {
 ### 读取随机数
 
 <PagesOnly>
-  你可以使用 [`getServerSideProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props) 将随机数提供给你的页面：
+  你可以使用 [`getServerSideProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props) 将随机数提供给你的页面：
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 import Script from 'next/script'
 
 import type { GetServerSideProps } from 'next'
@@ -200,7 +200,7 @@ export async function getServerSideProps({ req }) {
 
 <AppOnly>
 
-你可以使用 [`headers`](/docs/nextjs-cn/app/api-reference/functions/headers) 从 [服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components) 中读取随机数：
+你可以使用 [`headers`](/nextjs-cn/app/api-reference/functions/headers) 从 [服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components) 中读取随机数：
 
 ```tsx switcher
 import { headers } from 'next/headers'
@@ -240,7 +240,7 @@ export default async function Page() {
 
 ## 不使用随机数
 
-对于不需要随机数的应用程序，你可以直接在 [`next.config.js`](/docs/nextjs-cn/app/api-reference/config/next-config-js) 文件中设置 CSP 头部：
+对于不需要随机数的应用程序，你可以直接在 [`next.config.js`](/nextjs-cn/app/api-reference/config/next-config-js/index) 文件中设置 CSP 头部：
 
 ```js
 const cspHeader = `

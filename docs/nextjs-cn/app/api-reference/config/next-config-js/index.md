@@ -121,9 +121,9 @@ export default nextConfig
 
 从 Next.js 15.1 开始，`next/experimental/testing/server` 包含帮助对 `next.config.js` 文件进行单元测试的实用工具。
 
-`unstable_getResponseFromNextConfig` 函数运行 `next.config.js` 中的 [`headers`](/docs/nextjs-cn/app/api-reference/config/next-config-js/headers)、[`redirects`](/docs/nextjs-cn/app/api-reference/config/next-config-js/redirects) 和 [`rewrites`](/docs/nextjs-cn/app/api-reference/config/next-config-js/rewrites) 函数，使用提供的请求信息并返回带有路由结果的 `NextResponse`。
+`unstable_getResponseFromNextConfig` 函数运行 `next.config.js` 中的 [`headers`](/nextjs-cn/app/api-reference/config/next-config-js/headers)、[`redirects`](/nextjs-cn/app/api-reference/config/next-config-js/redirects) 和 [`rewrites`](/nextjs-cn/app/api-reference/config/next-config-js/rewrites) 函数，使用提供的请求信息并返回带有路由结果的 `NextResponse`。
 
-> `unstable_getResponseFromNextConfig` 的响应仅考虑 `next.config.js` 字段，不考虑中间件或文件系统路由，因此生产环境中的结果可能与单元测试不同。
+> `unstable_getResponseFromNextConfig` 的响应仅考虑 `next.config.js` 字段，不考虑中间件或文/nextjs-cn/可能与单元测试不同。
 
 ```js
 import {

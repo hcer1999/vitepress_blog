@@ -20,7 +20,7 @@ related:
 
 1. [静态 `metadata` 对象](#static-metadata)
 2. [动态 `generateMetadata` 函数](#generated-metadata)
-3. 特殊的[文件约定](/docs/nextjs-cn/app/api-reference/file-conventions/metadata)，可用于添加静态或动态生成的[网站图标](#favicons)和 [OG 图片](#static-open-graph-images)。
+3. 特殊的[文件约定](/nextjs-cn/app/api-reference/file-conventions/metadata/index)，可用于添加静态或动态生成的[网站图标](#favicons)和 [OG 图片](#static-open-graph-images)。
 
 使用以上任何选项，Next.js 都会自动为你的页面生成相关的 `<head>` 标签，你可以在浏览器的开发者工具中查看这些标签。
 
@@ -40,7 +40,7 @@ related:
 
 ## 静态元数据
 
-要定义静态元数据，从静态的 [`layout.js`](/docs/nextjs-cn/app/api-reference/file-conventions/layout) 或 [`page.js`](/docs/nextjs-cn/app/api-reference/file-conventions/page) 文件中导出一个 [`Metadata` 对象](/docs/nextjs-cn/app/api-reference/functions/generate-metadata#metadata-object)。例如，要为博客路由添加标题和描述：
+要定义静态元数据，从静态的 [`layout.js`](/nextjs-cn/app/api-reference/file-conventions/layout) 或 [`page.js`](/nextjs-cn/app/api-reference/file-conventions/page) 文件中导出一个 [`Metadata` 对象](/nextjs-cn/app/api-reference/functions/generate-metadata#metadata-object)。例如，要为博客路由添加标题和描述：
 
 ```tsx switcher
 import type { Metadata } from 'next'
@@ -62,11 +62,11 @@ export const metadata = {
 export default function Page() {}
 ```
 
-你可以在 [`generateMetadata` 文档](/docs/nextjs-cn/app/api-reference/functions/generate-metadata#metadata-fields)中查看完整的可用选项列表。
+你可以在 [`generateMetadata` 文档](/nextjs-cn/app/api-reference/functions/generate-metadata#metadata-fields)中查看完整的可用选项列表。
 
 ## 生成的元数据
 
-你可以使用 [`generateMetadata`](/docs/nextjs-cn/app/api-reference/functions/generate-metadata) 函数来 `fetch` 依赖于数据的元数据。例如，获取特定博客文章的标题和描述：
+你可以使用 [`generateMetadata`](/nextjs-cn/app/api-reference/functions/generate-metadata) 函数来 `fetch` 依赖于数据的元数据。例如，获取特定博客文章的标题和描述：
 
 ```tsx switcher
 import type { Metadata, ResolvingMetadata } from 'next'
@@ -176,10 +176,10 @@ export default async function Page({ params }) {
 
 以下是可用的特殊元数据文件：
 
-- [favicon.ico、apple-icon.jpg 和 icon.jpg](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons)
-- [opengraph-image.jpg 和 twitter-image.jpg](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)
-- [robots.txt](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/robots)
-- [sitemap.xml](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap)
+- [favicon.ico、apple-icon.jpg 和 icon.jpg](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons)
+- [opengraph-image.jpg 和 twitter-image.jpg](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)
+- [robots.txt](/nextjs-cn/app/api-reference/file-conventions/metadata/robots)
+- [sitemap.xml](/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap)
 
 你可以将这些用于静态元数据，或者使用代码以编程方式生成这些文件。
 
@@ -195,7 +195,7 @@ export default async function Page({ params }) {
   height="444"
 />
 
-> 你也可以使用代码以编程方式生成网站图标。查看[网站图标文档](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons)了解更多信息。
+> 你也可以使用代码以编程方式生成网站图标。查看[网站图标文档](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons)了解更多信息。
 
 ## 静态 Open Graph 图片
 
@@ -221,11 +221,11 @@ Open Graph (OG) 图片是在社交媒体中代表你的网站的图片。要为�
 
 更具体的图片将优先于文件夹结构中其上方的任何 OG 图片。
 
-> 其他图片格式如 `jpeg`、`png` 和 `webp` 也受支持。查看 [Open Graph 图片文档](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)了解更多信息。
+> 其他图片格式如 `jpeg`、`png` 和 `webp` 也受支持。查看 [Open Graph 图片文档](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)了解更多信息。
 
 ## 生成的 Open Graph 图片
 
-[`ImageResponse` 构造函数](/docs/nextjs-cn/app/api-reference/functions/image-response)允许你使用 JSX 和 CSS 生成动态图片。这对于依赖数据的 OG 图片很有用。
+[`ImageResponse` 构造函数](/nextjs-cn/app/api-reference/functions/image-response)允许你使用 JSX 和 CSS 生成动态图片。这对于依赖数据的 OG 图片很有用。
 
 例如，要为每个博客文章生成唯一的 OG 图片，请在 `blog` 文件夹中添加一个 `opengraph-image.ts` 文件，并从 `next/og` 导入 `ImageResponse` 构造函数：
 
@@ -303,7 +303,7 @@ export default async function Image({ params }) {
 }
 ```
 
-`ImageResponse` 支持常见的 CSS 属性，包括 flexbox 和绝对定位、自定义字体、文本换行、居中和嵌套图片。[查看支持的 CSS 属性完整列表](/docs/nextjs-cn/app/api-reference/functions/image-response)。
+`ImageResponse` 支持常见的 CSS 属性，包括 flexbox 和绝对定位、自定义字体、文本换行、居中和嵌套图片。[查看支持的 CSS 属性完整列表](/nextjs-cn/app/api-reference/functions/image-response)。
 
 > **注意事项**：
 >

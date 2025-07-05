@@ -15,7 +15,7 @@ Next.js 路由通知器首先检查 `document.title`，然后是 `<h1>` 元素�
 
 ## 代码检查
 
-Next.js 开箱即用地提供[集成的 ESLint 体验](/docs/nextjs-cn/pages/api-reference/config/eslint)，包括 Next.js 的自定义规则。默认情况下，Next.js 包含 `eslint-plugin-jsx-a11y` 以帮助尽早发现无障碍问题，包括对以下内容发出警告：
+Next.js 开箱即用地提供[集成的 ESLint 体验](/nextjs-cn/pages/api-reference/config/eslint)，包括 Next.js 的自定义规则。默认情况下，Next.js 包含 `eslint-plugin-jsx-a11y` 以帮助尽早发现无障碍问题，包括对以下内容发出警告：
 
 - [aria-props](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/aria-props.md?rgh-link-date=04T02%3A10%3A36Z)
 - [aria-proptypes](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/aria-proptypes.md?rgh-link-date=04T02%3A10%3A36Z)

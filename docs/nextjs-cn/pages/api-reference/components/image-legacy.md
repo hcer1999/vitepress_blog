@@ -6,7 +6,7 @@ version: legacy
 
 Starting with Next.js 13, the `next/image` component was rewritten to improve both the performance and developer experience. In order to provide a backwards compatible upgrade solution, the old `next/image` was renamed to `next/legacy/image`.
 
-View the **new** [`next/image` API Reference](/docs/nextjs-cn/pages/api-reference/components/image)
+View the **new** [`next/image` API Reference](/nextjs-cn/pages/api-reference/components/image)
 
 ## Comparison
 
@@ -32,7 +32,7 @@ The `<Image />` component requires the following properties.
 
 Must be one of the following:
 
-- A [statically imported](/docs/nextjs-cn/pages/api-reference/components/image#src) image file
+- A [statically imported](/nextjs-cn/pages/api-reference/components/image#src) image file
 - A path string. This can be either an absolute external URL, or an internal path depending on the [loader](#loader) prop or [loader configuration](#loader-configuration).
 
 When using the default [loader](#loader), also consider the following for source images:
@@ -49,7 +49,7 @@ When using `layout="intrinsic"` or `layout="fixed"` the `width` property represe
 
 When using `layout="responsive"`, `layout="fill"`, the `width` property represents the _original_ width in pixels, so it will only affect the aspect ratio.
 
-The `width` property is required, except for [statically imported images](/docs/nextjs-cn/pages/api-reference/components/image#src), or those with `layout="fill"`.
+The `width` property is required, except for [statically imported images](/nextjs-cn/pages/api-reference/components/image#src), or those with `layout="fill"`.
 
 ### height
 
@@ -59,7 +59,7 @@ When using `layout="intrinsic"` or `layout="fixed"` the `height` property repres
 
 When using `layout="responsive"`, `layout="fill"`, the `height` property represents the _original_ height in pixels, so it will only affect the aspect ratio.
 
-The `height` property is required, except for [statically imported images](/docs/nextjs-cn/pages/api-reference/components/image#src), or those with `layout="fill"`.
+The `height` property is required, except for [statically imported images](/nextjs-cn/pages/api-reference/components/image#src), or those with `layout="fill"`.
 
 ## Optional Props
 
@@ -166,7 +166,7 @@ Should only be used when the image is visible above the fold. Defaults to `false
 
 A placeholder to use while the image is loading. Possible values are `blur` or `empty`. Defaults to `empty`.
 
-When `blur`, the [`blurDataURL`](#blurdataurl) property will be used as the placeholder. If `src` is an object from a [static import](/docs/nextjs-cn/pages/api-reference/components/image#src) and the imported image is `.jpg`, `.png`, `.webp`, or `.avif`, then `blurDataURL` will be automatically populated.
+When `blur`, the [`blurDataURL`](#blurdataurl) property will be used as the placeholder. If `src` is an object from a [static import](/nextjs-cn/pages/api-reference/components/image#src) and the imported image is `.jpg`, `.png`, `.webp`, or `.avif`, then `blurDataURL` will be automatically populated.
 
 For dynamic images, you must provide the [`blurDataURL`](#blurdataurl) property. Solutions such as [Plaiceholder](https://github.com/joe-bell/plaiceholder) can help with `base64` generation.
 
@@ -448,7 +448,7 @@ The following Image Optimization cloud providers are included:
 
 If you need a different provider, you can use the [`loader`](#loader) prop with `next/legacy/image`.
 
-> Images can not be optimized at build time using [`output: 'export'`](/docs/nextjs-cn/pages/guides/deployment/static-exports), only on-demand. To use `next/legacy/image` with `output: 'export'`, you will need to use a different loader than the default. [Read more in the discussion.](https://github.com/vercel/next.js/discussions/19065)
+> Images can not be optimized at build time using [`output: 'export'`](), only on-demand. To use `next/legacy/image` with `output: 'export'`, you will need to use a different loader than the default. [Read more in the discussion.](https://github.com/vercel/next.js/discussions/19065)
 
 ## Advanced
 
@@ -536,7 +536,7 @@ The expiration (or rather Max Age) is defined by either the [`minimumCacheTTL`](
 
 ### Minimum Cache TTL
 
-You can configure the Time to Live (TTL) in seconds for cached optimized images. In many cases, it's better to use a [Static Image Import](/docs/nextjs-cn/pages/api-reference/components/image#src) which will automatically hash the file contents and cache the image forever with a `Cache-Control` header of `immutable`.
+You can configure the Time to Live (TTL) in seconds for cached optimized images. In many cases, it's better to use a [Static Image Import](/nextjs-cn/pages/api-reference/components/image#src) which will automatically hash the file contents and cache the image forever with a `Cache-Control` header of `immutable`.
 
 If no configuration is provided, the default below is used.
 
@@ -560,7 +560,7 @@ module.exports = {
 
 The expiration (or rather Max Age) of the optimized image is defined by either the `minimumCacheTTL` or the upstream image `Cache-Control` header, whichever is larger.
 
-If you need to change the caching behavior per image, you can configure [`headers`](/docs/nextjs-cn/pages/api-reference/config/next-config-js/headers) to set the `Cache-Control` header on the upstream image (e.g. `/some-asset.jpg`, not `/_next/image` itself).
+If you need to change the caching behavior per image, you can configure [`headers`](/nextjs-cn/pages/api-reference/config/next-config-js/headers) to set the `Cache-Control` header on the upstream image (e.g. `/some-asset.jpg`, not `/_next/image` itself).
 
 There is no mechanism to invalidate the cache at this time, so its best to keep `minimumCacheTTL` low. Otherwise you may need to manually change the [`src`](#src) prop or delete `<distDir>/cache/images`.
 
@@ -582,7 +582,7 @@ module.exports = {
 
 ### Dangerously Allow SVG
 
-The default [loader](#loader) does not optimize SVG images for a few reasons. First, SVG is a vector format meaning it can be resized losslessly. Second, SVG has many of the same features as HTML/CSS, which can lead to vulnerabilities without proper [Content Security Policy (CSP) headers](/docs/nextjs-cn/app/api-reference/config/next-config-js/headers#content-security-policy).
+The default [loader](#loader) does not optimize SVG images for a few reasons. First, SVG is a vector format meaning it can be resized losslessly. Second, SVG has many of the same features as HTML/CSS, which can lead to vulnerabilities without proper [Content Security Policy (CSP) headers](/nextjs-cn/app/api-reference/config/next-config-js/headers#content-security-policy).
 
 Therefore, we recommended using the [`unoptimized`](#unoptimized) prop when the [`src`](#src) prop is known to be SVG. This happens automatically when `src` ends with `".svg"`.
 

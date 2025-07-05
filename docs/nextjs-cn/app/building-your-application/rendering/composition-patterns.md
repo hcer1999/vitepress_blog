@@ -34,7 +34,7 @@ description: 使用服务器和客户端组件的推荐模式。
 
 与其使用 [React Context](https://react.dev/learn/passing-data-deeply-with-context)（在服务器上不可用）或通过 props 传递数据，你可以使用 `fetch` 或 React 的 `cache` 函数在需要数据的组件中获取相同的数据，而不必担心为相同的数据发出重复请求。这是因为 React 扩展了 `fetch` 以自动记忆化数据请求，而当 `fetch` 不可用时，可以使用 `cache` 函数。
 
-[查看此模式的示例](/docs/nextjs-cn/app/building-your-application/data-fetching/fetching#reusing-data-across-multiple-functions)。
+[查看此模式的示例](/nextjs-cn/app/building-your-application/data-fetching/fetching#reusing-data-across-multiple-functions)。
 
 ### 让服务器专用代码远离客户端环境
 
@@ -396,18 +396,18 @@ export default function Layout({ children }) {
 
 如果你在服务器组件中获取数据，你可能想将数据作为属性传递给客户端组件。从服务器传递到客户端组件的属性需要被 React [序列化](https://react.dev/reference/react/use-server#serializable-parameters-and-return-values)。
 
-如果你的客户端组件依赖于*不可*序列化的数据，你可以[在客户端使用第三方库获取数据](/docs/nextjs-cn/app/building-your-application/data-fetching/fetching#fetching-data-on-the-client)，或者在服务器上使用[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)。
+如果你的客户端组件依赖于*不可*序列化的数据，你可以[在客户端使用第三方库获取数据](/nextjs-cn/app/building-your-application/data-fetching/fetching#fetching-data-on-the-client)，或者在服务器上使用[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)。
 
 ## 交错服务器和客户端组件
 
-当交错客户端和服务器组件时，可能有助于将 UI 视为组件树。从[根布局](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#root-layout-required)开始，它是一个服务器组件，然后你可以通过添加 `'use client'` 指令在客户端上渲染某些子树的组件。
+当交错客户端和服务器组件时，可能有助于将 UI 视为组件树。从[根布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#root-layout-required)开始，它是一个服务器组件，然后你可以通过添加 `'use client'` 指令在客户端上渲染某些子树的组件。
 
 在这些客户端子树中，你仍然可以嵌套服务器组件或调用服务器操作，但是有一些需要注意的事项：
 
 - 在请求-响应生命周期中，你的代码从服务器移至客户端。如果你需要在客户端时访问服务器上的数据或资源，你将向服务器发起一个**新的**请求 - 而不是来回切换。
-- 当向服务器发起新请求时，所有服务器组件都会先被渲染，包括那些嵌套在客户端组件中的。服务器组件的渲染结果（[RSC 载荷](/docs/nextjs-cn/app/building-your-application/rendering/server-components#what-is-the-react-server-component-payload-rsc)）将包含对客户端组件位置的引用。然后，在客户端上，React 使用 RSC 载荷来协调服务器和客户端组件成一棵统一的树。
+- 当向服务器发起新请求时，所有服务器组件都会先被渲染，包括那些嵌套在客户端组件中的。服务器组件的渲染结果（[RSC 载荷](/nextjs-cn/app/building-your-application/rendering/server-components#what-is-the-react-server-component-payload-rsc)）将包含对客户端组件位置的引用。然后，在客户端上，React 使用 RSC 载荷来协调服务器和客户端组件成一棵统一的树。
 
-- 由于客户端组件在服务器组件之后渲染，你不能将服务器组件导入到客户端组件模块中（因为这需要向服务器发起新请求）。相反，你可以将服务器组件作为 `props` 传递给客户端组件。请参阅下面的[不支持的模式](#不支持的模式将服务器组件导入到客户端组件中)和[支持的模式](#支持的模式将服务器组件作为属性传递给客户端组件)部分。
+- 由于客户端组件在服务器组件之后渲染，你不能将服务器组件导入到客户端组件模块中（因为这需要向服务器发起新请求）。相反，你可以/nextjs-cn/ 传递给客户端组件。请参阅下面的[不支持的模式](#不支持的模式将服务器组件导入到客户端组件中)和[支持的模式](#支持的模式将服务器组件作为属性传递给客户端组件)部分。
 
 ### 不支持的模式：将服务器组件导入到客户端组件中
 

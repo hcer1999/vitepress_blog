@@ -32,10 +32,10 @@ module.exports = {
 
 更改这些值会影响 _所有_ Next.js 页面，包括以下内容：
 
-- [`middleware.js`](/docs/nextjs-cn/pages/building-your-application/routing/middleware)
-- [`instrumentation.js`](/docs/nextjs-cn/pages/guides/configuring/instrumentation)
-- `pages/_document.js`
-- `pages/_app.js`
+- [`middleware.js`](/nextjs-cn/pages/building-your-application/routing/middleware)
+- [`instrumentation.js`]()
+- `pages/\_document.js`
+- `pages/\_app.js`
 - `pages/api/`
 
 例如，如果你将 `.ts` 页面扩展名重新配置为 `.page.ts`，你需要重命名页面，如 `middleware.page.ts`、`instrumentation.page.ts`、`_app.page.ts`。

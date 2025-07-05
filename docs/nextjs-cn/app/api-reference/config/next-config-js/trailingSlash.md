@@ -22,9 +22,9 @@ module.exports = {
 
 例如，以下 URL 将保持不变：`/file.txt`、`images/photos/picture.png` 和 `.well-known/subfolder/config.json`。
 
-当与 [`output: "export"`](/docs/nextjs-cn/app/guides/deployment/static-exports) 配置一起使用时，`/about` 页面将输出 `/about/index.html`（而不是默认的 `/about.html`）。
+当与 [`output: "export"`] 配置一起使用时，`/about` 页面将输出 `/about/index.html`（而不是默认的 `/about.html`）。
 
-## 版本历史
+## 版本历史/nextjs-cn/
 
 | 版本     | 变更                     |
 | -------- | ------------------------ |

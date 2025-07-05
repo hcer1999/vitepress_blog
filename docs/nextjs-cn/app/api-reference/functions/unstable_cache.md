@@ -3,7 +3,7 @@ title: unstable_cache
 description: unstable_cache 函数的 API 参考。
 ---
 
-> **注意：** 当 [`use cache`](/docs/nextjs-cn/app/api-reference/directives/use-cache) 稳定后，此 API 将被替换。
+> **注意：** 当 [`use cache`](/nextjs-cn/app/api-reference/directives/use-cache) 稳定后，此 API 将被替换。
 
 `unstable_cache` 允许你缓存昂贵操作的结果，如数据库查询，并在多个请求中重复使用它们。
 
@@ -25,7 +25,7 @@ export default async function Component({ userID }) {
 > **须知**:
 >
 > - 在缓存作用域内访问动态数据源（如 `headers` 或 `cookies`）是不支持的。如果你需要在缓存函数内使用这些数据，请在缓存函数外部使用 `headers`，并将所需的动态数据作为参数传入。
-> - 此 API 使用 Next.js 内置的[数据缓存](/docs/nextjs-cn/app/deep-dive/caching#data-cache)来在请求和部署之间持久化结果。
+> - 此 API 使用 Next.js 内置的[数据缓存](/nextjs-cn/app/deep-dive/caching#data-cache)来在请求和部署之间持久化结果。
 
 > **警告**：此 API 不稳定，将来可能会改变。随着此 API 的稳定，我们将在需要时提供迁移文档和代码修改工具。
 

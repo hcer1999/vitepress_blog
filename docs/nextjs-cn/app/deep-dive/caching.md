@@ -6,7 +6,7 @@ description: Next.js 缓存机制的概述。
 
 Next.js 通过缓存渲染工作和数据请求来提高应用性能并降低成本。本页提供了对 Next.js 缓存机制的深入了解，介绍了可用于配置这些机制的 API，以及它们之间的交互方式。
 
-> **值得注意**: 本页帮助你了解 Next.js 在底层的工作原理，但这**不是**使用 Next.js 高效工作的必备知识。大多数 Next.js 的缓存策略都由你的 API 使用方式决定，并且具有零配置或最小配置的最佳性能默认设置。如果你想直接查看示例，[请从这里开始](/docs/nextjs-cn/app/building-your-application/data-fetching/fetching)。
+> **值得注意**: 本页帮助你了解 Next.js 在底层的工作原理，但这**不是**使用 Next.js 高效工作的必备知识。大多数 Next.js 的缓存策略都由你的 API 使用方式决定，并且具有零配置或最小配置的最佳性能默认设置。如果你想直接查看示例，[请从这里开始](/nextjs-cn/app/building-your-application/data-fetching/fetching)。
 
 ## 概述
 
@@ -193,7 +193,7 @@ Next.js 会在构建时自动渲染和缓存路由。这是一种优化，允许
 > - 客户端组件应该被渲染的位置的占位符以及它们的 JavaScript 文件的引用
 > - 从服务器组件传递到客户端组件的任何 props
 >
-> 要了解更多信息，请参阅[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)文档。
+> 要了解更多信息，请参阅[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)文档。
 
 ### 2. Next.js 在服务器上的缓存（完整路由缓存）
 
@@ -231,7 +231,7 @@ React 服务器组件有效载荷存储在客户端[路由器缓存](#客户端�
 
 有两种方法可以使完整路由缓存失效：
 
-- **[重新验证数据](/docs/nextjs-cn/app/deep-dive/caching#revalidating)**：重新验证[数据缓存](#数据缓存)，将反过来通过在服务器上重新渲染组件并缓存新的渲染输出来使路由器缓存失效。
+- **[重新验证数据](/nextjs-cn/app/deep-dive/caching#revalidating)**：重新验证[数据缓存](#数据缓存)，将反过来通过在服务器上重新渲染组件并缓存新的渲染输出来使路由器缓存失效。
 - **重新部署**：与数据缓存在部署之间持久存在不同，完整路由缓存在新部署时会被清除。
 
 ### 选择退出
@@ -246,13 +246,13 @@ React 服务器组件有效载荷存储在客户端[路由器缓存](#客户端�
 
 Next.js 有一个内存中的客户端路由器缓存，它存储按布局、加载状态和页面分割的路由段的 RSC 有效载荷。
 
-当用户在路由之间导航时，Next.js 会缓存访问过的路由段，并[预取](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#prefetching)用户可能导航到的路由。这导致即时的后退/前进导航，在导航之间没有完整页面重新加载，并保留 React 状态和浏览器状态。
+当用户在路由之间导航时，Next.js 会缓存访问过的路由段，并[预取](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#prefetching)用户可能导航到的路由。这导致即时的后退/前进导航，在导航之间没有完整页面重新加载，并保留 React 状态和浏览器状态。
 
 使用路由器缓存：
 
-- **布局**在导航时被缓存和重用（[部分渲染](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#partial-rendering)）。
-- **加载状态**在导航时被缓存和重用，实现[即时导航](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming#instant-loading-states)。
-- **页面**默认不被缓存，但在浏览器后退和前进导航过程中会被重用。你可以通过使用实验性的[`staleTimes`](/docs/nextjs-cn/app/api-reference/config/next-config-js/staleTimes)配置选项为页面段启用缓存。
+- **布局**在导航时被缓存和重用（[部分渲染](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#partial-rendering)）。
+- **加载状态**在导航时被缓存和重用，实现[即时导航](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#instant-loading-states)。
+- **页面**默认不被缓存，但在浏览器后退和前进导航过程中会被重用。你可以通过使用实验性的[`staleTimes`](/nextjs-cn/app/api-reference/config/next-config-js/staleTimes)配置选项为页面段启用缓存。
 
 > **值得注意：**此缓存专门适用于 Next.js 和服务器组件，与浏览器的 [bfcache](https://web.dev/bfcache/) 不同，尽管它有类似的结果。
 
@@ -261,28 +261,28 @@ Next.js 有一个内存中的客户端路由器缓存，它存储按布局、加
 缓存存储在浏览器的临时内存中。两个因素决定了路由器缓存的持续时间：
 
 - **会话**：缓存在导航过程中持续存在。但是，它会在页面刷新时被清除。
-- **自动失效期**：布局和加载状态的缓存会在特定时间后自动失效。持续时间取决于资源如何被[预取](/docs/nextjs-cn/app/api-reference/components/link#prefetch)，以及资源是否被[静态生成](/docs/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)：
-  - **默认预取**（`prefetch={null}` 或未指定）：动态页面不缓存，静态页面缓存 5 分钟。
+- **自动失效期**：布局和加载状态的缓存会在特定时间后自动失效。持续时间取决于资源如何被[预取](/nextjs-cn/app/api-reference/components/link#prefetch)，以及资源是否被[静态生成](/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)：
+  - **默认预取**（`prefetch={null}` 或未指定）：动态页面不缓存，静态页面缓存
   - **完全预取**（`prefetch={true}` 或 `router.prefetch`）：静态和动态页面都缓存 5 分钟。
 
 虽然页面刷新将清除**所有**缓存的段，但自动失效期只会影响从预取时间起的单个段。
 
-> **值得注意**：实验性的[`staleTimes`](/docs/nextjs-cn/app/api-reference/config/next-config-js/staleTimes)配置选项可用于调整上述自动失效时间。
+> **值得注意**：实验性的[`staleTimes`](/nextjs-cn/app/api-reference/config/next-config-js/staleTimes)配置选项可用于调整上述自动失效时间。
 
 ### 失效
 
 有两种方法可以使路由器缓存失效：
 
 - 在**服务器操作**中：
-  - 通过路径（[`revalidatePath`](/docs/nextjs-cn/app/api-reference/functions/revalidatePath)）或通过缓存标签（[`revalidateTag`](/docs/nextjs-cn/app/api-reference/functions/revalidateTag)）按需重新验证数据
-  - 使用 [`cookies.set`](/docs/nextjs-cn/app/api-reference/functions/cookies#setting-a-cookie) 或 [`cookies.delete`](/docs/nextjs-cn/app/api-reference/functions/cookies#deleting-cookies) 会使路由器缓存失效，以防止使用 cookie 的路由变得过期（例如身份验证）。
-- 调用 [`router.refresh`](/docs/nextjs-cn/app/api-reference/functions/use-router) 将使路由器缓存失效，并为当前路由向服务器发出新请求。
+  - 通过路径（[`revalidatePath`](/nextjs-cn/app/api-reference/functions/revalidatePath)）或通过缓存标签（[`revalidateTag`](/nextjs-cn/app/api-reference/functions/revalidateTag)）按需重新验证数据
+  - 使用 [`cookies.set`](/nextjs-cn/app/api-reference/functions/cookies#setting-a-cookie) 或 [`cookies.delete`](/nextjs-cn/app/api-reference/functions/cookies#deleting-cookies) 会使路由器缓存失效，以防止使用 cookie 的路由变得过期（例如身份验证）。
+- 调用 [`router.refresh`](/nextjs-cn/app/api-reference/functions/use-router) 将使路由器缓存失效，并为当前路由向服务器发出新请求。
 
 ### 选择退出
 
 从 Next.js 15 开始，页面段默认被选择退出。
 
-> **值得注意**：你也可以通过将 `<Link>` 组件的 `prefetch` 属性设置为 `false` 来选择退出[预取](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#prefetching)。
+> **值得注意**：你也可以通过将 `<Link>` 组件的 `prefetch` 属性设置为 `false` 来选择退出[预取](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#prefetching)。
 
 ## 缓存交互
 
@@ -295,31 +295,33 @@ Next.js 有一个内存中的客户端路由器缓存，它存储按布局、加
 
 ### 数据缓存和客户端路由器缓存
 
-- 要立即使数据缓存和路由器缓存失效，你可以在[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中使用 [`revalidatePath`](#revalidatepath) 或 [`revalidateTag`](#fetch-optionsnexttags-和-revalidatetag)。
-- 在[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)中重新验证数据缓存**不会**立即使路由器缓存失效，因为路由处理程序不与特定路由关联。这意味着路由器缓存将继续提供之前的有效载荷，直到硬刷新或自动失效期已过。
+- 要立即使数据缓存和路由器缓存失效，你可以在[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中使用 [`revalidatePath`](#revalidatepath) 或 [`revalidateTag`](#fetch-optionsnexttags-和-revalidatetag)。
+- 在[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中重新验证数据缓存**不会**立即使路由器缓存失效，因为路由处理程序不与特定路由关联。这意味着路由器缓存将继续提供之前的有效载荷，直到硬刷新或自动失效期已过。
 
 ## APIs
 
 下表概述了不同 Next.js API 如何影响缓存：
 
-| API                                                                            | 路由器缓存             | 完整路由缓存       | 数据缓存           | React 缓存 |
-| ------------------------------------------------------------------------------ | ---------------------- | ------------------ | ------------------ | ---------- |
-| [`<Link prefetch>`](#link)                                                     | 缓存                   |                    |                    |            |
-| [`router.prefetch`](#routerprefetch)                                           | 缓存                   |                    |                    |            |
-| [`router.refresh`](#routerrefresh)                                             | 重新验证               |                    |                    |            |
-| [`fetch`](#fetch)                                                              |                        |                    | 缓存               | 缓存       |
-| [`fetch` `options.cache`](#fetch-optionscache)                                 |                        |                    | 缓存或选择退出     |            |
-| [`fetch` `options.next.revalidate`](#fetch-optionsnextrevalidate)              |                        | 重新验证           | 重新验证           |            |
-| [`fetch` `options.next.tags`](#fetch-optionsnexttags-和-revalidatetag)         |                        | 缓存               | 缓存               |            |
-| [`revalidateTag`](#fetch-optionsnexttags-和-revalidatetag)                     | 重新验证（服务器操作） | 重新验证           | 重新验证           |            |
-| [`revalidatePath`](#revalidatepath)                                            | 重新验证（服务器操作） | 重新验证           | 重新验证           |            |
-| [`const revalidate`](#segment-config-options)                                  |                        | 重新验证或选择退出 | 重新验证或选择退出 |            |
-| [`const dynamic`](#segment-config-options)                                     |                        | 缓存或选择退出     | 缓存或选择退出     |            |
-| [`cookies`](#cookies)                                                          | 重新验证（服务器操作） | 选择退出           |                    |            |
-| [`headers`, `searchParams`](#dynamic-apis)                                     |                        | 选择退出           |                    |            |
-| [`generateStaticParams`](#generatestaticparams)                                |                        | 缓存               |                    |            |
-| [`React.cache`](#react-cache-函数)                                             |                        |                    |                    | 缓存       |
-| [`unstable_cache`](/docs/nextjs-cn/app/api-reference/functions/unstable_cache) |                        |                    | 缓存               |            |
+| API                                                                       | 路由器缓存             | 完整路由缓存       | 数据缓存           | React 缓存 |
+| ------------------------------------------------------------------------- | ---------------------- | ------------------ | ------------------ | ---------- |
+| [`<Link prefetch>`](#link)                                                | 缓存                   |                    |                    |            |
+| [`router.prefetch`](#routerprefetch)                                      | 缓存                   |                    |                    |            |
+| [`router.refresh`](#routerrefresh)                                        | 重新验证               |                    |                    |            |
+| [`fetch`](#fetch)                                                         |                        |                    | 缓存               | 缓存       |
+| [`fetch` `options.cache`](#fetch-optionscache)                            |                        |                    | 缓存或选择退出     |            |
+| [`fetch` `options.next.revalidate`](#fetch-optionsnextrevalidate)         |                        | 重新验证           | 重新验证           |            |
+| [`fetch` `options.next.tags`](#fetch-optionsnexttags-和-revalidatetag)    |                        | 缓存               | 缓存               |            |
+| [`revalidateTag`](#fetch-optionsnexttags-和-revalidatetag)                | 重新验证（服务器操作） | 重新验证           | 重新验证           |            |
+| [`revalidatePath`](#revalidatepath)                                       | 重新验证（服务器操作） | 重新验证           | 重新验证           |            |
+| [`const revalidate`](#segment-config-options)                             |                        | 重新验证或选择退出 | 重新验证或选择退出 |            |
+| [`const dynamic`](#segment-config-options)                                |                        | 缓存或选择退出     | 缓存或选择退出     |            |
+| [`cookies`](#cookies)                                                     | 重新验证（服务器操作） | 选择退出           |                    |            |
+| [`headers`, `searchParams`](#dynamic-apis)                                |                        | 选择退出           |                    |            |
+| [`generateStaticParams`](#generatestaticparams)                           |                        | 缓存               |                    |            |
+| [`React.cache`](#react-cache-函数)                                        |                        |                    |                    | 缓存       |
+| [`unstable_cache`](/nextjs-cn/app/api-reference/functions/unstable_cache) |                        |                    | 缓存               |            |
+
+/nextjs-cn/
 
 ### `<Link>`
 
@@ -327,13 +329,15 @@ Next.js 有一个内存中的客户端路由器缓存，它存储按布局、加
 
 要禁用预取，你可以将 `prefetch` 属性设置为 `false`。但这不会永久跳过缓存，当用户访问该路由时，路由段仍然会在客户端被缓存。
 
-了解更多关于 [`<Link>` 组件](/docs/nextjs-cn/app/api-reference/components/link)的信息。
+了解更多关于 [`<Link>` 组件](/nextjs-cn/app/api-reference/components/link)的信息。
+/nextjs-cn/
 
 ### `router.prefetch`
 
 `useRouter` 钩子的 `prefetch` 选项可用于手动预取路由。这会将 React 服务器组件有效载荷添加到路由器缓存中。
 
-参见 [`useRouter` 钩子](/docs/nextjs-cn/app/api-reference/functions/use-router) API 参考。
+参见 [`useRouter` 钩子](/nextjs-cn/app/api-reference/functions/use-router) API 参考。
+/nextjs-cn/
 
 ### `router.refresh`
 
@@ -341,7 +345,8 @@ Next.js 有一个内存中的客户端路由器缓存，它存储按布局、加
 
 渲染结果将在客户端进行协调，同时保留 React 状态和浏览器状态。
 
-参见 [`useRouter` 钩子](/docs/nextjs-cn/app/api-reference/functions/use-router) API 参考。
+参见 [`useRouter` 钩子](/nextjs-cn/app/api-reference/functions/use-router) API 参考。
+/nextjs-cn/
 
 ### `fetch`
 
@@ -353,7 +358,8 @@ Next.js 有一个内存中的客户端路由器缓存，它存储按布局、加
 let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' })
 ```
 
-更多选项请参见 [`fetch` API 参考](/docs/nextjs-cn/app/api-reference/functions/fetch)。
+更多选项请参见 [`fetch` API 参考](/nextjs-cn/app/api-reference/functions/fetch)。
+/nextjs-cn/
 
 ### `fetch options.cache`
 
@@ -364,7 +370,8 @@ let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' })
 fetch(`https://...`, { cache: 'force-cache' })
 ```
 
-更多选项请参见 [`fetch` API 参考](/docs/nextjs-cn/app/api-reference/functions/fetch)。
+更多选项请参见 [`fetch` API 参考](/nextjs-cn/app/api-reference/functions/fetch)。
+/nextjs-cn/
 
 ### `fetch options.next.revalidate`
 
@@ -375,14 +382,15 @@ fetch(`https://...`, { cache: 'force-cache' })
 fetch(`https://...`, { next: { revalidate: 3600 } })
 ```
 
-更多选项请参见 [`fetch` API 参考](/docs/nextjs-cn/app/api-reference/functions/fetch)。
+更多选项请参见 [`fetch` API 参考](/nextjs-cn/app/api-reference/functions/fetch)。
+/nextjs-cn/
 
 ### `fetch options.next.tags` 和 `revalidateTag`
 
 Next.js 有一个缓存标签系统，用于细粒度的数据缓存和重新验证。
 
-1. 当使用 `fetch` 或 [`unstable_cache`](/docs/nextjs-cn/app/api-reference/functions/unstable_cache) 时，你可以选择用一个或多个标签来标记缓存条目。
-2. 然后，你可以调用 `revalidateTag` 来清除与该标签关联的缓存条目。
+1. 当使用 `fetch` 或 [`unstable_cache`](/nextjs-cn/app/api-reference/functions/unstable_cache) 时，你可以选择用一个或多个标签来标记缓存条目。
+2. 然后，你可以调用 `revalidateTag` 来清除与该标签关/nextjs-cn/
 
 例如，你可以在获取数据时设置标签：
 
@@ -400,8 +408,9 @@ revalidateTag('a')
 
 你可以在两个地方使用 `revalidateTag`，取决于你想要实现的目标：
 
-1. [路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) - 响应第三方事件（例如 webhook）来重新验证数据。这不会立即使路由器缓存失效，因为路由处理程序不与特定路由关联。
-2. [服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) - 在用户操作后重新验证数据（例如表单提交）。这会使相关路由的路由器缓存失效。
+1. [路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers) - 响应第三方事件（例如 webhook）来重新验证数据。这不会立即使路由器缓存失效，因为路由处理程序不与特定路由关联。
+2. [服务器操作](//nextjs-cn/pp/building-your-application/data-fetching/server-actions-and-mutations) - 在用户操作后重新验证数据（例如表单提交）。这会使相关路由的路由器缓存失效。
+   /nextjs-cn/
 
 ### `revalidatePath`
 
@@ -413,16 +422,16 @@ revalidatePath('/')
 
 你可以在两个地方使用 `revalidatePath`，取决于你想要实现的目标：
 
-1. [路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) - 响应第三方事件（例如 webhook）来重新验证数据。
-2. [服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) - 在用户交互后重新验证数据（例如表单提交、点击按钮）。
-
-更多信息请参见 [`revalidatePath` API 参考](/docs/nextjs-cn/app/api-reference/functions/revalidatePath)。
-
-> **`revalidatePath`** vs. **`router.refresh`**:
->
-> 调用 `router.refresh` 将清除路由器缓存，并在服务器上重新渲染路由段，而不会使数据缓存或完整路由缓存失效。
->
-> 区别在于 `revalidatePath` 清除数据缓存和完整路由缓存，而 `router.refresh()` 不会改变数据缓存和完整路由缓存，因为它是一个客户端 API。
+1. [路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers) - 响应第三方事件（例如 webhook）来重新验证数据。
+2. [服务器操作](//nextjs-cn/pp/building-your-application/data-fetching/server-actions-and-mutations) - 在用户交互后重新验证数据（例如表单提交、点击按钮）。
+   /nextjs-cn/
+   更多信息请参见 [`revalidatePath` API 参考](/nextjs-cn/app/api-reference/functions/revalidatePath)。
+   /nextjs-cn/
+   > **`revalidatePath`** vs. **`router.refresh`**:
+   >
+   > 调用 `router.refresh` 将清除路由器缓存，并在服务器上重新渲染路由段，而不会使数据缓存或完整路由缓存失效。
+   >
+   > 区别在于 `revalidatePath` 清除数据缓存和完整路由缓存，而 `router.refresh()` 不会改变数据缓存和完整路由缓存，因为它是一个客户端 API。
 
 ### 动态 API
 
@@ -432,7 +441,8 @@ revalidatePath('/')
 
 在服务器操作中使用 `cookies.set` 或 `cookies.delete` 会使路由器缓存失效，以防止使用 cookie 的路由变得过期（例如反映身份验证更改）。
 
-参见 [`cookies`](/docs/nextjs-cn/app/api-reference/functions/cookies) API 参考。
+参见 [`cookies`](/nextjs-cn/app/api-reference/functions/cookies) API 参考。
+/nextjs-cn/
 
 ### 段配置选项
 
@@ -446,14 +456,15 @@ revalidatePath('/')
 
 - `const fetchCache = 'default-no-store'`
 
-查看 [`fetchCache`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#fetchcache) 了解更多高级选项。
-
-参见[路由段配置](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config)文档了解更多选项。
+查看 [`fetchCache`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#fetchcache) 了解更多高级选项。
+/nextjs-cn/
+参见[路由段配置](/nextjs-cn/app/api-reference/file-conventions/route-segment-config)文档了解更多选项。
+/nextjs-cn/
 
 ### `generateStaticParams`
 
-对于[动态段](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)（例如 `app/blog/[slug]/page.js`），`generateStaticParams` 提供的路径会在构建时缓存在完整路由缓存中。在请求时，Next.js 也会缓存在构建时未知的路径，当它们首次被访问时。
-
+对于[动态段](/nextjs-cn/app/building-your-application/routing/dynamic-routes)（例如 `app/blog/[slug]/page.js`），`generateStaticParams` 提供的路径会在构建时缓存在完整路由缓存中。在请求时，Next.js 也会缓存在构建时未知的路径，当它们首次被访问时。
+/nextjs-cn/
 要在构建时静态渲染所有路径，请向 `generateStaticParams` 提供完整的路径列表：
 
 ```jsx
@@ -479,7 +490,8 @@ export async function generateStaticParams() {
 }
 ```
 
-要在首次访问时静态渲染所有路径，返回一个空数组（构建时不会渲染任何路径）或使用 [`export const dynamic = 'force-static'`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic)：
+要在首次访问时静态渲染所有路径，返回一个空数组（构建时不会渲染任何路径）或使用 [`export const dynamic = 'force-static'`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic)：
+/nextjs-cn/
 
 ```jsx
 export async function generateStaticParams() {
@@ -493,7 +505,8 @@ export async function generateStaticParams() {
 export const dynamic = 'force-static'
 ```
 
-要在请求时禁用缓存，在路由段中添加 `export const dynamicParams = false` 选项。使用此配置选项时，只有 `generateStaticParams` 提供的路径会被服务，其他路由将返回 404 或匹配（在[捕获所有路由](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes#catch-all-segments)的情况下）。
+要在请求时禁用缓存，在路由段中添加 `export const dynamicParams = false` 选项。使用此配置选项时，只有 `generateStaticParams` 提供的路径会被服务，其他路由将返回 404 或匹配（在[捕获所有路由](/nextjs-cn/app/building-your-application/routing/dynamic-routes#catch-all-segments)的情况下）。
+/nextjs-cn/
 
 ### React `cache` 函数
 

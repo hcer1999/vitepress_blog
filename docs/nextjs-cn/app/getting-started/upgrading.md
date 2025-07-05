@@ -38,15 +38,15 @@ npm i next@canary
 
 **缓存**：
 
-- [`"use cache"`](/docs/nextjs-cn/app/api-reference/directives/use-cache)
-- [`cacheLife`](/docs/nextjs-cn/app/api-reference/functions/cacheLife)
-- [`cacheTag`](/docs/nextjs-cn/app/api-reference/functions/cacheTag)
-- [`dynamicIO`](/docs/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)
+- [`"use cache"`](/nextjs-cn/app/api-reference/directives/use-cache)
+- [`cacheLife`](/nextjs-cn/app/api-reference/functions/cacheLife)
+- [`cacheTag`](/nextjs-cn/app/api-reference/functions/cacheTag)
+- [`dynamicIO`](/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)
 
 **身份验证**：
 
-- [`forbidden`](/docs/nextjs-cn/app/api-reference/functions/forbidden)
-- [`unauthorized`](/docs/nextjs-cn/app/api-reference/functions/unauthorized)
-- [`forbidden.js`](/docs/nextjs-cn/app/api-reference/file-conventions/forbidden)
-- [`unauthorized.js`](/docs/nextjs-cn/app/api-reference/file-conventions/unauthorized)
-- [`authInterrupts`](/docs/nextjs-cn/app/api-reference/config/next-config-js/authInterrupts)
+- [`forbidden`](/nextjs-cn/app/api-reference/functions/forbidden)
+- [`unauthorized`](/nextjs-cn/app/api-reference/functions/unauthorized)
+- [`forbidden.js`](/nextjs-cn/app/api-reference/file-conventions/forbidden)
+- [`unauthorized.js`](/nextjs-cn/app/api-reference/file-conventions/unauthorized)
+- [`authInterrupts`](/nextjs-cn/app/api-reference/config/next-config-js/authInterrupts)

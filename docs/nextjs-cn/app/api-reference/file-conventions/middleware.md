@@ -173,23 +173,23 @@ export function middleware(request) {
 
 ## NextResponse
 
-Middleware can use the [`NextResponse`](/docs/nextjs-cn/app/building-your-application/routing/index/middleware#nextresponse) object which extends the [Web Response API](https://developer.mozilla.org/en-US/docs/Web/API/Response). By returning a `NextResponse` object, you can directly manipulate cookies, set headers, implement redirects, and rewrite paths.
+Middleware can use the [`NextResponse`](/nextjs-cn/app/building-your-application/routing/middleware#nextresponse) object which extends the [Web Response API](https://developer.mozilla.org/en-US/docs/Web/API/Response). By returning a `NextResponse` object, you can directly manipulate cookies, set headers, implement redirects, and rewrite paths.
 
 > **Good to know**: For redirects, you can also use `Response.redirect` instead of `NextResponse.redirect`.
 
 ## Runtime
 
-Middleware uses [Edge runtime](/docs/nextjs-cn/app/api-reference/edge) by default. If you do not want this, you can use the [full Node.js runtime](/blog/next-2#nodejs-middleware-experimental) to run Middleware.
+Middleware uses [Edge runtime](/nextjs-cn/app/api-reference/edge) by default. If you do not want this, you can use the [full Node.js runtime]() to run Middleware.
 
 ## Version History
 
-| Version   | Changes                                                                                       |
-| --------- | --------------------------------------------------------------------------------------------- |
-| `v13.1.0` | Advanced Middleware flags added                                                               |
-| `v13.0.0` | Middleware can modify request headers, response headers, and send responses                   |
-| `v12.2.0` | Middleware is stable, please see the [upgrade guide](/docs/messages/middleware-upgrade-guide) |
-| `v12.0.9` | Enforce absolute URLs in Edge Runtime ([PR](https://github.com/vercel/next.js/pull/33410))    |
-| `v12.0.0` | Middleware (Beta) added                                                                       |
+| Version   | Changes                                                                                    |
+| --------- | ------------------------------------------------------------------------------------------ |
+| `v13.1.0` | Advanced Middleware flags added                                                            |
+| `v13.0.0` | Middleware can modify request headers, response headers, and send responses                |
+| `v12.2.0` | Middleware is stable, please see the [upgrade guide](                                      |
+| `v12.0.9` | Enforce absolute URLs in Edge Runtime ([PR](https://github.com/vercel/next.js/pull/33410)) |
+| `v12.0.0` | Middleware (Beta) added                                                                    |
 
 ## 导出
 
@@ -450,11 +450,11 @@ module.exports = {
 
 ## 版本历史
 
-| 版本       | 变更                                                                                                           |
-| ---------- | -------------------------------------------------------------------------------------------------------------- |
-| `v15.0.RC` | `context.params` 现在是一个 Promise。提供了[代码转换工具](/docs/nextjs-cn/app/guides/upgrading/codemods#150)。 |
-| `v15.0.RC` | 预处理位置现已调整在缓存内容之前。                                                                             |
-| `v13.1.0`  | 添加了 `matcher` 配置项。                                                                                      |
-| `v12.2.0`  | 中间件现在稳定。旧的 `_middleware` 文件会自动按迁移指南更新。                                                  |
-| `v12.0.9`  | 在边缘运行时强制执行严格的运行时兼容性检查，导出的 `nextUrl` 属性。                                            |
-| `v12.0.0`  | 引入中间件。                                                                                                   |
+| 版本       | 变更                                                                                                      |
+| ---------- | --------------------------------------------------------------------------------------------------------- |
+| `v15.0.RC` | `context.params` 现在是一个 Promise。提供了[代码转换工具](/nextjs-cn/app/guides/upgrading/codemods#150)。 |
+| `v15.0.RC` | 预处理位置现已调整在缓存内容之前。                                                                        |
+| `v13.1.0`  | 添加了 `matcher` 配置项。                                                                                 |
+| `v12.2.0`  | 中间件现在稳定。旧的 `_middleware` 文件会自动按迁移指南更新。                                             |
+| `v12.0.9`  | 在边缘运行时强制执行严格的运行时兼容性检查，导出的 `nextUrl` 属性。                                       |
+| `v12.0.0`  | 引入中间件。                                                                                              |

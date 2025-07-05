@@ -3,7 +3,7 @@ title: headers
 description: headers 函数的 API 参考。
 ---
 
-`headers` 是一个**异步**函数，允许你从[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)中**读取** HTTP 传入请求头。
+`headers` 是一个**异步**函数，允许你从[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)中**读取** HTTP 传入请求头。
 
 ```tsx switcher
 import { headers } from 'next/headers'
@@ -45,7 +45,7 @@ export default async function Page() {
 - `headers` 是一个**异步**函数，返回一个 promise。你必须使用 `async/await` 或 React 的 [`use`](https://react.dev/reference/react/use) 函数。
   - 在版本 14 及更早版本中，`headers` 是一个同步函数。为了向后兼容，你在 Next.js 15 中仍然可以同步访问它，但这种行为将在未来被废弃。
 - 由于 `headers` 是只读的，你不能 `set` 或 `delete` 传出请求头。
-- `headers` 是一个[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)，其返回值不能提前知道。在路由中使用它将使该路由选择**[动态渲染](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)**。
+- `headers` 是一个[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)，其返回值不能提前知道。在路由中使用它将使该路由选择**[动态渲染](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)**。
 
 ## 示例
 
@@ -67,7 +67,7 @@ export default async function Page() {
 
 ## 版本历史
 
-| 版本       | 变更                                                                                                    |
-| ---------- | ------------------------------------------------------------------------------------------------------- |
-| `v15.0.RC` | `headers` 现在是一个异步函数。提供了一个 [codemod](/docs/nextjs-cn/app/guides/upgrading/codemods#150)。 |
-| `v13.0.0`  | 引入 `headers`。                                                                                        |
+| 版本       | 变更                                                                                               |
+| ---------- | -------------------------------------------------------------------------------------------------- |
+| `v15.0.RC` | `headers` 现在是一个异步函数。提供了一个 [codemod](/nextjs-cn/app/guides/upgrading/codemods#150)。 |
+| `v13.0.0`  | 引入 `headers`。                                                                                   |

@@ -57,7 +57,7 @@ related:
 
 ### 模态
 
-拦截路由可以与[平行路由](/docs/nextjs-cn/app/building-your-application/routing/index/parallel-routes)结合使用来创建模态。这允许您解决构建模态时的常见挑战，例如：
+拦截路由可以与[平行路由](/nextjs-cn/app/building-your-application/routing/parallel-routes)结合使用来创建模态。这允许您解决构建模态时的常见挑战，例如：
 
 - 使模态内容**通过 URL 可共享**。
 - 在页面刷新时**保留上下文**，而不是关闭模态。
@@ -76,7 +76,7 @@ related:
 
 在上面的例子中，`photo` 段的路径可以使用 `(..)` 匹配器，因为 `@modal` 是一个插槽而**不是**段。这意味着 `photo` 路由只有一个段级别更高，尽管在文件系统中高出两个级别。
 
-有关分步示例，请参阅[平行路由](/docs/nextjs-cn/app/building-your-application/routing/index/parallel-routes#modals)文档，或查看我们的[图片库示例](https://github.com/vercel-labs/nextgram)。
+有关分步示例，请参阅[平行路由](/nextjs-cn/app/building-your-application/routing/parallel-routes#modals)文档，或查看我们的[图片库示例](https://github.com/vercel-labs/nextgram)。
 
 > **需要了解的是：**
 >

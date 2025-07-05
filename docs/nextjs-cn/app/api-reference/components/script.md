@@ -3,9 +3,9 @@ title: Script
 description: 使用内置的 `next/script` 组件优化 Next.js 应用程序中的第三方脚本。
 ---
 
-本 API 参考将帮助你了解如何使用 Script 组件可用的[属性](#props)。有关功能和用法，请参阅[优化脚本](/docs/nextjs-cn/app/guides/optimizing/scripts)页面。
+本 API 参考将帮助你了解如何使用 Script 组件可用的[属性](#props)。有关功能和用法，请参阅[优化脚本](/nextjs-cn/app/building-your-application/routing/layouts-and-templates)页面。
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 import Script from 'next/script'
 
 export default function Dashboard() {

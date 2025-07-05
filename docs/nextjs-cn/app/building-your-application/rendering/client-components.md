@@ -18,7 +18,7 @@ description: 了解如何使用客户端组件在客户端渲染应用程序的�
 
 要使用客户端组件，你可以在文件顶部、导入语句之上添加 React [`'use client'` 指令](https://react.dev/reference/react/use-client)。
 
-`'use client'` 用于声明服务器和客户端组件模块之间的[边界](/docs/nextjs-cn/app/building-your-application/rendering#network-boundary)。这意味着，通过在文件中定义 `'use client'`，所有导入到其中的其他模块，包括子组件，都被视为客户端包的一部分。带有 `'use client'` 指令的文件中导出的组件的 props 必须是 React 可[序列化](https://react.dev/reference/rsc/use-client#serializable-types)的，以允许数据从服务器通过边界传递到客户端。
+`'use client'` 用于声明服务器和客户端组件模块之间的[边界](/nextjs-cn/app/building-your-application/rendering/index#network-boundary)。这意味着，通过在文件中定义 `'use client'`，所有导入到其中的其他模块，包括子组件，都被视为客户端包的一部分。带有 `'use client'` 指令的文件中导出的组件的 props 必须是 React 可[序列化](https://react.dev/reference/rsc/use-client#serializable-types)的，以允许数据从服务器通过边界传递到客户端。
 
 ```tsx highlight={1} switcher
 'use client'
@@ -80,7 +80,7 @@ export default function Counter() {
 
 在服务器上：
 
-1. React 将服务器组件渲染成一种名为 [**React 服务器组件载荷（RSC 载荷）**](/docs/nextjs-cn/app/building-your-application/rendering/server-components#what-is-the-react-server-component-payload-rsc) 的特殊数据格式，其中包含对客户端组件的引用。
+1. React 将服务器组件渲染成一种名为 [**React 服务器组件载荷（RSC 载荷）**](/nextjs-cn/app/building-your-application/rendering/server-components#what-is-the-react-server-component-payload-rsc) 的特殊数据格式，其中包含对客户端组件的引用。
 2. Next.js 使用 RSC 载荷和客户端组件 JavaScript 指令在服务器上为路由渲染 **HTML**。
 
 然后，在客户端：
@@ -97,10 +97,10 @@ export default function Counter() {
 
 在后续导航中，客户端组件完全在客户端上渲染，无需服务器渲染的 HTML。
 
-这意味着客户端组件 JavaScript 包会被下载和解析。一旦包准备就绪，React 将使用 [RSC 载荷](/docs/nextjs-cn/app/building-your-application/rendering/server-components#what-is-the-react-server-component-payload-rsc) 协调客户端和服务器组件树，并更新 DOM。
+这意味着客户端组件 JavaScript 包会被下载和解析。一旦包准备就绪，React 将使用 [RSC 载荷](/nextjs-cn/app/building-your-application/rendering/server-components#what-is-the-react-server-component-payload-rsc) 协调客户端和服务器组件树，并更新 DOM。
 
 ## 返回服务器环境
 
 有时，在声明了 `'use client'` 边界后，你可能想要回到服务器环境。例如，你可能想要减少客户端包大小，在服务器上获取数据，或使用仅在服务器上可用的 API。
 
-即使理论上嵌套在客户端组件内，你也可以通过交错客户端和服务器组件以及[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)来将代码保留在服务器上。有关更多信息，请参阅[组合模式](/docs/nextjs-cn/app/building-your-application/rendering/composition-patterns)页面。
+即使理论上嵌套在客户端组件内，你也可以通过交错客户端和服务器组件以及[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)来将代码保留在服务器上。有关更多信息，请参阅[组合模式](/nextjs-cn/app/building-your-application/rendering/composition-patterns)页面。

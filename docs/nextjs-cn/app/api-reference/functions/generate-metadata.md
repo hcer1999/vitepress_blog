@@ -101,9 +101,9 @@ export default function Page({ params, searchParams }) {}
 > - Next.js 将自动解析元数据，并为页面创建相关的 `<head>` 标签。
 > - `metadata` 对象和 `generateMetadata` 函数导出**仅在服务器组件中支持**。
 > - 你不能从同一路由段同时导出 `metadata` 对象和 `generateMetadata` 函数。
-> - 在 `generateMetadata` 内部的 `fetch` 请求会自动在 `generateMetadata`、`generateStaticParams`、布局、页面和服务器组件之间进行[记忆化](/docs/nextjs-cn/app/deep-dive/caching#request-memoization)。
-> - 如果 `fetch` 不可用，可以使用 React [`cache` 函数](/docs/nextjs-cn/app/deep-dive/caching#react-cache-function)。
-> - [基于文件的元数据](/docs/nextjs-cn/app/api-reference/file-conventions/metadata)具有更高的优先级，并会覆盖 `metadata` 对象和 `generateMetadata` 函数。
+> - 在 `generateMetadata` 内部的 `fetch` 请求会自动在 `generateMetadata`、`generateStaticParams`、布局、页面和服务器组件之间进行[记忆化](/nextjs-cn/app/deep-dive/caching#request-memoization)。
+> - 如果 `fetch` 不可用，可以使用 React [`cache` 函数](/nextjs-cn/app/deep-dive/caching#react-cache-function)。
+> - [基于文件的元数据](/nextjs-cn/app/api-reference/file-conventions/metadata/index)具有更高的优先级，并会覆盖 `metadata` 对象和 `generateMetadata` 函数。
 
 ## 参考
 
@@ -113,7 +113,7 @@ export default function Page({ params, searchParams }) {}
 
 - `props` - 包含当前路由参数的对象：
 
-  - `params` - 包含从根段到调用 `generateMetadata` 的段的[动态路由参数](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)对象。示例：
+  - `params` - 包含从根段到调用 `generateMetadata` 的段的[动态路由参数](/nextjs-cn/app/building-your-application/routing/dynamic-routes)对象。示例：
 
     | 路由                            | URL         | `params`                  |
     | ------------------------------- | ----------- | ------------------------- |
@@ -138,9 +138,9 @@ export default function Page({ params, searchParams }) {}
 > **须知**:
 >
 > - 如果元数据不依赖于运行时信息，应该使用静态的 [`metadata` 对象](#the-metadata-object) 而不是 `generateMetadata` 来定义。
-> - `fetch` 请求在 `generateMetadata`、`generateStaticParams`、布局、页面和服务器组件之间自动进行[记忆化](/docs/nextjs-cn/app/deep-dive/caching#request-memoization)。如果 `fetch` 不可用，可以使用 React [`cache` 函数](/docs/nextjs-cn/app/deep-dive/caching#react-cache-function)。
+> - `fetch` 请求在 `generateMetadata`、`generateStaticParams`、布局、页面和服务器组件之间自动进行[记忆化](/nextjs-cn/app/deep-dive/caching#request-memoization)。如果 `fetch` 不可用，可以使用 React [`cache` 函数](/nextjs-cn/app/deep-dive/caching#react-cache-function)。
 > - `searchParams` 只在 `page.js` 段中可用。
-> - Next.js 的 [`redirect()`](/docs/nextjs-cn/app/api-reference/functions/redirect) 和 [`notFound()`](/docs/nextjs-cn/app/api-reference/functions/not-found) 方法也可以在 `generateMetadata` 中使用。
+> - Next.js 的 [`redirect()`](/nextjs-cn/app/api-reference/functions/redirect) 和 [`notFound()`](/nextjs-cn/app/api-reference/functions/not-found) 方法也可以在 `generateMetadata` 中使用。
 
 ### 元数据字段
 
@@ -496,7 +496,7 @@ export const metadata = {
 <meta property="article:author" content="Josh" />
 ```
 
-> **须知**: 我们建议使用[基于文件的元数据 API](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#image-files-jpg-png-gif) 处理 Open Graph 图像。与必须同步配置导出和实际文件相比，基于文件的 API 将自动为您生成正确的元数据。
+> **须知**: 我们建议使用[基于文件的元数据 API](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#image-files-jpg-png-gif) 处理 Open Graph 图像。与必须同步配置导出和实际文件相比，基于文件的 API 将自动为您生成正确的元数据。
 
 ### `robots`
 
@@ -530,7 +530,7 @@ export const metadata: Metadata = {
 
 ### `icons`
 
-> **须知**: 我们建议尽可能使用[基于文件的元数据 API](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#image-files-ico-jpg-png)处理图标。与必须同步配置导出和实际文件相比，基于文件的 API 将自动为您生成正确的元数据。
+> **须知**: 我们建议尽可能使用[基于文件的元数据 API](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#image-files-ico-jpg-png)处理图标。与必须同步配置导出和实际文件相比，基于文件的 API 将自动为您生成正确的元数据。
 
 ```jsx
 export const metadata = {
@@ -590,11 +590,11 @@ export const metadata = {
 
 ### `themeColor`
 
-> **已弃用**: 自 Next.js 14 起，`metadata` 中的 `themeColor` 选项已被弃用。请改用 [`viewport` 配置](/docs/nextjs-cn/app/api-reference/functions/generate-viewport)。
+> **已弃用**: 自 Next.js 14 起，`metadata` 中的 `themeColor` 选项已被弃用。请改用 [`viewport` 配置](/nextjs-cn/app/api-reference/functions/generate-viewport)。
 
 ### `colorScheme`
 
-> **已弃用**: 自 Next.js 14 起，`metadata` 中的 `colorScheme` 选项已被弃用。请改用 [`viewport` 配置](/docs/nextjs-cn/app/api-reference/functions/generate-viewport)。
+> **已弃用**: 自 Next.js 14 起，`metadata` 中的 `colorScheme` 选项已被弃用。请改用 [`viewport` 配置](/nextjs-cn/app/api-reference/functions/generate-viewport)。
 
 ### `manifest`
 
@@ -690,7 +690,7 @@ export const metadata = {
 
 ### `viewport`
 
-> **已弃用**: 自 Next.js 14 起，`metadata` 中的 `viewport` 选项已被弃用。请改用 [`viewport` 配置](/docs/nextjs-cn/app/api-reference/functions/generate-viewport)。
+> **已弃用**: 自 Next.js 14 起，`metadata` 中的 `viewport` 选项已被弃用。请改用 [`viewport` 配置](/nextjs-cn/app/api-reference/functions/generate-viewport)。
 
 ### `verification`
 
@@ -955,7 +955,7 @@ export const metadata = {
 
 ### 类型
 
-您可以使用 `Metadata` 类型为元数据添加类型安全。如果您在 IDE 中使用[内置 TypeScript 插件](/docs/nextjs-cn/app/api-reference/config/typescript)，则不需要手动添加类型，但您仍然可以显式添加它。
+您可以使用 `Metadata` 类型为元数据添加类型安全。如果您在 IDE 中使用[内置 TypeScript 插件](/nextjs-cn/app/api-reference/config/typescript)，则不需要手动添加类型，但您仍然可以显式添加它。
 
 #### `metadata` 对象
 
@@ -1038,17 +1038,17 @@ export const metadata = {
 }
 ```
 
-| 元数据                        | 建议                                                                                                                                                                                                                                                                   |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<meta http-equiv="...">`     | 通过 [`redirect()`](/docs/nextjs-cn/app/api-reference/functions/redirect)、[中间件](/docs/nextjs-cn/app/building-your-application/routing/index/middleware#nextresponse)、[安全头](/docs/nextjs-cn/app/api-reference/config/next-config-js/headers) 使用适当的 HTTP 头 |
-| `<base>`                      | 在布局或页面本身中渲染标签。                                                                                                                                                                                                                                           |
-| `<noscript>`                  | 在布局或页面本身中渲染标签。                                                                                                                                                                                                                                           |
-| `<style>`                     | 了解有关 [Next.js 中的样式](/docs/nextjs-cn/app/getting-started/css)的更多信息。                                                                                                                                                                                       |
-| `<script>`                    | 了解有关[使用脚本](/docs/nextjs-cn/app/guides/optimizing/scripts)的更多信息。                                                                                                                                                                                          |
-| `<link rel="stylesheet" />`   | 直接在布局或页面本身中 `import` 样式表。                                                                                                                                                                                                                               |
-| `<link rel="preload />`       | 使用 [ReactDOM preload 方法](#link-relpreload)                                                                                                                                                                                                                         |
-| `<link rel="preconnect" />`   | 使用 [ReactDOM preconnect 方法](#link-relpreconnect)                                                                                                                                                                                                                   |
-| `<link rel="dns-prefetch" />` | 使用 [ReactDOM prefetchDNS 方法](#link-reldns-prefetch)                                                                                                                                                                                                                |
+| 元数据                        | 建议                                                                                                                                                                                                                                              |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<meta http-equiv="...">`     | 通过 [`redirect()`](/nextjs-cn/app/api-reference/functions/redirect)、[中间件](/nextjs-cn/app/building-your-application/routing/middleware#nextresponse)、[安全头](/nextjs-cn/app/api-reference/config/next-config-js/headers) 使用适当的 HTTP 头 |
+| `<base>`                      | 在布局或页面本身中渲染标签。                                                                                                                                                                                                                      |
+| `<noscript>`                  | 在布局或页面本身中渲染标签。                                                                                                                                                                                                                      |
+| `<style>`                     | 了解有关 [Next.js 中的样式](/nextjs-cn/app/getting-started/css)的更多信息。                                                                                                                                                                       |
+| `<script>`                    | 了解有关[使用脚本](/nextjs-cn/app/building-your-application/routing/layouts-and-templates)的更多信息。                                                                                                                                            |
+| `<link rel="stylesheet" />`   | 直接在布局或页面本身中 `import` 样式表。                                                                                                                                                                                                          |
+| `<link rel="preload />`       | 使用 [ReactDOM preload 方法](#link-relpreload)                                                                                                                                                                                                    |
+| `<link rel="preconnect" />`   | 使用 [ReactDOM preconnect 方法](#link-relpreconnect)                                                                                                                                                                                              |
+| `<link rel="dns-prefetch" />` | 使用 [ReactDOM prefetchDNS 方法](#link-reldns-prefetch)                                                                                                                                                                                           |
 
 ### 资源提示
 
@@ -1139,7 +1139,7 @@ ReactDOM.prefetchDNS(href: string)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 ```
 
-> **须知**: 您可以覆盖默认的 [`viewport`](/docs/nextjs-cn/app/api-reference/functions/generate-metadata#viewport) meta 标签。
+> **须知**: 您可以覆盖默认的 [`viewport`](/nextjs-cn/app/api-reference/functions/generate-metadata#viewport) meta 标签。
 
 ### 流式元数据
 
@@ -1181,7 +1181,7 @@ module.exports = {
 
 按照[评估顺序](#ordering)，从同一路由的多个段导出的元数据对象**浅层**合并在一起，形成路由的最终元数据输出。重复的键将根据它们的顺序**替换**。
 
-这意味着具有嵌套字段的元数据，如在较早段中定义的 [`openGraph`](/docs/nextjs-cn/app/api-reference/functions/generate-metadata#opengraph) 和 [`robots`](/docs/nextjs-cn/app/api-reference/functions/generate-metadata#robots)，将被最后定义它们的段**覆盖**。
+这意味着具有嵌套字段的元数据，如在较早段中定义的 [`openGraph`](/nextjs-cn/app/api-reference/functions/generate-metadata#opengraph) 和 [`robots`](/nextjs-cn/app/api-reference/functions/generate-metadata#robots)，将被最后定义它们的段**覆盖**。
 
 #### 覆盖字段
 
@@ -1273,8 +1273,8 @@ export const metadata = {
 
 ## Version History
 
-| Version   | Changes                                                                                                                                                           |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `v15.2.0` | Introduced streaming support to `generateMetadata`.                                                                                                               |
-| `v13.2.0` | `viewport`, `themeColor`, and `colorScheme` deprecated in favor of the [`viewport` configuration](/docs/nextjs-cn/app/api-reference/functions/generate-viewport). |
-| `v13.2.0` | `metadata` and `generateMetadata` introduced.                                                                                                                     |
+| Version   | Changes                                                                                                                                                      |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `v15.2.0` | Introduced streaming support to `generateMetadata`.                                                                                                          |
+| `v13.2.0` | `viewport`, `themeColor`, and `colorScheme` deprecated in favor of the [`viewport` configuration](/nextjs-cn/app/api-reference/functions/generate-viewport). |
+| `v13.2.0` | `metadata` and `generateMetadata` introduced.                                                                                                                |

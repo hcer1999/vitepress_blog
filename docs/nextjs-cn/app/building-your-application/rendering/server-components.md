@@ -29,7 +29,7 @@ React 服务器组件允许你编写可以在服务器上渲染并可选择性�
 
 ## 在 Next.js 中使用服务器组件
 
-默认情况下，Next.js 使用服务器组件。这使你可以自动实现服务器渲染而无需额外配置，并且你可以在需要时选择使用客户端组件，详见[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)。
+默认情况下，Next.js 使用服务器组件。这使你可以自动实现服务器渲染而无需额外配置，并且你可以在需要时选择使用客户端组件，详见[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)。
 
 ## 服务器组件如何渲染？
 
@@ -60,9 +60,9 @@ React 服务器组件允许你编写可以在服务器上渲染并可选择性�
 
 ### 静态渲染（默认）
 
-使用静态渲染，路由在**构建时**渲染，或在[数据重新验证](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)后在后台渲染。结果被缓存并可以推送到[内容分发网络（CDN）](https://developer.mozilla.org/docs/Glossary/CDN)。这种优化允许你在用户和服务器请求之间共享渲染工作的结果。
+使用静态渲染，路由在**构建时**渲染，或在[数据重新验证](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)后在后台渲染。结果被缓存并可以推送到[内容分发网络（CDN）](https://developer.mozilla.org/docs/Glossary/CDN)。这种优化允许你在用户和服务器请求之间共享渲染工作的结果。
 
-当路由有不针对用户个性化且可以在构建时知道的数据时，静态渲染非常有用，例如静态博客文章或产品页面。
+当路由有不针对用户个性化且可以在构建时知道的数据时，静态渲染非/nextjs-cn/面。
 
 ### 动态渲染
 
@@ -76,14 +76,14 @@ React 服务器组件允许你编写可以在服务器上渲染并可选择性�
 >
 > 在 Next.js 中，你可以有动态渲染的路由，同时包含缓存和未缓存的数据。这是因为 RSC 载荷和数据是分开缓存的。这允许你选择动态渲染而不必担心在请求时获取所有数据带来的性能影响。
 >
-> 了解更多关于[完整路由缓存](/docs/nextjs-cn/app/deep-dive/caching#full-route-cache)和[数据缓存](/docs/nextjs-cn/app/deep-dive/caching#data-cache)。
+> 了解更多关于[完整路由缓存](/nextjs-cn/app/deep-dive/caching#full-route-cache)和[数据缓存](/nextjs-cn/app/deep-dive/caching#data-cache)。
 
 #### 切换到动态渲染
 
-在渲染过程中，如果发现[动态 API](#动态-api)或带有 `{ cache: 'no-store' }` 选项的 [fetch](/docs/nextjs-cn/app/api-reference/functions/fetch)，Next.js 将切换到动态渲染整个路由。下表总结了动态 API 和数据缓存如何影响路由是静态还是动态渲染：
+在渲染过程中，如果发现[动态 API](#动态-api)或带有 `{ cache: 'no-store' }` 选项的 [fetch](/nextjs-cn/app/api-reference/functions/fetch)，Next.js 将切换到动态渲染整个路由。下表总结了动态 API 和数据缓存如何影响路由是静态还是动态渲染：
 
-| 动态 API | 数据   | 路由     |
-| -------- | ------ | -------- |
+| 动态 API | 数据   | 路由     | /nextjs-cn/ |
+| -------- | ------ | -------- | ----------- |
 | 否       | 已缓存 | 静态渲染 |
 | 是       | 已缓存 | 动态渲染 |
 | 否       | 未缓存 | 动态渲染 |
@@ -91,18 +91,18 @@ React 服务器组件允许你编写可以在服务器上渲染并可选择性�
 
 在上表中，要使路由完全静态，所有数据都必须被缓存。然而，你可以有一个动态渲染的路由，它同时使用缓存和未缓存的数据获取。
 
-作为开发人员，你不需要在静态和动态渲染之间做选择，因为 Next.js 将根据使用的功能和 API 自动为每个路由选择最佳的渲染策略。相反，你选择何时[缓存](/docs/nextjs-cn/app/building-your-application/data-fetching/fetching)或[重新验证特定数据](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)，并且你可以选择[流式传输](#流式传输)部分 UI。
+作为开发人员，你不需要在静态和动态渲染之间做选择，因为 Next.js 将根据使用的功能和 API 自动为每个路由选择最佳的渲染策略。相反，你选择何时[缓存](/nextjs-cn/app/building-your-application/data-fetching/fetching)或[重新验证特定数据](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)，并且你可以选择[流式传输](#流式传输)部分 UI。
 
 ### 动态 API
 
 动态 API 依赖于只能在请求时获知的信息（而不是在预渲染期间提前获知）。使用这些 API 中的任何一个都表明开发者的意图，并将整个路由选择到请求时的动态渲染中。这些 API 包括：
 
-- [`cookies`](/docs/nextjs-cn/app/api-reference/functions/cookies)
-- [`headers`](/docs/nextjs-cn/app/api-reference/functions/headers)
-- [`connection`](/docs/nextjs-cn/app/api-reference/functions/connection)
-- [`draftMode`](/docs/nextjs-cn/app/api-reference/functions/draft-mode)
-- [`searchParams` 属性](/docs/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional)
-- [`unstable_noStore`](/docs/nextjs-cn/app/api-reference/functions/unstable_noStore)
+- [`cookies`](/nextjs-cn/app/api-reference/functions/cookies)
+- [`headers`](/nextjs-cn/app/api-reference/functions/headers)
+- [`connection`](/nextjs-cn/app/api-reference/functions/connection)
+- [`draftMode`](/nextjs-cn/app/api-reference/functions/draft-mode)
+- [`searchParams`](/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional)
+- [`unstable_noStore`](/nextjs-cn/app/api-reference/functions/unstable_noStore)
 
 ### 流式传输
 
@@ -126,4 +126,4 @@ React 服务器组件允许你编写可以在服务器上渲染并可选择性�
 
 流式传输默认内置于 Next.js App Router 中。这有助于改善初始页面加载性能，以及依赖于较慢数据获取的 UI，这些获取可能会阻塞整个路由的渲染。例如，产品页面上的评论。
 
-你可以使用 `loading.js` 开始流式传输路由段，并使用 [React Suspense](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming) 流式传输 UI 组件。有关更多信息，请参阅[加载 UI 和流式传输](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming)部分。
+你可以使用 `loading.js` 开始流式传输路由段，并使用 [React Suspense](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming) 流式传输 UI 组件。有关更多信息，请参阅[加载 UI 和流式传输](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)部分。

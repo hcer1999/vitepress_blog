@@ -54,19 +54,19 @@ You can import modules in top-level scope for use in `getServerSideProps`. Impor
 
 The `context` parameter is an object containing the following keys:
 
-| Name            | Description                                                                                                                                                                                                                     |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `params`        | If this page uses a [dynamic route](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes), `params` contains the route parameters. If the page name is `[id].js`, then `params` will look like `{ id: ... }`. |
-| `req`           | [The `HTTP` IncomingMessage object](https://nodejs.org/api/http.html#http_class_http_incomingmessage), with an additional `cookies` prop, which is an object with string keys mapping to string values of cookies.              |
-| `res`           | [The `HTTP` response object](https://nodejs.org/api/http.html#http_class_http_serverresponse).                                                                                                                                  |
-| `query`         | An object representing the query string, including dynamic route parameters.                                                                                                                                                    |
-| `preview`       | (Deprecated for `draftMode`) `preview` is `true` if the page is in the [Preview Mode](/docs/nextjs-cn/pages/guides/configuring/preview-mode) and `false` otherwise.                                                             |
-| `previewData`   | (Deprecated for `draftMode`) The [preview](/docs/nextjs-cn/pages/guides/configuring/preview-mode) data set by `setPreviewData`.                                                                                                 |
-| `draftMode`     | `draftMode` is `true` if the page is in the [Draft Mode](/docs/nextjs-cn/pages/guides/configuring/draft-mode) and `false` otherwise.                                                                                            |
-| `resolvedUrl`   | A normalized version of the request `URL` that strips the `_next/data` prefix for client transitions and includes original query values.                                                                                        |
-| `locale`        | Contains the active locale (if enabled).                                                                                                                                                                                        |
-| `locales`       | Contains all supported locales (if enabled).                                                                                                                                                                                    |
-| `defaultLocale` | Contains the configured default locale (if enabled).                                                                                                                                                                            |
+| Name            | Description                                                                                                                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `params`        | If this page uses a [dynamic route](/nextjs-cn/pages/building-your-application/routing/dynamic-routes), `params` contains the route parameters. If the page name is `[id].js`, then `params` will look like `{ id: ... }`. |
+| `req`           | [The `HTTP` IncomingMessage object](https://nodejs.org/api/http.html#http_class_http_incomingmessage), with an additional `cookies` prop, which is an object with string keys mapping to string values of cookies.         |
+| `res`           | [The `HTTP` response object](https://nodejs.org/api/http.html#http_class_http_serverresponse).                                                                                                                             |
+| `query`         | An object representing the query string, including dynamic route parameters.                                                                                                                                               |
+| `preview`       | (Deprecated for `draftMode`) `preview` is `true` if the page is in the [Preview Mode]() and `false` otherwise.                                                                                                             |
+| `previewData`   | (Deprecated for `draftMode`) The [preview]() data set by `setPreviewData`.                                                                                                                                                 |
+| `draftMode`     | `draftMode` is `true` if the page is in the [Draft Mode]() and `false` otherwise.                                                                                                                                          |
+| `resolvedUrl`   | A normalized version of the request `URL` that strips the `_next/data` prefix for client transitions and includes original query values.                                                                                   |
+| `locale`        | Contains the active locale (if enabled).                                                                                                                                                                                   |
+| `locales`       | Contains all supported locales (if enabled).                                                                                                                                                                               |
+| `defaultLocale` | Contains the configured default locale (if enabled).                                                                                                                                                                       |
 
 ## getServerSideProps return values
 
@@ -86,7 +86,7 @@ export async function getServerSideProps(context) {
 
 ### `notFound`
 
-The `notFound` boolean allows the page to return a `404` status and [404 Page](/docs/nextjs-cn/pages/building-your-application/routing/custom-error#page). With `notFound: true`, the page will return a `404` even if there was a successfully generated page before. This is meant to support use cases like user-generated content getting removed by its author.
+The `notFound` boolean allows the page to return a `404` status and [404 Page](/nextjs-cn/pages/building-your-application/routing/custom-error#page). With `notFound: true`, the page will return a `404` even if there was a successfully generated page before. This is meant to support use cases like user-generated content getting removed by its author.
 
 ```js
 export async function getServerSideProps(context) {
@@ -131,8 +131,8 @@ export async function getServerSideProps(context) {
 
 ## Version History
 
-| Version   | Changes                                                                                                               |
-| --------- | --------------------------------------------------------------------------------------------------------------------- |
-| `v13.4.0` | [App Router](/docs/nextjs-cn/app/building-your-application/data-fetching) is now stable with simplified data fetching |
-| `v10.0.0` | `locale`, `locales`, `defaultLocale`, and `notFound` options added.                                                   |
-| `v9.3.0`  | `getServerSideProps` introduced.                                                                                      |
+| Version   | Changes                                                                                                                |
+| --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `v13.4.0` | [App Router](/nextjs-cn/app/building-your-application/data-fetching/index) is now stable with simplified data fetching |
+| `v10.0.0` | `locale`, `locales`, `defaultLocale`, and `notFound` options added.                                                    |
+| `v9.3.0`  | `getServerSideProps` introduced.                                                                                       |

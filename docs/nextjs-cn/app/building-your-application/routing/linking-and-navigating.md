@@ -10,8 +10,8 @@ related:
 在 Next.js 中有四种在路由之间导航的方式：
 
 - 使用 [`<Link>` 组件](#link-组件)
-- 使用 [`useRouter` 钩子](#userouter-钩子) ([客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components))
-- 使用 [`redirect` 函数](#redirect-函数) ([服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components))
+- 使用 [`useRouter` 钩子](#userouter-钩子) ([客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components))
+- 使用 [`redirect` 函数](#redirect-函数) ([服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components))
 - 使用原生 [History API](#使用原生-history-api)
 
 本页将介绍如何使用这些选项，并深入探讨导航的工作原理。
@@ -38,11 +38,11 @@ export default function Page() {
 }
 ```
 
-您还可以传递其他可选属性给 `<Link>`。更多详情请参阅 [API 参考](/docs/nextjs-cn/app/api-reference/components/link)。
+您还可以传递其他可选属性给 `<Link>`。更多详情请参阅 [API 参考](/nextjs-cn/app/api-reference/components/link)。
 
 ## `useRouter()` 钩子
 
-`useRouter` 钩子允许您在[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)中以编程方式更改路由。
+`useRouter` 钩子允许您在[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)中以编程方式更改路由。
 
 ```tsx switcher
 'use client'
@@ -76,13 +76,13 @@ export default function Page() {
 }
 ```
 
-有关 `useRouter` 方法的完整列表，请参阅 [API 参考](/docs/nextjs-cn/app/api-reference/functions/use-router)。
+有关 `useRouter` 方法的完整列表，请参阅 [API 参考](/nextjs-cn/app/api-reference/functions/use-router)。
 
 > **建议：** 除非有使用 `useRouter` 的特定需求，否则请使用 `<Link>` 组件在路由之间导航。
 
 ## `redirect` 函数
 
-对于[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)，请使用 `redirect` 函数。
+对于[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，请使用 `redirect` 函数。
 
 ```tsx switcher
 import { redirect } from 'next/navigation'
@@ -138,15 +138,15 @@ export default async function Profile({ params }) {
 > - `redirect` 内部会抛出错误，所以应该在 `try/catch` 块之外调用。
 > - `redirect` 可以在渲染过程中在客户端组件中调用，但不能在事件处理程序中调用。您可以使用 [`useRouter` 钩子](#userouter-钩子)代替。
 > - `redirect` 也接受绝对 URL，可用于重定向到外部链接。
-> - 如果您想在渲染过程之前重定向，请使用 [`next.config.js`](/docs/nextjs-cn/app/building-your-application/routing/index/redirecting#redirects-in-nextconfigjs) 或 [中间件](/docs/nextjs-cn/app/building-your-application/routing/index/redirecting#nextresponseredirect-in-middleware)。
+> - 如果您想在渲染过程之前重定向，请使用 [`next.config.js`](/nextjs-cn/app/building-your-application/routing/redirecting#redirects-in-nextconfigjs) 或 [中间件](/nextjs-cn/app/building-your-application/routing/redirecting#nextresponseredirect-in-middleware)。
 
-更多信息请参阅 [`redirect` API 参考](/docs/nextjs-cn/app/api-reference/functions/redirect)。
+更多信息请参阅 [`redirect` API 参考](/nextjs-cn/app/api-reference/functions/redirect)。
 
 ## 使用原生 History API
 
 Next.js 允许您使用原生 [`window.history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) 和 [`window.history.replaceState`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState) 方法来更新浏览器的历史堆栈，而无需重新加载页面。
 
-`pushState` 和 `replaceState` 调用集成到 Next.js 路由器中，允许您与 [`usePathname`](/docs/nextjs-cn/app/api-reference/functions/use-pathname) 和 [`useSearchParams`](/docs/nextjs-cn/app/api-reference/functions/use-search-params) 同步。
+`pushState` 和 `replaceState` 调用集成到 Next.js 路由器中，允许您与 [`usePathname`](/nextjs-cn/app/api-reference/functions/use-pathname) 和 [`useSearchParams`](/nextjs-cn/app/api-reference/functions/use-search-params) 同步。
 
 ### `window.history.pushState`
 
@@ -256,7 +256,7 @@ App Router 使用混合方法进行路由和导航。在服务器上，您的应
 
 代码分割允许您将应用程序代码拆分为更小的包，由浏览器下载和执行。这减少了每个请求的数据传输量和执行时间，从而提高性能。
 
-[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)允许您的应用程序代码按路由段自动进行代码分割。这意味着在导航时只加载当前路由所需的代码。
+[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)允许您的应用程序代码按路由段自动进行代码分割。这意味着在导航时只加载当前路由所需的代码。
 
 ### 2. 预获取
 
@@ -267,11 +267,11 @@ App Router 使用混合方法进行路由和导航。在服务器上，您的应
 - **`<Link>` 组件**：路由会在它们进入用户视口时自动预获取。预获取发生在页面首次加载时，或通过滚动进入视图时。
 - **`router.prefetch()`**：`useRouter` 钩子可用于以编程方式预获取路由。
 
-`<Link>` 的默认预获取行为（即当 `prefetch` 属性未指定或设置为 `null` 时）取决于您使用 [`loading.js`](/docs/nextjs-cn/app/api-reference/file-conventions/loading) 的情况。只有共享布局，沿着渲染的"树"一直到第一个 `loading.js` 文件，才会被预获取并缓存 `30s`。这减少了获取整个动态路由的成本，并且意味着您可以显示[即时加载状态](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming#instant-loading-states)，为用户提供更好的视觉反馈。
+`<Link>` 的默认预获取行为（即当 `prefetch` 属性未指定或设置为 `null` 时）取决于您使用 [`loading.js`](/nextjs-cn/app/api-reference/file-conventions/loading) 的情况。只有共享布局，沿着渲染的"树"一直到第一个 `loading.js` 文件，才会被预获取并缓存 `30s`。这减少了获取整个动态路由的成本，并且意味着您可以显示[即时加载状态](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#instant-loading-states)，为用户提供更好的视觉反馈。
 
 您可以通过将 `prefetch` 属性设置为 `false` 来禁用预获取。或者，您可以通过将 `prefetch` 属性设置为 `true` 来预获取加载边界之外的完整页面数据。
 
-更多信息请参阅 [`<Link>` API 参考](/docs/nextjs-cn/app/api-reference/components/link)。
+更多信息请参阅 [`<Link>` API 参考](/nextjs-cn/app/api-reference/components/link)。
 
 > **值得了解**：
 >
@@ -279,11 +279,11 @@ App Router 使用混合方法进行路由和导航。在服务器上，您的应
 
 ### 3. 缓存
 
-Next.js 有一个称为[路由器缓存](/docs/nextjs-cn/app/deep-dive/caching#client-side-router-cache)的**内存客户端缓存**。当用户在应用程序中导航时，[预获取](#预获取)的路由段和访问过的路由的 React 服务器组件有效载荷会存储在缓存中。
+Next.js 有一个称为[路由器缓存](/nextjs-cn/app/deep-dive/caching#client-side-router-cache)的**内存客户端缓存**。当用户在应用程序中导航时，[预获取](#预获取)的路由段和访问过的路由的 React 服务器组件有效载荷会存储在缓存中。
 
 这意味着在导航时，缓存会尽可能被重用，而不是向服务器发出新请求——通过减少请求数量和数据传输量来提高性能。
 
-了解[路由器缓存](/docs/nextjs-cn/app/deep-dive/caching#client-side-router-cache)如何工作以及如何配置它。
+了解[路由器缓存](/nextjs-cn/app/deep-dive/caching#client-side-router-cache)如何工作以及如何配置它。
 
 ### 4. 部分渲染
 
@@ -307,7 +307,7 @@ Next.js 有一个称为[路由器缓存](/docs/nextjs-cn/app/deep-dive/caching#c
 
 ### 6. 前进和后退导航
 
-默认情况下，Next.js 将在后退和前进导航中维持滚动位置，并重用[路由器缓存](/docs/nextjs-cn/app/deep-dive/caching#client-side-router-cache)中的路由段。
+默认情况下，Next.js 将在后退和前进导航中维持滚动位置，并重用[路由器缓存](/nextjs-cn/app/deep-dive/caching#client-side-router-cache)中的路由段。
 
 ### 7. `pages/` 和 `app/` 之间的路由
 

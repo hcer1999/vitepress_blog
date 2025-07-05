@@ -13,9 +13,9 @@ Next.js 中的[懒加载](https://developer.mozilla.org/docs/Web/Performance/Laz
 1. 使用 `next/dynamic` 的[动态导入](#nextdynamic)
 2. 使用 [`React.lazy()`](https://react.dev/reference/react/lazy) 和 [Suspense](https://react.dev/reference/react/Suspense)
 
-默认情况下，服务器组件会自动进行[代码分割](https://developer.mozilla.org/docs/Glossary/Code_splitting)，你可以使用[流式传输](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming)从服务器到客户端逐步发送 UI 片段。懒加载适用于客户端组件。
+默认情况下，服务器组件会自动进行[代码分割](https://developer.mozilla.org/docs/Glossary/Code_splitting)，你可以使用[流式传输](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)从服务器到客户端逐步发送 UI 片段。懒加载适用于客户端组件。
 
-## `next/dynamic`
+## `next/dynamic`/nextjs-cn/
 
 `next/dynamic` 是 [`React.lazy()`](https://react.dev/reference/react/lazy) 和 [Suspense](https://react.dev/reference/react/Suspense) 的组合。它在 `app` 和 `pages` 目录中的行为相同，以允许增量迁移。
 

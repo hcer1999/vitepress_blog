@@ -13,8 +13,8 @@ related:
 
 `useLinkStatus` 在以下情况下非常有用：
 
-- [预获取](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#prefetching)被禁用或正在进行中，意味着导航被阻止。
-- 目标路由是动态的**并且**没有包含 [`loading.js`](/docs/nextjs-cn/app/api-reference/file-conventions/loading) 文件（该文件可以允许即时导航）。
+- [预获取](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#prefetching)被禁用或正在进行中，意味着导航被阻止。
+- 目标路由是动态的**并且**没有包含 [`loading.js`](/nextjs-cn/app/api-reference/file-conventions/loading) 文件（该文件可以允许即时导航）。
 
 ```tsx switcher
 'use client'

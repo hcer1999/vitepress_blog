@@ -33,8 +33,8 @@ export default function ExampleClientComponent() {
 
 > **须知**：
 >
-> - 由于 `useSelectedLayoutSegment` 是一个[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)钩子，而 Layout 默认是[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)，`useSelectedLayoutSegment` 通常通过导入到 Layout 中的客户端组件调用。
-> - `useSelectedLayoutSegment` 只返回下一级的段。要返回所有活动段，请参见 [`useSelectedLayoutSegments`](/docs/nextjs-cn/app/api-reference/functions/use-selected-layout-segments)。
+> - 由于 `useSelectedLayoutSegment` 是一个[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)钩子，而 Layout 默认是[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，`useSelectedLayoutSegment` 通常通过导入到 Layout 中的客户端组件调用。
+> - `useSelectedLayoutSegment` 只返回下一级的段。要返回所有活动段，请参见 [`useSelectedLayoutSegments`](/nextjs-cn/app/api-reference/functions/use-selected-layout-segments)。
 
 ## 参数
 
@@ -42,7 +42,7 @@ export default function ExampleClientComponent() {
 const segment = useSelectedLayoutSegment(parallelRoutesKey?: string)
 ```
 
-`useSelectedLayoutSegment` *可选地*接受一个 [`parallelRoutesKey`](/docs/nextjs-cn/app/building-your-application/routing/index/parallel-routes#useselectedlayoutsegments)，允许你读取该插槽内的活动路由段。
+`useSelectedLayoutSegment` *可选地*接受一个 [`parallelRoutesKey`](/nextjs-cn/app/building-your-application/routing/parallel-routes#useselectedlayoutsegments)，允许你读取该插槽内的活动路由段。
 
 ## 返回值
 

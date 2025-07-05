@@ -86,33 +86,33 @@ request.nextUrl.searchParams
 
 <PagesOnly>
 
-| 属性              | 类型                      | 描述                                                                                                                    |
-| ----------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `basePath`        | `string`                  | URL 的[基础路径](/docs/nextjs-cn/pages/api-reference/config/next-config-js/basePath)。                                  |
-| `buildId`         | `string` \| `undefined`   | Next.js 应用程序的构建标识符。可以[自定义](/docs/nextjs-cn/pages/api-reference/config/next-config-js/generateBuildId)。 |
-| `defaultLocale`   | `string` \| `undefined`   | [国际化](/docs/nextjs-cn/pages/building-your-application/routing/internationalization)的默认语言环境。                  |
-| `domainLocale`    |                           |                                                                                                                         |
-| - `defaultLocale` | `string`                  | 域内的默认语言环境。                                                                                                    |
-| - `domain`        | `string`                  | 与特定语言环境关联的域。                                                                                                |
-| - `http`          | `boolean` \| `undefined`  | 指示域是否使用 HTTP。                                                                                                   |
-| `locales`         | `string[]` \| `undefined` | 可用语言环境的数组。                                                                                                    |
-| `locale`          | `string` \| `undefined`   | 当前活动的语言环境。                                                                                                    |
-| `url`             | `URL`                     | URL 对象。                                                                                                              |
+| 属性              | 类型                      | 描述                                                                                                               |
+| ----------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `basePath`        | `string`                  | URL 的[基础路径](/nextjs-cn/pages/api-reference/config/next-config-js/basePath)。                                  |
+| `buildId`         | `string` \| `undefined`   | Next.js 应用程序的构建标识符。可以[自定义](/nextjs-cn/pages/api-reference/config/next-config-js/generateBuildId)。 |
+| `defaultLocale`   | `string` \| `undefined`   | [国际化](/nextjs-cn/app/building-your-application/routing/internationalization)的默认语言环境。                    |
+| `domainLocale`    |                           | /nextjs-cn/                                                                                                        |
+| - `defaultLocale` | `string`                  | 域内的默认语/nextjs-cn/                                                                                            |
+| - `domain`        | `string`                  | 与特定语言环境关联的域。                                                                                           |
+| - `http`          | `boolean` \| `undefined`  | 指示域是否使用 HTTP。                                                                                              |
+| `locales`         | `string[]` \| `undefined` | 可用语言环境的数组。                                                                                               |
+| `locale`          | `string` \| `undefined`   | 当前活动的语言环境。                                                                                               |
+| `url`             | `URL`                     | URL 对象。                                                                                                         |
 
 </PagesOnly>
 
 <AppOnly>
 
-| 属性           | 类型                    | 描述                                                                                                                  |
-| -------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `basePath`     | `string`                | URL 的[基础路径](/docs/nextjs-cn/app/api-reference/config/next-config-js/basePath)。                                  |
-| `buildId`      | `string` \| `undefined` | Next.js 应用程序的构建标识符。可以[自定义](/docs/nextjs-cn/app/api-reference/config/next-config-js/generateBuildId)。 |
-| `pathname`     | `string`                | URL 的路径名。                                                                                                        |
-| `searchParams` | `Object`                | URL 的搜索参数。                                                                                                      |
+| 属性           | 类型                    | 描述                                                                                                             |
+| -------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `basePath`     | `string`                | URL 的[基础路径](/nextjs-cn/app/api-reference/config/next-config-js/basePath)。                                  |
+| `buildId`      | `string` \| `undefined` | Next.js 应用程序的构建标识符。可以[自定义](/nextjs-cn/app/api-reference/config/next-config-js/generateBuildId)。 |
+| `pathname`     | `string`                | URL 的路径名。 /nextjs-cn/                                                                                       |
+| `searchParams` | `Object`                | URL 的搜索参数。 /nextjs-cn/                                                                                     |
 
-> **注意：** Pages Router 的国际化属性在 App Router 中不可用。了解更多关于[使用 App Router 进行国际化](/docs/nextjs-cn/app/building-your-application/routing/index/internationalization)的信息。
+> **注意：** Pages Router 的国际化属性在 App Router 中不可用。了解更多关于[使用 App Router 进行国际化](/nextjs-cn/app/building-your-application/routing/internationalization)的信息。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 ## 版本历史
 

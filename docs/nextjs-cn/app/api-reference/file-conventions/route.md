@@ -61,7 +61,7 @@ export async function OPTIONS(request) {}
 
 #### `request`（可选）
 
-`request` 对象是一个 [NextRequest](/docs/nextjs-cn/app/api-reference/functions/next-request) 对象，它是 Web [Request](https://developer.mozilla.org/docs/Web/API/Request) API 的扩展。`NextRequest` 使你能够进一步控制传入的请求，包括轻松访问 `cookies` 和扩展的、已解析的 URL 对象 `nextUrl`。
+`request` 对象是一个 [NextRequest](/nextjs-cn/app/api-reference/functions/next-request) 对象，它是 Web [Request](https://developer.mozilla.org/docs/Web/API/Request) API 的扩展。`NextRequest` 使你能够进一步控制传入的请求，包括轻松访问 `cookies` 和扩展的、已解析的 URL 对象 `nextUrl`。
 
 ```ts switcher
 import type { NextRequest } from 'next/server'
@@ -79,7 +79,7 @@ export async function GET(request) {
 
 #### `context`（可选）
 
-- **`params`**：一个 Promise，解析为包含当前路由的[动态路由参数](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)的对象。
+- **`params`**：一个 Promise，解析为包含当前路由的[动态路由参数](/nextjs-cn/app/building-your-application/routing/dynamic-routes)的对象。
 
 ```ts switcher
 export async function GET(request: Request, { params }: { params: Promise<{ team: string }> }) {
@@ -129,8 +129,8 @@ export async function GET(request) {
 
 ## 版本历史
 
-| 版本       | 变更                                                                                                           |
-| ---------- | -------------------------------------------------------------------------------------------------------------- |
-| `v15.0.RC` | `context.params` 现在是一个 Promise。提供了[代码转换工具](/docs/nextjs-cn/app/guides/upgrading/codemods#150)。 |
-| `v15.0.RC` | `GET` 处理器的默认缓存从静态更改为动态。                                                                       |
-| `v13.2.0`  | 引入路由处理器。                                                                                               |
+| 版本       | 变更                                                                                                      |
+| ---------- | --------------------------------------------------------------------------------------------------------- |
+| `v15.0.RC` | `context.params` 现在是一个 Promise。提供了[代码转换工具](/nextjs-cn/app/guides/upgrading/codemods#150)。 |
+| `v15.0.RC` | `GET` 处理器的默认缓存从静态更改为动态。                                                                  |
+| `v13.2.0`  | 引入路由处理器。                                                                                          |

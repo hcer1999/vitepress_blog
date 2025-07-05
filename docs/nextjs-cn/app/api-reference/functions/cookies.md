@@ -3,7 +3,7 @@ title: cookies
 description: cookies 函数的 API 参考。
 ---
 
-`cookies` 是一个**异步**函数，允许你在[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)中读取 HTTP 传入请求的 cookie，并在[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)中读取/写入传出请求的 cookie。
+`cookies` 是一个**异步**函数，允许你在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)中读取 HTTP 传入请求的 cookie，并在[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中读取/写入传出请求的 cookie。
 
 ```tsx switcher
 import { cookies } from 'next/headers'
@@ -68,11 +68,11 @@ export default async function Page() {
 
 - `cookies` 是一个**异步**函数，它返回一个 promise。你必须使用 `async/await` 或 React 的 [`use`](https://react.dev/reference/react/use) 函数来访问 cookie。
   - 在版本 14 及更早版本中，`cookies` 是一个同步函数。为了帮助向后兼容，你仍然可以在 Next.js 15 中同步访问它，但这种行为将在未来被弃用。
-- `cookies` 是一个[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-apis)，其返回值无法提前知道。在布局或页面中使用它将使路由采用[动态渲染](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)。
+- `cookies` 是一个[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-apis)，其返回值无法提前知道。在布局或页面中使用它将使路由采用[动态渲染](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)。
 - `.delete` 方法只能在以下情况下调用：
-  - 在[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)中。
+  - 在[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中。
   - 如果它属于调用 `.set` 的同一域。对于通配符域，特定子域必须完全匹配。此外，代码必须在与要删除的 cookie 相同的协议（HTTP 或 HTTPS）上执行。
-- HTTP 不允许在流式传输开始后设置 cookie，因此你必须在[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)中使用 `.set`。
+- HTTP 不允许在流式传输开始后设置 cookie，因此你必须在[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中使用 `.set`。
 
 ## 理解服务器组件中的 Cookie 行为
 
@@ -143,7 +143,7 @@ export default async function Page() {
 
 ### 设置一个 cookie
 
-你可以在[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)中使用 `(await cookies()).set(name, value, options)` 方法设置 cookie。[`options` 对象](#选项)是可选的。
+你可以在[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中使用 `(await cookies()).set(name, value, options)` 方法设置 cookie。[`options` 对象](#选项)是可选的。
 
 ```tsx switcher
 'use server'
@@ -283,7 +283,7 @@ export async function delete(data) {
 
 ## 版本历史
 
-| 版本       | 变更                                                                                                      |
-| ---------- | --------------------------------------------------------------------------------------------------------- |
-| `v15.0.RC` | `cookies` 现在是一个异步函数。提供了一个[代码修改器](/docs/nextjs-cn/app/guides/upgrading/codemods#150)。 |
-| `v13.0.0`  | 引入 `cookies`。                                                                                          |
+| 版本       | 变更                                                                                                 |
+| ---------- | ---------------------------------------------------------------------------------------------------- |
+| `v15.0.RC` | `cookies` 现在是一个异步函数。提供了一个[代码修改器](/nextjs-cn/app/guides/upgrading/codemods#150)。 |
+| `v13.0.0`  | 引入 `cookies`。                                                                                     |

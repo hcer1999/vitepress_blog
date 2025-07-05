@@ -4,9 +4,9 @@ nav_title: 字体
 description: 使用内置的 `next/font` 加载器优化 Web 字体加载。
 ---
 
-[`next/font`](/docs/nextjs-cn/app/api-reference/components/font) 自动优化你的字体（包括自定义字体）并移除外部网络请求，以提高隐私和性能。
+[`next/font`](/nextjs-cn/app/api-reference/components/font) 自动优化你的字体（包括自定义字体）并移除外部网络请求，以提高隐私和性能。
 
-它包括**内置的自动自托管**功能，适用于任何字体文件。这意味着你可以以零[布局偏移](https://web.dev/articles/cls)的方式最佳地加载网页字体。
+它包括\*_内置的自动自托管_/nextjs-cn/味着你可以以零[布局偏移](https://web.dev/articles/cls)的方式最佳地加载网页字体。
 
 你还可以方便地使用所有 [Google Fonts](https://fonts.google.com/)。CSS 和字体文件在构建时下载，并与其他静态资产一起自托管。**浏览器不会向 Google 发送任何请求。**
 
@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
 
 <PagesOnly>
 
-要在所有页面中使用字体，请将其添加到 `/pages` 下的 [`_app.js` 文件](/docs/nextjs-cn/pages/building-your-application/routing/custom-app)中，如下所示：
+要在所有页面中使用字体，请将其添加到 `/pages` 下的 [`_app.js` 文件](/nextjs-cn/pages/building-your-application/routing/custom-app)中，如下所示：
 
 ```jsx
 import { Inter } from 'next/font/google'
@@ -139,9 +139,9 @@ export default function MyApp({ Component, pageProps }) {
 
 ### `subsets`
 
-字体的[`subsets`](https://fonts.google.com/knowledge/glossary/subsetting)，由字符串数组定义，包含每个你想要[预加载](/docs/nextjs-cn/app/api-reference/components/font#specifying-a-subset)的子集的名称。当 [`preload`](#preload) 选项为 true（默认）时，通过 `subsets` 指定的字体将在 head 中注入 link 预加载标签。
+字体的[`subsets`](https://fonts.google.com/knowledge/glossary/subsetting)，由字符串数组定义，包含每个你想要[预加载](/nextjs-cn/app/api-reference/components/font#specifying-a-subset)的子集的名称。当 [`preload`](#preload) 选项为 true（默认）时，通过 `subsets` 指定的字体将在 head 中注入 link 预加载标签。
 
-用于 `next/font/google`
+用于 `next/font/google`/nextjs-cn/
 
 - 可选
 
@@ -177,9 +177,9 @@ export default function MyApp({ Component, pageProps }) {
 
 ### `preload`
 
-布尔值，指定字体是否应[预加载](/docs/nextjs-cn/app/api-reference/components/font#preloading)或不预加载。默认值为 `true`。
+布尔值，指定字体是否应[预加载](/nextjs-cn/app/api-reference/components/font#preloading)或不预加载。默认值为 `true`。
 
-用于 `next/font/google` 和 `next/font/local`
+用于 `next/font/goo/nextjs-cn/t/local`
 
 - 可选
 
@@ -323,7 +323,7 @@ export default function RootLayout({ children }) {
 
 <PagesOnly>
 
-要在所有页面中使用字体，请将其添加到 `/pages` 下的 [`_app.js` 文件](/docs/nextjs-cn/pages/building-your-application/routing/custom-app)中，如下所示：
+要在所有页面中使用字体，请将其添加到 `/pages` 下的 [`_app.js` 文件](/nextjs-cn/pages/building-your-application/routing/custom-app)中，如下所示：
 
 ```jsx
 import { Inter } from 'next/font/google'
@@ -421,9 +421,9 @@ export default function Home() {
 
 ### Specifying a subset
 
-Google Fonts 是自动[子集](https://fonts.google.com/knowledge/glossary/subsetting)。这减少了字体文件的大小并提高了性能。你需要定义要预加载哪些子集。如果 [`preload`](/docs/nextjs-cn/app/api-reference/components/font#preload) 为 `true` 而未指定任何子集，则会发出警告。
+Google Fonts 是自动[子集](https://fonts.google.com/knowledge/glossary/subsetting)。这减少了字体文件的大小并提高了性能。你需要定义要预加载哪些子集。如果 [`preload`](/nextjs-cn/app/api-reference/components/font#preload) 为 `true` 而未指定任何子集，则会发出警告。
 
-这可以通过添加到函数调用中来完成：
+这可以通过添加到函数调用中来完成：/nextjs-cn/
 
 <AppOnly>
 
@@ -445,9 +445,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 </PagesOnly>
 
-查看 [Font API Reference](/docs/nextjs-cn/app/api-reference/components/font) 以获取更多信息。
+查看 [Font API Reference](/nextjs-cn/app/api-reference/components/font) 以获取更多信息。
 
-## Using Multiple Fonts
+## Using Multiple Fonts/nextjs-cn/
 
 你可以在应用程序中导入和使用多个字体。有两种方法可以采用。
 
@@ -539,9 +539,9 @@ export default function Page() {
 
 在上述示例中，`Inter` 将全局应用，并且可以导入和应用于需要的 `Roboto Mono`。
 
-或者，你可以创建一个 [CSS variable](/docs/nextjs-cn/app/api-reference/components/font#variable) 并将其与你的首选 CSS 解决方案一起使用：
+或者，你可以创建一个 [CSS variable](/nextjs-cn/app/api-reference/components/font#variable) 并将其与你的首选 CSS 解决方案一起使用：
 
-<AppOnly>
+<AppOnly>/nextjs-cn/
 
 ```tsx switcher
 import { Inter, Roboto_Mono } from 'next/font/google'
@@ -706,13 +706,13 @@ const roboto = localFont({
 })
 ```
 
-查看 [Font API Reference](/docs/nextjs-cn/app/api-reference/components/font) 以获取更多信息。
+查看 [Font API Reference](/nextjs-cn/app/api-reference/components/font) 以获取更多信息。
 
 ### With Tailwind CSS
 
-`next/font` 无缝集成 [Tailwind CSS](https://tailwindcss.com/) 使用 [CSS variables](/docs/nextjs-cn/app/api-reference/components/font#css-variables)。
+`next/font` 无缝集成 [Tailwind CSS](https://tailwindcss.com/) 使用 [CSS variables](/nextjs-cn/app/api-reference/components/font#css-variables)。
 
-在下面的示例中，我们使用 `Inter` 和 `Roboto_Mono` 字体从 `next/font/google`（你可以使用任何 Google Font 或 Local Font）。使用 `variable` 选项定义 CSS 变量名称，例如 `inter` 和 `roboto_mono` 用于这些字体，分别。然后，将这些变量应用到你的 HTML 文档中。
+在下面的示例中，我们使用 `Inter` 和 `Roboto_Mono` 字体从 `next/font/google`（你可以使用任何 Google Fo/nextjs-cn/。使用 `variable` 选项定义 CSS 变量名称，例如 `inter` 和 `roboto_mono` 用于这些字体，分别。然后，将这些变量应用到你的 HTML 文档中。
 
 > **Good to know**：你可以将这些变量添加到 `<html>` 或 `<body>` 标签中，具体取决于你的偏好、样式需求或项目要求。
 
@@ -795,9 +795,9 @@ export default function MyApp({ Component, pageProps }) {
 
 </PagesOnly>
 
-最后，将 CSS 变量添加到你的 [Tailwind CSS 配置](/docs/nextjs-cn/app/guides/tailwind-css#configuring-tailwind)：
+最后，将 CSS 变量添加到你的 [Tailwind CSS 配置](/nextjs-cn/app/guides/tailwind-css#configuring-tailwind)：
 
-### Tailwind CSS v4
+### Tailwind CSS v4/nextjs-cn/
 
 自 [Tailwind v4](https://tailwindcss.com/blog/tailwindcss-v4) 起，默认情况下不需要任何配置。如果你需要配置 Tailwind，可以按照 [官方文档](https://tailwindcss.com/blog/tailwindcss-v4#css-first-configuration) 配置全局 CSS 文件。
 
@@ -1017,20 +1017,20 @@ import { greatVibes, sourceCodePro400 } from '@/fonts'
 
 When a font function is called on a page of your site, it is not globally available and preloaded on all routes. Rather, the font is only preloaded on the related routes based on the type of file where it is used:
 
-- If it's a [unique page](/docs/nextjs-cn/app/api-reference/file-conventions/page), it is preloaded on the unique route for that page.
-- If it's a [layout](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#layouts), it is preloaded on all the routes wrapped by the layout.
-- If it's the [root layout](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#root-layout-required), it is preloaded on all routes.
-
-</AppOnly>
+- If it's a [unique page](/nextjs-cn/app/api-reference/file-conventions/page), it is preloaded on the unique route for that page.
+- If it's a [layout](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#layouts), it is preloaded on all the routes wrapped by the layout.
+- If it's the [root layout/nextjs-cn/n/app/building-your-application/routing/index/layouts-and-templates#root-layout-required), it is preloaded on all routes.
+  /nextjs-cn/
+  </AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
 When a font function is called on a page of your site, it is not globally available and preloaded on all routes. Rather, the font is only preloaded on the related route/s based on the type of file where it is used:
 
-- if it's a [unique page](/docs/nextjs-cn/pages/building-your-application/routing/pages-and-layouts), it is preloaded on the unique route for that page
-- if it's in the [custom App](/docs/nextjs-cn/pages/building-your-application/routing/custom-app), it is preloaded on all the routes of the site under `/pages`
-
-</PagesOnly>
+- if it's a [unique page](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts), it is preloaded on the unique route for that page
+- if it's in the [custom App](/nextjs-cn/pages/building-your-application/routing/custom-app), it is preloaded on all the routes of the site under `/pages`
+  /nextjs-cn/
+  </PagesOnly>/nextjs-cn/
 
 ## Version Changes
 

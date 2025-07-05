@@ -16,6 +16,6 @@ description: 学习如何使用 Next.js App Router 创建全栈 Web 应用程序
 - JavaScript
 - React
 
-如果你是 React 新手或需要复习，我们建议你从我们的 [React 基础课程](/docs/nextjs-cn/learn/react-foundations)开始，以及 [Next.js 基础课程](/docs/nextjs-cn/learn/dashboard-app)，你可以在学习过程中构建一个应用程序。
+如果你是 React 新手或需要复习，我们建议你从我们的 [React 基础课程]()开始，以及 [Next.js 基础课程]()，你可以在学习过程中构建一个应用程序。
 
 ## 下一步

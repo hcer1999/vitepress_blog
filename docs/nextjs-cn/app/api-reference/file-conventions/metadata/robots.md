@@ -19,7 +19,7 @@ Sitemap: https://acme.com/sitemap.xml
 
 添加一个返回 [`Robots` 对象](#robots-对象)的 `robots.js` 或 `robots.ts` 文件。
 
-> **须知**：`robots.js` 是一个默认被缓存的特殊路由处理程序，除非它使用了[动态 API](/docs/nextjs-cn/app/deep-dive/caching#dynamic-apis)或[动态配置](/docs/nextjs-cn/app/deep-dive/caching#segment-config-options)选项。
+> **须知**：`robots.js` 是一个默认被缓存的特殊路由处理程序，除非它使用了[动态 API](/nextjs-cn/app/deep-dive/caching#dynamic-apis)或[动态配置](/nextjs-cn/app/deep-dive/caching#segment-config-options)选项。
 
 ```ts switcher
 import type { MetadataRoute } from 'next'

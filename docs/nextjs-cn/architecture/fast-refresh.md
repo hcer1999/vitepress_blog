@@ -32,7 +32,7 @@ description: 快速刷新是一种热模块重载体验，当你对 React 组件
 - 类组件的本地状态不会被保留（只有函数组件和 Hooks 会保留状态）。
 - 你正在编辑的文件可能除了 React 组件外还有*其他*导出。
 - 有时，一个文件会导出调用高阶组件的结果，如 `HOC(WrappedComponent)`。如果返回的组件是一个类，其状态将被重置。
-- 匿名箭头函数如 `export default () => <div />;` 会导致快速刷新不保留本地组件状态。对于大型代码库，你可以使用我们的 [`name-default-component` codemod](/docs/nextjs-cn/pages/guides/upgrading/codemods#name-default-component)。
+- 匿名箭头函数如 `export default () => <div />;` 会导致快速刷新不保留本地组件状态。对于大型代码库，你可以使用我们的 [`name-default-component` codemod](#name-default-component)。
 
 随着你的代码库更多地转向函数组件和 Hooks，你可以期望在更多情况下保留状态。
 
@@ -54,4 +54,4 @@ description: 快速刷新是一种热模块重载体验，当你对 React 组件
 
 有时，这可能会导致意外结果。例如，即使是一个具有空依赖数组的 `useEffect` 也会在快速刷新期间重新运行一次。
 
-然而，编写能够适应 `useEffect` 偶尔重新运行的代码是一种良好的实践，即使没有快速刷新也是如此。这将使你更容易在以后向其添加新的依赖项，并且这也是由[React 严格模式](/docs/nextjs-cn/pages/api-reference/config/next-config-js/reactStrictMode)强制执行的，我们强烈建议启用它。
+然而，编写能够适应 `useEffect` 偶尔重新运行的代码是一种良好的实践，即使没有快速刷新也是如此。这将使你更容易在以后向其添加新的依赖项，并且这也是由[React 严格模式](/nextjs-cn/pages/api-reference/config/next-config-js/reactStrictMode)强制执行的，我们强烈建议启用它。

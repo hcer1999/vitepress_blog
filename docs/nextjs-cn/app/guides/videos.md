@@ -89,7 +89,7 @@ export default function Page() {
 
 **1. 创建用于视频嵌入的服务器组件**
 
-第一步是创建一个 [服务器组件](/docs/nextjs-cn/nextjs-cn/app/building-your-application/rendering/server-components)，用于生成适当的 iframe 来嵌入视频。该组件将获取视频的源 URL 并渲染 iframe。
+第一步是创建一个 [服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，用于生成适当的 iframe 来嵌入视频。该组件将获取视频的源 URL 并渲染 iframe。
 
 ```jsx
 export default async function VideoComponent() {
@@ -101,7 +101,7 @@ export default async function VideoComponent() {
 
 **2. 使用 React Suspense 流式传输视频组件**
 
-创建用于嵌入视频的服务器组件后，下一步是使用 [React Suspense](https://react.dev/reference/react/Suspense) [流式传输](/docs/nextjs-cn/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)该组件。
+创建用于嵌入视频的服务器组件后，下一步是使用 [React Suspense](https://react.dev/reference/react/Suspense) [流式传输](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)该组件。
 
 ```jsx
 import { Suspense } from 'react'

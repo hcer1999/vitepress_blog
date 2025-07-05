@@ -23,9 +23,9 @@ SPA 的定义各不相同。我们将"严格 SPA"定义为：
 
 Next.js 可以自动拆分你的 JavaScript 代码包，并为不同路由生成多个 HTML 入口点。这避免了在客户端加载不必要的 JavaScript 代码，减小了包的大小并实现了更快的页面加载。
 
-[`next/link`](/docs/nextjs-cn/app/api-reference/components/link) 组件自动[预取](/docs/nextjs-cn/app/api-reference/components/link#prefetch)路由，提供了严格 SPA 的快速页面转换，同时具有将应用程序路由状态保存到 URL 中以便链接和共享的优势。
+[`next/link`](/nextjs-cn/app/api-reference/components/link) 组件自动[预取](/nextjs-cn/app/api-reference/components/link#prefetch)路由，提供了严格 SPA 的快速页面转换，同时具有将应用程序路由状态保存到 URL 中以便链接和共享的优势。
 
-Next.js 可以从静态站点甚至是严格的 SPA（其中所有内容都在客户端渲染）开始。如果你的项目增长，Next.js 允许你根据需要逐步添加更多服务器功能（例如 [React 服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)、[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)等）。
+Next.js 可以从静态站点甚至是严格的 SPA（其中所有内容都在客户端渲染）开始。如果你的项目增长，Next.js 允许你根据需要逐步添加更多服务器功能（例如 [React 服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)、[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)等）。
 
 ## 示例
 
@@ -75,7 +75,7 @@ export default function RootLayout({ children }) {
 }
 ```
 
-虽然你可以[延迟并将单个 Promise 作为 prop 传递](/docs/nextjs-cn/app/getting-started/fetching-data#with-the-use-hook)给客户端组件，但我们通常看到这种模式与 React 上下文提供者一起使用。这通过自定义 React Hook 实现从客户端组件更方便的访问。
+虽然你可以[延迟并将单个 Promise 作为 prop 传递](/nextjs-cn/app/getting-started/fetching-data#with-the-use-hook)给客户端组件，但我们通常看到这种模式与 React 上下文提供者一起使用。这通过自定义 React Hook 实现从客户端组件更方便的访问。
 
 你可以将 Promise 转发给 React 上下文提供者：
 
@@ -269,7 +269,7 @@ export function Profile() {
 
 ### 仅在浏览器中渲染组件
 
-客户端组件在 `next build` 期间[预渲染](https://github.com/reactwg/server-components/discussions/4)。如果你想为客户端组件禁用预渲染，并仅在浏览器环境中加载它，你可以使用 [`next/dynamic`](/docs/nextjs-cn/app/guides/lazy-loading#nextdynamic)：
+客户端组件在 `next build` 期间[预渲染](https://github.com/reactwg/server-components/discussions/4)。如果你想为客户端组件禁用预渲染，并仅在浏览器环境中加载它，你可以使用 [`next/dynamic`](/nextjs-cn/app/guides/lazy-loading#nextdynamic)：
 
 ```jsx
 import dynamic from 'next/dynamic'
@@ -283,11 +283,11 @@ const ClientOnlyComponent = dynamic(() => import('./component'), {
 
 ### 客户端浅层路由
 
-如果你正在从严格的 SPA（如 [Create React App](/docs/nextjs-cn/app/guides/migrating/from-create-react-app) 或 [Vite](/docs/nextjs-cn/app/guides/migrating/from-vite)）迁移，你可能有现有代码使用浅层路由来更新 URL 状态。这对于应用程序中的视图之间的手动转换很有用，而*不*使用默认的 Next.js 文件系统路由。
+如果你正在从严格的 SPA（如 [Create React App](/nextjs-cn/app/guides/migrating/from-create-react-app) 或 [Vite](/nextjs-cn/app/guides/migrating/from-vite)）迁移，你可能有现有代码使用浅层路由来更新 URL 状态。这对于应用程序中的视图之间的手动转换很有用，而*不*使用默认的 Next.js 文件系统路由。
 
 Next.js 允许你使用原生 [`window.history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) 和 [`window.history.replaceState`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState) 方法来更新浏览器的历史堆栈，而不重新加载页面。
 
-`pushState` 和 `replaceState` 调用与 Next.js 路由器集成，允许你与 [`usePathname`](/docs/nextjs-cn/app/api-reference/functions/use-pathname) 和 [`useSearchParams`](/docs/nextjs-cn/app/api-reference/functions/use-search-params) 同步。
+`pushState` 和 `replaceState` 调用与 Next.js 路由器集成，允许你与 [`usePathname`](/nextjs-cn/app/api-reference/functions/use-pathname) 和 [`useSearchParams`](/nextjs-cn/app/api-reference/functions/use-search-params) 同步。
 
 ```tsx switcher
 'use client'
@@ -335,7 +335,7 @@ export default function SortProducts() {
 }
 ```
 
-了解更多关于 Next.js 中[路由和导航](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#how-routing-and-navigation-works)的工作原理。
+了解更多关于 Next.js 中[路由和导航](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#how-routing-and-navigation-works)的工作原理。
 
 ### 在客户端组件中使用服务器操作
 
@@ -377,11 +377,11 @@ export function Button() {
 }
 ```
 
-了解更多关于[使用服务器操作进行数据修改](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)。
+了解更多关于[使用服务器操作进行数据修改](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)。
 
 ## 静态导出（可选）
 
-Next.js 也支持生成[完全静态站点](/docs/nextjs-cn/app/guides/deployment/static-exports)。这比严格的 SPA 有一些优势：
+Next.js 也支持生成[完全静态站点]。这比严格的 SPA 有一些优势：
 
 - **自动代码拆分**：Next.js 不会为所有路由提供单一的 `index.html`，而是为每个路由生成一个 HTML 文件，因此访问者无需等待客户端 JavaScript 包即可更快地获取内容。
 - **改善用户体验**：不是为所有路由提供最小的骨架，而是为每个路由提供完全渲染的页面。当用户在客户端导航时，转换仍然是即时的，类似 SPA。
@@ -400,13 +400,13 @@ export default nextConfig
 
 运行 `next build` 后，Next.js 将创建一个包含应用程序 HTML/CSS/JS 资源的 `out` 文件夹。
 
-> **注意：** Next.js 服务器功能不支持静态导出。[了解更多](/docs/nextjs-cn/app/guides/deployment/static-exports#unsupported-features)。
+> **注意：** Next.js 服务器功能不支持静态导出。[了解更多]()。
 
 ## 将现有项目迁移到 Next.js
 
 你可以通过遵循我们的指南逐步迁移到 Next.js：
 
-- [从 Create React App 迁移](/docs/nextjs-cn/app/guides/migrating/from-create-react-app)
-- [从 Vite 迁移](/docs/nextjs-cn/app/guides/migrating/from-vite)
+- [从 Create React App 迁移](/nextjs-cn/app/guides/migrating/from-create-react-app)
+- [从 Vite 迁移](/nextjs-cn/app/guides/migrating/from-vite)
 
-如果你已经在使用带有 Pages Router 的 SPA，你可以了解如何[逐步采用 App Router](/docs/nextjs-cn/app/guides/migrating/app-router-migration)。
+如果你已经在使用带有 Pages Router 的 SPA，你可以了解如何[逐步采用 App Router](/nextjs-cn/app/guides/migrating/app-router-migration)。

@@ -57,10 +57,10 @@ node .next/standalone/server.js
 
 > **须知**：
 >
-> - `next.config.js` 在 `next build` 期间被读取并序列化到 `server.js` 输出文件中。如果使用了旧版的 [`serverRuntimeConfig` 或 `publicRuntimeConfig` 选项](/docs/nextjs-cn/pages/api-reference/config/next-config-js/runtime-configuration)，则这些值将特定于构建时的值。
+> - `next.config.js` 在 `next build` 期间被读取并序列化到 `server.js` 输出文件中。如果使用了旧版的 [`serverRuntimeConfig` 或 `publicRuntimeConfig` 选项](/nextjs-cn/pages/api-reference/config/next-config-js/runtime-configuration)，则这些值将特定于构建时的值。
 > - 如果你的项目需要监听特定的端口或主机名，你可以在运行 `server.js` 之前定义 `PORT` 或 `HOSTNAME` 环境变量。例如，运行 `PORT=8080 HOSTNAME=0.0.0.0 node server.js` 以在 `http://0.0.0.0:8080` 上启动服务器。
-
-</PagesOnly>
+>   /nextjs-cn/
+>   </PagesOnly>
 
 ## 注意事项
 

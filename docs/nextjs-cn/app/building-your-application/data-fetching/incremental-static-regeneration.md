@@ -191,13 +191,13 @@ export default function Page({ post }) {
 
 ### 路由段配置
 
-- [`revalidate`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#revalidate)
-- [`dynamicParams`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamicparams)
+- [`revalidate`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#revalidate)
+- [`dynamicParams`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamicparams)
 
 ### 函数
 
-- [`revalidatePath`](/docs/nextjs-cn/app/api-reference/functions/revalidatePath)
-- [`revalidateTag`](/docs/nextjs-cn/app/api-reference/functions/revalidateTag)
+- [`revalidatePath`](/nextjs-cn/app/api-reference/functions/revalidatePath)
+- [`revalidateTag`](/nextjs-cn/app/api-reference/functions/revalidateTag)
 
 </AppOnly>
 
@@ -205,8 +205,8 @@ export default function Page({ post }) {
 
 ### 函数
 
-- [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)
-- [`res.revalidate`](/docs/nextjs-cn/pages/building-your-application/routing/api-routes#response-helpers)
+- [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)
+- [`res.revalidate`](/nextjs-cn/pages/building-your-application/routing/api-routes#response-helpers)
 
 </PagesOnly>
 
@@ -262,7 +262,7 @@ export default async function Page() {
 }
 ```
 
-我们建议设置较长的重新验证时间。例如，使用 1 小时而不是 1 秒。如果你需要更精确的控制，请考虑使用按需重新验证。如果你需要实时数据，请考虑切换到[动态渲染](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)。
+我们建议设置较长的重新验证时间。例如，使用 1 小时而不是 1 秒。如果你需要更精确的控制，请考虑使用按需重新验证。如果你需要实时数据，请考虑切换到[动态渲染](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)。
 
 ### 使用 `revalidatePath` 进行按需重新验证
 
@@ -356,7 +356,7 @@ export default async function Page() {
 }
 ```
 
-然后，你可以在[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)中使用 `revalidateTag`：
+然后，你可以在[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中使用 `revalidateTag`：
 
 ```ts switcher
 'use server'
@@ -440,7 +440,7 @@ export default async function handler(req, res) {
 
 <AppOnly>
 
-如果在尝试重新验证数据时抛出错误，将继续从缓存中提供最后成功生成的数据。在下一个后续请求中，Next.js 将重试重新验证数据。[了解更多关于错误处理的信息](/docs/nextjs-cn/app/building-your-application/routing/index/error-handling)。
+如果在尝试重新验证数据时抛出错误，将继续从缓存中提供最后成功生成的数据。在下一个后续请求中，Next.js 将重试重新验证数据。[了解更多关于错误处理的信息](/nextjs-cn/app/building-your-application/routing/error-handling)。
 
 </AppOnly>
 
@@ -516,13 +516,13 @@ export async function getStaticProps({ params }) {
 
 ### 自定义缓存位置
 
-你可以配置 Next.js 缓存位置，如果你想将缓存的页面和数据持久化到耐用存储，或者在多个容器或 Next.js 应用程序实例之间共享缓存。[了解更多](/docs/nextjs-cn/app/guides/deployment/self-hosting#caching-and-isr)。
+你可以配置 Next.js 缓存位置，如果你想将缓存的页面和数据持久化到耐用存储，或者在多个容器或 Next.js 应用程序实例之间共享缓存。[了解更多]()。
 
 ## 故障排除
 
 ### 在本地开发中调试缓存数据
 
-如果你使用的是 `fetch` API，可以添加额外的日志记录来了解哪些请求被缓存或未缓存。[了解更多关于 `logging` 选项的信息](/docs/nextjs-cn/app/api-reference/config/next-config-js/logging)。
+如果你使用的是 `fetch` API，可以添加额外的日志记录来了解哪些请求被缓存或未缓存。[了解更多关于 `logging` 选项的信息](/nextjs-cn/app/api-reference/config/next-config-js/logging)。
 
 ```jsx
 module.exports = {
@@ -551,9 +551,9 @@ NEXT_PRIVATE_DEBUG_CACHE=1
 <AppOnly>
 
 - ISR 仅在使用 Node.js 运行时（默认）时受支持。
-- ISR 在创建[静态导出](/docs/nextjs-cn/app/guides/deployment/static-exports)时不受支持。
-- 如果在静态渲染的路由中有多个 `fetch` 请求，每个请求具有不同的 `revalidate` 频率，则 ISR 将使用最低的时间。但是，这些重新验证频率仍将被[数据缓存](/docs/nextjs-cn/app/deep-dive/caching#data-cache)尊重。
-- 如果路由上使用的任何 `fetch` 请求的 `revalidate` 时间为 `0`，或显式指定为 `no-store`，则该路由将被[动态渲染](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)。
+- ISR 在创建[静态导出]时不受支持。
+- 如果在静态渲染的路由中有多个 `fetch` 请求，每个请求具有不同的 `revalidate` 频率，则 ISR 将使用最低的时间。但是，这些重新验证频率仍将被[数据缓存](/nextjs-cn/app/deep-dive/caching#data-cache)尊重。
+- 如果路由上使用的任何 `fetch` 请求的 `revalidate` 时间为 `0`，或显式指定为 `no-store`，则该路由将被[动态渲染](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)。
 - 中间件不会为按需 ISR 请求执行，这意味着中间件中的任何路径重写或逻辑都不会应用。确保你重新验证的是确切路径。例如，`/post/1` 而不是重写后的 `/post-1`。
 
 </AppOnly>
@@ -561,28 +561,28 @@ NEXT_PRIVATE_DEBUG_CACHE=1
 <PagesOnly>
 
 - ISR 仅在使用 Node.js 运行时（默认）时受支持。
-- ISR 在创建[静态导出](/docs/nextjs-cn/app/guides/deployment/static-exports)时不受支持。
+- ISR 在创建[静态导出]时不受支持。
 - 中间件不会为按需 ISR 请求执行，这意味着中间件中的任何路径重写或逻辑都不会应用。确保你重新验证的是确切路径。例如，`/post/1` 而不是重写后的 `/post-1`。
 
 </PagesOnly>
 
 ## 平台支持
 
-| 部署选项                                                                      | 支持状态 |
-| ----------------------------------------------------------------------------- | -------- |
-| [Node.js 服务器](/docs/nextjs-cn/app/getting-started/deploying#nodejs-server) | 是       |
-| [Docker 容器](/docs/nextjs-cn/app/getting-started/deploying#docker)           | 是       |
-| [静态导出](/docs/nextjs-cn/app/getting-started/deploying#static-export)       | 否       |
-| [适配器](/docs/nextjs-cn/app/getting-started/deploying#adapters)              | 平台特定 |
+| 部署选项                                                                 | 支持状态 |
+| ------------------------------------------------------------------------ | -------- |
+| [Node.js 服务器](/nextjs-cn/app/getting-started/deploying#nodejs-server) | 是       |
+| [Docker 容器](/nextjs-cn/app/getting-started/deploying#docker)           | 是       |
+| [静态导出](/nextjs-cn/app/getting-started/deploying#static-export)       | 否       |
+| [适配器](/nextjs-cn/app/getting-started/deploying#adapters)              | 平台特定 |
 
-了解如何在自托管 Next.js 时[配置 ISR](/docs/nextjs-cn/app/guides/deployment/self-hosting#caching-and-isr)。
+了解如何在自托管 Next.js 时[配置 ISR]()。
 
 ## 版本历史
 
-| 版本      | 变更                                                                            |
-| --------- | ------------------------------------------------------------------------------- |
-| `v14.1.0` | 自定义 `cacheHandler` 稳定版。                                                  |
-| `v13.0.0` | 引入 App Router。                                                               |
-| `v12.2.0` | Pages Router：按需 ISR 稳定版                                                   |
-| `v12.0.0` | Pages Router：添加[机器人感知 ISR 回退](/blog/next-12#bot-aware-isr-fallback)。 |
-| `v9.5.0`  | Pages Router：[稳定版 ISR 引入](/blog/next-5)。                                 |
+| 版本      | 变更                                        |
+| --------- | ------------------------------------------- |
+| `v14.1.0` | 自定义 `cacheHandler` 稳定版。              |
+| `v13.0.0` | 引入 App Router。                           |
+| `v12.2.0` | Pages Router：按需 ISR 稳定版               |
+| `v12.0.0` | Pages Router：添加[机器人感知 ISR 回退]()。 |
+| `v9.5.0`  | Pages Router：[稳定版 ISR 引入]()。         |

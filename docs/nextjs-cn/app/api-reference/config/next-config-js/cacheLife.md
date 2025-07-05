@@ -4,11 +4,11 @@ description: 了解如何在 Next.js 中设置 cacheLife 配置。
 version: canary
 ---
 
-`cacheLife` 选项允许你在组件或函数内部使用 [`cacheLife`](/docs/nextjs-cn/app/api-reference/functions/cacheLife) 函数以及在 [`use cache` 指令](/docs/nextjs-cn/app/api-reference/directives/use-cache)范围内定义**自定义缓存配置文件**。
+`cacheLife` 选项允许你在组件或函数内部使用 [`cacheLife`](/nextjs-cn/app/api-reference/functions/cacheLife) 函数以及在 [`use cache` 指令](/nextjs-cn/app/api-reference/directives/use-cache)范围内定义**自定义缓存配置文件**。
 
 ## 使用方法
 
-要定义配置文件，请启用 [`dynamicIO` 标志](/docs/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)并在 `next.config.js` 文件的 `cacheLife` 对象中添加缓存配置文件。例如，一个 `blog` 配置文件：
+要定义配置文件，请启用 [`dynamicIO` 标志](/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)并在 `next.config.js` 文件的 `cacheLife` 对象中添加缓存配置文件。例如，一个 `blog` 配置文件：
 
 ```ts switcher
 import type { NextConfig } from 'next'

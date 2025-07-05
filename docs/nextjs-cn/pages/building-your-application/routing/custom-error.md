@@ -19,7 +19,7 @@ export default function Custom404() {
 }
 ```
 
-> **Good to know**: You can use [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) inside this page if you need to fetch data at build time.
+> **Good to know**: You can use [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) inside this page if you need to fetch data at build time.
 
 ## 500 Page
 
@@ -35,7 +35,7 @@ export default function Custom500() {
 }
 ```
 
-> **Good to know**: You can use [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) inside this page if you need to fetch data at build time.
+> **Good to know**: You can use [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) inside this page if you need to fetch data at build time.
 
 ### More Advanced Error Page Customizing
 
@@ -92,5 +92,5 @@ If you have a custom `Error` component be sure to import that one instead. `next
 
 ### Caveats
 
-- `Error` does not currently support Next.js [Data Fetching methods](/docs/nextjs-cn/pages/building-your-application/data-fetching) like [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) or [`getServerSideProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props).
-- `_error`, like `_app`, is a reserved pathname. `_error` is used to define the customized layouts and behaviors of the error pages. `/_error` will render 404 when accessed directly via [routing](/docs/nextjs-cn/pages/building-your-application/routing) or rendering in a [custom server](/docs/nextjs-cn/pages/guides/deployment/custom-server).
+- `Error` does not currently support Next.js [Data Fetching methods](/nextjs-cn/pages/building-your-application/data-fetching/index) like [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) or [`getServerSideProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props).
+- `_error`, like `_app`, is a reserved pathname. `_error` is used to define the customized layouts and behaviors of the error pages. `/_error` will render 404 when accessed directly via [routing](/nextjs-cn/pages/building-your-application/routing/index) or rendering in a [custom server]().

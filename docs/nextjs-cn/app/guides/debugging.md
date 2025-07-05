@@ -66,9 +66,9 @@ description: 学习如何使用 VS Code、Chrome DevTools 或 Firefox DevTools �
 
 在 "Next.js: debug full stack" 配置中，`serverReadyAction.action` 指定了服务器就绪时要打开的浏览器。`debugWithEdge` 表示启动 Edge 浏览器。如果你使用的是 Chrome，请将此值更改为 `debugWithChrome`。
 
-如果你[更改了应用程序启动的端口号](/docs/nextjs-cn/pages/api-reference/cli/next#next-dev-options)，请将 `http://localhost:3000` 中的 `3000` 替换为你使用的端口。
+如果你[更改了应用程序启动的端口号](/nextjs-cn/pages/api-reference/cli/next#next-dev-options)，请将 `http://localhost:3000` 中的 `3000` 替换为你使用的端口。
 
-如果你从非根目录运行 Next.js（例如，如果你使用 Turborepo），则需要将 `cwd` 添加到服务器端和全栈调试任务中。例如，`"cwd": "${workspaceFolder}/apps/web"`。
+如果你从非根目录运行 Next.js（/nextjs-cn/po），则需要将 `cwd` 添加到服务器端和全栈调试任务中。例如，`"cwd": "${workspaceFolder}/apps/web"`。
 
 现在转到调试面板（Windows/Linux 上为 `Ctrl+Shift+D`，macOS 上为 `⇧+⌘+D`），选择启动配置，然后按 `F5` 或从命令面板中选择 **Debug: Start Debugging** 来开始调试会话。
 

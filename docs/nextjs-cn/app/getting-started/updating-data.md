@@ -284,7 +284,7 @@ export function Button() {
 
 ### 重新验证缓存
 
-执行更新后，你可以通过在服务器函数中调用 [`revalidatePath`](/docs/nextjs-cn/app/api-reference/functions/revalidatePath) 或 [`revalidateTag`](/docs/nextjs-cn/app/api-reference/functions/revalidateTag) 来重新验证 Next.js 缓存并显示更新后的数据：
+执行更新后，你可以通过在服务器函数中调用 [`revalidatePath`](/nextjs-cn/app/api-reference/functions/revalidatePath) 或 [`revalidateTag`](/nextjs-cn/app/api-reference/functions/revalidateTag) 来重新验证 Next.js 缓存并显示更新后的数据：
 
 ```ts switcher
 import { revalidatePath } from 'next/cache'
@@ -311,7 +311,7 @@ export async function createPost(formData) {
 
 ### 重定向
 
-在执行更新后，你可能想要将用户重定向到不同的页面。你可以通过在服务器函数中调用 [`redirect`](/docs/nextjs-cn/app/api-reference/functions/redirect) 来实现这一点：
+在执行更新后，你可能想要将用户重定向到不同的页面。你可以通过在服务器函数中调用 [`redirect`](/nextjs-cn/app/api-reference/functions/redirect) 来实现这一点：
 
 ```ts switcher
 'use server'

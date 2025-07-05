@@ -205,7 +205,7 @@ export function middleware(request) {
 
 要生成中间件的响应，您可以：
 
-1. `rewrite` 到生成响应的路由（[页面](/docs/nextjs-cn/app/api-reference/file-conventions/page)或[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers))
+1. `rewrite` 到生成响应的路由[页面](/nextjs-cn/app/api-reference/file-conventions/page)或[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)
 2. 直接返回 `NextResponse`。请参阅[生成响应](#生成响应)
 
 </AppOnly>
@@ -214,7 +214,7 @@ export function middleware(request) {
 
 要生成中间件的响应，您可以：
 
-1. `rewrite` 到生成响应的路由（[页面](/docs/nextjs-cn/pages/building-your-application/routing/pages-and-layouts)或[Edge API 路由](/docs/nextjs-cn/pages/building-your-application/routing/api-routes))
+1. `rewrite` 到生成响应的路由（[页面](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts)或[Edge API 路由](/nextjs-cn/pages/building-your-application/routing/api-routes)
 2. 直接返回 `NextResponse`。请参阅[生成响应](#生成响应)
 
 </PagesOnly>
@@ -436,9 +436,9 @@ export const config = {
 
 <AppOnly>
 
-> **需要了解的是**：您可以在 [路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers#cors) 中为单个路由配置 CORS 头。
+> **需要了解的是**：您可以在 [路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers#cors) 中为单个路由配置 CORS 头。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 ## 生成响应
 
@@ -613,7 +613,7 @@ const nextConfig: NextConfig = {
 export default nextConfig
 ```
 
-```js switcher
+```js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -638,14 +638,14 @@ export const config = {
 
 ## 平台支持
 
-| 部署选项                                                                      | 支持              |
-| ----------------------------------------------------------------------------- | ----------------- |
-| [Node.js 服务器](/docs/nextjs-cn/app/getting-started/deploying#nodejs-server) | Yes               |
-| [Docker 容器](/docs/nextjs-cn/app/getting-started/deploying#docker)           | Yes               |
-| [静态导出](/docs/nextjs-cn/app/getting-started/deploying#static-export)       | No                |
-| [适配器](/docs/nextjs-cn/app/getting-started/deploying#adapters)              | Platform-specific |
+| 部署选项                                                                 | 支持              |
+| ------------------------------------------------------------------------ | ----------------- |
+| [Node.js 服务器](/nextjs-cn/app/getting-started/deploying#nodejs-server) | Yes               |
+| [Docker 容器](/nextjs-cn/app/getting-started/deploying#docker)           | Yes               |
+| [静态导出](/nextjs-cn/app/getting-started/deploying#static-export)       | No                |
+| [适配器](/nextjs-cn/app/getting-started/deploying#adapters)              | Platform-specific |
 
-了解如何[配置中间件](/docs/nextjs-cn/app/guides/deployment/self-hosting#middleware)，当您自己托管 Next.js 时。
+了解如何[配置中间件]()，当您自己托管 Next.js 时。
 
 ## 版本历史
 
@@ -654,6 +654,6 @@ export const config = {
 | `v15.2.0` | 中间件现在可以使用 Node.js 运行时（实验）                                         |
 | `v13.1.0` | 添加高级中间件标志                                                                |
 | `v13.0.0` | 中间件可以修改请求头、响应头，并发送响应                                          |
-| `v12.2.0` | 中间件稳定，请参阅[升级指南](/docs/messages/middleware-upgrade-guide)             |
+| `v12.2.0` | 中间件稳定，请参阅[升级指南](/nextjs-cn/app/guides/upgrading/index#middleware)    |
 | `v12.0.9` | 在 Edge 运行时中强制绝对 URL ([PR](https://github.com/vercel/next.js/pull/33410)) |
 | `v12.0.0` | 中间件（Beta）添加                                                                |

@@ -4,29 +4,30 @@ nav_title: 自托管
 description: 了解如何在 Node.js 服务器、Docker 镜像或静态 HTML 文件（静态导出）上自托管你的 Next.js 应用程序。
 ---
 
-在[部署](docs/app/getting-started/deploying.md)你的 Next.js 应用程序时，你可能希望根据你的基础设施配置不同功能的处理方式。
+在[部署](/nextjs-cn/app/getting-started/deploying)你的 Next.js 应用程序时，你可能希望根据你的基础设施配置不同功能的处理方式。
 
 > **🎥 观看：** 了解更多关于自托管 Next.js 的信息 → [YouTube（45分钟）](https://www.youtube.com/watch?v=sIVL4JMqRfc)。
 
 ## 图像优化
 
-通过 `next/image` 进行的[图像优化](/docs/nextjs-cn/app/api-reference/components/image)在使用 `next start` 部署时可以零配置自托管。如果你更喜欢使用单独的服务来优化图像，你可以[配置图像加载器](/docs/nextjs-cn/app/api-reference/components/image#loader)。
+通过 `next/image` 进行的[图像优化](/nextjs-cn/app/api-reference/components/image)在使用 `next start` 部署时可以零配置自托管。如果你更喜欢使用单独的服务来优化图像，你可以[配置图像加载器](/nextjs-cn/app/api-reference/components/image#loader)。
 
-图像优化可以通过在 `next.config.js` 中定义自定义图像加载器与[静态导出](/docs/nextjs-cn/app/guides/deployment/static-exports#image-optimization)一起使用。请注意，图像是在运行时优化的，而不是在构建过程中。
+图像优化可以通过在 `next.config.js` 中定义自定义图像加载器与[静态导出]()一起使用。请注意，图像是在运行时优化的，而不是在构建过程中。
 
-> **须知：**
+> **须知：**/nextjs-cn/
 >
 > - 在基于 glibc 的 Linux 系统上，图像优化可能需要[额外配置](https://sharp.pixelplumbing.com/install#linux-memory-allocator)以防止过度内存使用。
-> - 了解更多关于[优化图像的缓存行为](/docs/nextjs-cn/app/api-reference/components/image#minimumcachettl)以及如何配置 TTL。
-> - 如果你愿意，你也可以[禁用图像优化](/docs/nextjs-cn/app/api-reference/components/image#unoptimized)，同时保留使用 `next/image` 的其他好处。例如，如果你自己单独优化图像。
+> - 了解更多关于[优化图像的缓存行为](/nextjs-cn/app/api-reference/components/image#minimumcachettl)以及如何配置 TTL。
+> - 如果你愿意，你也可以[禁用图像优化](/nextjs-cn/app/api-reference/components/image#unoptimized)，同时保留使用 `next/image` 的其他好处。例如，如果你自己单独优化图像。
+>   /nextjs-cn/
 
-## 中间件
+## 中间件/nextjs-cn/
 
-使用 `next start` 部署时，[中间件](/docs/nextjs-cn/app/building-your-application/routing/index/middleware)可以零配置自托管。由于它需要访问传入请求，因此在使用[静态导出](/docs/nextjs-cn/app/guides/deployment/static-exports)时不支持。
+使用 `next start` 部署时，[中间件](/nextjs-cn/app/building-your-application/routing/middleware)可以零配置自托管。由于它需要访问传入请求，因此在使用[静态导出]时不支持。
 
-中间件使用 [Edge 运行时](/docs/nextjs-cn/app/api-reference/edge)，这是所有可用 Node.js API 的子集，有助于确保低延迟，因为它可能在应用程序中的每个路由或资源之前运行。如果你不想这样，你可以使用[完整的 Node.js 运行时](/blog/next-2#nodejs-middleware-experimental)来运行中间件。
+- 中间件使用 [Edge 运行时](/nextjs-cn/app/api-reference/edge)，这是所有可用 Node.js API 的子集，有助于确保低延迟，因为它可能在应用程序中的每个路由或资源之前运行。如果你不想这样，你可以使用[完整的 Node.js 运行时]()来运行中间件。
 
-如果你想添加需要所有 Node.js API 的逻辑（或使用外部包），你可能可以将此逻辑移至[布局](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates#layouts)中作为[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)。例如，检查[头信息](/docs/nextjs-cn/app/api-reference/functions/headers)和[重定向](/docs/nextjs-cn/app/api-reference/functions/redirect)。你还可以使用头信息、cookies 或查询参数通过 `next.config.js` 进行[重定向](/docs/nextjs-cn/app/api-reference/config/next-config-js/redirects#header-cookie-and-query-matching)或[重写](/docs/nextjs-cn/app/api-reference/config/next-config-js/rewrites#header-cookie-and-query-matching)。如果这些方法都不能满足需求，你还可以使用[自定义服务器](/docs/nextjs-cn/pages/guides/deployment/custom-server)。
+如果你想添加需要所有 Node.js），你可能可以将此逻辑移至[布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#layouts)中作为[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)。例如，检查[头信息](/nextjs-cn/app/api-reference/functions/headers)和[重定向](/nextjs-cn/app/api-reference/functions/redirect)。你还可以使用头信息、cookies 或查询参数通过 `next.config.js` 进行[重定向](/nextjs-cn/app/api-reference/config/next-config-js/redirects#header-cookie-and-query-matching)或[重写](/nextjs-cn/app/api-reference/config/next-config-js/rewrites#header-cookie-and-query-matching)。如果这些方法都不能满足需求，你还可以使用[自定义服务器]()。
 
 ## 环境变量
 
@@ -36,9 +37,9 @@ Next.js 可以支持构建时和运行时环境变量。
 
 <PagesOnly>
 
-要读取运行时环境变量，我们建议使用 `getServerSideProps` 或[逐步采用 App Router](/docs/nextjs-cn/app/guides/migrating/app-router-migration)。
+要读取运行时环境变量，我们建议使用 `getServerSideProps` 或[逐步采用 App Router](/nextjs-cn/app/guides/migrating/app-router-migration)。
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 <AppOnly>
 
@@ -76,30 +77,32 @@ export default async function Component() {
 
 > **须知：**
 >
-> - 你可以使用 [`register` 函数](/docs/nextjs-cn/app/guides/configuring/instrumentation) 在服务器启动时运行代码。
-> - 我们不建议使用 [runtimeConfig](/docs/nextjs-cn/pages/api-reference/config/next-config-js/runtime-configuration) 选项，因为它不适用于独立输出模式。相反，我们建议[逐步采用](/docs/nextjs-cn/app/guides/migrating/app-router-migration) App Router。
+> - 你可以使用 [`register` 函数]() 在服务器启动时运行代码。
+> - 我们不建议使用 [runtimeConfig](/nextjs-cn/pages/api-reference/config/next-config-js/runtime-configuration) 选项，因为它不适用于独立输出模式。相反，我们建议[逐步采用](/nextjs-cn/app/guides/migrating/app-router-migration) App Router。
+>   /nextjs-cn/
 
 ## 缓存和 ISR
 
 Next.js 可以缓存响应、生成的静态页面、构建输出以及其他静态资源，如图像、字体和脚本。
 
-缓存和重新验证页面（使用[增量静态再生成](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)）使用**相同的共享缓存**。默认情况下，此缓存存储在 Next.js 服务器的文件系统（磁盘）上。**这在使用 Pages 和 App Router 自托管时自动工作**。
+缓存和重新验证页面（使用[增量静态再生成](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)）使用**相同的共享缓存**。默认情况下，此缓存存储在 Next.js 服务器的文件系统（磁盘）上。**这在使用 Pages 和 App Router 自托管时自动工作**。
 
-如果你想将缓存的页面和数据持久化到持久存储，或者在多个 Next.js 应用程序容器或实例之间共享缓存，则可以配置 Next.js 缓存位置。
+如果你想将缓存的页面和数据持久化到持久存储，/nextjs-cn/程序容器或实例之间共享缓存，则可以配置 Next.js 缓存位置。
 
 ### 自动缓存
 
-- Next.js 对真正不可变的资源设置 `Cache-Control` 头为 `public, max-age=31536000, immutable`。这不能被覆盖。这些不可变文件在文件名中包含 SHA 哈希，因此它们可以安全地无限期缓存。例如，[静态图像导入](/docs/nextjs-cn/app/getting-started/images#local-images)。你可以[配置图像的 TTL](/docs/nextjs-cn/app/api-reference/components/image#minimumcachettl)。
-- 增量静态再生成 (ISR) 设置 `Cache-Control` 头为 `s-maxage: <revalidate in getStaticProps>, stale-while-revalidate`。这个重新验证时间是在你的 [`getStaticProps` 函数](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)中以秒为单位定义的。如果你设置 `revalidate: false`，它将默认为一年的缓存持续时间。
-- 动态渲染的页面设置 `Cache-Control` 头为 `private, no-cache, no-store, max-age=0, must-revalidate`，以防止缓存用户特定的数据。这适用于 App Router 和 Pages Router。这也包括[草稿模式](/docs/nextjs-cn/app/guides/draft-mode)。
+- Next.js 对真正不可变的资源设置 `Cache-Control` 头为 `public, max-age=31536000, immutable`。这不能被覆盖。这些不可变文件在文件名中包含 SHA 哈希，因此它们可以安全地无限期缓存。例如，[静态图像导入](/nextjs-cn/app/getting-started/images#local-images)。你可以[配置图像的 TTL](/nextjs-cn/app/api-reference/components/image#minimumcachettl)。
+- 增量静态再生成 (ISR) 设置 `Cache-Control` 头为 `s-maxage: <revalidate in getStaticProps>, stale-while-revalidate`。这个重新验证时间是在你的 [`getStaticProps` 函数](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)中以秒为单位定义的。如果你设置 `revalidate: false`，它将默认为一年的缓存持续时间。
+- 动态渲染的页面设置 `Cache-Control` 头为 `private, no-cache, no-store, max-age=0, must-revalidate`，以防止缓存用户特定的数据。这适用于 App Router 和 Pages Router。这也/nextjs-cn/extjs-cn/app/guides/draft-mode)。/nextjs-cn/
+  /nextjs-cn/
 
-### 静态资源
+### 静态资源/nextjs-cn/
 
-如果你想在不同的域或 CDN 上托管静态资源，你可以在 `next.config.js` 中使用 `assetPrefix` [配置](/docs/nextjs-cn/app/api-reference/config/next-config-js/assetPrefix)。Next.js 将在检索 JavaScript 或 CSS 文件时使用此资源前缀。将资源分离到不同的域确实有 DNS 和 TLS 解析所花费的额外时间的缺点。
+如果你想在不同的域或 CDN 上托管静态资源，你可以在 `next.config.js` 中使用 `assetPrefix` [配置](/nextjs-cn/app/api-reference/config/next-config-js/assetPrefix)。Next.js 将在检索 JavaScript 或 CSS 文件时使用此资源前缀。将资源分离到不同的域确实有 DNS 和 TLS 解析所花费的额外时间的缺点。
 
-[了解更多关于 `assetPrefix`](/docs/nextjs-cn/app/api-reference/config/next-config-js/assetPrefix)。
+[了解更多关于 `assetPrefix`]()。
 
-### 配置缓存
+### 配置缓存/nextjs-cn/
 
 默认情况下，生成的缓存资源将存储在内存中（默认为 50mb）和磁盘上。如果你使用像 Kubernetes 这样的容器编排平台托管 Next.js，每个 Pod 将有一个缓存副本。为了防止由于默认情况下缓存不在 Pod 之间共享而显示过时数据，你可以配置 Next.js 缓存以提供缓存处理程序并禁用内存缓存。
 
@@ -185,9 +188,9 @@ Next.js 将自动缓解大多数[版本倾斜](https://www.industrialempathy.com
 
 ## 流式传输和 Suspense
 
-Next.js App Router 支持自托管时的[流式响应](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming)。如果你使用 Nginx 或类似的代理，你需要配置它以禁用缓冲以启用流式传输。
+Next.js App Router 支持自托管时的[流式响应](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)。如果你使用 Nginx 或类似的代理，你需要配置它以禁用缓冲以启用流式传输。
 
-例如，你可以通过将 `X-Accel-Buffering` 设置为 `no` 来禁用 Nginx 中的缓冲：
+例如，你可以通过将 `X-Accel-Buffering` 设置为/nextjs-cn/中的缓冲：
 
 ```js
 module.exports = {
@@ -209,9 +212,9 @@ module.exports = {
 
 ## 部分预渲染
 
-[部分预渲染（实验性）](/docs/nextjs-cn/app/getting-started/partial-prerendering) 默认与 Next.js 一起工作，并不是 CDN 特有的功能。这包括通过 `next start` 部署为 Node.js 服务器以及与 Docker 容器一起使用时。
+[部分预渲染（实验性）](/nextjs-cn/app/getting-started/partial-prerendering) 默认与 Next.js 一起工作，并不是 CDN 特有的功能。这包括通过 `next start` 部署为 Node.js 服务器以及与 Docker 容器一起使用时。
 
-## 与 CDN 一起使用
+## 与 CDN 一起使用/nextjs-cn/
 
 当在 Next.js 应用程序前面使用 CDN 时，在访问动态 API 时，页面将包含 `Cache-Control: private` 响应头。这确保生成的 HTML 页面被标记为不可缓存。如果页面完全预渲染为静态，它将包含 `Cache-Control: public` 以允许页面在 CDN 上缓存。
 
@@ -225,9 +228,9 @@ module.exports = {
 
 ## `after`
 
-自托管时，使用 `next start` 完全支持 [`after`](/docs/nextjs-cn/app/api-reference/functions/after)。
+自托管时，使用 `next start` 完全支持 [`after`](/nextjs-cn/app/api-reference/functions/after)。
 
-当停止服务器时，通过发送 `SIGINT` 或 `SIGTERM` 信号并等待来确保优雅关闭。这允许 Next.js 服务器等待，直到 `after` 内部使用的挂起回调函数或承诺完成。
+当停止服务器时，通过发送 `SIGINT` 或 `SIGTERM` 信号/nextjs-cn/ext.js 服务器等待，直到 `after` 内部使用的挂起回调函数或承诺完成。
 
 </AppOnly>
 

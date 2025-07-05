@@ -53,7 +53,7 @@ export default function Loading() {
 
 > **值得了解**：
 >
-> - 导航是即时的，即使使用[以服务器为中心的路由](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#how-routing-and-navigation-works)。
+> - 导航是即时的，即使使用[以服务器为中心的路由](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#how-routing-and-navigation-works)。
 > - 导航是可中断的，这意味着更改路由不需要等待路由内容完全加载后才能导航到另一个路由。
 > - 共享布局在新路由段加载时保持交互性。
 
@@ -174,22 +174,22 @@ export default function Posts() {
 
 ### SEO
 
-- Next.js 将等待 [`generateMetadata`](/docs/nextjs-cn/app/api-reference/functions/generate-metadata) 中的数据获取完成，然后再将 UI 流式传输到客户端。这保证了流式响应的第一部分包含 `<head>` 标签。
+- Next.js 将等待 [`generateMetadata`](/nextjs-cn/app/api-reference/functions/generate-metadata) 中的数据获取完成，然后再将 UI 流式传输到客户端。这保证了流式响应的第一部分包含 `<head>` 标签。
 - 由于流式传输是服务器渲染的，它不会影响 SEO。您可以使用 Google 的 [Rich Results Test](https://search.google.com/test/rich-results) 工具查看您的页面在 Google 网络爬虫中的显示方式，并查看序列化的 HTML（[来源](https://web.dev/rendering-on-the-web/#seo-considerations)）。
 
 ### 状态码
 
 在流式传输时，将返回 `200` 状态码，表示请求成功。
 
-服务器仍然可以在流式内容本身内向客户端传达错误或问题，例如，当使用 [`redirect`](/docs/nextjs-cn/app/api-reference/functions/redirect) 或 [`notFound`](/docs/nextjs-cn/app/api-reference/functions/not-found) 时。由于响应头已经发送给客户端，响应的状态码无法更新。这不会影响 SEO。
+服务器仍然可以在流式内容本身内向客户端传达错误或问题，例如，当使用 [`redirect`](/nextjs-cn/app/api-reference/functions/redirect) 或 [`notFound`](/nextjs-cn/app/api-reference/functions/not-found) 时。由于响应头已经发送给客户端，响应的状态码无法更新。这不会影响 SEO。
 
 ## 平台支持
 
-| 部署选项                                                                      | 是否支持 |
-| ----------------------------------------------------------------------------- | -------- |
-| [Node.js 服务器](/docs/nextjs-cn/app/getting-started/deploying#nodejs-server) | 是       |
-| [Docker 容器](/docs/nextjs-cn/app/getting-started/deploying#docker)           | 是       |
-| [静态导出](/docs/nextjs-cn/app/getting-started/deploying#static-export)       | 否       |
-| [适配器](/docs/nextjs-cn/app/getting-started/deploying#adapters)              | 特定平台 |
+| 部署选项                                                                 | 是否支持 |
+| ------------------------------------------------------------------------ | -------- |
+| [Node.js 服务器](/nextjs-cn/app/getting-started/deploying#nodejs-server) | 是       |
+| [Docker 容器](/nextjs-cn/app/getting-started/deploying#docker)           | 是       |
+| [静态导出](/nextjs-cn/app/getting-started/deploying#static-export)       | 否       |
+| [适配器](/nextjs-cn/app/getting-started/deploying#adapters)              | 特定平台 |
 
-了解在自托管 Next.js 时如何[配置流式传输](/docs/nextjs-cn/app/guides/deployment/self-hosting#streaming-and-suspense)。
+了解在自托管 Next.js 时如何[配置流式传输]()。

@@ -15,7 +15,7 @@ Next.js 使用**基于文件系统的路由**，这意味着你可以使用文�
 
 ## 创建页面
 
-**页面**是在特定路由上渲染的 UI。要创建页面，在 `app` 目录中添加一个 [`page` 文件](/docs/nextjs-cn/app/api-reference/file-conventions/page)并默认导出一个 React 组件。例如，要创建一个索引页面（`/`）：
+**页面**是在特定路由上渲染的 UI。要创建页面，在 `app` 目录中添加一个 [`page` 文件](/nextjs-cn/app/api-reference/file-conventions/page)并默认导出一个 React 组件。例如，要创建一个索引页面（`/`）：
 
 <Image
   alt="page.js 特殊文件"
@@ -41,7 +41,7 @@ export default function Page() {
 
 布局是在多个页面之间**共享**的 UI。在导航时，布局会保持状态，保持交互性，并且不会重新渲染。
 
-你可以通过从 [`layout` 文件](/docs/nextjs-cn/app/api-reference/file-conventions/layout)中默认导出一个 React 组件来定义布局。该组件应该接受一个 `children` 属性，它可以是一个页面或另一个[布局](#nesting-layouts)。
+你可以通过从 [`layout` 文件](/nextjs-cn/app/api-reference/file-conventions/layout)中默认导出一个 React 组件来定义布局。该组件应该接受一个 `children` 属性，它可以是一个页面或另一个[布局](#nesting-layouts)。
 
 例如，要创建一个接受索引页面作为子页面的布局，在 `app` 目录中添加一个 `layout` 文件：
 
@@ -81,7 +81,7 @@ export default function DashboardLayout({ children }) {
 }
 ```
 
-上面的布局被称为[根布局](/docs/nextjs-cn/app/api-reference/file-conventions/layout#root-layouts)，因为它定义在 `app` 目录的根目录中。根布局是**必需的**，并且必须包含 `html` 和 `body` 标签。
+上面的布局被称为[根布局](/nextjs-cn/app/api-reference/file-conventions/layout#root-layouts)，因为它定义在 `app` 目录的根目录中。根布局是**必需的**，并且必须包含 `html` 和 `body` 标签。
 
 ## 创建嵌套路由
 
@@ -168,7 +168,7 @@ export default function Page() {
 }
 ```
 
-将文件夹名称用方括号括起来（例如 `[slug]`）会创建一个[动态路由段](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)，用于从数据生成多个页面，例如博客文章、产品页面等。
+将文件夹名称用方括号括起来（例如 `[slug]`）会创建一个[动态路由段](/nextjs-cn/app/building-your-application/routing/dynamic-routes)，用于从数据生成多个页面，例如博客文章、产品页面等。
 
 ## 嵌套布局
 
@@ -206,8 +206,8 @@ export default function BlogLayout({ children }) {
 
 有两种方式在 Next.js 中的路由之间进行导航：
 
-- 使用 [`<Link>` 组件](/docs/nextjs-cn/app/api-reference/components/link)
-- 使用 [`useRouter` Hook](/docs/nextjs-cn/app/api-reference/functions/use-router)
+- 使用 [`<Link>` 组件](/nextjs-cn/app/api-reference/components/link)
+- 使用 [`useRouter` Hook](/nextjs-cn/app/api-reference/functions/use-router)
 
 本节将介绍如何使用 `<Link>` 组件，这是在路由之间导航的主要方式。
 
@@ -233,4 +233,4 @@ export default function Page() {
 }
 ```
 
-你可以在[`<Link>` API 参考](/docs/nextjs-cn/app/api-reference/components/link)中了解更多关于 Link 组件的信息。
+你可以在[`<Link>` API 参考](/nextjs-cn/app/api-reference/components/link)中了解更多关于 Link 组件的信息。

@@ -111,9 +111,9 @@ export default function MyApp({ Component, pageProps }) {
 - `lazyOnload`：在浏览器空闲时间晚些时候加载脚本。
 - `worker`：（实验性）在 Web Worker 中加载脚本。
 
-参考 [`next/script`](/docs/nextjs-cn/app/api-reference/components/script#strategy) API 参考文档了解更多关于每种策略及其用例的信息。
+参考 [`next/script`](/nextjs-cn/app/api-reference/components/script#strategy) API 参考文档了解更多关于每种策略及其用例的信息。
 
-### 将脚本卸载到 Web Worker（实验性）
+### 将脚本卸载到 Web Work/nextjs-cn/
 
 > **警告：** `worker` 策略尚不稳定，尚不适用于 App Router。请谨慎使用。
 
@@ -171,7 +171,7 @@ export default function Home() {
 
 虽然 `worker` 策略不需要任何额外的配置即可工作，但 Partytown 支持使用配置对象来修改其某些设置，包括启用 `debug` 模式和转发事件和触发器。
 
-如果你想添加额外的配置选项，可以在[自定义 `_document.js`](/docs/nextjs-cn/pages/building-your-application/routing/custom-document) 中使用的 `<Head />` 组件内包含它：
+如果你想添加额外的配置选项，可以在[自定义 `_document.js`](/nextjs-cn/pages/building-your-application/routing/custom-document) 中使用的 `<Head />` 组件内包含它：
 
 ```jsx
 import { Html, Head, Main, NextScript } from 'next/document'
@@ -206,7 +206,7 @@ export default function Document() {
 1. 必须使用 `data-partytown-config` 属性以覆盖 Next.js 使用的默认配置
 2. 除非你决定将 Partytown 的库文件保存在单独的目录中，否则必须在配置对象中包含 `lib: "/_next/static/~partytown/"` 属性和值，以便让 Partytown 知道 Next.js 存储必要静态文件的位置。
 
-> **注意**：如果你使用[资源前缀](/docs/nextjs-cn/pages/api-reference/config/next-config-js/assetPrefix)并想修改 Partytown 的默认配置，你必须将其作为 `lib` 路径的一部分包含在内。
+> **注意**：如果你使用[资源前缀](/nextjs-cn/pages/api-reference/config/next-config-js/assetPrefix)并想修改 Partytown 的默认配置，你必须将其作为 `lib` 路径的一部分包含在内。
 
 查看 Partytown 的[配置选项](https://partytown.builder.io/configuration)以了解可以添加的其他属性的完整列表。
 
@@ -243,9 +243,9 @@ Script 组件也支持内联脚本，或不从外部文件加载的脚本。它�
 
 <AppOnly>
 
-这些处理程序仅在 `next/script` 被导入并在[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)中使用时才能工作，其中 `'use client'` 被定义为代码的第一行：
+这些处理程序仅在 `next/script` 被导入并在[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)中使用时才能工作，其中 `'use client'` 被定义为代码的第一行：
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 'use client'
 
 import Script from 'next/script'
@@ -283,15 +283,15 @@ export default function Page() {
 }
 ```
 
-参考 [`next/script`](/docs/nextjs-cn/app/api-reference/components/script#onload) API 参考文档了解更多关于每个事件处理程序的信息并查看示例。
+参考 [`next/script`](/nextjs-cn/app/api-reference/components/script#onload) API 参考文档了解更多关于每个事件处理程序的信息并查看示例。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-这些处理程序仅在 `next/script` 被导入并在[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)中使用时才能工作，其中 `'use client'` 被定义为代码的第一行：
+这些处理程序仅在 `next/script` 被导入并在[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)中使用时才能工作，其中 `'use client'` 被定义为代码的第一行：
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 import Script from 'next/script'
 
 export default function Page() {
@@ -325,9 +325,9 @@ export default function Page() {
 }
 ```
 
-参考 [`next/script`](/docs/nextjs-cn/pages/api-reference/components/script#onload) API 参考文档了解更多关于每个事件处理程序的信息并查看示例。
+参考 [`next/script`](/nextjs-cn/pages/api-reference/components/script#onload) API 参考文档了解更多关于每个事件处理程序的信息并查看示例。
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 ### 附加属性
 

@@ -16,7 +16,7 @@ related:
 
 #### `params`（可选）
 
-一个包含从根段到调用 `generateImageMetadata` 的段的[动态路由参数](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)对象。
+一个包含从根段到调用 `generateImageMetadata` 的段的[动态路由参数](/nextjs-cn/app/building-your-application/routing/dynamic-routes)对象。
 
 ```tsx switcher
 export function generateImageMetadata({ params }: { params: { slug: string } }) {
@@ -131,7 +131,7 @@ export default function Icon({ id }) {
 
 #### 使用外部数据
 
-此示例使用 `params` 对象和外部数据为路由段生成多个 [Open Graph 图像](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)。
+此示例使用 `params` 对象和外部数据为路由段生成多个 [Open Graph 图像](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image)。
 
 ```tsx switcher
 import { ImageResponse } from 'next/og'

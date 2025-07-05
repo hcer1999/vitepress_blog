@@ -12,7 +12,7 @@ related:
 
 ## 分析 JavaScript 包
 
-[`@next/bundle-analyzer`](https://www.npmjs.com/package/@next/bundle-analyzer) 是 Next.js 的一个插件，可帮助你管理应用程序包的大小。它生成每个包及其依赖项大小的可视化报告。你可以使用这些信息删除大型依赖项，拆分或[懒加载](/docs/nextjs-cn/app/guides/lazy-loading)你的代码。
+[`@next/bundle-analyzer`](https://www.npmjs.com/package/@next/bundle-analyzer) 是 Next.js 的一个插件，可帮助你管理应用程序包的大小。它生成每个包及其依赖项大小的可视化报告。你可以使用这些信息删除大型依赖项，拆分或[懒加载](/nextjs-cn/app/guides/lazy-loading)你的代码。
 
 ### 安装
 
@@ -57,7 +57,7 @@ ANALYZE=true pnpm build
 
 一些包，如图标库，可能会导出数百个模块，这可能会在开发和生产环境中造成性能问题。
 
-你可以通过在 `next.config.js` 中添加 [`optimizePackageImports`](/docs/nextjs-cn/app/api-reference/config/next-config-js/optimizePackageImports) 选项来优化这些包的导入方式。此选项将只加载你*实际*使用的模块，同时仍然提供编写具有多个命名导出的导入语句的便利。
+你可以通过在 `next.config.js` 中添加 [`optimizePackageImports`](/nextjs-cn/app/api-reference/config/next-config-js/optimizePackageImports) 选项来优化这些包的导入方式。此选项将只加载你*实际*使用的模块，同时仍然提供编写具有多个命名导出的导入语句的便利。
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -70,13 +70,13 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-Next.js 还会自动优化一些库，因此它们不需要包含在 optimizePackageImports 列表中。查看[完整列表](/docs/nextjs-cn/nextjs-cn/app/api-reference/config/next-config-js/optimizePackageImports)。
+Next.js 还会自动优化一些库，因此它们不需要包含在 optimizePackageImports 列表中。查看[完整列表](/nextjs-cn/app/api-reference/config/next-config-js/optimizePackageImports)。
 
 <PagesOnly>
 
 ## 打包特定包
 
-要打包特定包，你可以在 `next.config.js` 中使用 [`transpilePackages`](/docs/nextjs-cn/app/api-reference/config/next-config-js/transpilePackages) 选项。此选项对于打包未预先打包的外部包很有用，例如，在 monorepo 中或从 `node_modules` 导入的包。
+要打包特定包，你可以在 `next.config.js` 中使用 [`transpilePackages`](/nextjs-cn/app/api-reference/config/next-config-js/transpilePackages) 选项。此选项对于打包未预先打包的外部包很有用，例如，在 monorepo 中或从 `node_modules` 导入的包。
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -89,7 +89,7 @@ module.exports = nextConfig
 
 ## 打包所有包
 
-要自动打包所有包（App Router 中的默认行为），你可以在 `next.config.js` 中使用 [`bundlePagesRouterDependencies`](/docs/nextjs-cn/pages/api-reference/config/next-config-js/bundlePagesRouterDependencies) 选项。
+要自动打包所有包（App Router 中的默认行为），你可以在 `next.config.js` 中使用 [`bundlePagesRouterDependencies`](/nextjs-cn/pages/api-reference/config/next-config-js/bundlePagesRouterDependencies) 选项。
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -102,7 +102,7 @@ module.exports = nextConfig
 
 ## 将特定包排除在打包之外
 
-如果你启用了 [`bundlePagesRouterDependencies`](/docs/nextjs-cn/pages/api-reference/config/next-config-js/bundlePagesRouterDependencies) 选项，你可以使用 `next.config.js` 中的 [`serverExternalPackages`](/docs/nextjs-cn/pages/api-reference/config/next-config-js/serverExternalPackages) 选项将特定包排除在自动打包之外：
+如果你启用了 [`bundlePagesRouterDependencies`](/nextjs-cn/pages/api-reference/config/next-config-js/bundlePagesRouterDependencies) 选项，你可以使用 `next.config.js` 中的 [`serverExternalPackages`](/nextjs-cn/pages/api-reference/config/next-config-js/serverExternalPackages) 选项将特定包排除在自动打包之外：
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -122,7 +122,7 @@ module.exports = nextConfig
 
 ## 将特定包排除在打包之外
 
-由于在服务器组件和路由处理程序中导入的包会被 Next.js 自动打包，你可以使用 `next.config.js` 中的 [`serverExternalPackages`](/docs/nextjs-cn/app/api-reference/config/next-config-js/serverExternalPackages) 选项将特定包排除在打包之外。
+由于在服务器组件和路由处理程序中导入的包会被 Next.js 自动打包，你可以使用 `next.config.js` 中的 [`serverExternalPackages`](/nextjs-cn/app/api-reference/config/next-config-js/serverExternalPackages) 选项将特定包排除在打包之外。
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -133,6 +133,6 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-Next.js 包含了一个当前正在处理兼容性问题并自动排除的流行包列表。查看[完整列表](/docs/nextjs-cn/app/api-reference/config/next-config-js/serverExternalPackages)。
+Next.js 包含了一个当前正在处理兼容性问题并自动排除的流行包列表。查看[完整列表](/nextjs-cn/app/api-reference/config/next-config-js/serverExternalPackages)。
 
 </AppOnly>

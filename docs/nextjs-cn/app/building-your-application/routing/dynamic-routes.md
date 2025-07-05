@@ -15,7 +15,7 @@ related:
 
 动态路由段可以通过将文件夹名称包装在方括号中来创建：`[folderName]`。例如，`[id]` 或 `[slug]`。
 
-动态路由段作为 `params` 属性传递给 [`layout`](/docs/nextjs-cn/app/api-reference/file-conventions/layout)、[`page`](/docs/nextjs-cn/app/api-reference/file-conventions/page)、[`route`](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) 和 [`generateMetadata`](/docs/nextjs-cn/app/api-reference/functions/generate-metadata#generatemetadata-function) 函数。
+动态路由段作为 `params` 属性传递给 [`layout`](/nextjs-cn/app/api-reference/file-conventions/layout)、[`page`](/nextjs-cn/app/api-reference/file-conventions/page)、[`route`](/nextjs-cn/app/building-your-application/routing/route-handlers) 和 [`generateMetadata`](/nextjs-cn/app/api-reference/functions/generate-metadata#generatemetadata-function) 函数。
 
 ## 示例
 
@@ -47,11 +47,11 @@ export default async function Page({ params }) {
 
 - 由于 `params` 属性是一个 promise。您必须使用 async/await 或 React 的 use 函数来访问值。
   - 在版本 14 及更早版本中，`params` 是一个同步属性。为了帮助向后兼容，在 Next.js 15 中您仍然可以同步访问它，但这种行为将在未来被弃用。
-- 动态路由段等同于 `pages` 目录中的[动态路由](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes)。
+- 动态路由段等同于 `pages` 目录中的[动态路由](/nextjs-cn/pages/building-your-application/routing/dynamic-routes)。
 
 ## 生成静态参数
 
-`generateStaticParams` 函数可以与[动态路由段](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)结合使用，在构建时[**静态生成**](/docs/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)路由，而不是在请求时按需生成。
+`generateStaticParams` 函数可以与[动态路由段](/nextjs-cn/app/building-your-application/routing/dynamic-routes)结合使用，在构建时[**静态生成**](/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)路由，而不是在请求时按需生成。
 
 ```tsx switcher
 export async function generateStaticParams() {
@@ -73,11 +73,11 @@ export async function generateStaticParams() {
 }
 ```
 
-`generateStaticParams` 函数的主要好处是它的智能数据检索。如果在 `generateStaticParams` 函数中使用 `fetch` 请求获取内容，则这些请求会被[自动记忆化](/docs/nextjs-cn/app/deep-dive/caching#request-memoization)。这意味着在多个 `generateStaticParams`、Layouts 和 Pages 中使用相同参数的 `fetch` 请求只会执行一次，这减少了构建时间。
+`generateStaticParams` 函数的主要好处是它的智能数据检索。如果在 `generateStaticParams` 函数中使用 `fetch` 请求获取内容，则这些请求会被[自动记忆化](/nextjs-cn/app/deep-dive/caching#request-memoization)。这意味着在多个 `generateStaticParams`、Layouts 和 Pages 中使用相同参数的 `fetch` 请求只会执行一次，这减少了构建时间。
 
-如果您正在从 `pages` 目录迁移，请使用[迁移指南](/docs/nextjs-cn/app/guides/migrating/app-router-migration#dynamic-paths-getstaticpaths)。
+如果您正在从 `pages` 目录迁移，请使用[迁移指南](/nextjs-cn/app/guides/migrating/app-router-migration#dynamic-paths-getstaticpaths)。
 
-有关更多信息和高级用例，请参阅 [`generateStaticParams` 服务器函数文档](/docs/nextjs-cn/app/api-reference/functions/generate-static-params)。
+有关更多信息和高级用例，请参阅 [`generateStaticParams` 服务器函数文档](/nextjs-cn/app/api-reference/functions/generate-static-params)。
 
 ## 捕获所有段
 
@@ -129,4 +129,4 @@ export default async function Page({ params }) {
 | `app/shop/[[...slug]]/page.js`      | `{ slug?: string[] }`                    |
 | `app/[categoryId]/[itemId]/page.js` | `{ categoryId: string, itemId: string }` |
 
-> **值得了解**：在将来，[TypeScript 插件](/docs/nextjs-cn/app/api-reference/config/typescript#ide-plugin)可能会自动完成这项工作。
+> **值得了解**：在将来，[TypeScript 插件](/nextjs-cn/app/api-reference/config/typescript#ide-plugin)可能会自动完成这项工作。

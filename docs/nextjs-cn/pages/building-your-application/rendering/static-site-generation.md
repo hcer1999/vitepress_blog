@@ -103,13 +103,13 @@ export async function getStaticProps() {
 }
 ```
 
-To learn more about how `getStaticProps` works, check out the [Data Fetching documentation](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props).
+To learn more about how `getStaticProps` works, check out the [Data Fetching documentation](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props).
 
 #### Scenario 2: Your page paths depend on external data
 
 Next.js allows you to create pages with **dynamic routes**. For example, you can create a file called `pages/posts/[id].js` to show a single blog post based on `id`. This will allow you to show a blog post with `id: 1` when you access `posts/1`.
 
-> To learn more about dynamic routing, check the [Dynamic Routing documentation](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes).
+> To learn more about dynamic routing, check the [Dynamic Routing documentation](/nextjs-cn/pages/building-your-application/routing/dynamic-routes).
 
 However, which `id` you want to pre-render at build time might depend on external data.
 
@@ -160,7 +160,7 @@ export async function getStaticProps({ params }) {
 }
 ```
 
-To learn more about how `getStaticPaths` works, check out the [Data Fetching documentation](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths).
+To learn more about how `getStaticPaths` works, check out the [Data Fetching documentation](/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths).
 
 ### When should I use Static Generation?
 
@@ -179,5 +179,5 @@ On the other hand, Static Generation is **not** a good idea if you cannot pre-re
 
 In cases like this, you can do one of the following:
 
-- Use Static Generation with **Client-side data fetching:** You can skip pre-rendering some parts of a page and then use client-side JavaScript to populate them. To learn more about this approach, check out the [Data Fetching documentation](/docs/nextjs-cn/pages/building-your-application/data-fetching/client-side).
+- Use Static Generation with **Client-side data fetching:** You can skip pre-rendering some parts of a page and then use client-side JavaScript to populate them. To learn more about this approach, check out the [Data Fetching documentation](/nextjs-cn/pages/building-your-application/data-fetching/client-side).
 - Use **Server-Side Rendering:** Next.js pre-renders a page on each request. It will be slower because the page cannot be cached by a CDN, but the pre-rendered page will always be up-to-date. We'll talk about this approach below.

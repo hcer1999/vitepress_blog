@@ -5,27 +5,27 @@ description: Learn how to use the assetPrefix config option to configure your CD
 
 <AppOnly>
 
-> **Attention**: [Deploying to Vercel](/docs/nextjs-cn/app/getting-started/deploying) automatically configures a global CDN for your Next.js project.
+> **Attention**: [Deploying to Vercel](/nextjs-cn/app/getting-started/deploying) automatically configures a global CDN for your Next.js project.
 > You do not need to manually setup an Asset Prefix.
-
-</AppOnly>
+> /nextjs-cn/
+> </AppOnly>
 
 <PagesOnly>
 
-> **Attention**: [Deploying to Vercel](/docs/nextjs-cn/pages/getting-started/deploying) automatically configures a global CDN for your Next.js project.
+> **Attention**: [Deploying to Vercel](/nextjs-cn/pages/getting-started/deploying) automatically configures a global CDN for your Next.js project.
 > You do not need to manually setup an Asset Prefix.
+> /nextjs-cn/
+> </PagesOnly>
 
-</PagesOnly>
-
-> **Good to know**: Next.js 9.5+ added support for a customizable [Base Path](/docs/nextjs-cn/app/api-reference/config/next-config-js/basePath), which is better
+> **Good to know**: Next.js 9.5+ added support for a customizable [Base Path](/nextjs-cn/app/api-reference/config/next-config-js/basePath), which is better
 > suited for hosting your application on a sub-path like `/docs`.
-> We do not suggest you use a custom Asset Prefix for this use case.
+> We do not suggest you use a custom Asset Prefix for this use case./nextjs-cn/
 
 ## Set up a CDN
 
 To set up a [CDN](https://en.wikipedia.org/wiki/Content_delivery_network), you can set up an asset prefix and configure your CDN's origin to resolve to the domain that Next.js is hosted on.
 
-Open `next.config.mjs` and add the `assetPrefix` config based on the [phase](/docs/nextjs-cn/app/api-reference/config/next-config-js#async-configuration):
+Open `next.config.mjs` and add the `assetPrefix` config based on the [phase](/nextjs-cn/app/api-reference/config/next-config-js/index#async-configuration):
 
 ```js
 // @ts-check
@@ -61,14 +61,14 @@ While `assetPrefix` covers requests to `_next/static`, it does not influence the
 
 <AppOnly>
 
-- Files in the [public](/docs/nextjs-cn/app/api-reference/file-conventions/public-folder) folder; if you want to serve those assets over a CDN, you'll have to introduce the prefix yourself
+- Files in the [public](/nextjs-cn/app/api-reference/file-conventions/public-folder) folder; if you want to serve those assets over a CDN, you'll have to introduce the prefix yourself
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
-- Files in the [public](/docs/nextjs-cn/pages/api-reference/file-conventions/public-folder) folder; if you want to serve those assets over a CDN, you'll have to introduce the prefix yourself
+- Files in the [public](/nextjs-cn/pages/api-reference/file-conventions/public-folder) folder; if you want to serve those assets over a CDN, you'll have to introduce the prefix yourself
 - `/_next/data/` requests for `getServerSideProps` pages. These requests will always be made against the main domain since they're not static.
-- `/_next/data/` requests for `getStaticProps` pages. These requests will always be made against the main domain to support [Incremental Static Generation](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration), even if you're not using it (for consistency).
+- `/_next/data/` request/nextjs-cn/Props` pages. These requests will always be made against the main domain to support [Incremental Static Generation](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration), even if you're not using it (for consistency).
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/

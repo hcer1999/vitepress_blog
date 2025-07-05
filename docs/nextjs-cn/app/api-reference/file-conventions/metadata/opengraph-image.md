@@ -88,11 +88,11 @@ About Acme
 
 > **须知**：
 >
-> - 默认情况下，生成的图像会进行[**静态优化**](/docs/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)（在构建时生成并缓存），除非它们使用[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)或未缓存的数据。
-> - 你可以使用 [`generateImageMetadata`](/docs/nextjs-cn/app/api-reference/functions/generate-image-metadata) 在同一文件中生成多个图像。
-> - `opengraph-image.js` 和 `twitter-image.js` 是默认被缓存的特殊路由处理程序，除非它们使用了[动态 API](/docs/nextjs-cn/app/deep-dive/caching#dynamic-apis)或[动态配置](/docs/nextjs-cn/app/deep-dive/caching#segment-config-options)选项。
+> - 默认情况下，生成的图像会进行[**静态优化**](/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)（在构建时生成并缓存），除非它们使用[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)或未缓存的数据。
+> - 你可以使用 [`generateImageMetadata`](/nextjs-cn/app/api-reference/functions/generate-image-metadata) 在同一文件中生成多个图像。
+> - `opengraph-image.js` 和 `twitter-image.js` 是默认被缓存的特殊路由处理程序，除非它们使用了[动态 API](/nextjs-cn/app/deep-dive/caching#dynamic-apis)或[动态配置](/nextjs-cn/app/deep-dive/caching#segment-config-options)选项。
 
-生成图像最简单的方法是使用 `next/og` 中的 [ImageResponse](/docs/nextjs-cn/app/api-reference/functions/image-response) API。
+生成图像最简单的方法是使用 `next/og` 中的 [ImageResponse](/nextjs-cn/app/api-reference/functions/image-response) API。
 
 ```tsx switcher
 import { ImageResponse } from 'next/og'
@@ -216,7 +216,7 @@ export default async function Image() {
 
 #### `params`（可选）
 
-一个包含从根段到 `opengraph-image` 或 `twitter-image` 所在段的[动态路由参数](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)对象。
+一个包含从根段到 `opengraph-image` 或 `twitter-image` 所在段的[动态路由参数](/nextjs-cn/app/building-your-application/routing/dynamic-routes)对象。
 
 ```tsx switcher
 export default function Image({ params }: { params: { slug: string } }) {
@@ -309,7 +309,7 @@ export default function Image() {}
 
 #### 路由段配置
 
-`opengraph-image` 和 `twitter-image` 是专门的[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)，可以使用与页面和布局相同的[路由段配置](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config)选项。
+`opengraph-image` 和 `twitter-image` 是专门的[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)，可以使用与页面和布局相同的[路由段配置](/nextjs-cn/app/api-reference/file-conventions/route-segment-config)选项。
 
 ### 示例
 
@@ -318,7 +318,7 @@ export default function Image() {}
 此示例使用 `params` 对象和外部数据生成图像。
 
 > **须知**：
-> 默认情况下，这个生成的图像将被[静态优化](/docs/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)。你可以配置单个 `fetch` [`选项`](/docs/nextjs-cn/app/api-reference/functions/fetch)或路由段[选项](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#revalidate)来更改此行为。
+> 默认情况下，这个生成的图像将被[静态优化](/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)。你可以配置单个 `fetch` [`选项`](/nextjs-cn/app/api-reference/functions/fetch)或路由段[选项](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#revalidate)来更改此行为。
 
 ```tsx switcher
 import { ImageResponse } from 'next/og'

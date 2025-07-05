@@ -8,13 +8,13 @@ related:
     - app/getting-started/partial-prerendering
 ---
 
-部分预渲染（PPR）使你能够在同一路由中结合静态和动态组件。了解更多关于 [PPR](/docs/nextjs-cn/app/getting-started/partial-prerendering) 的信息。
+部分预渲染（PPR）使你能够在同一路由中结合静态和动态组件。了解更多关于 [PPR](/nextjs-cn/app/getting-started/partial-prerendering) 的信息。
 
 ## 使用部分预渲染
 
 ### 增量采用（版本 15）
 
-在 Next.js 15 中，你可以在 [layouts](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates) 和 [pages](/docs/nextjs-cn/app/api-reference/file-conventions/page) 中通过在 `next.config.js` 中设置 [`ppr`](/docs/nextjs-cn/app/api-reference/config/next-config-js/ppr) 选项为 `incremental`，并在文件顶部导出 `experimental_ppr` [路由配置选项](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config)，来增量采用部分预渲染：
+在 Next.js 15 中，你可以在 [layouts](/nextjs-cn/app/building-your-application/routing/layouts-and-templates) 和 [pages](/nextjs-cn/app/api-reference/file-conventions/page) 中通过在 `next.config.js` 中设置 [`ppr`](/nextjs-cn/app/api-reference/config/next-config-js/ppr) 选项为 `incremental`，并在文件顶部导出 `experimental_ppr` [路由配置选项](/nextjs-cn/app/api-reference/file-conventions/route-segment-config)，来增量采用部分预渲染：
 
 ```ts switcher
 import type { NextConfig } from 'next'

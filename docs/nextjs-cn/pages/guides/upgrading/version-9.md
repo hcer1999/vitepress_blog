@@ -26,7 +26,7 @@ bun add next@9
 
 ## Check your Custom App File (`pages/_app.js`)
 
-If you previously copied the [Custom `<App>`](/docs/nextjs-cn/pages/building-your-application/routing/custom-app) example, you may be able to remove your `getInitialProps`.
+If you previously copied the [Custom `<App>`](/nextjs-cn/pages/building-your-application/routing/custom-app) example, you may be able to remove your `getInitialProps`.
 
 Removing `getInitialProps` from `pages/_app.js` (when possible) is important to leverage new Next.js features!
 

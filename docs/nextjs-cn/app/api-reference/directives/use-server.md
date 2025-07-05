@@ -7,7 +7,7 @@ description: 了解如何使用 'use server' 指令来标记可以从客户端�
 
 > **须知**
 >
-> 此功能要求使用 [服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)，且仅在 [服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components) 和特定的工件（例如 [服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions)）中可用。
+> 此功能要求使用 [服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，且仅在 [服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components) 和特定的工件（例如 服务器操作）中可用。
 
 ## 用法
 

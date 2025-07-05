@@ -35,11 +35,11 @@ The example above uses multiple links. Each one maps a path (`href`) to a known 
 - `/about` → `pages/about.js`
 - `/blog/hello-world` → `pages/blog/[slug].js`
 
-Any `<Link />` in the viewport (initially or through scroll) will be prefetched by default (including the corresponding data) for pages using [Static Generation](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props). The corresponding data for [server-rendered](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props) routes is fetched _only when_ the `<Link />` is clicked.
+Any `<Link />` in the viewport (initially or through scroll) will be prefetched by default (including the corresponding data) for pages using [Static Generation](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props). The corresponding data for [server-rendered](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props) routes is fetched _only when_ the `<Link />` is clicked.
 
 ## Linking to dynamic paths
 
-You can also use interpolation to create the path, which comes in handy for [dynamic route segments](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes). For example, to show a list of posts which have been passed to the component as a prop:
+You can also use interpolation to create the path, which comes in handy for [dynamic route segments](/nextjs-cn/pages/building-your-application/routing/dynamic-routes). For example, to show a list of posts which have been passed to the component as a prop:
 
 ```jsx
 import Link from 'next/link'
@@ -95,15 +95,15 @@ Now, instead of using interpolation to create the path, we use a URL object in `
 
 ## Injecting the router
 
-To access the [`router` object](/docs/nextjs-cn/pages/api-reference/functions/use-router#router-object) in a React component you can use [`useRouter`](/docs/nextjs-cn/pages/api-reference/functions/use-router) or [`withRouter`](/docs/nextjs-cn/pages/api-reference/functions/use-router#withrouter).
+To access the [`router` object](/nextjs-cn/pages/api-reference/functions/use-router#router-object) in a React component you can use [`useRouter`](/nextjs-cn/pages/api-reference/functions/use-router) or [`withRouter`](/nextjs-cn/pages/api-reference/functions/use-router#withrouter).
 
-In general we recommend using [`useRouter`](/docs/nextjs-cn/pages/api-reference/functions/use-router).
+In general we recommend using [`useRouter`](/nextjs-cn/pages/api-reference/functions/use-router).
 
 ## Imperative Routing
 
-[`next/link`](/docs/nextjs-cn/pages/api-reference/components/link) should be able to cover most of your routing needs, but you can also do client-side navigations without it, take a look at the [documentation for `next/router`](/docs/nextjs-cn/pages/api-reference/functions/use-router).
+[`next/link`](/nextjs-cn/pages/api-reference/components/link) should be able to cover most of your routing needs, but you can also do client-side navigations without it, take a look at the [documentation for `next/router`](/nextjs-cn/pages/api-reference/functions/use-router).
 
-The following example shows how to do basic page navigations with [`useRouter`](/docs/nextjs-cn/pages/api-reference/functions/use-router):
+The following example shows how to do basic page navigations with [`useRouter`](/nextjs-cn/pages/api-reference/functions/use-router):
 
 ```jsx
 import { useRouter } from 'next/router'
@@ -124,9 +124,9 @@ export default function ReadMore() {
 
 </details>
 
-Shallow routing allows you to change the URL without running data fetching methods again, that includes [`getServerSideProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props), [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props), and [`getInitialProps`](/docs/nextjs-cn/pages/api-reference/functions/get-initial-props).
+Shallow routing allows you to change the URL without running data fetching methods again, that includes [`getServerSideProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props), [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props), and [`getInitialProps`](/nextjs-cn/pages/api-reference/functions/get-initial-props).
 
-You'll receive the updated `pathname` and the `query` via the [`router` object](/docs/nextjs-cn/pages/api-reference/functions/use-router#router-object) (added by [`useRouter`](/docs/nextjs-cn/pages/api-reference/functions/use-router) or [`withRouter`](/docs/nextjs-cn/pages/api-reference/functions/use-router#withrouter)), without losing state.
+You'll receive the updated `pathname` and the `query` via the [`router` object](/nextjs-cn/pages/api-reference/functions/use-router#router-object) (added by [`useRouter`](/nextjs-cn/pages/api-reference/functions/use-router) or [`withRouter`](/nextjs-cn/pages/api-reference/functions/use-router#withrouter)), without losing state.
 
 To enable shallow routing, set the `shallow` option to `true`. Consider the following example:
 

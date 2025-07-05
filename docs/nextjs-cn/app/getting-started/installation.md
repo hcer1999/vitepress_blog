@@ -13,7 +13,7 @@ description: 使用 `create-next-app` CLI 创建新的 Next.js 应用程序，�
 
 ## 自动安装
 
-创建新的 Next.js 应用程序最快的方法是使用 [`create-next-app`](/docs/nextjs-cn/app/api-reference/cli/create-next-app)，它会自动为您设置好所有内容。要创建项目，请运行：
+创建新的 Next.js 应用程序最快的方法是使用 [`create-next-app`](/nextjs-cn/app/api-reference/cli/create-next-app)，它会自动为您设置好所有内容。要创建项目，请运行：
 
 ```bash
 npx create-next-app@latest
@@ -33,9 +33,9 @@ Would you like to customize the import alias (`@/*` by default)? No / Yes
 What import alias would you like configured? @/*
 ```
 
-完成提示后，[`create-next-app`](/docs/nextjs-cn/app/api-reference/cli/create-next-app) 将创建一个包含您项目名称的文件夹，并安装所需的依赖项。
+完成提示后，[`create-next-app`](/nextjs-cn/app/api-reference/cli/create-next-app) 将创建一个包含您项目名称的文件夹，并安装所需的依赖项。
 
-## 手动安装
+## 手动安装/nextjs-cn/
 
 要手动创建新的 Next.js 应用程序，请安装所需的包：
 
@@ -69,9 +69,9 @@ npm install next@latest react@latest react-dom@latest
 
 Next.js 使用文件系统路由，这意味着您的应用程序的路由由文件的结构决定。
 
-创建一个 `app` 文件夹。然后，在 `app` 内创建一个 `layout.tsx` 文件。这个文件是[根布局](/docs/nextjs-cn/app/api-reference/file-conventions/layout#root-layouts)，它是必需的，并且必须包含 `<html>` 和 `<body>` 标签。
+创建一个 `app` 文件夹。然后，在 `app` 内创建一个 `layout.tsx` 文件。这个文件是[根布局](/nextjs-cn/app/api-reference/file-conventions/layout#root-layouts)，它是必需的，并且必须包含 `<html>` 和 `<body>` 标签。
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -118,9 +118,9 @@ export default function Page() {
 > **注意事项**:
 >
 > - 如果您忘记创建根布局，Next.js 会在运行开发服务器（`next dev`）时自动创建这个文件。
-> - 您可以选择在项目根目录中使用 [`src` 文件夹](/docs/nextjs-cn/app/api-reference/file-conventions/src-folder)，将应用程序代码与配置文件分开。
+> - 您可以选择在项目根目录中使用 [`src` 文件夹](/nextjs-cn/app/api-reference/file-conventions/src-folder)，将应用程序代码与配置文件分开。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/
 
 <PagesOnly>
 
@@ -142,9 +142,9 @@ export default function Page() {
 }
 ```
 
-接下来，在 `pages/` 中添加一个 `_app.tsx` 文件来定义全局布局。了解更多关于[自定义 App 文件](/docs/nextjs-cn/pages/building-your-application/routing/custom-app)的信息。
+接下来，在 `pages/` 中添加一个 `_app.tsx` 文件来定义全局布局。了解更多关于[自定义 App 文件](/nextjs-cn/pages/building-your-application/routing/custom-app)的信息。
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -158,9 +158,9 @@ export default function App({ Component, pageProps }) {
 }
 ```
 
-最后，在 `pages/` 中添加一个 `_document.tsx` 文件来控制来自服务器的初始响应。了解更多关于[自定义 Document 文件](/docs/nextjs-cn/pages/building-your-application/routing/custom-document)的信息。
+最后，在 `pages/` 中添加一个 `_document.tsx` 文件来控制来自服务器的初始响应。了解更多关于[自定义 Document 文件](/nextjs-cn/pages/building-your-application/routing/custom-document)的信息。
 
-```tsx switcher
+```tsx switcher/nextjs-cn/
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -196,9 +196,9 @@ export default function Document() {
 
 ### Create the `public` folder (optional)
 
-Create a [`public` folder](/docs/nextjs-cn/app/api-reference/file-conventions/public-folder) at the root of your project to store static assets such as images, fonts, etc. Files inside `public` can then be referenced by your code starting from the base URL (`/`).
+Create a [`public` folder](/nextjs-cn/app/api-reference/file-conventions/public-folder) at the root of your project to store static assets such as images, fonts, etc. Files inside `public` can then be referenced by your code starting from the base URL (`/`).
 
-You can then reference these assets using the root path (`/`). For example, `public/profile.png` can be referenced as `/profile.png`:
+You can then reference thes/nextjs-cn/he root path (`/`). For example, `public/profile.png` can be referenced as `/profile.png`:
 
 ```tsx highlight={4} switcher
 import Image from 'next/image'
@@ -250,9 +250,9 @@ You can enable the plugin in VS Code by:
 
 </AppOnly>
 
-See the [TypeScript reference](/docs/nextjs-cn/app/api-reference/config/next-config-js/typescript) page for more information.
+See the [TypeScript reference](/nextjs-cn/app/api-reference/config/next-config-js/typescript) page for more information.
 
-## Set up ESLint
+## Set up ESLint/nextjs-cn/
 
 Next.js comes with built-in ESLint. It automatically installs the necessary packages and configures the proper settings when you create a new project with `create-next-app`.
 
@@ -288,9 +288,9 @@ If `Strict` or `Base` are selected, Next.js will automatically install `eslint` 
 
 You can now run `next lint` every time you want to run ESLint to catch errors. Once ESLint has been set up, it will also automatically run during every build (`next build`). Errors will fail the build, while warnings will not.
 
-See the [ESLint Plugin](/docs/nextjs-cn/app/api-reference/config/next-config-js/eslint) page for more information.
+See the [ESLint Plugin](/nextjs-cn/app/api-reference/config/next-config-js/eslint) page for more information.
 
-## Set up Absolute Imports and Module Path Aliases
+## Set up Absolute Impor/nextjs-cn/th Aliases
 
 Next.js has in-built support for the `"paths"` and `"baseUrl"` options of `tsconfig.json` and `jsconfig.json` files.
 

@@ -13,7 +13,7 @@ module.exports = {
 }
 ```
 
-查看[自定义缓存处理器](/docs/nextjs-cn/app/guides/deployment/self-hosting#configuring-caching)的示例，并了解更多关于实现的信息。
+查看[自定义缓存处理器]()的示例，并了解更多关于实现的信息。
 
 ## API 参考
 
@@ -43,7 +43,7 @@ module.exports = {
 | ----- | ---------------------- | ---------------------- |
 | `tag` | `string` 或 `string[]` | 要重新验证的缓存标签。 |
 
-返回 `Promise<void>`。了解更多关于[重新验证数据](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)或 [`revalidateTag()`](/docs/nextjs-cn/app/api-reference/functions/revalidateTag) 函数的信息。
+返回 `Promise<void>`。了解更多关于[重新验证数据](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)或 [`revalidateTag()`](/nextjs-cn/app/api-reference/functions/revalidateTag) 函数的信息。
 
 ### `resetRequestCache()`
 
@@ -57,14 +57,14 @@ module.exports = {
 
 ## 平台支持
 
-| 部署选项                                                                      | 支持状态 |
-| ----------------------------------------------------------------------------- | -------- |
-| [Node.js 服务器](/docs/nextjs-cn/app/getting-started/deploying#nodejs-server) | 是       |
-| [Docker 容器](/docs/nextjs-cn/app/getting-started/deploying#docker)           | 是       |
-| [静态导出](/docs/nextjs-cn/app/getting-started/deploying#static-export)       | 否       |
-| [适配器](/docs/nextjs-cn/app/getting-started/deploying#adapters)              | 平台特定 |
+| 部署选项                                                                 | 支持状态 |
+| ------------------------------------------------------------------------ | -------- |
+| [Node.js 服务器](/nextjs-cn/app/getting-started/deploying#nodejs-server) | 是       |
+| [Docker 容器](/nextjs-cn/app/getting-started/deploying#docker)           | 是       |
+| [静态导出](/nextjs-cn/app/getting-started/deploying#static-export)       | 否       |
+| [适配器](/nextjs-cn/app/getting-started/deploying#adapters)              | 平台特定 |
 
-了解如何在自托管 Next.js 时[配置 ISR](/docs/nextjs-cn/app/guides/deployment/self-hosting#caching-and-isr)。
+了解如何在自托管 Next.js 时[配置 ISR]()。
 
 ## 版本历史
 

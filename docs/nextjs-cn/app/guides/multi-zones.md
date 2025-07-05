@@ -35,7 +35,7 @@ description: 学习如何使用 Next.js 多区域来构建微前端，将多个 
 
 ## 如何定义区域
 
-区域是一个普通的 Next.js 应用程序，你还需要配置 [assetPrefix](/docs/nextjs-cn/app/api-reference/config/next-config-js/assetPrefix) 以避免与其他区域中的页面和静态文件冲突。
+区域是一个普通的 Next.js 应用程序，你还需要配置 [assetPrefix](/nextjs-cn/app/api-reference/config/next-config-js/assetPrefix) 以避免与其他区域中的页面和静态文件冲突。
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -71,7 +71,7 @@ const nextConfig = {
 
 使用多区域设置后，你需要将路径路由到正确的区域，因为它们由不同的应用程序提供服务。你可以使用任何 HTTP 代理来实现这一点，但其中一个 Next.js 应用程序也可以用于路由整个域名的请求。
 
-要使用 Next.js 应用程序路由到正确的区域，你可以使用 [`rewrites`](/docs/nextjs-cn/app/api-reference/config/next-config-js/rewrites)。对于由不同区域提供服务的每个路径，你需要添加一个重写规则，将该路径发送到其他区域的域名，并且还需要重写静态资产的请求。例如：
+要使用 Next.js 应用程序路由到正确的区域，你可以使用 [`rewrites`](/nextjs-cn/app/api-reference/config/next-config-js/rewrites)。对于由不同区域提供服务的每个路径，你需要添加一个重写规则，将该路径发送到其他区域的域名，并且还需要重写静态资产的请求。例如：
 
 ```js
 async rewrites() {
@@ -98,7 +98,7 @@ async rewrites() {
 
 ### 使用中间件路由请求
 
-通过 [`rewrites`](/docs/nextjs-cn/app/api-reference/config/next-config-js/rewrites) 路由请求是推荐的方法，可以最小化请求的延迟开销，但当路由时需要动态决策时，也可以使用中间件。例如，如果你正在使用功能标志来决定路径应该被路由到哪里，比如在迁移期间，你可以使用中间件。
+通过 [`rewrites`](/nextjs-cn/app/api-reference/config/next-config-js/rewrites) 路由请求是推荐的方法，可以最小化请求的延迟开销，但当路由时需要动态决策时，也可以使用中间件。例如，如果你正在使用功能标志来决定路径应该被路由到哪里，比如在迁移期间，你可以使用中间件。
 
 ```js
 export async function middleware(request) {
@@ -111,9 +111,9 @@ export async function middleware(request) {
 
 ## 区域之间的链接
 
-链接到不同区域的路径应该使用 `a` 标签，而不是 Next.js 的 [`<Link>`](/docs/nextjs-cn/pages/api-reference/components/link) 组件。这是因为 Next.js 会尝试预取并软导航到 `<Link>` 组件中的任何相对路径，这在跨区域时不会起作用。
+链接到不同区域的路径应该使用 `a` 标签，而不是 Next.js 的 [`<Link>`](/nextjs-cn/pages/api-reference/components/link) 组件。这是因为 Next.js 会尝试预取并软导航到 `<Link>` 组件中的任何相对路径，这在跨区域时不会起作用。
 
-## 共享代码
+## 共享代码/nextjs-cn/
 
 组成不同区域的 Next.js 应用程序可以位于任何仓库中。然而，将这些区域放在 [monorepo](https://en.wikipedia.org/wiki/Monorepo) 中通常很方便，以更容易地共享代码。对于位于不同仓库中的区域，也可以使用公共或私有 NPM 包共享代码。
 
@@ -123,7 +123,7 @@ export async function middleware(request) {
 
 ## 服务器操作
 
-当在多区域中使用 [服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) 时，你必须明确允许面向用户的来源，因为你面向用户的域名可能服务于多个应用程序。在你的 `next.config.js` 文件中，添加以下行：
+当在多区域中使用 [服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) 时，你必须明确允许面向用户的来源，因为你面向用户的域名可能服务于多个应用程序。在你的 `next.config.js` 文件中，添加以下行：
 
 ```js
 const nextConfig = {
@@ -135,6 +135,6 @@ const nextConfig = {
 }
 ```
 
-查看 [`serverActions.allowedOrigins`](/docs/nextjs-cn/app/api-reference/config/next-config-js/serverActions#allowedorigins) 获取更多信息。
+查看 [`serverActions.allowedOrigins`](/nextjs-cn/app/api-reference/config/next-config-js/serverActions#allowedorigins) 获取更多信息。
 
-</AppOnly>
+</AppOnly>/nextjs-cn/

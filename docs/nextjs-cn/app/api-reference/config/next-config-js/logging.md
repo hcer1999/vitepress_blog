@@ -21,7 +21,7 @@ module.exports = {
 }
 ```
 
-从 [服务器组件 HMR 缓存](/docs/nextjs-cn/app/api-reference/config/next-config-js/serverComponentsHmrCache) 恢复的任何 `fetch` 请求默认不会被记录。但是，可以通过将 `logging.fetches.hmrRefreshes` 设置为 `true` 来启用此功能。
+从 [服务器组件 HMR 缓存](/nextjs-cn/app/api-reference/config/next-config-js/serverComponentsHmrCache) 恢复的任何 `fetch` 请求默认不会被记录。但是，可以通过将 `logging.fetches.hmrRefreshes` 设置为 `true` 来启用此功能。
 
 ```js
 module.exports = {

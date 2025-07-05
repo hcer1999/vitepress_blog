@@ -7,7 +7,7 @@ related:
     - app/guides/mdx
 ---
 
-`mdx-components.js|tsx` 文件是使用 [`@next/mdx` 与 App Router](/docs/nextjs-cn/app/guides/mdx) 的**必需**文件，没有它将无法工作。此外，你可以使用它来[自定义样式](/docs/nextjs-cn/app/guides/mdx#using-custom-styles-and-components)。
+`mdx-components.js|tsx` 文件是使用 [`@next/mdx` 与 App Router](/nextjs-cn/app/guides/mdx) 的**必需**文件，没有它将无法工作。此外，你可以使用它来[自定义样式](/nextjs-cn/app/guides/mdx#using-custom-styles-and-components)。
 
 使用项目根目录中的 `mdx-components.tsx`（或 `.js`）文件定义 MDX 组件。例如，与 `pages` 或 `app` 在同一级别，或者如果适用的话，放在 `src` 内部。
 

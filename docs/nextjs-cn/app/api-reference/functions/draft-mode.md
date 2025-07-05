@@ -8,7 +8,7 @@ related:
     - app/guides/draft-mode
 ---
 
-`draftMode` 是一个**异步**函数，允许你启用和禁用[草稿模式](/docs/nextjs-cn/app/guides/draft-mode)，以及检查草稿模式在[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)中是否启用。
+`draftMode` 是一个**异步**函数，允许你启用和禁用[草稿模式](/nextjs-cn/app/guides/draft-mode)，以及检查草稿模式在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)中是否启用。
 
 ```tsx switcher
 import { draftMode } from 'next/headers'
@@ -47,7 +47,7 @@ export default async function Page() {
 
 ### 启用草稿模式
 
-要启用草稿模式，创建一个新的[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)并调用 `enable()` 方法：
+要启用草稿模式，创建一个新的[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)并调用 `enable()` 方法：
 
 ```tsx switcher
 import { draftMode } from 'next/headers'
@@ -73,7 +73,7 @@ export async function GET(request) {
 
 默认情况下，草稿模式会话在浏览器关闭时结束。
 
-要手动禁用草稿模式，在[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)中调用 `disable()` 方法：
+要手动禁用草稿模式，在[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中调用 `disable()` 方法：
 
 ```tsx switcher
 import { draftMode } from 'next/headers'
@@ -95,7 +95,7 @@ export async function GET(request) {
 }
 ```
 
-然后，发送请求以调用路由处理程序。如果使用 [`<Link>` 组件](/docs/nextjs-cn/app/api-reference/components/link)调用路由，必须传递 `prefetch={false}` 以防止在预取时意外删除 cookie。
+然后，发送请求以调用路由处理程序。如果使用 [`<Link>` 组件](/nextjs-cn/app/api-reference/components/link)调用路由，必须传递 `prefetch={false}` 以防止在预取时意外删除 cookie。
 
 ### 检查草稿模式是否启用
 
@@ -131,7 +131,7 @@ export default async function Page() {
 
 ## 版本历史
 
-| 版本       | 变更                                                                                                      |
-| ---------- | --------------------------------------------------------------------------------------------------------- |
-| `v15.0.RC` | `draftMode` 现在是一个异步函数。提供了一个 [codemod](/docs/nextjs-cn/app/guides/upgrading/codemods#150)。 |
-| `v13.4.0`  | 引入 `draftMode`。                                                                                        |
+| 版本       | 变更                                                                                                 |
+| ---------- | ---------------------------------------------------------------------------------------------------- |
+| `v15.0.RC` | `draftMode` 现在是一个异步函数。提供了一个 [codemod](/nextjs-cn/app/guides/upgrading/codemods#150)。 |
+| `v13.4.0`  | 引入 `draftMode`。                                                                                   |

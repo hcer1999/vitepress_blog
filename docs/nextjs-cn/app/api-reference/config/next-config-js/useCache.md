@@ -4,7 +4,7 @@ description: 了解如何在 Next.js 中启用 useCache 标志。
 version: canary
 ---
 
-`useCache` 标志是 Next.js 中的一个实验性功能，它允许独立于 [`dynamicIO`](/docs/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO) 使用 [`use cache` 指令](/docs/nextjs-cn/app/api-reference/directives/use-cache)。启用后，即使 `dynamicIO` 已关闭，你也可以在应用程序中使用 `use cache`。
+`useCache` 标志是 Next.js 中的一个实验性功能，它允许独立于 [`dynamicIO`](/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO) 使用 [`use cache` 指令](/nextjs-cn/app/api-reference/directives/use-cache)。启用后，即使 `dynamicIO` 已关闭，你也可以在应用程序中使用 `use cache`。
 
 ## 使用方法
 
@@ -24,6 +24,6 @@ export default nextConfig
 
 当启用 `useCache` 时，你可以使用以下缓存函数和配置：
 
-- [`use cache` 指令](/docs/nextjs-cn/app/api-reference/directives/use-cache)
-- 与 `use cache` 一起使用的 [`cacheLife` 函数](/docs/nextjs-cn/app/api-reference/config/next-config-js/cacheLife)
-- [`cacheTag` 函数](/docs/nextjs-cn/app/api-reference/functions/cacheTag)
+- [`use cache` 指令](/nextjs-cn/app/api-reference/directives/use-cache)
+- 与 `use cache` 一起使用的 [`cacheLife` 函数](/nextjs-cn/app/api-reference/config/next-config-js/cacheLife)
+- [`cacheTag` 函数](/nextjs-cn/app/api-reference/functions/cacheTag)

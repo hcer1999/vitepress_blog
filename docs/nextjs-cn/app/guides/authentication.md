@@ -30,7 +30,7 @@ description: 学习如何在你的 Next.js 应用程序中实现身份验证。
 
 ### 注册和登录功能
 
-你可以使用 [`<form>`](https://react.dev/reference/react-dom/components/form) 元素配合 React 的 [服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) 和 `useActionState` 来捕获用户凭证、验证表单字段，并调用你的身份验证提供商的 API 或数据库。
+你可以使用 [`<form>`](https://react.dev/reference/react-dom/components/form) 元素配合 React 的 [服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) 和 `useActionState` 来捕获用户凭证、验证表单字段，并调用你的身份验证提供商的 API 或数据库。
 
 由于服务器操作总是在服务器端执行，它们为处理身份验证逻辑提供了一个安全的环境。
 
@@ -467,7 +467,7 @@ export default async function handler(req, res) {
 
 #### 创建和管理无状态会话
 
-下面是使用 [Cookie API](/docs/nextjs-cn/app/building-your-application/authentication/session-management) 创建和管理无状态会话的示例：
+下面是使用 [Cookie API]() 创建和管理无状态会话的示例：
 
 ```tsx switcher
 import { cookies } from 'next/headers'
@@ -1073,7 +1073,7 @@ export async function GET() {
 
 要继续学习有关身份验证和安全性的内容，请查看以下资源：
 
-- [如何思考 Next.js 中的安全性](/docs/nextjs-cn/docs/nextjs-cn/blog/security-nextjs-server-components-actions)
+- [如何思考 Next.js 中的安全性]()
 - [理解 XSS 攻击](https://vercel.com/guides/understanding-xss-attacks)
 - [理解 CSRF 攻击](https://vercel.com/guides/understanding-csrf-attacks)
 - [The Copenhagen Book](https://thecopenhagenbook.com/)

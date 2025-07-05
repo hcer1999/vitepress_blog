@@ -20,49 +20,49 @@ description: Next.js 中文件夹和文件约定的概述，以及如何组织�
   height="525"
 />
 
-|                                                                              |                            |
-| ---------------------------------------------------------------------------- | -------------------------- |
-| [`app`](/docs/nextjs-cn/app/building-your-application/routing/index)         | App Router（应用路由器）   |
-| [`pages`](/docs/nextjs-cn/pages/building-your-application/routing)           | Pages Router（页面路由器） |
-| [`public`](/docs/nextjs-cn/app/api-reference/file-conventions/public-folder) | 要提供的静态资源           |
-| [`src`](/docs/nextjs-cn/app/api-reference/file-conventions/src-folder)       | 可选的应用程序源代码文件夹 |
+|                                                                         |                            |
+| ----------------------------------------------------------------------- | -------------------------- |
+| [`app`](/nextjs-cn/app/building-your-application/routing/index)         | App Router（应用路由器）   |
+| [`pages`](/nextjs-cn/pages/building-your-application/routing/index)     | Pages Router（页面路由器） |
+| [`public`](/nextjs-cn/app/api-reference/file-conventions/public-folder) | 要提供的静态资源           |
+| [`src`](/nextjs-cn/app/api-reference/file-conventions/src-folder)       | 可选的应用程序源代码文件夹 |
 
 ### 顶级文件
 
 顶级文件用于配置应用程序、管理依赖项、运行中间件、集成监控工具和定义环境变量。
 
-|                                                                                           |                                |
-| ----------------------------------------------------------------------------------------- | ------------------------------ |
-| **Next.js**                                                                               |                                |
-| [`next.config.js`](/docs/nextjs-cn/app/api-reference/config/next-config-js)               | Next.js 配置文件               |
-| [`package.json`](/docs/nextjs-cn/app/getting-started/installation#manual-installation)    | 项目依赖项和脚本               |
-| [`instrumentation.ts`](/docs/nextjs-cn/app/guides/configuring/instrumentation)            | OpenTelemetry 和检测文件       |
-| [`middleware.ts`](/docs/nextjs-cn/app/building-your-application/routing/index/middleware) | Next.js 请求中间件             |
-| [`.env`](/docs/nextjs-cn/app/guides/configuring/environment-variables)                    | 环境变量                       |
-| [`.env.local`](/docs/nextjs-cn/app/guides/configuring/environment-variables)              | 本地环境变量                   |
-| [`.env.production`](/docs/nextjs-cn/app/guides/configuring/environment-variables)         | 生产环境变量                   |
-| [`.env.development`](/docs/nextjs-cn/app/guides/configuring/environment-variables)        | 开发环境变量                   |
-| [`.eslintrc.json`](/docs/nextjs-cn/app/api-reference/config/eslint)                       | ESLint 配置文件                |
-| `.gitignore`                                                                              | Git 忽略的文件和文件夹         |
-| `next-env.d.ts`                                                                           | Next.js 的 TypeScript 声明文件 |
-| `tsconfig.json`                                                                           | TypeScript 配置文件            |
-| `jsconfig.json`                                                                           | JavaScript 配置文件            |
+|                                                                                   |                                |
+| --------------------------------------------------------------------------------- | ------------------------------ |
+| **Next.js**                                                                       |                                |
+| [`next.config.js`](/nextjs-cn/app/api-reference/config/next-config-js/index)      | Next.js 配置文件               |
+| [`package.json`](/nextjs-cn/app/getting-started/installation#manual-installation) | 项目依赖项和脚本               |
+| [`instrumentation.ts`]()                                                          | OpenTelemetry 和检测文件       |
+| [`middleware.ts`](/nextjs-cn/app/building-your-application/routing/middleware)    | Next.js 请求中间件             |
+| [`.env`]()                                                                        | 环境变量                       |
+| [`.env.local`]()                                                                  | 本地环境变量                   |
+| [`.env.production`]()                                                             | 生产环境变量                   |
+| [`.env.development`]()                                                            | 开发环境变量                   |
+| [`.eslintrc.json`](/nextjs-cn/app/api-reference/config/eslint)                    | ESLint 配置文件                |
+| `.gitignore`                                                                      | Git 忽略的文件和文件夹         |
+| `next-env.d.ts`                                                                   | Next.js 的 TypeScript 声明文件 |
+| `tsconfig.json`                                                                   | TypeScript 配置文件            |
+| `jsconfig.json`                                                                   | JavaScript 配置文件            |
 
 <AppOnly>
 
 ### 路由文件
 
-|                                                                                         |                     |                  |
-| --------------------------------------------------------------------------------------- | ------------------- | ---------------- |
-| [`layout`](/docs/nextjs-cn/app/api-reference/file-conventions/layout)                   | `.js` `.jsx` `.tsx` | 布局             |
-| [`page`](/docs/nextjs-cn/app/api-reference/file-conventions/page)                       | `.js` `.jsx` `.tsx` | 页面             |
-| [`loading`](/docs/nextjs-cn/app/api-reference/file-conventions/loading)                 | `.js` `.jsx` `.tsx` | 加载 UI          |
-| [`not-found`](/docs/nextjs-cn/app/api-reference/file-conventions/not-found)             | `.js` `.jsx` `.tsx` | 未找到 UI        |
-| [`error`](/docs/nextjs-cn/app/api-reference/file-conventions/error)                     | `.js` `.jsx` `.tsx` | 错误 UI          |
-| [`global-error`](/docs/nextjs-cn/app/api-reference/file-conventions/error#global-error) | `.js` `.jsx` `.tsx` | 全局错误 UI      |
-| [`route`](/docs/nextjs-cn/app/api-reference/file-conventions/route)                     | `.js` `.ts`         | API 端点         |
-| [`template`](/docs/nextjs-cn/app/api-reference/file-conventions/template)               | `.js` `.jsx` `.tsx` | 重新渲染的布局   |
-| [`default`](/docs/nextjs-cn/app/api-reference/file-conventions/default)                 | `.js` `.jsx` `.tsx` | 并行路由回退页面 |
+|                                                                                    |                     |                  |
+| ---------------------------------------------------------------------------------- | ------------------- | ---------------- |
+| [`layout`](/nextjs-cn/app/api-reference/file-conventions/layout)                   | `.js` `.jsx` `.tsx` | 布局             |
+| [`page`](/nextjs-cn/app/api-reference/file-conventions/page)                       | `.js` `.jsx` `.tsx` | 页面             |
+| [`loading`](/nextjs-cn/app/api-reference/file-conventions/loading)                 | `.js` `.jsx` `.tsx` | 加载 UI          |
+| [`not-found`](/nextjs-cn/app/api-reference/file-conventions/not-found)             | `.js` `.jsx` `.tsx` | 未找到 UI        |
+| [`error`](/nextjs-cn/app/api-reference/file-conventions/error)                     | `.js` `.jsx` `.tsx` | 错误 UI          |
+| [`global-error`](/nextjs-cn/app/api-reference/file-conventions/error#global-error) | `.js` `.jsx` `.tsx` | 全局错误 UI      |
+| [`route`](/nextjs-cn/app/api-reference/file-conventions/route)                     | `.js` `.ts`         | API 端点         |
+| [`template`](/nextjs-cn/app/api-reference/file-conventions/template)               | `.js` `.jsx` `.tsx` | 重新渲染的布局   |
+| [`default`](/nextjs-cn/app/api-reference/file-conventions/default)                 | `.js` `.jsx` `.tsx` | 并行路由回退页面 |
 
 ### 嵌套路由
 
@@ -73,58 +73,58 @@ description: Next.js 中文件夹和文件约定的概述，以及如何组织�
 
 ### 动态路由
 
-|                                                                                                                           |                      |
-| ------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| [`[folder]`](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes#convention)                       | 动态路由段           |
-| [`[...folder]`](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes#catch-all-segments)            | 捕获所有路由段       |
-| [`[[...folder]]`](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes#optional-catch-all-segments) | 可选的捕获所有路由段 |
+|                                                                                                                |                      |
+| -------------------------------------------------------------------------------------------------------------- | -------------------- |
+| [`[folder]`](/nextjs-cn/app/building-your-application/routing/dynamic-routes#convention)                       | 动态路由段           |
+| [`[...folder]`](/nextjs-cn/app/building-your-application/routing/dynamic-routes#catch-all-segments)            | 捕获所有路由段       |
+| [`[[...folder]]`](/nextjs-cn/app/building-your-application/routing/dynamic-routes#optional-catch-all-segments) | 可选的捕获所有路由段 |
 
 ### 路由组和私有文件夹
 
-|                                                                                                   |                                    |
-| ------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| [`(folder)`](/docs/nextjs-cn/app/building-your-application/routing/index/route-groups#convention) | 分组路由而不影响路由               |
-| [`_folder`](#private-folders)                                                                     | 将文件夹及其所有子段排除在路由之外 |
+|                                                                                        |                                    |
+| -------------------------------------------------------------------------------------- | ---------------------------------- |
+| [`(folder)`](/nextjs-cn/app/building-your-application/routing/route-groups#convention) | 分组路由而不影响路由               |
+| [`_folder`](#private-folders)                                                          | 将文件夹及其所有子段排除在路由之外 |
 
 ### 并行和拦截路由
 
-|                                                                                                                |              |
-| -------------------------------------------------------------------------------------------------------------- | ------------ |
-| [`@folder`](/docs/nextjs-cn/app/building-your-application/routing/index/parallel-routes#slots)                 | 命名插槽     |
-| [`(.)folder`](/docs/nextjs-cn/app/building-your-application/routing/index/intercepting-routes#convention)      | 拦截同级     |
-| [`(..)folder`](/docs/nextjs-cn/app/building-your-application/routing/index/intercepting-routes#convention)     | 拦截上一级   |
-| [`(..)(..)folder`](/docs/nextjs-cn/app/building-your-application/routing/index/intercepting-routes#convention) | 拦截上两级   |
-| [`(...)folder`](/docs/nextjs-cn/app/building-your-application/routing/index/intercepting-routes#convention)    | 从根目录拦截 |
+|                                                                                                     |              |
+| --------------------------------------------------------------------------------------------------- | ------------ |
+| [`@folder`](/nextjs-cn/app/building-your-application/routing/parallel-routes#slots)                 | 命名插槽     |
+| [`(.)folder`](/nextjs-cn/app/building-your-application/routing/intercepting-routes#convention)      | 拦截同级     |
+| [`(..)folder`](/nextjs-cn/app/building-your-application/routing/intercepting-routes#convention)     | 拦截上一级   |
+| [`(..)(..)folder`](/nextjs-cn/app/building-your-application/routing/intercepting-routes#convention) | 拦截上两级   |
+| [`(...)folder`](/nextjs-cn/app/building-your-application/routing/intercepting-routes#convention)    | 从根目录拦截 |
 
 ### 元数据文件约定
 
 #### 应用图标
 
-|                                                                                                                           |                                     |                       |
-| ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --------------------- |
-| [`favicon`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#favicon)                                | `.ico`                              | 网站图标文件          |
-| [`icon`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#icon)                                      | `.ico` `.jpg` `.jpeg` `.png` `.svg` | 应用图标文件          |
-| [`icon`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#generate-icons-using-code-js-ts-tsx)       | `.js` `.ts` `.tsx`                  | 生成的应用图标        |
-| [`apple-icon`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#apple-icon)                          | `.jpg` `.jpeg`, `.png`              | Apple 应用图标文件    |
-| [`apple-icon`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#generate-icons-using-code-js-ts-tsx) | `.js` `.ts` `.tsx`                  | 生成的 Apple 应用图标 |
+|                                                                                                                      |                                     |                       |
+| -------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --------------------- |
+| [`favicon`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#favicon)                                | `.ico`                              | 网站图标文件          |
+| [`icon`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#icon)                                      | `.ico` `.jpg` `.jpeg` `.png` `.svg` | 应用图标文件          |
+| [`icon`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#generate-icons-using-code-js-ts-tsx)       | `.js` `.ts` `.tsx`                  | 生成的应用图标        |
+| [`apple-icon`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#apple-icon)                          | `.jpg` `.jpeg`, `.png`              | Apple 应用图标文件    |
+| [`apple-icon`](/nextjs-cn/app/api-reference/file-conventions/metadata/app-icons#generate-icons-using-code-js-ts-tsx) | `.js` `.ts` `.tsx`                  | 生成的 Apple 应用图标 |
 
 #### Open Graph 和 Twitter 图片
 
-|                                                                                                                                       |                              |                        |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ---------------------- |
-| [`opengraph-image`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#opengraph-image)                      | `.jpg` `.jpeg` `.png` `.gif` | Open Graph 图片文件    |
-| [`opengraph-image`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx) | `.js` `.ts` `.tsx`           | 生成的 Open Graph 图片 |
-| [`twitter-image`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#twitter-image)                          | `.jpg` `.jpeg` `.png` `.gif` | Twitter 图片文件       |
-| [`twitter-image`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx)   | `.js` `.ts` `.tsx`           | 生成的 Twitter 图片    |
+|                                                                                                                                  |                              |                        |
+| -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ---------------------- |
+| [`opengraph-image`](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#opengraph-image)                      | `.jpg` `.jpeg` `.png` `.gif` | Open Graph 图片文件    |
+| [`opengraph-image`](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx) | `.js` `.ts` `.tsx`           | 生成的 Open Graph 图片 |
+| [`twitter-image`](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#twitter-image)                          | `.jpg` `.jpeg` `.png` `.gif` | Twitter 图片文件       |
+| [`twitter-image`](/nextjs-cn/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx)   | `.js` `.ts` `.tsx`           | 生成的 Twitter 图片    |
 
 #### SEO
 
-|                                                                                                                        |             |                    |
-| ---------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------ |
-| [`sitemap`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap#sitemap-files-xml)                     | `.xml`      | 站点地图文件       |
-| [`sitemap`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap#generating-a-sitemap-using-code-js-ts) | `.js` `.ts` | 生成的站点地图     |
-| [`robots`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/robots#static-robotstxt)                        | `.txt`      | Robots 文件        |
-| [`robots`](/docs/nextjs-cn/app/api-reference/file-conventions/metadata/robots#generate-a-robots-file)                  | `.js` `.ts` | 生成的 Robots 文件 |
+|                                                                                                                   |             |                    |
+| ----------------------------------------------------------------------------------------------------------------- | ----------- | ------------------ |
+| [`sitemap`](/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap#sitemap-files-xml)                     | `.xml`      | 站点地图文件       |
+| [`sitemap`](/nextjs-cn/app/api-reference/file-conventions/metadata/sitemap#generating-a-sitemap-using-code-js-ts) | `.js` `.ts` | 生成的站点地图     |
+| [`robots`](/nextjs-cn/app/api-reference/file-conventions/metadata/robots#static-robotstxt)                        | `.txt`      | Robots 文件        |
+| [`robots`](/nextjs-cn/app/api-reference/file-conventions/metadata/robots#generate-a-robots-file)                  | `.js` `.ts` | 生成的 Robots 文件 |
 
 </AppOnly>
 
@@ -132,37 +132,37 @@ description: Next.js 中文件夹和文件约定的概述，以及如何组织�
 
 ### 文件约定
 
-|                                                                                                                       |                     |                 |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------- | --------------- |
-| [`_app`](/docs/nextjs-cn/pages/building-your-application/routing/custom-app)                                          | `.js` `.jsx` `.tsx` | 自定义 App      |
-| [`_document`](/docs/nextjs-cn/pages/building-your-application/routing/custom-document)                                | `.js` `.jsx` `.tsx` | 自定义 Document |
-| [`_error`](/docs/nextjs-cn/pages/building-your-application/routing/custom-error#more-advanced-error-page-customizing) | `.js` `.jsx` `.tsx` | 自定义错误页面  |
-| [`404`](/docs/nextjs-cn/pages/building-your-application/routing/custom-error#page)                                    | `.js` `.jsx` `.tsx` | 404 错误页面    |
-| [`500`](/docs/nextjs-cn/pages/building-your-application/routing/custom-error#page)                                    | `.js` `.jsx` `.tsx` | 500 错误页面    |
+|                                                                                                                  |                     |                 |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------- | --------------- |
+| [`_app`](/nextjs-cn/pages/building-your-application/routing/custom-app)                                          | `.js` `.jsx` `.tsx` | 自定义 App      |
+| [`_document`](/nextjs-cn/pages/building-your-application/routing/custom-document)                                | `.js` `.jsx` `.tsx` | 自定义 Document |
+| [`_error`](/nextjs-cn/pages/building-your-application/routing/custom-error#more-advanced-error-page-customizing) | `.js` `.jsx` `.tsx` | 自定义错误页面  |
+| [`404`](/nextjs-cn/pages/building-your-application/routing/custom-error#page)                                    | `.js` `.jsx` `.tsx` | 404 错误页面    |
+| [`500`](/nextjs-cn/pages/building-your-application/routing/custom-error#page)                                    | `.js` `.jsx` `.tsx` | 500 错误页面    |
 
 ### 路由
 
-|                                                                                                          |                     |          |
-| -------------------------------------------------------------------------------------------------------- | ------------------- | -------- |
-| **文件夹约定**                                                                                           |                     |          |
-| [`index`](/docs/nextjs-cn/pages/building-your-application/routing/pages-and-layouts#index-routes)        | `.js` `.jsx` `.tsx` | 主页     |
-| [`folder/index`](/docs/nextjs-cn/pages/building-your-application/routing/pages-and-layouts#index-routes) | `.js` `.jsx` `.tsx` | 嵌套页面 |
-| **文件约定**                                                                                             |                     |          |
-| [`index`](/docs/nextjs-cn/pages/building-your-application/routing/pages-and-layouts#index-routes)        | `.js` `.jsx` `.tsx` | 主页     |
-| [`file`](/docs/nextjs-cn/pages/building-your-application/routing/pages-and-layouts)                      | `.js` `.jsx` `.tsx` | 嵌套页面 |
+|                                                                                                     |                     |          |
+| --------------------------------------------------------------------------------------------------- | ------------------- | -------- |
+| **文件夹约定**                                                                                      |                     |          |
+| [`index`](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts#index-routes)        | `.js` `.jsx` `.tsx` | 主页     |
+| [`folder/index`](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts#index-routes) | `.js` `.jsx` `.tsx` | 嵌套页面 |
+| **文件约定**                                                                                        |                     |          |
+| [`index`](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts#index-routes)        | `.js` `.jsx` `.tsx` | 主页     |
+| [`file`](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts)                      | `.js` `.jsx` `.tsx` | 嵌套页面 |
 
 ### 动态路由
 
-|                                                                                                                             |                     |                      |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------- |
-| **文件夹约定**                                                                                                              |                     |                      |
-| [`[folder]/index`](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes)                                  | `.js` `.jsx` `.tsx` | 动态路由段           |
-| [`[...folder]/index`](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes#catch-all-segments)            | `.js` `.jsx` `.tsx` | 捕获所有路由段       |
-| [`[[...folder]]/index`](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes#optional-catch-all-segments) | `.js` `.jsx` `.tsx` | 可选的捕获所有路由段 |
-| **文件约定**                                                                                                                |                     |                      |
-| [`[file]`](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes)                                          | `.js` `.jsx` `.tsx` | 动态路由段           |
-| [`[...file]`](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes#catch-all-segments)                    | `.js` `.jsx` `.tsx` | 捕获所有路由段       |
-| [`[[...file]]`](/docs/nextjs-cn/pages/building-your-application/routing/dynamic-routes#optional-catch-all-segments)         | `.js` `.jsx` `.tsx` | 可选的捕获所有路由段 |
+|                                                                                                                        |                     |                      |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------- |
+| **文件夹约定**                                                                                                         |                     |                      |
+| [`[folder]/index`](/nextjs-cn/pages/building-your-application/routing/dynamic-routes)                                  | `.js` `.jsx` `.tsx` | 动态路由段           |
+| [`[...folder]/index`](/nextjs-cn/pages/building-your-application/routing/dynamic-routes#catch-all-segments)            | `.js` `.jsx` `.tsx` | 捕获所有路由段       |
+| [`[[...folder]]/index`](/nextjs-cn/pages/building-your-application/routing/dynamic-routes#optional-catch-all-segments) | `.js` `.jsx` `.tsx` | 可选的捕获所有路由段 |
+| **文件约定**                                                                                                           |                     |                      |
+| [`[file]`](/nextjs-cn/pages/building-your-application/routing/dynamic-routes)                                          | `.js` `.jsx` `.tsx` | 动态路由段           |
+| [`[...file]`](/nextjs-cn/pages/building-your-application/routing/dynamic-routes#catch-all-segments)                    | `.js` `.jsx` `.tsx` | 捕获所有路由段       |
+| [`[[...file]]`](/nextjs-cn/pages/building-your-application/routing/dynamic-routes#optional-catch-all-segments)         | `.js` `.jsx` `.tsx` | 可选的捕获所有路由段 |
 
 </PagesOnly>
 
@@ -262,7 +262,7 @@ Since files in the `app` directory can be [safely colocated by default](#colocat
 >
 > - While not a framework convention, you might also consider marking files outside private folders as "private" using the same underscore pattern.
 > - You can create URL segments that start with an underscore by prefixing the folder name with `%5F` (the URL-encoded form of an underscore): `%5FfolderName`.
-> - If you don't use private folders, it would be helpful to know Next.js [special file conventions](/docs/nextjs-cn/app/getting-started/project-structure#routing-files) to prevent unexpected naming conflicts.
+> - If you don't use private folders, it would be helpful to know Next.js [special file conventions](/nextjs-cn/app/getting-started/project-structure#routing-files) to prevent unexpected naming conflicts.
 
 ### Route groups
 
@@ -287,7 +287,7 @@ Route groups are useful for:
 
 ### `src` folder
 
-Next.js supports storing application code (including `app`) inside an optional [`src` folder](/docs/nextjs-cn/app/api-reference/file-conventions/src-folder). This separates application code from project configuration files which mostly live in the root of a project.
+Next.js supports storing application code (including `app`) inside an optional [`src` folder](/nextjs-cn/app/api-reference/file-conventions/src-folder). This separates application code from project configuration files which mostly live in the root of a project.
 
 <Image
   alt="An example folder structure with the `src` folder"
@@ -375,7 +375,7 @@ To opt specific routes into a layout, create a new route group (e.g. `(shop)`) a
 
 ### Opting for loading skeletons on a specific route
 
-To apply a [loading skeleton](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming) via a `loading.js` file to a specific route, create a new route group (e.g., `/(overview)`) and then move your `loading.tsx` inside that route group.
+To apply a [loading skeleton](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming) via a `loading.js` file to a specific route, create a new route group (e.g., `/(overview)`) and then move your `loading.tsx` inside that route group.
 
 <Image
   alt="Folder structure showing a loading.tsx and a page.tsx inside the route group"
@@ -389,7 +389,7 @@ Now, the `loading.tsx` file will only apply to your dashboard → overview page 
 
 ### Creating multiple root layouts
 
-To create multiple [root layouts](/docs/nextjs-cn/app/api-reference/file-conventions/layout#root-layouts), remove the top-level `layout.js` file, and add a `layout.js` file inside each route group. This is useful for partitioning an application into sections that have a completely different UI or experience. The `<html>` and `<body>` tags need to be added to each root layout.
+To create multiple [root layouts](/nextjs-cn/app/api-reference/file-conventions/layout#root-layouts), remove the top-level `layout.js` file, and add a `layout.js` file inside each route group. This is useful for partitioning an application into sections that have a completely different UI or experience. The `<html>` and `<body>` tags need to be added to each root layout.
 
 <Image
   alt="Route Groups with Multiple Root Layouts"

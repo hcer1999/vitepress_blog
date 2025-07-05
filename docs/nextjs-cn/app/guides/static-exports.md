@@ -38,7 +38,7 @@ module.exports = nextConfig
 
 <PagesOnly>
 
-你可以使用 [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) 和 [`getStaticPaths`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths) 为 `pages` 目录中的每个页面（或对于[动态路由](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)生成更多）生成一个 HTML 文件。
+你可以使用 [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) 和 [`getStaticPaths`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths) 为 `pages` 目录中的每个页面（或对于[动态路由](/nextjs-cn/app/building-your-application/routing/dynamic-routes)生成更多）生成一个 HTML 文件。
 
 </PagesOnly>
 
@@ -146,20 +146,20 @@ export default function Page() {
 
 构建静态站点所需的大多数核心 Next.js 功能都受支持，包括：
 
-- [使用 `getStaticPaths` 的动态路由](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)
+- [使用 `getStaticPaths` 的动态路由](/nextjs-cn/app/building-your-application/routing/dynamic-routes)
 - 使用 `next/link` 预取
 - 预加载 JavaScript
-- [动态导入](/docs/nextjs-cn/pages/guides/lazy-loading)
+- [动态导入](/nextjs-cn/pages/guides/lazy-loading)
 - 任何样式选项（例如 CSS Modules、styled-jsx）
-- [客户端数据获取](/docs/nextjs-cn/pages/building-your-application/data-fetching/client-side)
-- [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)
-- [`getStaticPaths`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths)
+- [客户端数据获](/nextjs-cn/pages/building-your-application/data-fetching/client-side)
+- [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)
+- [`getStaticPaths`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths)
 
 </PagesOnly>
 
 ### 图像优化
 
-通过 `next/image` 进行的[图像优化](/docs/nextjs-cn/app/api-reference/components/image)可以通过在 `next.config.js` 中定义自定义图像加载器与静态导出一起使用。例如，你可以使用 Cloudinary 等服务优化图像：
+通过 `next/image` 进行的[图像优化](/nextjs-cn/app/api-reference/components/image)可以通过在 `next.config.js` 中定义自定义图像加载器与静态导出一起使用。例如，你可以使用 Cloudinary 等服务优化图像：
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -265,21 +265,21 @@ export default function ClientComponent() {
 
 <AppOnly>
 
-- 带有 `dynamicParams: true` 的[动态路由](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)
-- 没有 `generateStaticParams()` 的[动态路由](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)
-- 依赖于 Request 的[路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers)
-- [Cookies](/docs/nextjs-cn/app/api-reference/functions/cookies)
-- [重写](/docs/nextjs-cn/app/api-reference/config/next-config-js/rewrites)
-- [重定向](/docs/nextjs-cn/app/api-reference/config/next-config-js/redirects)
-- [头信息](/docs/nextjs-cn/app/api-reference/config/next-config-js/headers)
-- [中间件](/docs/nextjs-cn/app/building-your-application/routing/index/middleware)
-- [增量静态再生成](/docs/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)
-- 使用默认 `loader` 的[图像优化](/docs/nextjs-cn/app/api-reference/components/image)
-- [草稿模式](/docs/nextjs-cn/app/guides/draft-mode)
-- [服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)
-- [拦截路由](/docs/nextjs-cn/app/building-your-application/routing/index/intercepting-routes)
+- 带有 `dynamicParams: true` 的[动态路由](/nextjs-cn/app/building-your-application/routing/dynamic-routes)
+- 没有 `generateStaticParams()` 的[动态路由](/nextjs-cn/app/building-your-application/routing/dynamic-routes)
+- 依赖于 Request 的[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)
+- [Cookies](/nextjs-cn/app/api-reference/functions/cookies)
+- [重写](/nextjs-cn/app/api-reference/config/next-config-js/rewrites)
+- [重定向](/nextjs-cn/app/api-reference/config/next-config-js/redirects)
+- [头信息](/nextjs-cn/app/api-reference/config/next-config-js/headers)
+- [中间件](/nextjs-cn/app/building-your-application/routing/middleware)
+- [增量静态再](/nextjs-cn/app/building-your-application/data-fetching/incremental-static-regeneration)
+- [使用默认] (/nextjs-cn/app/api-reference/components/image)
+- [草稿模式](/nextjs-cn/app/guides/draft-mode)
+- [服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)
+- [拦截路由](/nextjs-cn/app/building-your-application/routing/intercepting-routes)
 
-使用 `next dev` 尝试使用这些功能中的任何一个将导致错误，类似于在根布局中设置 [`dynamic`](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic) 选项为 `error`。
+使用 `next /nextjs-cn/何一个将导致错误，类似于在根布局中设置 [`dynamic`](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic) 选项为 `error`。
 
 ```jsx
 export const dynamic = 'error'
@@ -289,18 +289,18 @@ export const dynamic = 'error'
 
 <PagesOnly>
 
-- [国际化路由](/docs/nextjs-cn/pages/building-your-application/routing/internationalization)
-- [API 路由](/docs/nextjs-cn/pages/building-your-application/routing/api-routes)
-- [重写](/docs/nextjs-cn/pages/api-reference/config/next-config-js/rewrites)
-- [重定向](/docs/nextjs-cn/pages/api-reference/config/next-config-js/redirects)
-- [头信息](/docs/nextjs-cn/pages/api-reference/config/next-config-js/headers)
-- [中间件](/docs/nextjs-cn/pages/building-your-application/routing/middleware)
-- [增量静态再生成](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration)
-- 使用默认 `loader` 的[图像优化](/docs/nextjs-cn/pages/api-reference/components/image)
-- [草稿模式](/docs/nextjs-cn/pages/guides/configuring/draft-mode)
-- [带有 `fallback: true` 的 `getStaticPaths`](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true)
-- [带有 `fallback: 'blocking'` 的 `getStaticPaths`](/docs/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-blocking)
-- [`getServerSideProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props)
+- [国际化路由](/nextjs-cn/pages/building-your-application/routing/internationalization)
+- [API 路由](/nextjs-cn/pages/building-your-application/routing/api-routes)
+- [重写](/nextjs-cn/pages/api-reference/config/next-config-js/rewrites)
+- [重定向](/nextjs-cn/pages/api-reference/config/next-config-js/redirects)
+- [头信息](/nextjs-cn/pages/api-reference/config/next-config-js/headers)
+- [中间件](/nextjs-cn/pages/building-your-application/routing/middleware)
+- [增量静态再](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration)
+- [使用默认] (`/nextjs-cn/pages/api-reference/components/image)
+- [草稿模式]()
+- - [带有 `fallback: true` 的 `getStaticPaths`](/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true)
+- [带有 `fa/nextjs-cn/g'` 的 `getStaticPaths`](/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-blocking)
+- [`getServerSideProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props)
 
 </PagesOnly>
 

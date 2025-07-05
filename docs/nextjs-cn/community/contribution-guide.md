@@ -69,7 +69,7 @@ VSCode 有一个内置的 markdown 预览器，您可以用它来在本地查看
 
 文件结构反映了您在网站上看到的导航，默认情况下，导航项按字母顺序排序。但是，我们可以通过在文件夹或文件名前加上两位数字（``）来更改项目的顺序。
 
-例如，在[函数 API 参考](/docs/nextjs-cn/app/api-reference/functions)中，页面按字母顺序排序，因为这使开发者更容易找到特定函数：
+例如，在[函数 API 参考](/nextjs-cn/app/api-reference/functions/index)中，页面按字母顺序排序，因为这使开发者更容易找到特定函数：
 
 ```txt
 functions
@@ -79,7 +79,7 @@ functions
 └── ...
 ```
 
-但是，在[路由部分](/docs/nextjs-cn/app/building-your-application/routing/index)中，文件以两位数字为前缀，按照开发者应该学习这些概念的顺序排序：
+但是，在[路由部分](/nextjs-cn/app/building-your-application/routing/index)中，文件以两位数字为前缀，按照开发者应该学习这些概念的顺序排序：
 
 ```txt
 routing

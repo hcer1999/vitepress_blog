@@ -8,9 +8,9 @@ Forms enable you to create and update data in web applications. Next.js provides
 
 > **Good to know:**
 >
-> - We will soon recommend [incrementally adopting](/docs/nextjs-cn/app/guides/migrating/app-router-migration) the App Router and using [Server Actions](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) for handling form submissions and data mutations. Server Actions allow you to define asynchronous server functions that can be called directly from your components, without needing to manually create an API Route.
+> - We will soon recommend [incrementally adopting](/nextjs-cn/app/guides/migrating/app-router-migration) the App Router and using [Server Actions](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations) for handling form submissions and data mutations. Server Actions allow you to define asynchronous server functions that can be called directly from your components, without needing to manually create an API Route.
 > - API Routes [do not specify CORS headers](https://developer.mozilla.org/docs/Web/HTTP/CORS), meaning they are same-origin only by default.
-> - Since API Routes run on the server, we're able to use sensitive values (like API keys) through [Environment Variables](/docs/nextjs-cn/pages/guides/configuring/environment-variables) without exposing them to the client. This is critical for the security of your application.
+> - Since API Routes run on the server, we're able to use sensitive values (like API keys) through [Environment Variables]() without exposing them to the client. This is critical for the security of your application.
 
 ## Examples
 
@@ -311,7 +311,7 @@ export default function Page() {
 
 ### Redirecting
 
-If you would like to redirect the user to a different route after a mutation, you can [`redirect`](/docs/nextjs-cn/pages/building-your-application/routing/api-routes#response-helpers) to any absolute or relative URL:
+If you would like to redirect the user to a different route after a mutation, you can [`redirect`](/nextjs-cn/pages/building-your-application/routing/api-routes#response-helpers) to any absolute or relative URL:
 
 ```ts switcher
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -351,7 +351,7 @@ export default async function handler(req, res) {
 
 ### Reading cookies
 
-You can read cookies inside an API Route using the [`cookies`](/docs/nextjs-cn/pages/building-your-application/routing/api-routes#request-helpers) request helper:
+You can read cookies inside an API Route using the [`cookies`](/nextjs-cn/pages/building-your-application/routing/api-routes#request-helpers) request helper:
 
 ```ts switcher
 import type { NextApiRequest, NextApiResponse } from 'next'

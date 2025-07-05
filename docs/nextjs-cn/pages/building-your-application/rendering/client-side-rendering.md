@@ -16,7 +16,7 @@ After the page has been loaded for the first time, navigating to other pages on 
 
 In Next.js, there are two ways you can implement client-side rendering:
 
-1. Using React's `useEffect()` hook inside your pages instead of the server-side rendering methods ([`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) and [`getServerSideProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props)).
+1. Using React's `useEffect()` hook inside your pages instead of the server-side rendering methods ([`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) and [`getServerSideProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props)).
 2. Using a data fetching library like [SWR](https://swr.vercel.app/) or [TanStack Query](https://tanstack.com/query/latest/) to fetch data on the client (recommended).
 
 Here's an example of using `useEffect()` inside a Next.js page:
@@ -66,4 +66,4 @@ export function Page() {
 
 > **Good to know**:
 >
-> Keep in mind that CSR can impact SEO. Some search engine crawlers might not execute JavaScript and therefore only see the initial empty or loading state of your application. It can also lead to performance issues for users with slower internet connections or devices, as they need to wait for all the JavaScript to load and run before they can see the full page. Next.js promotes a hybrid approach that allows you to use a combination of [server-side rendering](/docs/nextjs-cn/pages/building-your-application/rendering/server-side-rendering), [static site generation](/docs/nextjs-cn/pages/building-your-application/rendering/static-site-generation), and client-side rendering, **depending on the needs of each page** in your application. In the App Router, you can also use [Loading UI with Suspense](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming) to show a loading indicator while the page is being rendered.
+> Keep in mind that CSR can impact SEO. Some search engine crawlers might not execute JavaScript and therefore only see the initial empty or loading state of your application. It can also lead to performance issues for users with slower internet connections or devices, as they need to wait for all the JavaScript to load and run before they can see the full page. Next.js promotes a hybrid approach that allows you to use a combination of [server-side rendering](/nextjs-cn/pages/building-your-application/rendering/server-side-rendering), [static site generation](/nextjs-cn/pages/building-your-application/rendering/static-site-generation), and client-side rendering, **depending on the needs of each page** in your application. In the App Router, you can also use [Loading UI with Suspense](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming) to show a loading indicator while the page is being rendered.

@@ -16,7 +16,7 @@ related:
 
 ## 处理预期错误
 
-预期错误是那些可能在应用程序正常运行期间发生的错误，例如来自[服务器端表单验证](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-form-validation)或请求失败的错误。这些错误应该被明确处理并返回给客户端。
+预期错误是那些可能在应用程序正常运行期间发生的错误，例如来自[服务器端表单验证](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-form-validation)或请求失败的错误。这些错误应该被明确处理并返回给客户端。
 
 ### 服务器函数
 
@@ -118,7 +118,7 @@ export function Form() {
 
 ### 服务器组件
 
-在服务器组件内部获取数据时，你可以使用响应来有条件地渲染错误消息或[`重定向`](/docs/nextjs-cn/app/api-reference/functions/redirect)。
+在服务器组件内部获取数据时，你可以使用响应来有条件地渲染错误消息或[`重定向`](/nextjs-cn/app/api-reference/functions/redirect)。
 
 ```tsx switcher
 export default async function Page() {
@@ -148,7 +148,7 @@ export default async function Page() {
 
 ### 未找到
 
-你可以在路由段内调用 [`notFound`](/docs/nextjs-cn/app/api-reference/functions/not-found) 函数，并使用 [`not-found.js`](/docs/nextjs-cn/app/api-reference/file-conventions/not-found) 文件来显示 404 UI。
+你可以在路由段内调用 [`notFound`](/nextjs-cn/app/api-reference/functions/not-found) 函数，并使用 [`not-found.js`](/nextjs-cn/app/api-reference/file-conventions/not-found) 文件来显示 404 UI。
 
 ```tsx switcher
 import { getPostBySlug } from '@/lib/posts'
@@ -200,7 +200,7 @@ export default function NotFound() {
 
 Next.js 使用错误边界来处理未捕获的异常。错误边界会捕获其子组件中的错误，并显示一个回退 UI，而不是显示崩溃的组件树。
 
-通过在路由段内添加 [`error.js`](/docs/nextjs-cn/app/api-reference/file-conventions/error) 文件并导出一个 React 组件来创建错误边界：
+通过在路由段内添加 [`error.js`](/nextjs-cn/app/api-reference/file-conventions/error) 文件并导出一个 React 组件来创建错误边界：
 
 ```tsx switcher
 'use client' // 错误边界必须是客户端组件
@@ -255,7 +255,7 @@ export default function Error({ error, reset }) {
 }
 ```
 
-错误将冒泡到最近的父级错误边界。这允许通过在[路由层次结构](/docs/nextjs-cn/app/getting-started/project-structure#component-hierarchy)的不同级别放置 `error.tsx` 文件来进行细粒度的错误处理。
+错误将冒泡到最近的父级错误边界。这允许通过在[路由层次结构](/nextjs-cn/app/getting-started/project-structure#component-hierarchy)的不同级别放置 `error.tsx` 文件来进行细粒度的错误处理。
 
 <Image
   alt="嵌套错误组件层次结构"
@@ -267,7 +267,7 @@ export default function Error({ error, reset }) {
 
 ### 全局错误
 
-虽然不太常见，但你可以使用位于根 app 目录中的 [`global-error.js`](/docs/nextjs-cn/app/api-reference/file-conventions/error#global-error) 文件来处理根布局中的错误，即使在使用[国际化](/docs/nextjs-cn/app/building-your-application/routing/index/internationalization)时也是如此。全局错误 UI 必须定义自己的 `<html>` 和 `<body>` 标签，因为它在激活时会替换根布局或模板。
+虽然不太常见，但你可以使用位于根 app 目录中的 [`global-error.js`](/nextjs-cn/app/api-reference/file-conventions/error#global-error) 文件来处理根布局中的错误，即使在使用[国际化](/nextjs-cn/app/building-your-application/routing/internationalization)时也是如此。全局错误 UI 必须定义自己的 `<html>` 和 `<body>` 标签，因为它在激活时会替换根布局或模板。
 
 ```tsx switcher
 'use client' // 错误边界必须是客户端组件

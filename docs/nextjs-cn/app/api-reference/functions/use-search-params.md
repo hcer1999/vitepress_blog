@@ -71,18 +71,18 @@ const searchParams = useSearchParams()
 
 > **须知**：
 >
-> - `useSearchParams` 是一个[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)钩子，在[服务器组件](/docs/nextjs-cn/app/building-your-application/rendering/server-components)中**不支持**，以防止在[部分渲染](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#partial-rendering)期间出现过时的值。
+> - `useSearchParams` 是一个[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)钩子，在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)中**不支持**，以防止在[部分渲染](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#partial-rendering)期间出现过时的值。
 > - 如果应用程序包含 `/pages` 目录，`useSearchParams` 将返回 `ReadonlyURLSearchParams | null`。对于不使用 `getServerSideProps` 的页面，在预渲染期间无法知道搜索参数，因此 `null` 值用于在迁移期间兼容。
 
 ## 行为
 
 ### 静态渲染
 
-如果路由是[静态渲染](/docs/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)的，调用 `useSearchParams` 将导致客户端组件树直到最近的 [`Suspense` 边界](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming#example)进行客户端渲染。
+如果路由是[静态渲染](/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)的，调用 `useSearchParams` 将导致客户端组件树直到最近的 [`Suspense` 边界](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#example)进行客户端渲染。
 
 这允许路由的一部分静态渲染，而使用 `useSearchParams` 的动态部分在客户端渲染。
 
-我们建议将使用 `useSearchParams` 的客户端组件包装在 `<Suspense/>` 边界中。这将允许其上方的任何客户端组件静态渲染并作为初始 HTML 的一部分发送。[示例](/docs/nextjs-cn/app/api-reference/functions/use-search-params#static-rendering)。
+我们建议将使用 `useSearchParams` 的客户端组件包装在 `<Suspense/>` 边界中。这将允许其上方的任何客户端组件静态渲染并作为初始 HTML 的一部分发送。[示例](/nextjs-cn/app/api-reference/functions/use-search-params#static-rendering)。
 
 例如：
 
@@ -174,7 +174,7 @@ export default function Page() {
 
 ### 动态渲染
 
-如果路由是[动态渲染](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)的，在客户端组件的初始服务器渲染期间，`useSearchParams` 将在服务器上可用。
+如果路由是[动态渲染](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)的，在客户端组件的初始服务器渲染期间，`useSearchParams` 将在服务器上可用。
 
 例如：
 
@@ -248,25 +248,25 @@ export default function Page() {
 }
 ```
 
-> **须知**：设置 [`dynamic` 路由段配置选项](/docs/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic) 为 `force-dynamic` 可用于强制动态渲染。
+> **须知**：设置 [`dynamic` 路由段配置选项](/nextjs-cn/app/api-reference/file-conventions/route-segment-config#dynamic) 为 `force-dynamic` 可用于强制动态渲染。
 
 ### 服务器组件
 
 #### 页面
 
-要在[页面](/docs/nextjs-cn/app/api-reference/file-conventions/page)（服务器组件）中访问搜索参数，请使用 [`searchParams`](/docs/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional) 属性。
+要在[页面](/nextjs-cn/app/api-reference/file-conventions/page)（服务器组件）中访问搜索参数，请使用 [`searchParams`](/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional) 属性。
 
 #### 布局
 
-与页面不同，[布局](/docs/nextjs-cn/app/api-reference/file-conventions/layout)（服务器组件）**不**接收 `searchParams` 属性。这是因为共享布局在[导航期间不会重新渲染](/docs/nextjs-cn/app/building-your-application/routing/index/linking-and-navigating#partial-rendering)，这可能导致导航之间的 `searchParams` 过时。查看[详细解释](/docs/nextjs-cn/app/api-reference/file-conventions/layout#layouts-do-not-receive-searchparams)。
+与页面不同，[布局](/nextjs-cn/app/api-reference/file-conventions/layout)（服务器组件）**不**接收 `searchParams` 属性。这是因为共享布局在[导航期间不会重新渲染](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#partial-rendering)，这可能导致导航之间的 `searchParams` 过时。查看[详细解释](/nextjs-cn/app/api-reference/file-conventions/layout#layouts-do-not-receive-searchparams)。
 
-相反，使用页面 [`searchParams`](/docs/nextjs-cn/app/api-reference/file-conventions/page) 属性或客户端组件中的 [`useSearchParams`](/docs/nextjs-cn/app/api-reference/functions/use-search-params) 钩子，它会在客户端上使用最新的 `searchParams` 重新渲染。
+相反，使用页面 [`searchParams`](/nextjs-cn/app/api-reference/file-conventions/page) 属性或客户端组件中的 [`useSearchParams`](/nextjs-cn/app/api-reference/functions/use-search-params) 钩子，它会在客户端上使用最新的 `searchParams` 重新渲染。
 
 ## 示例
 
 ### 更新 `searchParams`
 
-你可以使用 [`useRouter`](/docs/nextjs-cn/app/api-reference/functions/use-router) 或 [`Link`](/docs/nextjs-cn/app/api-reference/components/link) 来设置新的 `searchParams`。执行导航后，当前的 [`page.js`](/docs/nextjs-cn/app/api-reference/file-conventions/page) 将接收更新后的 [`searchParams` 属性](/docs/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional)。
+你可以使用 [`useRouter`](/nextjs-cn/app/api-reference/functions/use-router) 或 [`Link`](/nextjs-cn/app/api-reference/components/link) 来设置新的 `searchParams`。执行导航后，当前的 [`page.js`](/nextjs-cn/app/api-reference/file-conventions/page) 将接收更新后的 [`searchParams` 属性](/nextjs-cn/app/api-reference/file-conventions/page#searchparams-optional)。
 
 ```tsx switcher
 'use client'

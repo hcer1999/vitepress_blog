@@ -257,7 +257,7 @@ module.exports = {
 
 ### 模块化导入
 
-此选项已被 Next.js 13.5 中的 [`optimizePackageImports`](/docs/nextjs-cn/app/api-reference/config/next-config-js/optimizePackageImports) 取代。我们建议升级以使用不需要手动配置导入路径的新选项。
+此选项已被 Next.js 13.5 中的 [`optimizePackageImports`](/nextjs-cn/app/api-reference/config/next-config-js/optimizePackageImports) 取代。我们建议升级以使用不需要手动配置导入路径的新选项。
 
 ### Define（在构建期间替换变量）
 

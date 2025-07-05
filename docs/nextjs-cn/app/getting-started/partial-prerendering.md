@@ -62,7 +62,7 @@ export default function Page() {
 
 ## 启用部分预渲染
 
-你可以通过在 `next.config.ts` 文件中添加 [`ppr`](https://rc.nextjs.org/docs/nextjs-cn/app/api-reference/next-config-js/ppr) 选项来启用 PPR：
+你可以通过在 `next.config.ts` 文件中添加 [`ppr`](https://rc.nextjs.org/nextjs-cn/app/api-reference/next-config-js/ppr) 选项来启用 PPR：
 
 ```ts highlight={5} switcher
 import type { NextConfig } from 'next'

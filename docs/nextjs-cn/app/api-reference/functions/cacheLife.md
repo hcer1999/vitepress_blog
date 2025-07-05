@@ -12,11 +12,11 @@ related:
     - app/api-reference/functions/cacheTag
 ---
 
-`cacheLife` 函数用于设置函数或组件的缓存生命周期。它应该与 [`use cache`](/docs/nextjs-cn/app/api-reference/directives/use-cache) 指令一起使用，并在函数或组件的作用域内使用。
+`cacheLife` 函数用于设置函数或组件的缓存生命周期。它应该与 [`use cache`](/nextjs-cn/app/api-reference/directives/use-cache) 指令一起使用，并在函数或组件的作用域内使用。
 
 ## 用法
 
-要使用 `cacheLife`，请在 `next.config.js` 文件中启用 [`dynamicIO` 标志](/docs/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)：
+要使用 `cacheLife`，请在 `next.config.js` 文件中启用 [`dynamicIO` 标志](/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO)：
 
 ```ts switcher
 import type { NextConfig } from 'next'
@@ -82,11 +82,11 @@ Next.js 提供了一组基于各种时间尺度建模的命名缓存配置文件
 
 用于引用缓存配置文件的字符串值本身没有固有含义；它们只是作为语义标签。这使你能够更好地理解和管理代码库中的缓存内容。
 
-> **须知：** 更新 [`staleTimes`](/docs/nextjs-cn/app/api-reference/config/next-config-js/staleTimes) 和 [`expireTime`](/docs/nextjs-cn/app/api-reference/config/next-config-js/expireTime) 配置选项也会更新 `default` 缓存配置文件的 `stale` 和 `expire` 属性。
+> **须知：** 更新 [`staleTimes`](/nextjs-cn/app/api-reference/config/next-config-js/staleTimes) 和 [`expireTime`](/nextjs-cn/app/api-reference/config/next-config-js/expireTime) 配置选项也会更新 `default` 缓存配置文件的 `stale` 和 `expire` 属性。
 
 ### 自定义缓存配置文件
 
-你可以通过在 `next.config.ts` 文件中的 [`cacheLife`](/docs/nextjs-cn/app/api-reference/config/next-config-js/cacheLife) 选项中添加自定义缓存配置文件。
+你可以通过在 `next.config.ts` 文件中的 [`cacheLife`](/nextjs-cn/app/api-reference/config/next-config-js/cacheLife) 选项中添加自定义缓存配置文件。
 
 缓存配置文件是包含以下属性的对象：
 
@@ -96,7 +96,7 @@ Next.js 提供了一组基于各种时间尺度建模的命名缓存配置文件
 | `revalidate` | `number` | 缓存应该在服务器上刷新的频率；在重新验证时可能会提供过时的值。                | 可选                         |
 | `expire`     | `number` | 一个值可以保持过时的最长持续时间，之后切换到动态获取；必须长于 `revalidate`。 | 可选 - 必须长于 `revalidate` |
 
-"stale" 属性与 [`staleTimes`](/docs/nextjs-cn/app/api-reference/config/next-config-js/staleTimes) 设置不同，它专门控制客户端路由器缓存。虽然 `staleTimes` 是影响动态和静态数据所有实例的全局设置，但 `cacheLife` 配置允许你在每个函数或每个路由的基础上定义 "stale" 时间。
+"stale" 属性与 [`staleTimes`](/nextjs-cn/app/api-reference/config/next-config-js/staleTimes) 设置不同，它专门控制客户端路由器缓存。虽然 `staleTimes` 是影响动态和静态数据所有实例的全局设置，但 `cacheLife` 配置允许你在每个函数或每个路由的基础上定义 "stale" 时间。
 
 > **须知**："stale" 属性不设置 `Cache-control: max-age` 头。它控制的是客户端路由器缓存。
 

@@ -3,9 +3,9 @@ title: 路由段配置
 description: 了解如何配置 Next.js 路由段的选项。
 ---
 
-> 如果启用了 [`dynamicIO`](/docs/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO) 标志，本页概述的选项将被禁用，并且将来最终会被弃用。
+> 如果启用了 [`dynamicIO`](/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO) 标志，本页概述的选项将被禁用，并且将来最终会被弃用。
 
-路由段选项允许你通过直接导出以下变量来配置 [页面](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates)、[布局](/docs/nextjs-cn/app/building-your-application/routing/index/layouts-and-templates) 或 [路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) 的行为：
+路由段选项允许你通过直接导出以下变量来配置 [页面](/nextjs-cn/app/building-your-application/routing/layouts-and-templates)、[布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates) 或 [路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers) 的行为：
 
 | 选项                                    | 类型                                                                                                                      | 默认值         |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------- |
@@ -22,7 +22,7 @@ description: 了解如何配置 Next.js 路由段的选项。
 
 ### `experimental_ppr`
 
-为布局或页面启用[部分预渲染 (PPR)](/docs/nextjs-cn/app/getting-started/partial-prerendering)。
+为布局或页面启用[部分预渲染 (PPR)](/nextjs-cn/app/getting-started/partial-prerendering)。
 
 ```tsx switcher
 export const experimental_ppr = true
@@ -51,25 +51,25 @@ export const dynamic = 'auto'
 > **须知**：`app` 目录中的新模型倾向于在 `fetch` 请求级别上进行细粒度缓存控制，而不是 `pages` 目录中页面级别的 `getServerSideProps` 和 `getStaticProps` 全有或全无模型。`dynamic` 选项是一种回归到之前模型的方式，提供了更简单的迁移路径。
 
 - **`'auto'`** (默认值)：默认选项，尽可能多地缓存，同时不阻止组件选择动态行为。
-- **`'force-dynamic'`**：强制[动态渲染](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)，这将导致路由在请求时为每个用户渲染。此选项相当于：
+- **`'force-dynamic'`**：强制[动态渲染](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)，这将导致路由在请求时为每个用户渲染。此选项相当于：
 
   - 将布局或页面中每个 `fetch()` 请求的选项设置为 `{ cache: 'no-store', next: { revalidate: 0 } }`。
   - 将段配置设置为 `export const fetchCache = 'force-no-store'`
 
-- **`'error'`**：通过在组件使用[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-apis)或未缓存数据时引发错误，强制静态渲染并缓存布局或页面的数据。此选项相当于：
+- **`'error'`**：通过在组件使用[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-apis)或未缓存数据时引发错误，强制静态渲染并缓存布局或页面的数据。此选项相当于：
   - `pages` 目录中的 `getStaticProps()`。
   - 将布局或页面中每个 `fetch()` 请求的选项设置为 `{ cache: 'force-cache' }`。
   - 将段配置设置为 `fetchCache = 'only-cache', dynamicParams = false`。
   - `dynamic = 'error'` 将 `dynamicParams` 的默认值从 `true` 更改为 `false`。你可以通过手动设置 `dynamicParams = true` 来选择为未由 `generateStaticParams` 生成的动态参数动态渲染页面。
-- **`'force-static'`**：通过强制 [`cookies`](/docs/nextjs-cn/app/api-reference/functions/cookies)、[`headers()`](/docs/nextjs-cn/app/api-reference/functions/headers) 和 [`useSearchParams()`](/docs/nextjs-cn/app/api-reference/functions/use-search-params) 返回空值，强制静态渲染并缓存布局或页面的数据。
+- **`'force-static'`**：通过强制 [`cookies`](/nextjs-cn/app/api-reference/functions/cookies)、[`headers()`](/nextjs-cn/app/api-reference/functions/headers) 和 [`useSearchParams()`](/nextjs-cn/app/api-reference/functions/use-search-params) 返回空值，强制静态渲染并缓存布局或页面的数据。
 
 > **须知**：
 >
-> - 关于[如何迁移](/docs/nextjs-cn/app/guides/migrating/app-router-migration#step-migrating-data-fetching-methods)从 `getServerSideProps` 和 `getStaticProps` 到 `dynamic: 'force-dynamic'` 和 `dynamic: 'error'` 的说明可以在[升级指南](/docs/nextjs-cn/app/guides/migrating/app-router-migration#step-migrating-data-fetching-methods)中找到。
+> - 关于[如何迁移](/nextjs-cn/app/guides/migrating/app-router-migration#step-migrating-data-fetching-methods)从 `getServerSideProps` 和 `getStaticProps` 到 `dynamic: 'force-dynamic'` 和 `dynamic: 'error'` 的说明可以在[升级指南](/nextjs-cn/app/guides/migrating/app-router-migration#step-migrating-data-fetching-methods)中找到。
 
 ### `dynamicParams`
 
-控制访问未使用 [generateStaticParams](/docs/nextjs-cn/app/api-reference/functions/generate-static-params) 生成的动态段时会发生什么。
+控制访问未使用 [generateStaticParams](/nextjs-cn/app/api-reference/functions/generate-static-params) 生成的动态段时会发生什么。
 
 ```tsx switcher
 export const dynamicParams = true // true | false,
@@ -86,7 +86,7 @@ export const dynamicParams = true // true | false,
 >
 > - 此选项替代了 `pages` 目录中 `getStaticPaths` 的 `fallback: true | false | blocking` 选项。
 > - 要在首次访问时静态渲染所有路径，你需要在 `generateStaticParams` 中返回一个空数组或使用 `export const dynamic = 'force-static'`。
-> - 当 `dynamicParams = true` 时，该段使用[流式服务器渲染](/docs/nextjs-cn/app/building-your-application/routing/index/loading-ui-and-streaming#streaming-with-suspense)。
+> - 当 `dynamicParams = true` 时，该段使用[流式服务器渲染](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)。
 > - 如果使用 `dynamic = 'error'` 和 `dynamic = 'force-static'`，它将把 `dynamicParams` 的默认值更改为 `false`。
 
 ### `revalidate`
@@ -103,8 +103,8 @@ export const revalidate = false
 // false | 0 | number
 ```
 
-- **`false`** (默认值)：默认缓存将 `cache` 选项设置为 `'force-cache'` 的任何 `fetch` 请求，或在使用[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)之前发现的请求。语义上等同于 `revalidate: Infinity`，这实际上意味着资源应该无限期缓存。单个 `fetch` 请求仍可使用 `cache: 'no-store'` 或 `revalidate: 0` 来避免被缓存并使路由动态渲染。或者将 `revalidate` 设置为低于路由默认值的正数，以增加路由的重新验证频率。
-- **`0`**：确保布局或页面始终[动态渲染](/docs/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)，即使没有发现动态 API 或未缓存的数据获取。此选项将不设置 `cache` 选项的 `fetch` 请求的默认值更改为 `'no-store'`，但保留选择使用 `'force-cache'` 或使用正值 `revalidate` 的 `fetch` 请求。
+- **`false`** (默认值)：默认缓存将 `cache` 选项设置为 `'force-cache'` 的任何 `fetch` 请求，或在使用[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)之前发现的请求。语义上等同于 `revalidate: Infinity`，这实际上意味着资源应该无限期缓存。单个 `fetch` 请求仍可使用 `cache: 'no-store'` 或 `revalidate: 0` 来避免被缓存并使路由动态渲染。或者将 `revalidate` 设置为低于路由默认值的正数，以增加路由的重新验证频率。
+- **`0`**：确保布局或页面始终[动态渲染](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering)，即使没有发现动态 API 或未缓存的数据获取。此选项将不设置 `cache` 选项的 `fetch` 请求的默认值更改为 `'no-store'`，但保留选择使用 `'force-cache'` 或使用正值 `revalidate` 的 `fetch` 请求。
 - **`number`**：(以秒为单位) 将布局或页面的默认重新验证频率设置为 `n` 秒。
 
 > **须知**：
@@ -123,7 +123,7 @@ export const revalidate = false
 <details>
   <summary>这是一个高级选项，仅当你特别需要覆盖默认行为时才应使用。</summary>
 
-默认情况下，Next.js **将缓存**在使用任何[动态 API](/docs/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)**之前**可访问的任何 `fetch()` 请求，并且**不会缓存**在使用动态 API**之后**发现的 `fetch` 请求。
+默认情况下，Next.js **将缓存**在使用任何[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#server-rendering-strategies#dynamic-apis)**之前**可访问的任何 `fetch()` 请求，并且**不会缓存**在使用动态 API**之后**发现的 `fetch` 请求。
 
 `fetchCache` 允许你覆盖布局或页面中所有 `fetch` 请求的默认 `cache` 选项。
 
@@ -212,16 +212,16 @@ export const maxDuration = 5
 
 > **须知**：
 >
-> - 如果使用[服务器操作](/docs/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)，请在页面级别设置 `maxDuration` 以更改页面上使用的所有服务器操作的默认超时。
+> - 如果使用[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)，请在页面级别设置 `maxDuration` 以更改页面上使用的所有服务器操作的默认超时。
 
 ### `generateStaticParams`
 
-`generateStaticParams` 函数可以与[动态路由段](/docs/nextjs-cn/app/building-your-application/routing/index/dynamic-routes)结合使用，以定义将在构建时静态生成而不是在请求时按需生成的路由段参数列表。
+`generateStaticParams` 函数可以与[动态路由段](/nextjs-cn/app/building-your-application/routing/dynamic-routes)结合使用，以定义将在构建时静态生成而不是在请求时按需生成的路由段参数列表。
 
-有关更多详细信息，请参阅 [API 参考](/docs/nextjs-cn/app/api-reference/functions/generate-static-params)。
+有关更多详细信息，请参阅 [API 参考](/nextjs-cn/app/api-reference/functions/generate-static-params)。
 
 ## 版本历史
 
-| 版本       |                                                                                                                                                                                                                   |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `v15.0.RC` | `export const runtime = "experimental-edge"` 已弃用。提供了[代码修改工具](/docs/nextjs-cn/app/guides/upgrading/codemods#transform-app-router-route-segment-config-runtime-value-from-experimental-edge-to-edge)。 |
+| 版本       |                                                                                                                                                                                                              |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `v15.0.RC` | `export const runtime = "experimental-edge"` 已弃用。提供了[代码修改工具](/nextjs-cn/app/guides/upgrading/codemods#transform-app-router-route-segment-config-runtime-value-from-experimental-edge-to-edge)。 |

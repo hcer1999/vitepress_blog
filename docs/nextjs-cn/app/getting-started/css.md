@@ -16,9 +16,9 @@ Next.js 提供了几种在应用程序中使用 CSS 的方式，包括：
 - [CSS Modules](#css-modules)
 - [全局 CSS](#global-css)
 - [外部样式表](#external-stylesheets)
-- [Tailwind CSS](/docs/nextjs-cn/app/guides/tailwind-css)
-- [Sass](/docs/nextjs-cn/app/guides/styling/sass)
-- [CSS-in-JS](/docs/nextjs-cn/app/guides/css-in-js)
+- [Tailwind CSS](/nextjs-cn/app/guides/tailwind-css)
+- [Sass]()
+- [CSS-in-JS](/nextjs-cn/app/guides/css-in-js)
 
 ## CSS Modules
 
@@ -138,7 +138,7 @@ export default function MyApp({ Component, pageProps }) {
 }
 ```
 
-由于样式表的全局性质，以及为了避免冲突，你应该在 [`pages/_app.js`](/docs/nextjs-cn/pages/building-your-application/routing/custom-app) 中导入它们。
+由于样式表的全局性质，以及为了避免冲突，你应该在 [`pages/_app.js`](/nextjs-cn/pages/building-your-application/routing/custom-app) 中导入它们。
 
 </PagesOnly>
 
@@ -357,11 +357,11 @@ export function BaseButton() {
 - 为你的 CSS 模块使用一致的命名约定。例如，使用 `<name>.module.css` 而不是 `<name>.tsx`
 - 将共享样式提取到共享组件中，以避免重复导入
 - 关闭自动排序导入的 linter 或格式化工具，如 ESLint 的 [`sort-imports`](https://eslint.org/docs/latest/rules/sort-imports)
-- 你可以使用 `next.config.js` 中的 [`cssChunking`](/docs/nextjs-cn/app/api-reference/config/next-config-js/cssChunking) 选项来控制 CSS 如何分块
+- 你可以使用 `next.config.js` 中的 [`cssChunking`](/nextjs-cn/app/api-reference/config/next-config-js/cssChunking) 选项来控制 CSS 如何分块
 
 ## 开发环境与生产环境
 
-- 在开发环境（`next dev`）中，CSS 更新会通过 [Fast Refresh](/docs/nextjs-cn/architecture/fast-refresh) 立即应用
+- 在开发环境（`next dev`）中，CSS 更新会通过 [Fast Refresh](/nextjs-cn/architecture/fast-refresh) 立即应用
 - 在生产环境（`next build`）中，所有 CSS 文件会自动连接成**多个经过压缩和代码分割**的 `.css` 文件，确保为每个路由加载最少量的 CSS
 - 在生产环境中，即使禁用 JavaScript，CSS 仍然会加载，但在开发环境中需要 JavaScript 来支持 Fast Refresh
 - CSS 顺序在开发环境中的行为可能不同，始终要检查构建（`next build`）以验证最终的 CSS 顺序

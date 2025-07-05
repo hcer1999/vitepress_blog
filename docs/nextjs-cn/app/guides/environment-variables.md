@@ -23,9 +23,9 @@ DB_PASS=mypassword
 
 <PagesOnly>
 
-这会自动将 `process.env.DB_HOST`、`process.env.DB_USER` 和 `process.env.DB_PASS` 加载到 Node.js 环境中，让你可以在 [Next.js 数据获取方法](/docs/nextjs-cn/pages/building-your-application/data-fetching) 和 [API 路由](/docs/nextjs-cn/pages/building-your-application/routing/api-routes) 中使用它们。
+这会自动将 `process.env.DB_HOST`、`process.env.DB_USER` 和 `process.env.DB_PASS` 加载到 Node.js 环境中，让你可以在 [Next.js 数据获取方法](/nextjs-cn/pages/building-your-application/data-fetching/index) 和 [API 路由](/nextjs-cn/pages/building-your-application/routing/api-routes) 中使用它们。
 
-例如，使用 [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)：
+例如，使用 [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props)：
 
 ```js
 export async function getStaticProps() {
@@ -59,9 +59,9 @@ export async function getStaticProps() {
 > ```
 
 > **注意**：如果你使用的是 `/src` 文件夹，请注意 Next.js 将**仅**从父文件夹加载 .env 文件，而**不**从 `/src` 文件夹加载。
-> 这会自动将 `process.env.DB_HOST`、`process.env.DB_USER` 和 `process.env.DB_PASS` 加载到 Node.js 环境中，让你可以在 [路由处理程序](/docs/nextjs-cn/app/building-your-application/routing/index/route-handlers) 中使用它们。
+> 这会自动将 `process.env.DB_HOST`、`process.env.DB_USER` 和 `process.env.DB_PASS` 加载到 Node.js 环境中，让你可以在 [路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers) 中使用它们。
 
-例如：
+例如：/nextjs-cn/
 
 ```js
 export async function GET() {
@@ -185,9 +185,9 @@ Next.js 可以支持构建时和运行时环境变量。
 
 <PagesOnly>
 
-要读取运行时环境变量，我们建议使用 `getServerSideProps` 或[逐步采用 App Router](/docs/nextjs-cn/app/guides/migrating/app-router-migration)。
+要读取运行时环境变量，我们建议使用 `getServerSideProps` 或[逐步采用 App Router](/nextjs-cn/app/guides/migrating/app-router-migration)。
 
-</PagesOnly>
+</PagesOnly>/nextjs-cn/
 
 <AppOnly>
 
@@ -225,8 +225,9 @@ export default async function Component() {
 
 **需要了解：**
 
-- 你可以使用 [`register` 函数](/docs/nextjs-cn/app/guides/configuring/instrumentation) 在服务器启动时运行代码。
-- 我们不推荐使用 [`runtimeConfig`](/docs/nextjs-cn/pages/api-reference/config/next-config-js/runtime-configuration) 选项，因为这不适用于独立输出模式。相反，如果你需要此功能，我们建议[逐步采用](/docs/nextjs-cn/app/guides/migrating/app-router-migration) App Router。
+- 你可以使用 [`register` 函数]() 在服务器启动时运行代码。
+- 我们不推荐使用 [`runtimeConfig`](/nextjs-cn/pages/api-reference/config/next-config-js/runtime-configuration) 选项，因为这不适用于独立输出模式。相反，如果你需要此功能，我们建议[逐步采用](/nextjs-cn/app/guides/migrating/app-router-migration) App Router。
+  /nextjs-cn/
 
 ## 测试环境变量
 
@@ -266,8 +267,9 @@ For example, if `NODE_ENV` is `development` and you define a variable in both `.
 
 ## Good to know
 
-- If you are using a [`/src` directory](/docs/nextjs-cn/app/api-reference/file-conventions/src-folder), `.env.*` files should remain in the root of your project.
+- If you are using a [`/src` directory](/nextjs-cn/app/api-reference/file-conventions/src-folder), `.env.*` files should remain in the root of your project.
 - If the environment variable `NODE_ENV` is unassigned, Next.js automatically assigns `development` when running the `next dev` command, or `production` for all other commands.
+  /nextjs-cn/
 
 ## Version History
 

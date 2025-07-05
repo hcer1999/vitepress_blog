@@ -56,7 +56,7 @@ export default function Page({ repo }) {
 
 You should use `getServerSideProps` if you need to render a page that relies on personalized user data, or information that can only be known at request time. For example, `authorization` headers or a geolocation.
 
-If you do not need to fetch the data at request time, or would prefer to cache the data and pre-rendered HTML, we recommend using [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props).
+If you do not need to fetch the data at request time, or would prefer to cache the data and pre-rendered HTML, we recommend using [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props).
 
 ## Behavior
 
@@ -65,17 +65,17 @@ If you do not need to fetch the data at request time, or would prefer to cache t
 - `getServerSideProps` returns JSON.
 - When a user visits a page, `getServerSideProps` will be used to fetch data at request time, and the data is used to render the initial HTML of the page.
 - `props` passed to the page component can be viewed on the client as part of the initial HTML. This is to allow the page to be [hydrated](https://react.dev/reference/react-dom/hydrate) correctly. Make sure that you don't pass any sensitive information that shouldn't be available on the client in `props`.
-- When a user visits the page through [`next/link`](/docs/nextjs-cn/pages/api-reference/components/link) or [`next/router`](/docs/nextjs-cn/pages/api-reference/functions/use-router), Next.js sends an API request to the server, which runs `getServerSideProps`.
-- You do not have to call a Next.js [API Route](/docs/nextjs-cn/pages/building-your-application/routing/api-routes) to fetch data when using `getServerSideProps` since the function runs on the server. Instead, you can call a CMS, database, or other third-party APIs directly from inside `getServerSideProps`.
+- When a user visits the page through [`next/link`](/nextjs-cn/pages/api-reference/components/link) or [`next/router`](/nextjs-cn/pages/api-reference/functions/use-router), Next.js sends an API request to the server, which runs `getServerSideProps`.
+- You do not have to call a Next.js [API Route](/nextjs-cn/pages/building-your-application/routing/api-routes) to fetch data when using `getServerSideProps` since the function runs on the server. Instead, you can call a CMS, database, or other third-party APIs directly from inside `getServerSideProps`.
 
 > **Good to know:**
 >
-> - See [`getServerSideProps` API reference](/docs/nextjs-cn/pages/api-reference/functions/get-server-side-props) for parameters and props that can be used with `getServerSideProps`.
+> - See [`getServerSideProps` API reference](/nextjs-cn/pages/api-reference/functions/get-server-side-props) for parameters and props that can be used with `getServerSideProps`.
 > - You can use the [next-code-elimination tool](https://next-code-elimination.vercel.app/) to verify what Next.js eliminates from the client-side bundle.
 
 ## Error Handling
 
-If an error is thrown inside `getServerSideProps`, it will show the `pages/500.js` file. Check out the documentation for [500 page](/docs/nextjs-cn/pages/building-your-application/routing/custom-error#page) to learn more on how to create it. During development, this file will not be used and the development error overlay will be shown instead.
+If an error is thrown inside `getServerSideProps`, it will show the `pages/500.js` file. Check out the documentation for [500 page](/nextjs-cn/pages/building-your-application/routing/custom-error#page) to learn more on how to create it. During development, this file will not be used and the development error overlay will be shown instead.
 
 ## Edge Cases
 
@@ -100,4 +100,4 @@ export async function getServerSideProps({ req, res }) {
 }
 ```
 
-However, before reaching for `cache-control`, we recommend seeing if [`getStaticProps`](/docs/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) with [ISR](/docs/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration) is a better fit for your use case.
+However, before reaching for `cache-control`, we recommend seeing if [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) with [ISR](/nextjs-cn/pages/building-your-application/data-fetching/incremental-static-regeneration) is a better fit for your use case.

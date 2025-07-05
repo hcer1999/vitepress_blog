@@ -9,7 +9,7 @@ related:
     - app/api-reference/components/image
 ---
 
-Next.js 的 [`<Image>`](/docs/nextjs-cn/app/api-reference/components/image) 组件扩展了 HTML 的 `<img>` 元素，提供以下功能：
+Next.js 的 [`<Image>`](/nextjs-cn/app/api-reference/components/image) 组件扩展了 HTML 的 `<img>` 元素，提供以下功能：
 
 - **尺寸优化：** 自动为每个设备提供正确尺寸的图片，使用 WebP 等现代图片格式。
 - **视觉稳定性：** 在图片加载时自动防止[布局偏移](https://web.dev/articles/cls)。
@@ -40,7 +40,7 @@ export default function Page() {
 
 ## 本地图片
 
-你可以在根目录下名为 [`public`](/docs/nextjs-cn/app/api-reference/file-conventions/public-folder) 的文件夹中存储静态文件，如图片和字体。然后，你的代码可以从基础 URL（`/`）开始引用 `public` 中的文件。
+你可以在根目录下名为 [`public`](/nextjs-cn/app/api-reference/file-conventions/public-folder) 的文件夹中存储静态文件，如图片和字体。然后，你的代码可以从基础 URL（`/`）开始引用 `public` 中的文件。
 
 <Image
   alt="显示 app 和 public 文件夹的文件夹结构"
@@ -84,7 +84,7 @@ export default function Page() {
 }
 ```
 
-当使用本地图片时，Next.js 会根据导入的文件自动确定图片的固有 [`width`](/docs/nextjs-cn/app/api-reference/components/image#width-and-height) 和 [`height`](/docs/nextjs-cn/app/api-reference/components/image#width-and-height)。这些值用于确定图片比例并防止图片加载时的[累积布局偏移](https://web.dev/articles/cls)。
+当使用本地图片时，Next.js 会根据导入的文件自动确定图片的固有 [`width`](/nextjs-cn/app/api-reference/components/image#width-and-height) 和 [`height`](/nextjs-cn/app/api-reference/components/image#width-and-height)。这些值用于确定图片比例并防止图片加载时的[累积布局偏移](https://web.dev/articles/cls)。
 
 ## 远程图片
 
@@ -120,9 +120,9 @@ export default function Page() {
 }
 ```
 
-由于 Next.js 在构建过程中无法访问远程文件，你需要手动提供 [`width`](/docs/nextjs-cn/app/api-reference/components/image#width-and-height)、[`height`](/docs/nextjs-cn/app/api-reference/components/image#width-and-height) 和可选的 [`blurDataURL`](/docs/nextjs-cn/app/api-reference/components/image#blurdataurl) 属性。`width` 和 `height` 用于推断图片的正确宽高比，并避免图片加载时的布局偏移。
+由于 Next.js 在构建过程中无法访问远程文件，你需要手动提供 [`width`](/nextjs-cn/app/api-reference/components/image#width-and-height)、[`height`](/nextjs-cn/app/api-reference/components/image#width-and-height) 和可选的 [`blurDataURL`](/nextjs-cn/app/api-reference/components/image#blurdataurl) 属性。`width` 和 `height` 用于推断图片的正确宽高比，并避免图片加载时的布局偏移。
 
-要安全地允许来自远程服务器的图片，你需要在 [`next.config.js`](/docs/nextjs-cn/app/api-reference/config/next-config-js) 中定义支持的 URL 模式列表。要尽可能具体以防止恶意使用。例如，以下配置将只允许来自特定 AWS S3 存储桶的图片：
+要安全地允许来自远程服务器的图片，你需要在 [`next.config.js`](/nextjs-cn/app/api-reference/config/next-config-js/index) 中定义支持的 URL 模式列表。要尽可能具体以防止恶意使用。例如，以下配置将只允许来自特定 AWS S3 存储桶的图片：
 
 ```ts switcher
 import { NextConfig } from 'next'

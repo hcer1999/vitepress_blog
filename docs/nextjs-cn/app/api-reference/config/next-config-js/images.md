@@ -26,11 +26,11 @@ export default function myImageLoader({ src, width, quality }) {
 }
 ```
 
-或者，你可以使用 [`loader` 属性](/docs/nextjs-cn/app/api-reference/components/image#loader) 将函数传递给每个 `next/image` 实例。
+或者，你可以使用 [`loader` 属性](/nextjs-cn/app/api-reference/components/image#loader) 将函数传递给每个 `next/image` 实例。
 
-> **须知**：自定义图像加载器文件（接受函数）需要使用[客户端组件](/docs/nextjs-cn/app/building-your-application/rendering/client-components)来序列化提供的函数。
+> **须知**：自定义图像加载器文件[接受函数](/nextjs-cn/app/building-your-application/rendering/client-components)来序列化提供的函数。
 
-要了解有关配置内置[图像优化 API](/docs/nextjs-cn/app/api-reference/components/image)和[图像组件](/docs/nextjs-cn/app/api-reference/components/image)行为的更多信息，请参阅[图像配置选项](/docs/nextjs-cn/app/api-reference/components/image#configuration-options)了解可用选项。
+要了解有关配置内置[图像优化 API](/nextjs-cn/app/api-reference/components/image)和[图像组件](/nextjs-cn/app/api-reference/components/image)行为的更多信息，请参阅[图像配置选项](/nextjs-cn/app/api-reference/components/image#configuration-options)了解可用选项。
 
 </AppOnly>
 
@@ -42,9 +42,9 @@ export default function myImageLoader({ src, width, quality }) {
 }
 ```
 
-或者，你可以使用 [`loader` 属性](/docs/nextjs-cn/pages/api-reference/components/image#loader) 将函数传递给每个 `next/image` 实例。
+或者，你可以使用 [`loader` 属性](/nextjs-cn/pages/api-reference/components/image#loader) 将函数传递给每个 `next/image` 实例。
 
-要了解有关配置内置[图像优化 API](/docs/nextjs-cn/pages/api-reference/components/image)和[图像组件](/docs/nextjs-cn/pages/api-reference/components/image)行为的更多信息，请参阅[图像配置选项](/docs/nextjs-cn/pages/api-reference/components/image#configuration-options)了解可用选项。
+要了解有关配置内置[图像优化 API](/nextjs-cn/pages/api-reference/components/image)和[图像组件](/nextjs-cn/pages/api-reference/components/image)行为的更多信息，请参阅[图像配置选项](/nextjs-cn/pages/api-reference/components/image#configuration-options)了解可用选项。
 
 </PagesOnly>
 

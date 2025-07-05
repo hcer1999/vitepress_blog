@@ -9,7 +9,7 @@ related:
     - app/api-reference/components/font
 ---
 
-[`next/font`](/docs/nextjs-cn/app/api-reference/components/font) 模块自动优化你的字体，并移除外部网络请求以提高隐私性和性能。
+[`next/font`](/nextjs-cn/app/api-reference/components/font) 模块自动优化你的字体，并移除外部网络请求以提高隐私性和性能。
 
 它包括**内置的自托管**功能，适用于任何字体文件。这意味着你可以以最佳方式加载网络字体，且不会出现布局偏移。
 
@@ -47,7 +47,7 @@ export default function Layout({ children }) {
 }
 ```
 
-字体的作用域限定在使用它们的组件中。要将字体应用到整个应用程序，请将其添加到[根布局](/docs/nextjs-cn/app/api-reference/file-conventions/layout#root-layouts)中。
+字体的作用域限定在使用它们的组件中。要将字体应用到整个应用程序，请将其添加到[根布局](/nextjs-cn/app/api-reference/file-conventions/layout#root-layouts)中。
 
 ## Google 字体
 
@@ -125,7 +125,7 @@ export default function RootLayout({ children }) {
 
 ## 本地字体
 
-要使用本地字体，从 `next/font/local` 导入你的字体，并指定本地字体文件的 [`src`](/docs/nextjs-cn/app/api-reference/components/font#src)。字体文件可以存储在 [`public`](/docs/nextjs-cn/app/api-reference/file-conventions/public-folder) 文件夹中。例如：
+要使用本地字体，从 `next/font/local` 导入你的字体，并指定本地字体文件的 [`src`](/nextjs-cn/app/api-reference/components/font#src)。字体文件可以存储在 [`public`](/nextjs-cn/app/api-reference/file-conventions/public-folder) 文件夹中。例如：
 
 ```tsx switcher
 import localFont from 'next/font/local'
