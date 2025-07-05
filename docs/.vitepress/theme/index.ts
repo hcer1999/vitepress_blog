@@ -12,6 +12,8 @@ import CNavLinks from './components/CNavLinks.vue'
 import CPagination from './components/CPagination.vue'
 import CArticleFilter from './components/CArticleFilter.vue'
 import CLayout from './components/CLayout.vue'
+import AppOnly from './components/AppOnly.vue'
+import PagesOnly from './components/PagesOnly.vue'
 import './styles/index.scss'
 
 if (typeof window !== 'undefined') {
@@ -104,6 +106,8 @@ export default {
     app.component('CNavLinks', CNavLinks)
     app.component('CPagination', CPagination)
     app.component('CArticleFilter', CArticleFilter)
+    app.component('AppOnly', AppOnly)
+    app.component('PagesOnly', PagesOnly)
 
     app.provide('DEV', process.env.NODE_ENV === 'development')
 

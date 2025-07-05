@@ -24,7 +24,7 @@ omz update
 ```
 
 [Github](https://github.com/ohmyzsh/ohmyzsh)
-[zsh 插件](zsh)
+[zsh 插件](zsh.md)
 
 ## zsh 插件
 

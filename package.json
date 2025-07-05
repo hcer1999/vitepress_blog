@@ -22,7 +22,9 @@
     "lint": "prettier --write .",
     "prepare": "husky install",
     "up:dist": "node upload.serve.mjs",
-    "create:article": "node scripts/create-article.mjs"
+    "create:article": "node scripts/create-article.mjs",
+    "fix:links": "node fix-all-dead-links.mjs",
+    "fix:common-links": "node fix-common-links.mjs"
   },
   "devDependencies": {
     "@femm/prettier": "^1.1.0",
@@ -50,6 +52,7 @@
   },
   "prettier": "@femm/prettier",
   "dependencies": {
+    "globby": "^14.1.0",
     "oh-my-live2d": "^0.19.3"
   }
 }
