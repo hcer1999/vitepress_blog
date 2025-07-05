@@ -3,6 +3,8 @@ title: 布局和模板
 description: 在 Next.js 中创建你的第一个共享布局。
 ---
 
+# NextJS中文文档 - Layouts And Templates
+
 特殊文件 [layout.js](#layouts) 和 [template.js](#templates) 允许你创建在路由之间共享的 UI。本页将指导你如何以及何时使用这些特殊文件。
 
 ## 布局

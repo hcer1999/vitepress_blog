@@ -3,6 +3,8 @@ title: expireTime
 description: 为启用 ISR 的页面自定义过期重新验证的过期时间。
 ---
 
+# NextJS中文文档 - ExpireTime
+
 你可以为启用 ISR 的页面指定一个自定义的 `stale-while-revalidate` 过期时间，供 CDN 在 `Cache-Control` 头部中使用。
 
 打开 `next.config.js` 并添加 `expireTime` 配置：

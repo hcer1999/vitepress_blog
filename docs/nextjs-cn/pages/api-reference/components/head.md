@@ -3,6 +3,8 @@ title: Head
 description: Add custom elements to the `head` of your page with the built-in Head component.
 ---
 
+# NextJS中文文档 - Head
+
 We expose a built-in component for appending elements to the `head` of the page:
 
 ```jsx

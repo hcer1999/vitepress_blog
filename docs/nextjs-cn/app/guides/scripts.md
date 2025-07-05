@@ -9,6 +9,8 @@ related:
     - app/api-reference/components/script
 ---
 
+# NextJS中文文档 - Scripts
+
 <AppOnly>
 
 ### 布局脚本

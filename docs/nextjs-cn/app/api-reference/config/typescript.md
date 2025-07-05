@@ -3,6 +3,8 @@ title: TypeScript
 description: Next.js 为构建 React 应用程序提供了 TypeScript 优先的开发体验。
 ---
 
+# NextJS中文文档 - Typescript
+
 Next.js 内置了 TypeScript 支持，当你使用 `create-next-app` 创建新项目时，会自动安装必要的包并配置适当的设置。
 
 要将 TypeScript 添加到现有项目中，将文件重命名为 `.ts` / `.tsx`。运行 `next dev` 和 `next build` 将自动安装必要的依赖项，并添加包含推荐配置选项的 `tsconfig.json` 文件。

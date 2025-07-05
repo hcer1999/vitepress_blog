@@ -10,6 +10,8 @@ related:
     - app/api-reference/file-conventions/unauthorized
 ---
 
+# NextJS中文文档 - AuthInterrupts
+
 `authInterrupts` 配置选项允许你在应用程序中使用 [`forbidden`](/nextjs-cn/app/api-reference/functions/forbidden) 和 [`unauthorized`](/nextjs-cn/app/api-reference/functions/unauthorized) API。由于这些函数是实验性的，你必须在 `next.config.js` 文件中启用 `authInterrupts` 选项才能使用它们：
 
 ```ts switcher

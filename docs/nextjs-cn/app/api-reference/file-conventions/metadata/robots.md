@@ -3,6 +3,8 @@ title: robots.txt
 description: robots.txt 文件的 API 参考。
 ---
 
+# NextJS中文文档 - Robots
+
 在 `app` 目录的**根目录**中添加或生成符合[机器人排除标准](https://en.wikipedia.org/wiki/Robots.txt#Standard)的 `robots.txt` 文件，以告诉搜索引擎爬虫他们可以访问你网站上的哪些 URL。
 
 ## 静态 `robots.txt`

@@ -3,6 +3,8 @@ title: Runtime Config
 description: Add client and server runtime configuration to your Next.js app.
 ---
 
+# NextJS中文文档 - Runtime Configuration
+
 > **Warning:**
 >
 > - **This feature is deprecated.** We recommend using [environment variables]() instead, which also can support reading runtime values.

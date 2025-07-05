@@ -3,6 +3,8 @@ title: useRouter
 description: Learn more about the API of the Next.js Router, and access the router instance in your page with the useRouter hook.
 ---
 
+# NextJS中文文档 - Use Router
+
 If you want to access the [`router` object](#router-object) inside any function component in your app, you can use the `useRouter` hook, take a look at the following example:
 
 ```jsx

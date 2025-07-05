@@ -8,6 +8,8 @@ related:
     - app/api-reference/file-conventions/instrumentation
 ---
 
+# NextJS中文文档 - Instrumentation
+
 检测是使用代码将监控和日志工具集成到应用程序中的过程。这允许你跟踪应用程序的性能和行为，以及在生产环境中调试问题。
 
 ## 约定

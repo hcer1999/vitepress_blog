@@ -4,6 +4,8 @@ nav_title: Tailwind CSS
 description: 使用 Tailwind CSS 为 Next.js 应用程序添加样式。
 ---
 
+# NextJS中文文档 - Tailwind Css
+
 [Tailwind CSS](https://tailwindcss.com/) 是一个功能类优先的 CSS 框架，与 Next.js 完全兼容。本指南将引导你如何在 Next.js 应用程序中安装 Tailwind CSS。
 
 ## 安装 Tailwind

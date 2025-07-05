@@ -3,6 +3,8 @@ title: Link
 description: 使用内置的 `next/link` 组件实现快速的客户端导航。
 ---
 
+# NextJS中文文档 - Link
+
 `<Link>` 是一个 React 组件，它扩展了 HTML 的 `<a>` 元素，提供了路由之间的[预加载](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#prefetching)和客户端导航功能。这是在 Next.js 中路由间导航的主要方式。
 
 基本用法：

@@ -3,6 +3,8 @@ title: NextResponse
 description: NextResponse 的 API 参考。
 ---
 
+# NextJS中文文档 - Next Response
+
 NextResponse 扩展了 [Web Response API](https://developer.mozilla.org/docs/Web/API/Response)，增加了额外的便捷方法。
 
 ## `cookies`

@@ -4,6 +4,8 @@ nav_title: 环境变量
 description: 学习如何在 Next.js 应用程序中添加和访问环境变量。
 ---
 
+# NextJS中文文档 - Environment Variables
+
 Next.js 内置了对环境变量的支持，这允许你执行以下操作：
 
 - [使用 `.env` 加载环境变量](#加载环境变量)

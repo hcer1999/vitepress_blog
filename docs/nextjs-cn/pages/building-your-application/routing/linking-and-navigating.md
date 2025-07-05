@@ -3,6 +3,8 @@ title: Linking and Navigating
 description: Learn how navigation works in Next.js, and how to use the Link Component and `useRouter` hook.
 ---
 
+# NextJS中文文档 - Linking And Navigating
+
 The Next.js router allows you to do client-side route transitions between pages, similar to a single-page application.
 
 A React component called `Link` is provided to do this client-side route transition.

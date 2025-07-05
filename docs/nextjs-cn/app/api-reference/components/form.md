@@ -3,6 +3,8 @@ title: Form
 description: 了解如何使用 `<Form>` 组件处理表单提交和使用客户端导航更新搜索参数。
 ---
 
+# NextJS中文文档 - Form
+
 `<Form>` 组件扩展了 HTML `<form>` 元素，提供了<AppOnly>[**预获取**](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#prefetching) [加载 UI](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)、</AppOnly>**客户端导航**提交和**渐进式增强**功能。
 
 它对于更新 URL 搜索参数的表单非常有用，因为它减少了实现上述功能所需的模板代码。

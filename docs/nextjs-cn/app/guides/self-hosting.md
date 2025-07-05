@@ -4,6 +4,8 @@ nav_title: 自托管
 description: 了解如何在 Node.js 服务器、Docker 镜像或静态 HTML 文件（静态导出）上自托管你的 Next.js 应用程序。
 ---
 
+# NextJS中文文档 - Self Hosting
+
 在[部署](/nextjs-cn/app/getting-started/deploying)你的 Next.js 应用程序时，你可能希望根据你的基础设施配置不同功能的处理方式。
 
 > **🎥 观看：** 了解更多关于自托管 Next.js 的信息 → [YouTube（45分钟）](https://www.youtube.com/watch?v=sIVL4JMqRfc)。

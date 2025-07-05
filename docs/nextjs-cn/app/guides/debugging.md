@@ -4,6 +4,8 @@ nav_title: 调试
 description: 学习如何使用 VS Code、Chrome DevTools 或 Firefox DevTools 调试你的 Next.js 应用程序。
 ---
 
+# NextJS中文文档 - Debugging
+
 本文档介绍如何使用 [VS Code 调试器](https://code.visualstudio.com/docs/editor/debugging)、[Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) 或 [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/) 来调试你的 Next.js 前端和后端代码，并提供完整的源映射支持。
 
 任何能够连接到 Node.js 的调试器也可以用于调试 Next.js 应用程序。你可以在 Node.js 的[调试指南](https://nodejs.org/en/docs/guides/debugging-getting-started/)中找到更多详细信息。

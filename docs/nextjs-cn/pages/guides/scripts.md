@@ -4,3 +4,5 @@ nav_title: Scripts
 description: Optimize 3rd party scripts with the built-in Script component.
 source: app/guides/scripts
 ---
+
+# NextJS中文文档 - Scripts

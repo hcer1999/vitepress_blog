@@ -4,6 +4,8 @@ nav_title: Internationalization
 description: Next.js has built-in support for internationalized routing and language detection. Learn more here.
 ---
 
+# NextJS中文文档 - Internationalization
+
 <details>
   <summary>Examples</summary>
 

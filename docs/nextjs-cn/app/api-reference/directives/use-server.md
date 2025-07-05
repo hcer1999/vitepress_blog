@@ -3,6 +3,8 @@ title: 'use server'
 description: 了解如何使用 'use server' 指令来标记可以从客户端代码中调用的异步函数。
 ---
 
+# NextJS中文文档 - Use Server
+
 `'use server'` 指令允许你在客户端组件内调用服务器函数，启用仅服务器代码的服务器操作。这是一个 React 功能。
 
 > **须知**

@@ -4,6 +4,8 @@ nav_title: 项目结构
 description: Next.js 中文件夹和文件约定的概述，以及如何组织你的项目。
 ---
 
+# NextJS中文文档 - Project Structure
+
 本页面提供了 Next.js 中**所有**文件夹和文件约定的概述，以及组织项目的建议。
 
 ## 文件夹和文件约定

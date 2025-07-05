@@ -7,6 +7,8 @@ related:
     - app/deep-dive/caching
 ---
 
+# NextJS中文文档 - Server Components
+
 React 服务器组件允许你编写可以在服务器上渲染并可选择性缓存的 UI。在 Next.js 中，渲染工作按路由段进一步分割，以实现流式传输和部分渲染，并且有三种不同的服务器渲染策略：
 
 - [静态渲染](#静态渲染默认)

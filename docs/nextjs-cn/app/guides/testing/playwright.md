@@ -4,6 +4,8 @@ nav_title: Playwright
 description: 学习如何在 Next.js 中设置 Playwright 进行端到端 (E2E) 测试。
 ---
 
+# NextJS中文文档 - Playwright
+
 Playwright 是一个测试框架，允许你使用单一 API 来自动化 Chromium、Firefox 和 WebKit。你可以用它来编写**端到端 (E2E) 测试**。本指南将向你展示如何在 Next.js 中设置 Playwright 并编写你的第一个测试。
 
 ## 快速开始

@@ -4,6 +4,8 @@ nav_title: 字体
 description: 使用内置的 `next/font` 加载器优化 Web 字体加载。
 ---
 
+# NextJS中文文档 - Font
+
 [`next/font`](/nextjs-cn/app/api-reference/components/font) 自动优化你的字体（包括自定义字体）并移除外部网络请求，以提高隐私和性能。
 
 它包括\*_内置的自动自托管_/nextjs-cn/味着你可以以零[布局偏移](https://web.dev/articles/cls)的方式最佳地加载网页字体。

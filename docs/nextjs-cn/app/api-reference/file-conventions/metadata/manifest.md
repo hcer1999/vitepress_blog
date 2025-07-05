@@ -3,6 +3,8 @@ title: manifest.json
 description: manifest.json 文件的 API 参考。
 ---
 
+# NextJS中文文档 - Manifest
+
 在 `app` 目录的**根目录**中添加或生成符合 [Web 清单规范](https://developer.mozilla.org/docs/Web/Manifest) 的 `manifest.(json|webmanifest)` 文件，为浏览器提供有关你的 Web 应用程序的信息。
 
 ## 静态清单文件

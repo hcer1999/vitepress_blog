@@ -3,6 +3,8 @@ title: headers
 description: 为你的 Next.js 应用添加自定义 HTTP 头部。
 ---
 
+# NextJS中文文档 - Headers
+
 头部允许你在给定路径上对传入请求的响应设置自定义 HTTP 头部。
 
 要设置自定义 HTTP 头部，你可以在 `next.config.js` 中使用 `headers` 键：

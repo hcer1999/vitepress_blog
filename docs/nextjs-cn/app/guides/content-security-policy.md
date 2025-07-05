@@ -8,6 +8,8 @@ related:
     - app/api-reference/functions/headers
 ---
 
+# NextJS中文文档 - Content Security Policy
+
 [内容安全策略 (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) 对于保护你的 Next.js 应用程序免受各种安全威胁（如跨站脚本攻击 (XSS)、点击劫持和其他代码注入攻击）非常重要。
 
 通过使用 CSP，开发者可以指定哪些来源是允许的内容源、脚本、样式表、图像、字体、对象、媒体（音频、视频）、iframe 等。

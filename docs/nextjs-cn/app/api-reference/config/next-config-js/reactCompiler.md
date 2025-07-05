@@ -4,6 +4,8 @@ description: 启用 React 编译器自动优化组件渲染。
 version: experimental
 ---
 
+# NextJS中文文档 - ReactCompiler
+
 Next.js 包含对 [React 编译器](https://react.dev/learn/react-compiler) 的支持，这是一个通过自动优化组件渲染来提高性能的工具。这减少了使用 `useMemo` 和 `useCallback` 进行手动记忆化的需求。
 
 Next.js 包含一个用 SWC 编写的自定义性能优化，使 React 编译器更加高效。Next.js 不是在每个文件上运行编译器，而是分析你的项目并只将 React 编译器应用于相关文件。这避免了不必要的工作，与单独使用 Babel 插件相比，可以实现更快的构建。

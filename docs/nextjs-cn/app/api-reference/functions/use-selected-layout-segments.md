@@ -3,6 +3,8 @@ title: useSelectedLayoutSegments
 description: useSelectedLayoutSegments 钩子的 API 参考。
 ---
 
+# NextJS中文文档 - Use Selected Layout Segments
+
 `useSelectedLayoutSegments` 是一个**客户端组件**钩子，它允许你读取调用它的布局**下方**的活动路由段。
 
 它对于在父布局中创建需要了解活动子段的 UI（如面包屑导航）非常有用。

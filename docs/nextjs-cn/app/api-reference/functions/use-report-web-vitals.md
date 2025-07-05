@@ -3,6 +3,8 @@ title: useReportWebVitals
 description: useReportWebVitals 函数的 API 参考。
 ---
 
+# NextJS中文文档 - Use Report Web Vitals
+
 `useReportWebVitals` 钩子允许你报告 [Core Web Vitals](https://web.dev/vitals/)，并可以与你的分析服务结合使用。
 
 <PagesOnly>

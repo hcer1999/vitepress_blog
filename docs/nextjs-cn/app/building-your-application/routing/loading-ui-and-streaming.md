@@ -3,6 +3,8 @@ title: 加载 UI 和流式传输
 description: 基于 Suspense 构建，加载 UI 允许您为特定路由段创建备用界面，并在内容准备就绪时自动流式传输。
 ---
 
+# NextJS中文文档 - Loading Ui And Streaming
+
 特殊文件 `loading.js` 帮助您使用 [React Suspense](https://react.dev/reference/react/Suspense) 创建有意义的加载 UI。通过这种约定，您可以在路由段内容加载时从服务器显示[即时加载状态](#即时加载状态)。一旦渲染完成，新内容会自动替换进来。
 
 <Image

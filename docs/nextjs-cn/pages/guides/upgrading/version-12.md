@@ -4,6 +4,8 @@ nav_title: Version 12
 description: Upgrade your Next.js Application from Version 11 to Version 12.
 ---
 
+# NextJS中文文档 - Version 12
+
 To upgrade to version 12, run the following command:
 
 ```bash

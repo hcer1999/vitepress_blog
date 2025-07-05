@@ -3,6 +3,8 @@ title: revalidateTag
 description: revalidateTag 函数的 API 参考。
 ---
 
+# NextJS中文文档 - RevalidateTag
+
 `revalidateTag` 允许你按需为特定缓存标签清除[缓存数据](/nextjs-cn/app/deep-dive/caching)。
 
 > **须知**：

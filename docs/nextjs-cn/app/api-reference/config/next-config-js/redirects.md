@@ -3,6 +3,8 @@ title: redirects
 description: 向你的 Next.js 应用添加重定向。
 ---
 
+# NextJS中文文档 - Redirects
+
 重定向允许你将传入的请求路径重定向到不同的目标路径。
 
 要使用重定向，你可以在 `next.config.js` 中使用 `redirects` 键：

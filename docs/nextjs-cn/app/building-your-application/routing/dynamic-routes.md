@@ -9,6 +9,8 @@ related:
     - app/api-reference/functions/generate-static-params
 ---
 
+# NextJS中文文档 - Dynamic Routes
+
 当您事先不知道确切的路由段名称，并希望从动态数据创建路由时，您可以使用动态路由段，这些段在请求时填充或在构建时[预渲染](#生成静态参数)。
 
 ## 约定

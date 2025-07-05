@@ -4,6 +4,8 @@ description: 配置 Next.js 允许从外部 URL 导入模块
 version: experimental
 ---
 
+# NextJS中文文档 - UrlImports
+
 URL 导入是一项实验性功能，允许你直接从外部服务器导入模块（而不是从本地磁盘导入）。
 
 > **警告**：只使用你信任的域名来下载和在你的机器上执行代码。在该功能被标记为稳定之前，请谨慎使用。

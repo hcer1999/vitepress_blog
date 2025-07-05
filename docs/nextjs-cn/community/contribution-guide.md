@@ -4,6 +4,8 @@ nav_title: 贡献指南
 description: 了解如何为 Next.js 文档做出贡献
 ---
 
+# NextJS中文文档 - Contribution Guide
+
 欢迎来到 Next.js 文档贡献指南！我们很高兴您能来到这里。
 
 本页提供了如何编辑 Next.js 文档的指导。我们的目标是确保社区中的每个人都能够为我们的文档做出贡献并改进它。

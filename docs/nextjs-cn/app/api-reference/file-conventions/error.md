@@ -7,6 +7,8 @@ related:
     - app/building-your-application/routing/error-handling
 ---
 
+# NextJS中文文档 - Error
+
 **error** 文件允许你处理意外的运行时错误并显示备用 UI。
 
 <Image
@@ -349,7 +351,7 @@ export default function DashboardError({ error, reset }) {
 ## 版本历史
 
 | 版本      | 变更                                  |
-| --------- | ------------------------------------- |
+|--------- | ------------------------------------- |
 | `v15.2.0` | 在开发环境中也显示 `global-error`。    |
 | `v13.1.0` | 引入 `global-error`。                 |
 | `v13.0.0` | 引入 `error`。                        |

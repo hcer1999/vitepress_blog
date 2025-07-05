@@ -3,6 +3,8 @@ title: loading.js
 description: loading.js 文件的 API 参考。
 ---
 
+# NextJS中文文档 - Loading
+
 **loading** 文件可以基于 [Suspense](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming) 创建即时加载状态。
 
 默认情况下，这个文件是一个[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)，但也可以通过使用 `'use client'` 指令作为客户端组件使用。

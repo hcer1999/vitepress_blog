@@ -7,6 +7,8 @@ related:
     - app/api-reference/file-conventions/forbidden
 ---
 
+# NextJS中文文档 - Forbidden
+
 `forbidden` 函数抛出一个错误，渲染 Next.js 403 错误页面。它对处理应用程序中的授权错误很有用。您可以使用 [`forbidden.js` 文件](/nextjs-cn/app/api-reference/file-conventions/forbidden) 自定义 UI。
 
 要开始使用 `forbidden`，请在 `next.config.js` 文件中启用实验性的 [`authInterrupts`](/nextjs-cn/app/api-reference/config/next-config-js/authInterrupts) 配置选项：

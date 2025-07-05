@@ -4,6 +4,8 @@ nav_title: 深入理解
 description: 了解 Next.js 底层工作原理
 ---
 
+# NextJS中文文档 - Deep Dive
+
 通过深入研究来了解 Next.js 的核心概念和底层架构。
 
 ## 深入探索

@@ -11,6 +11,8 @@ related:
     - app/guides/css-in-js
 ---
 
+# NextJS中文文档 - Css
+
 Next.js 提供了几种在应用程序中使用 CSS 的方式，包括：
 
 - [CSS Modules](#css-modules)

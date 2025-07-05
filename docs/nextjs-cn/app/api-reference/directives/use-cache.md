@@ -3,6 +3,8 @@ title: 'use cache'
 description: 了解如何使用 'use cache' 指令来缓存计算结果。
 ---
 
+# NextJS中文文档 - Use Cache
+
 `'use cache'` 是一个 React 指令，允许你缓存评估返回值的结果，避免重复工作。当组件重新渲染或多个组件请求相同数据时，这可以提高性能。
 
 ```jsx

@@ -8,6 +8,8 @@ related:
     - app/guides/draft-mode
 ---
 
+# NextJS中文文档 - Draft Mode
+
 `draftMode` 是一个**异步**函数，允许你启用和禁用[草稿模式](/nextjs-cn/app/guides/draft-mode)，以及检查草稿模式在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)中是否启用。
 
 ```tsx switcher

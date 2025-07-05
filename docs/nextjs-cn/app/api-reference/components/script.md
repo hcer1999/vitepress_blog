@@ -3,6 +3,8 @@ title: Script
 description: 使用内置的 `next/script` 组件优化 Next.js 应用程序中的第三方脚本。
 ---
 
+# NextJS中文文档 - Script
+
 本 API 参考将帮助你了解如何使用 Script 组件可用的[属性](#props)。有关功能和用法，请参阅[优化脚本](/nextjs-cn/app/building-your-application/routing/layouts-and-templates)页面。
 
 ```tsx switcher/nextjs-cn/

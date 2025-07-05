@@ -3,6 +3,8 @@ title: layout.js
 description: layout.js 文件的 API 参考。
 ---
 
+# NextJS中文文档 - Layout
+
 `layout` 文件用于在 Next.js 应用程序中定义布局。
 
 ```tsx switcher

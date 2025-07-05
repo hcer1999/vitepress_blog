@@ -3,6 +3,8 @@ title: pageExtensions
 description: 扩展 Next.js 在页面路由器中解析页面时使用的默认页面扩展名
 ---
 
+# NextJS中文文档 - PageExtensions
+
 <AppOnly>
 
 默认情况下，Next.js 接受具有以下扩展名的文件：`.tsx`、`.ts`、`.jsx`、`.js`。这可以修改为允许其他扩展名，如 markdown（`.md`、`.mdx`）。

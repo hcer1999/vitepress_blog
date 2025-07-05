@@ -4,3 +4,5 @@ nav_title: Static Exports
 description: Next.js enables starting as a static site or Single-Page Application (SPA), then later optionally upgrading to use features that require a server.
 source: app/guides/static-exports
 ---
+
+# NextJS中文文档 - Static Exports

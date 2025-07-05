@@ -4,6 +4,8 @@ nav_title: Vite
 description: 学习如何将现有的 React 应用程序从 Vite 迁移到 Next.js。
 ---
 
+# NextJS中文文档 - From Vite
+
 本指南将帮助你将现有的 Vite 应用程序迁移到 Next.js。
 
 ## 为什么要切换？

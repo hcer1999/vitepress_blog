@@ -3,7 +3,7 @@ title: Pages Router
 description: 在 Next.js 13 之前，Pages Router 是通过直观的文件系统路由在 Next.js 中创建路由的主要方式。
 ---
 
-# Pages Router
+# NextJS中文文档 - Pages
 
 > 您正在查看 Pages Router 的文档。请参阅 [App Router](/nextjs-cn/app/) 文档了解最新功能。
 

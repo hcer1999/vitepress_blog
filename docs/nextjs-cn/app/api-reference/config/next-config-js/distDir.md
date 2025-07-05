@@ -3,6 +3,8 @@ title: distDir
 description: 设置自定义构建目录，而不使用默认的 .next 目录。
 ---
 
+# NextJS中文文档 - DistDir
+
 你可以指定一个名称作为自定义构建目录，而不使用默认的 `.next`。
 
 打开 `next.config.js` 并添加 `distDir` 配置：

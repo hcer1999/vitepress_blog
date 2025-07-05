@@ -3,6 +3,8 @@ title: usePathname
 description: usePathname 钩子的 API 参考。
 ---
 
+# NextJS中文文档 - Use Pathname
+
 `usePathname` 是一个**客户端组件**钩子，让你可以读取当前 URL 的**路径名**。
 
 ```tsx switcher

@@ -4,6 +4,8 @@ description: unstable_rethrow 函数的 API 参考。
 version: unstable
 ---
 
+# NextJS中文文档 - Unstable_rethrow
+
 `unstable_rethrow` 可用于避免在尝试处理应用程序代码中抛出的错误时捕获 Next.js 内部抛出的错误。
 
 例如，调用 `notFound` 函数将抛出一个 Next.js 内部错误并渲染 [`not-found.js`](/nextjs-cn/app/api-reference/file-conventions/not-found) 组件。然而，如果在 `try/catch` 块内使用，错误将被捕获，阻止 `not-found.js` 渲染：

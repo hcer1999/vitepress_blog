@@ -8,6 +8,8 @@ related:
     - app/api-reference/file-conventions/metadata
 ---
 
+# NextJS中文文档 - Generate Viewport
+
 你可以使用静态的 `viewport` 对象或动态的 `generateViewport` 函数来自定义页面的初始视口。
 
 > **须知**:

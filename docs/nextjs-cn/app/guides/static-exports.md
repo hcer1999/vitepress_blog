@@ -4,6 +4,8 @@ nav_title: 静态导出
 description: Next.js 允许从静态站点或单页应用程序 (SPA) 开始，然后以后可以选择升级以使用需要服务器的功能。
 ---
 
+# NextJS中文文档 - Static Exports
+
 Next.js 允许从静态站点或单页应用程序 (SPA) 开始，然后以后可以选择升级以使用需要服务器的功能。
 
 当运行 `next build` 时，Next.js 为每个路由生成一个 HTML 文件。通过将严格的 SPA 分解为单独的 HTML 文件，Next.js 可以避免在客户端加载不必要的 JavaScript 代码，减小包的大小并实现更快的页面加载。

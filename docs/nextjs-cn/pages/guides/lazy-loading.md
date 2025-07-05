@@ -4,3 +4,5 @@ nav_title: Lazy Loading
 description: Lazy load imported libraries and React Components to improve your application's overall loading performance.
 source: app/guides/lazy-loading
 ---
+
+# NextJS中文文档 - Lazy Loading

@@ -4,6 +4,8 @@ nav_title: Version 9
 description: Upgrade your Next.js Application from Version 8 to Version 9.
 ---
 
+# NextJS中文文档 - Version 9
+
 To upgrade to version 9, run the following command:
 
 ```bash

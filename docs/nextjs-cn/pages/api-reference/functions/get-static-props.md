@@ -3,6 +3,8 @@ title: getStaticProps
 description: API reference for `getStaticProps`. Learn how to use `getStaticProps` to generate static pages with Next.js.
 ---
 
+# NextJS中文文档 - Get Static Props
+
 Exporting a function called `getStaticProps` will pre-render a page at build time using the props returned from the function:
 
 ```tsx switcher

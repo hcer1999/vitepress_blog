@@ -4,6 +4,8 @@ description: 了解如何在 Next.js 应用程序中配置静态生成。
 version: experimental
 ---
 
+# NextJS中文文档 - StaticGeneration
+
 `staticGeneration*` 选项允许你为高级用例配置静态生成过程。
 
 ```ts switcher

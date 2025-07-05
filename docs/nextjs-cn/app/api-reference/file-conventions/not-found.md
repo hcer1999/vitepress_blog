@@ -3,6 +3,8 @@ title: not-found.js
 description: not-found.js 特殊文件的 API 参考。
 ---
 
+# NextJS中文文档 - Not Found
+
 **not-found** 文件用于在路由中找不到内容或使用 `notFound` 函数时渲染 UI。该文件应该导出一个返回 React JSX 的默认 React 组件。
 
 ```tsx switcher

@@ -7,6 +7,8 @@ related:
     - app/api-reference/file-conventions/unauthorized
 ---
 
+# NextJS中文文档 - Unauthorized
+
 `unauthorized` 函数抛出一个错误，用于渲染 Next.js 401 错误页面。它对于处理应用程序中的授权错误非常有用。你可以使用 [`unauthorized.js` 文件](/nextjs-cn/app/api-reference/file-conventions/unauthorized)自定义用户界面。
 
 要开始使用 `unauthorized`，请在 `next.config.js` 文件中启用实验性的 [`authInterrupts`](/nextjs-cn/app/api-reference/config/next-config-js/authInterrupts) 配置选项：

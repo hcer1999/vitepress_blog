@@ -3,6 +3,8 @@ title: output
 description: Next.js 自动跟踪每个页面所需的文件，以便轻松部署应用程序。在此了解其工作原理。
 ---
 
+# NextJS中文文档 - Output
+
 在构建过程中，Next.js 会自动跟踪每个页面及其依赖项，以确定部署应用程序生产版本所需的所有文件。
 
 此功能有助于大幅减小部署规模。以前，使用 Docker 部署时，你需要安装包的 `dependencies` 中的所有文件才能运行 `next start`。从 Next.js 12 开始，你可以利用 `.next/` 目录中的输出文件跟踪功能，只包含必要的文件。

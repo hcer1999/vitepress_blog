@@ -10,6 +10,8 @@ related:
     - app/api-reference/file-conventions/loading
 ---
 
+# NextJS中文文档 - Fetching Data
+
 本页将指导你如何在[服务器组件](#server-components)和[客户端组件](#client-components)中获取数据。以及如何[流式传输](#streaming)依赖于数据的内容。
 
 ## 获取数据

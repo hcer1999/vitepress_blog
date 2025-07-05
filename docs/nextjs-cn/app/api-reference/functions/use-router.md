@@ -3,6 +3,8 @@ title: useRouter
 description: useRouter 钩子的 API 参考。
 ---
 
+# NextJS中文文档 - Use Router
+
 `useRouter` 钩子允许你在[客户端组件](/nextjs-cn/app/building-your-application/rendering/client-components)中以编程方式更改路由。
 
 > **建议：** 除非你有使用 `useRouter` 的特定需求，否则请使用 [`<Link>` 组件](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#link-component) 进行导航。

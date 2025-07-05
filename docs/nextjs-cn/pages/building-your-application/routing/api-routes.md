@@ -3,6 +3,8 @@ title: API Routes
 description: Next.js supports API Routes, which allow you to build your API without leaving your Next.js app. Learn how it works here.
 ---
 
+# NextJS中文文档 - Api Routes
+
 <details>
   <summary>Examples</summary>
 

@@ -3,6 +3,8 @@ title: 支持的浏览器
 description: Next.js 支持的浏览器以及支持的 JavaScript 功能。
 ---
 
+# NextJS中文文档 - Supported Browsers
+
 Next.js 支持**现代浏览器**，无需任何配置。
 
 - Chrome 64+

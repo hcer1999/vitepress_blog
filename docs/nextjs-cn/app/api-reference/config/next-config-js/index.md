@@ -3,6 +3,8 @@ title: next.config.js
 description: 了解如何使用 next.config.js 配置你的应用程序。
 ---
 
+# NextJS中文文档 - Next Config Js
+
 Next.js 可以通过项目根目录（例如与 `package.json` 同级）中的 `next.config.js` 文件进行配置，该文件需要包含默认导出。
 
 ```js

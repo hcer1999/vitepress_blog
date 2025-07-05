@@ -9,6 +9,8 @@ related:
     - app/api-reference/components/font
 ---
 
+# NextJS中文文档 - Fonts
+
 [`next/font`](/nextjs-cn/app/api-reference/components/font) 模块自动优化你的字体，并移除外部网络请求以提高隐私性和性能。
 
 它包括**内置的自托管**功能，适用于任何字体文件。这意味着你可以以最佳方式加载网络字体，且不会出现布局偏移。

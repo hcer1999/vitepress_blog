@@ -7,6 +7,8 @@ related:
     - app/building-your-application/routing/middleware
 ---
 
+# NextJS中文文档 - Middleware
+
 中间件允许你在请求完成之前运行代码。然后，你可以根据传入的请求修改响应，通过重写、重定向、修改请求或响应头或直接响应。
 
 中间件在缓存内容和路由匹配之前运行。参阅[匹配路径](#匹配路径)了解更多信息。

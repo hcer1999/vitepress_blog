@@ -3,6 +3,8 @@ title: headers
 description: headers 函数的 API 参考。
 ---
 
+# NextJS中文文档 - Headers
+
 `headers` 是一个**异步**函数，允许你从[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)中**读取** HTTP 传入请求头。
 
 ```tsx switcher

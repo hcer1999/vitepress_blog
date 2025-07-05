@@ -3,6 +3,8 @@ title: getInitialProps
 description: Fetch dynamic data on the server for your React component with getInitialProps.
 ---
 
+# NextJS中文文档 - Get Initial Props
+
 > **Good to know**: `getInitialProps` is a legacy API. We recommend using [`getStaticProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-static-props) or [`getServerSideProps`](/nextjs-cn/pages/building-your-application/data-fetching/get-server-side-props) instead.
 
 `getInitialProps` is an `async` function that can be added to the default exported React component for the page. It will run on both the server-side and again on the client-side during page transitions. The result of the function will be forwarded to the React component as `props`.

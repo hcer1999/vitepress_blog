@@ -4,6 +4,8 @@ nav_title: Create React App
 description: 学习如何将现有的 React 应用程序从 Create React App 迁移到 Next.js。
 ---
 
+# NextJS中文文档 - From Create React App
+
 本指南将帮助你将现有的 Create React App (CRA) 站点迁移到 Next.js。
 
 ## 为什么要切换？

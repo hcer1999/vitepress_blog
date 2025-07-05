@@ -8,6 +8,8 @@ related:
     - app/guides/production-checklist
 ---
 
+# NextJS中文文档 - Package Bundling
+
 打包外部包可以显著提高应用程序的性能。<AppOnly>默认情况下，在服务器组件和路由处理程序中导入的包会由 Next.js 自动打包。本页将指导你如何分析和进一步优化包打包。</AppOnly> <PagesOnly>默认情况下，导入到应用程序中的包不会被打包。如果外部包没有预先打包，这可能会影响性能或可能无法工作，例如，如果从 monorepo 或 `node_modules` 导入。本页将指导你如何分析和配置包打包。</PagesOnly>
 
 ## 分析 JavaScript 包

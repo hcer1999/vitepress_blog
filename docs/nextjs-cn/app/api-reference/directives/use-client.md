@@ -3,6 +3,8 @@ title: 'use client'
 description: 了解如何使用 'use client' 指令在客户端渲染组件。
 ---
 
+# NextJS中文文档 - Use Client
+
 `'use client'` 指令声明了一个入口点，用于在**客户端**渲染组件，它应该用于创建需要客户端 JavaScript 功能（如状态管理、事件处理和浏览器 API 访问）的交互式用户界面 (UI)。这是一个 React 功能。
 
 > **须知：**

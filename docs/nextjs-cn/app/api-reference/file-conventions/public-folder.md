@@ -4,6 +4,8 @@ nav_title: public
 description: Next.js 允许你在 public 目录中提供静态文件，如图像。在这里你可以了解它是如何工作的。
 ---
 
+# NextJS中文文档 - Public Folder
+
 Next.js 可以通过根目录下名为 `public` 的文件夹提供静态文件，如图像。`public` 内的文件可以从根 URL (`/`) 开始被你的代码引用。
 
 例如，文件 `public/avatars/me.png` 可以通过访问 `/avatars/me.png` 路径查看。显示该图像的代码可能如下所示：

@@ -3,6 +3,8 @@ title: 路由段配置
 description: 了解如何配置 Next.js 路由段的选项。
 ---
 
+# NextJS中文文档 - Route Segment Config
+
 > 如果启用了 [`dynamicIO`](/nextjs-cn/app/api-reference/config/next-config-js/dynamicIO) 标志，本页概述的选项将被禁用，并且将来最终会被弃用。
 
 路由段选项允许你通过直接导出以下变量来配置 [页面](/nextjs-cn/app/building-your-application/routing/layouts-and-templates)、[布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates) 或 [路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers) 的行为：

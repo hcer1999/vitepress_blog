@@ -8,6 +8,8 @@ related:
     - app/api-reference/config/next-config-js/serverActions
 ---
 
+# NextJS中文文档 - Server Actions And Mutations
+
 [服务器操作](https://react.dev/reference/rsc/server-actions)是在服务器上执行的**异步函数**。它们可以在服务器组件和客户端组件中调用，用于处理 Next.js 应用程序中的表单提交和数据变更。
 
 > **🎥 观看：** 了解更多关于使用服务器操作进行数据变更的内容 → [YouTube (10 分钟)](https://youtu.be/dDpZfOQBMaU?si=cJZHlUu_jFhCzHUg)。

@@ -3,6 +3,8 @@ title: Error Handling
 description: Handle errors in your Next.js app.
 ---
 
+# NextJS中文文档 - Error Handling
+
 This documentation explains how you can handle development, server-side, and client-side errors.
 
 ## Handling Errors in Development

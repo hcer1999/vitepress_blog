@@ -3,6 +3,8 @@ title: generateStaticParams
 description: generateStaticParams 函数的 API 参考。
 ---
 
+# NextJS中文文档 - Generate Static Params
+
 `generateStaticParams` 函数可以与[动态路由段](/nextjs-cn/app/building-your-application/routing/dynamic-routes)结合使用，以在构建时[**静态生成**](/nextjs-cn/app/building-your-application/rendering/server-components#static-rendering-default)路由，而不是在请求时按需生成。
 
 ```tsx switcher

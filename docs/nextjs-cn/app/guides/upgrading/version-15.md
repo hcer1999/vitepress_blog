@@ -4,6 +4,8 @@ nav_title: 第 15 版
 description: 将你的 Next.js 应用程序从第 14 版升级到第 15 版。
 ---
 
+# NextJS中文文档 - Version 15
+
 ## 从第 14 版升级到第 15 版
 
 要更新到 Next.js 第 15 版，你可以使用 `upgrade` 代码修改工具：

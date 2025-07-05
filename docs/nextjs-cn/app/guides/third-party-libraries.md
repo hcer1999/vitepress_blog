@@ -4,6 +4,8 @@ nav_title: 第三方库
 description: 使用 `@next/third-parties` 包优化应用程序中第三方库的性能。
 ---
 
+# NextJS中文文档 - Third Party Libraries
+
 **`@next/third-parties`** 是一个库，提供了一系列组件和工具，用于改善在 Next.js 应用程序中加载流行第三方库的性能和开发者体验。
 
 `@next/third-parties` 提供的所有第三方集成都已针对性能和易用性进行了优化。

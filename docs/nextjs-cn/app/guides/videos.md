@@ -4,6 +4,8 @@ nav_title: 视频
 description: 在 Next.js 应用程序中优化视频的建议和最佳实践。
 ---
 
+# NextJS中文文档 - Videos
+
 本页概述了如何在 Next.js 应用程序中使用视频，展示如何存储和显示视频文件而不影响性能。
 
 ## 使用 `<video>` 和 `<iframe>`

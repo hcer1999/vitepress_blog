@@ -3,6 +3,8 @@ title: Edge 运行时
 description: Edge 运行时的 API 参考。
 ---
 
+# NextJS中文文档 - Edge
+
 Next.js 提供了两种服务器运行时环境，你可以在应用程序中使用：
 
 - **Node.js 运行时**（默认），可以访问所有 Node.js API，用于渲染你的应用程序。

@@ -7,6 +7,8 @@ related:
     - app/api-reference/file-conventions/metadata/manifest
 ---
 
+# NextJS中文文档 - Progressive Web Apps
+
 渐进式 Web 应用（PWAs）结合了 Web 应用的覆盖范围和可访问性以及原生移动应用的功能和用户体验。使用 Next.js，你可以创建提供无缝、类应用体验的 PWA，适用于所有平台，无需多个代码库或应用商店审批。
 
 PWA 允许你：

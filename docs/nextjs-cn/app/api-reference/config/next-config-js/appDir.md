@@ -4,6 +4,8 @@ description: 启用应用路由器以使用布局、流式传输等功能。
 version: legacy
 ---
 
+# NextJS中文文档 - AppDir
+
 > **须知**: 从 Next.js 13.4 开始，**不再**需要此选项。App Router 现已稳定。
 
 App Router（[`app` 目录](/nextjs-cn/app/building-your-application/routing/index)）启用对[布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates)、[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)、[流式传输](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming)和[数据获取共置](/nextjs-cn/app/building-your-application/data-fetching/index)的支持。

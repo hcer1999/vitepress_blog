@@ -7,6 +7,8 @@ related:
     - app/building-your-application/routing/parallel-routes
 ---
 
+# NextJS中文文档 - Default
+
 `default.js` 文件用于在 Next.js 无法在完整页面加载后恢复[插槽](/nextjs-cn/app/building-your-application/routing/parallel-routes#slots)的活动状态时，在[并行路由](/nextjs-cn/app/building-your-application/routing/parallel-routes)中渲染一个后备内容。
 
 在[软导航](/nextjs-cn/app/building-your-application/routing/linking-and-navigating#soft-navigation)期间，Next.js 会跟踪每个插槽的活动*状态*（子页面）。然而，对于硬导航（完整页面加载），Next.js 无法恢复活动状态。在这种情况下，对于不匹配当前 URL 的子页面，可以渲染一个 `default.js` 文件。

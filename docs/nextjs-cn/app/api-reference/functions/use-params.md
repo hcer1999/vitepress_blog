@@ -3,6 +3,8 @@ title: useParams
 description: useParams 钩子的 API 参考。
 ---
 
+# NextJS中文文档 - Use Params
+
 `useParams` 是一个**客户端组件**钩子，让你可以读取由当前 URL 填充的路由[动态参数](/nextjs-cn/app/building-your-application/routing/dynamic-routes)。
 
 ```tsx switcher

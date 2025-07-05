@@ -3,6 +3,8 @@ title: 无障碍
 description: Next.js 内置的无障碍功能。
 ---
 
+# NextJS中文文档 - Accessibility
+
 Next.js 团队致力于使 Next.js 对所有开发者（及其最终用户）都可访问。通过默认为 Next.js 添加无障碍功能，我们旨在使网络对每个人都更具包容性。
 
 ## 路由通知

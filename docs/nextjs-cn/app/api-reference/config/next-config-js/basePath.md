@@ -3,6 +3,8 @@ title: basePath
 description: 使用 `basePath` 在域名的子路径下部署 Next.js 应用程序。
 ---
 
+# NextJS中文文档 - BasePath
+
 要在域名的子路径下部署 Next.js 应用程序，你可以使用 `basePath` 配置选项。
 
 `basePath` 允许你为应用程序设置路径前缀。例如，要使用 `/docs` 而不是 `''`（空字符串，默认值），打开 `next.config.js` 并添加 `basePath` 配置：

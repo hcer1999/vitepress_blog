@@ -3,6 +3,8 @@ title: images
 description: next/image 加载器的自定义配置
 ---
 
+# NextJS中文文档 - Images
+
 如果你想使用云服务提供商来优化图片，而不是使用 Next.js 内置的图像优化 API，你可以在 `next.config.js` 中进行以下配置：
 
 ```js

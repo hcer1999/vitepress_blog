@@ -4,6 +4,8 @@ nav_title: 应用路由器
 description: 了解如何将现有的 Next.js 应用程序从页面路由器升级到应用路由器。
 ---
 
+# NextJS中文文档 - App Router Migration
+
 本指南将帮助你：
 
 - [将你的 Next.js 应用程序从第 12 版更新到第 13 版](#nextjs-version)

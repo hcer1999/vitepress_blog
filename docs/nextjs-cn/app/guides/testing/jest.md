@@ -4,6 +4,8 @@ nav_title: Jest
 description: 学习如何在 Next.js 中设置 Jest 进行单元测试和快照测试。
 ---
 
+# NextJS中文文档 - Jest
+
 Jest 和 React Testing Library 经常一起用于**单元测试**和**快照测试**。本指南将向你展示如何在 Next.js 中设置 Jest 并编写你的第一个测试。
 
 > **提示：** 由于 `async` 服务器组件是 React 生态系统的新成员，Jest 目前不支持它们。虽然你仍然可以为同步的服务器和客户端组件运行**单元测试**，但我们建议对 `async` 组件使用**端到端测试**。

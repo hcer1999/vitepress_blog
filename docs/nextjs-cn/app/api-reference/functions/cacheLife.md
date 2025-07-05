@@ -12,6 +12,8 @@ related:
     - app/api-reference/functions/cacheTag
 ---
 
+# NextJS中文文档 - CacheLife
+
 `cacheLife` 函数用于设置函数或组件的缓存生命周期。它应该与 [`use cache`](/nextjs-cn/app/api-reference/directives/use-cache) 指令一起使用，并在函数或组件的作用域内使用。
 
 ## 用法

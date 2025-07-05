@@ -3,6 +3,8 @@ title: transpilePackages
 description: 自动转译和打包来自本地包（如 monorepos）或外部依赖（`node_modules`）的依赖项。
 ---
 
+# NextJS中文文档 - TranspilePackages
+
 Next.js 可以自动转译和打包来自本地包（如 monorepos）或外部依赖（`node_modules`）的依赖项。这取代了 `next-transpile-modules` 包。
 
 ```js

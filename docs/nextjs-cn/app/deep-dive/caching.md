@@ -4,6 +4,8 @@ nav_title: 缓存
 description: Next.js 缓存机制的概述。
 ---
 
+# NextJS中文文档 - Caching
+
 Next.js 通过缓存渲染工作和数据请求来提高应用性能并降低成本。本页提供了对 Next.js 缓存机制的深入了解，介绍了可用于配置这些机制的 API，以及它们之间的交互方式。
 
 > **值得注意**: 本页帮助你了解 Next.js 在底层的工作原理，但这**不是**使用 Next.js 高效工作的必备知识。大多数 Next.js 的缓存策略都由你的 API 使用方式决定，并且具有零配置或最小配置的最佳性能默认设置。如果你想直接查看示例，[请从这里开始](/nextjs-cn/app/building-your-application/data-fetching/fetching)。

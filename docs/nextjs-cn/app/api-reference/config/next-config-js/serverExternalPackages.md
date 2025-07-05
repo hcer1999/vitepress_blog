@@ -3,6 +3,8 @@ title: serverExternalPackages
 description: 将特定依赖项从服务器组件打包中排除，并使用原生 Node.js `require`。
 ---
 
+# NextJS中文文档 - ServerExternalPackages
+
 在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)和[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中使用的依赖项将自动由 Next.js 打包。
 
 如果某个依赖项使用了 Node.js 特定功能，你可以选择将特定依赖项从服务器组件打包中排除，并使用原生 Node.js 的 `require`。

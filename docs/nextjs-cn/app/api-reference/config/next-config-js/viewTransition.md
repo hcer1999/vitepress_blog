@@ -4,6 +4,8 @@ description: 在 App Router 中启用 React 的视图过渡 API
 version: experimental
 ---
 
+# NextJS中文文档 - ViewTransition
+
 `viewTransition` 是一个实验性标志，用于启用 React 中新的实验性[视图过渡 API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)。此 API 允许你利用原生的视图过渡浏览器 API 创建 UI 状态之间的无缝过渡。
 
 要启用此功能，你需要在 `next.config.js` 文件中将 `viewTransition` 属性设置为 `true`。

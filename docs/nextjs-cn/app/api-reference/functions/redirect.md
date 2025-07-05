@@ -6,6 +6,8 @@ related:
     - app/api-reference/functions/permanentRedirect
 ---
 
+# NextJS中文文档 - Redirect
+
 `redirect` 函数允许你将用户重定向到另一个 URL。`redirect` 可以在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)、[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)和[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中使用。
 
 当在[流式上下文](/nextjs-cn/app/building-your-application/routing/loading-ui-and-streaming#what-is-streaming)中使用时，这将插入一个 meta 标签，以在客户端执行重定向。当在服务器操作中使用时，它将向调用者提供 303 HTTP 重定向响应。否则，它将向调用者提供 307 HTTP 重定向响应。

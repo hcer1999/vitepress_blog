@@ -8,6 +8,8 @@ related:
     - app/getting-started/partial-prerendering
 ---
 
+# NextJS中文文档 - Ppr
+
 部分预渲染（PPR）使你能够在同一路由中结合静态和动态组件。了解更多关于 [PPR](/nextjs-cn/app/getting-started/partial-prerendering) 的信息。
 
 ## 使用部分预渲染

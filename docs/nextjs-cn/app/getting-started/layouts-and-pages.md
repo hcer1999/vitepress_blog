@@ -11,6 +11,8 @@ related:
     - app/api-reference/components/link
 ---
 
+# NextJS中文文档 - Layouts And Pages
+
 Next.js 使用**基于文件系统的路由**，这意味着你可以使用文件夹和文件来定义路由。本页面将指导你如何创建布局和页面，以及如何在它们之间建立链接。
 
 ## 创建页面

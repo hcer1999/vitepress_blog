@@ -7,6 +7,8 @@ related:
     - app/guides/instrumentation
 ---
 
+# NextJS中文文档 - Instrumentation
+
 `instrumentation.js|ts` 文件用于将可观测性工具集成到你的应用程序中，使你能够跟踪性能和行为，并在生产环境中调试问题。
 
 要使用它，请将文件放在应用程序的**根目录**中，或者如果使用 [`src` 文件夹](/nextjs-cn/app/api-reference/file-conventions/src-folder)，则放在其中。

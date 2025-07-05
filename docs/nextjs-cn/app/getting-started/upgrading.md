@@ -10,6 +10,8 @@ related:
     - app/guides/upgrading/version-14
 ---
 
+# NextJS中文文档 - Upgrading
+
 ## 最新版本
 
 要更新到最新版本的 Next.js，你可以使用 `upgrade` codemod：

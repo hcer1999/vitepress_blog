@@ -3,6 +3,8 @@ title: getServerSideProps
 description: Fetch data on each request with `getServerSideProps`.
 ---
 
+# NextJS中文文档 - Get Server Side Props
+
 `getServerSideProps` is a Next.js function that can be used to fetch data and render the contents of a page at request time.
 
 ## Example

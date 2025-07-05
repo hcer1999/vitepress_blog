@@ -4,6 +4,8 @@ nav_title: Cypress
 description: 学习如何在 Next.js 中设置 Cypress 进行端到端 (E2E) 和组件测试。
 ---
 
+# NextJS中文文档 - Cypress
+
 [Cypress](https://www.cypress.io/) 是一个用于**端到端 (E2E)** 和**组件测试**的测试运行器。本页将向你展示如何在 Next.js 中设置 Cypress 并编写你的第一个测试。
 
 > **警告：**

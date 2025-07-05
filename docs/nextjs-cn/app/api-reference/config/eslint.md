@@ -4,6 +4,8 @@ nav_title: ESLint
 description: 了解如何使用和配置 ESLint 插件来捕获 Next.js 应用程序中的常见问题和错误。
 ---
 
+# NextJS中文文档 - Eslint
+
 Next.js 提供了一个 ESLint 插件，[`eslint-plugin-next`](https://www.npmjs.com/package/@next/eslint-plugin-next)，它已经捆绑在基础配置中，可以捕获 Next.js 应用程序中的常见问题和错误。
 
 ## 参考

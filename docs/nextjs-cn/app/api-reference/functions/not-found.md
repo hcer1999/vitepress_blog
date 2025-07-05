@@ -3,6 +3,8 @@ title: notFound
 description: notFound 函数的 API 参考。
 ---
 
+# NextJS中文文档 - Not Found
+
 `notFound` 函数允许你在路由段内渲染 [`not-found 文件`](/nextjs-cn/app/api-reference/file-conventions/not-found)，同时注入一个 `<meta name="robots" content="noindex" />` 标签。
 
 ## `notFound()`

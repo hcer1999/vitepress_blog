@@ -4,7 +4,7 @@ nav_title: 社区
 description: 参与 Next.js 社区。
 ---
 
-# Next.js 社区
+# NextJS中文文档 - Community
 
 Next.js 每周下载量超过 500 万次，在全球拥有大量活跃的开发者社区。以下是您可以参与我们社区的方式：
 

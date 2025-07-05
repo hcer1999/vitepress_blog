@@ -4,6 +4,8 @@ nav_title: 第 14 版
 description: 将你的 Next.js 应用程序从第 13 版升级到第 14 版。
 ---
 
+# NextJS中文文档 - Version 14
+
 ## 从第 13 版升级到第 14 版
 
 要更新到 Next.js 第 14 版，请使用你偏好的包管理器运行以下命令：

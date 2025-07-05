@@ -3,6 +3,8 @@ title: getStaticProps
 description: Fetch data and generate static pages with `getStaticProps`. Learn more about this API for data fetching in Next.js.
 ---
 
+# NextJS中文文档 - Get Static Props
+
 If you export a function called `getStaticProps` (Static Site Generation) from a page, Next.js will pre-render this page at build time using the props returned by `getStaticProps`.
 
 ```tsx switcher

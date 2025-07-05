@@ -3,6 +3,8 @@ title: Image
 description: 使用内置的 `next/image` 组件在 Next.js 应用程序中优化图像。
 ---
 
+# NextJS中文文档 - Image
+
 Next.js Image 组件扩展了 HTML `<img>` 元素，实现自动图像优化。
 
 ```jsx

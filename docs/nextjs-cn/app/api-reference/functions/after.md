@@ -3,6 +3,8 @@ title: after
 description: after 函数的 API 参考。
 ---
 
+# NextJS中文文档 - After
+
 `after` 允许你安排在响应（或预渲染）完成后执行的工作。这对于不应阻塞响应的任务和其他副作用（如日志记录和分析）非常有用。
 
 它可以在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)（包括 [`generateMetadata`](/nextjs-cn/app/api-reference/functions/generate-metadata)）、[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)、[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)和[中间件](/nextjs-cn/app/building-your-application/routing/middleware)中使用。

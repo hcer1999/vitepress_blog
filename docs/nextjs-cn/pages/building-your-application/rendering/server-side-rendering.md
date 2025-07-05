@@ -3,6 +3,8 @@ title: Server-side Rendering (SSR)
 description: Use Server-side Rendering to render pages on each request.
 ---
 
+# NextJS中文文档 - Server Side Rendering
+
 > Also referred to as "SSR" or "Dynamic Rendering".
 
 If a page uses **Server-side Rendering**, the page HTML is generated on **each request**.

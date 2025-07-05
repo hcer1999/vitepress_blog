@@ -3,6 +3,8 @@ title: revalidatePath
 description: revalidatePath 函数的 API 参考。
 ---
 
+# NextJS中文文档 - RevalidatePath
+
 `revalidatePath` 允许你按需为特定路径清除[缓存数据](/nextjs-cn/app/deep-dive/caching)。
 
 > **须知**：

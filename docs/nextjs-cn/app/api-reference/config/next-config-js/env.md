@@ -4,6 +4,8 @@ description: 学习如何在构建时在你的 Next.js 应用程序中添加和�
 version: legacy
 ---
 
+# NextJS中文文档 - Env
+
 <AppOnly>
 
 > 自 [Next.js 9.4](https://nextjs.org/blog/next-4) 发布以来，我们现在有了一种更直观和人性化的[添加环境变量]()的体验。快来试试吧！

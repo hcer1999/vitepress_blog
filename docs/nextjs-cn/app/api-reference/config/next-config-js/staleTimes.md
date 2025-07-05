@@ -4,6 +4,8 @@ description: 了解如何覆盖客户端路由器缓存的失效时间。
 version: experimental
 ---
 
+# NextJS中文文档 - StaleTimes
+
 `staleTimes` 是一个实验性功能，它允许在[客户端路由器缓存](/nextjs-cn/app/deep-dive/caching#client-side-router-cache)中缓存页面段。
 
 你可以通过设置实验性的 `staleTimes` 标志来启用此功能并提供自定义的重新验证时间：

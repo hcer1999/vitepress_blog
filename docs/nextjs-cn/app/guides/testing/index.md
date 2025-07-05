@@ -3,6 +3,8 @@ title: 测试
 description: 学习如何使用四种常用测试工具 — Cypress、Playwright、Vitest 和 Jest 来设置 Next.js。
 ---
 
+# NextJS中文文档 - Testing
+
 在 React 和 Next.js 中，你可以编写几种不同类型的测试，每种测试都有其特定的目的和用例。本页面概述了可用于测试应用程序的类型和常用工具。
 
 ## 测试类型

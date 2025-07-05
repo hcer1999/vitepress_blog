@@ -3,6 +3,8 @@ title: productionBrowserSourceMaps
 description: 在生产构建过程中启用浏览器源映射生成
 ---
 
+# NextJS中文文档 - ProductionBrowserSourceMaps
+
 源映射在开发过程中默认启用。在生产构建期间，它们被禁用以防止你在客户端泄露源代码，除非你通过配置标志特别选择启用。
 
 Next.js 提供了一个配置标志，你可以使用它在生产构建期间启用浏览器源映射生成：

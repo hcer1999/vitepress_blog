@@ -9,6 +9,8 @@ related:
     - app/api-reference/functions/generate-viewport
 ---
 
+# NextJS中文文档 - Generate Metadata
+
 你可以使用 `metadata` 对象或 `generateMetadata` 函数来定义元数据。
 
 ## `metadata` 对象

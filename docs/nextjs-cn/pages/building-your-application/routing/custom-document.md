@@ -3,6 +3,8 @@ title: Custom Document
 description: Extend the default document markup added by Next.js.
 ---
 
+# NextJS中文文档 - Custom Document
+
 A custom `Document` can update the `<html>` and `<body>` tags used to render a [Page](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts).
 
 To override the default `Document`, create the file `pages/_document` as shown below:

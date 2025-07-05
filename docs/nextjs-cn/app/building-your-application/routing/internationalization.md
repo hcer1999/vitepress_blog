@@ -3,6 +3,8 @@ title: 国际化
 description: 添加对多语言的支持，包括国际化路由和本地化内容。
 ---
 
+# NextJS中文文档 - Internationalization
+
 Next.js 使您能够配置路由和内容渲染以支持多种语言。使您的网站适应不同地区包括翻译内容（本地化）和国际化路由。
 
 ## 术语

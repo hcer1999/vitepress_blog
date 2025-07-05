@@ -4,3 +4,5 @@ nav_title: Environment Variables
 description: Learn to add and access environment variables in your Next.js application.
 source: app/guides/environment-variables
 ---
+
+# NextJS中文文档 - Environment Variables

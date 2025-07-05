@@ -3,6 +3,8 @@ title: 客户端组件
 description: 了解如何使用客户端组件在客户端渲染应用程序的部分内容。
 ---
 
+# NextJS中文文档 - Client Components
+
 客户端组件允许你编写交互式 UI，该 UI 会[在服务器上预渲染](https://github.com/reactwg/server-components/discussions/4)，并可以使用客户端 JavaScript 在浏览器中运行。
 
 本页将介绍客户端组件的工作原理、渲染方式以及何时使用它们。

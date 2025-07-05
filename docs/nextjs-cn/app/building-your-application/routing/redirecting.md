@@ -9,6 +9,8 @@ related:
     - app/api-reference/config/next-config-js/redirects
 ---
 
+# NextJS中文文档 - Redirecting
+
 在 Next.js 中有几种处理重定向的方式。本页将介绍每种可用选项、使用场景以及如何管理大量重定向。
 
 <AppOnly>

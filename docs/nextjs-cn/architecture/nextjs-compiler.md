@@ -3,6 +3,8 @@ title: Next.js 编译器
 description: Next.js 编译器，使用 Rust 编写，用于转换和压缩你的 Next.js 应用程序。
 ---
 
+# NextJS中文文档 - Nextjs Compiler
+
 Next.js 编译器使用 [SWC](https://swc.rs/) 用 Rust 编写，允许 Next.js 转换和压缩你的 JavaScript 代码以用于生产环境。这替代了单个文件的 Babel 和用于压缩输出包的 Terser。
 
 使用 Next.js 编译器的编译速度比 Babel 快 17 倍，并且自 Next.js 12 版本起默认启用。如果你有现有的 Babel 配置或使用[不支持的功能](#unsupported-features)，你的应用程序将退出 Next.js 编译器并继续使用 Babel。

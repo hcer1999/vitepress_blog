@@ -6,6 +6,8 @@ related:
     - app/api-reference/file-conventions/default
 ---
 
+# NextJS中文文档 - Parallel Routes
+
 平行路由允许您在同一布局中同时或有条件地渲染一个或多个页面。它们对于应用程序的高度动态部分（如仪表板和社交网站上的信息流）非常有用。
 
 例如，考虑一个仪表板，您可以使用平行路由同时渲染 `team` 和 `analytics` 页面：

@@ -4,6 +4,8 @@ nav_title: CI 构建缓存
 description: 学习如何配置 CI 以缓存 Next.js 构建
 ---
 
+# NextJS中文文档 - Ci Build Caching
+
 为了提高构建性能，Next.js 将缓存保存到 `.next/cache` 目录，该缓存可在多次构建之间共享。
 
 要在持续集成 (CI) 环境中利用此缓存，需要配置 CI 工作流以正确地在构建之间持久化缓存。

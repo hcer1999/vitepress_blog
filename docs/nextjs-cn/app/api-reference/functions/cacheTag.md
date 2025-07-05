@@ -12,6 +12,8 @@ related:
     - app/api-reference/functions/cacheLife
 ---
 
+# NextJS中文文档 - CacheTag
+
 `cacheTag` 函数允许你为缓存数据添加标签，以便按需失效。通过将标签与缓存条目关联，你可以选择性地清除或重新验证特定的缓存条目，而不影响其他缓存数据。
 
 ## 用法

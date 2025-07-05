@@ -3,6 +3,8 @@ title: getStaticPaths
 description: API reference for `getStaticPaths`. Learn how to fetch data and generate static pages with `getStaticPaths`.
 ---
 
+# NextJS中文文档 - Get Static Paths
+
 When exporting a function called `getStaticPaths` from a page that uses [Dynamic Routes](/nextjs-cn/pages/building-your-application/routing/dynamic-routes), Next.js will statically pre-render all the paths specified by `getStaticPaths`.
 
 ```tsx switcher

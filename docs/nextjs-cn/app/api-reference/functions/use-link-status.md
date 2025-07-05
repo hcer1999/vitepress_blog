@@ -9,6 +9,8 @@ related:
     - app/api-reference/file-conventions/loading
 ---
 
+# NextJS中文文档 - Use Link Status
+
 `useLinkStatus` 钩子让你能够跟踪 `<Link>` 的**挂起**状态。你可以使用它在导航到新路由完成时向用户显示内联视觉反馈（如加载旋转器或文本闪烁）。
 
 `useLinkStatus` 在以下情况下非常有用：

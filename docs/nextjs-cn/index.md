@@ -8,7 +8,7 @@ related:
     - app/getting-started
 ---
 
-# Next.js 中文文档
+# NextJS中文文档 - Next.js
 
 欢迎来到 Next.js 中文文档！
 

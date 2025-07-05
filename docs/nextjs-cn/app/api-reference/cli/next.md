@@ -3,6 +3,8 @@ title: next CLI
 description: 了解如何使用 Next.js CLI 运行和构建应用程序。
 ---
 
+# NextJS中文文档 - Next
+
 Next.js CLI 允许您开发、构建、启动应用程序等。
 
 基本用法：

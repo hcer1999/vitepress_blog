@@ -4,6 +4,8 @@ nav_title: 分析
 description: 使用 Next.js Speed Insights 测量和跟踪页面性能
 ---
 
+# NextJS中文文档 - Analytics
+
 Next.js 内置了对测量和报告性能指标的支持。你可以使用 [`useReportWebVitals`](/nextjs-cn/app/api-reference/functions/use-report-web-vitals) hook 来自行管理报告，或者使用 Vercel 提供的[托管服务](https://vercel.com/analytics?utm_source=next-site&utm_medium=docs&utm_campaign=next-website)来自动收集和可视化指标。
 
 ## 客户端检测/nextjs-cn/

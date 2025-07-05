@@ -9,3 +9,5 @@ related:
     - pages/api-reference/components/image
 source: app/getting-started/images
 ---
+
+# NextJS中文文档 - Images

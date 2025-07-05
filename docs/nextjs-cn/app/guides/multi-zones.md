@@ -4,6 +4,8 @@ nav_title: 多区域
 description: 学习如何使用 Next.js 多区域来构建微前端，将多个 Next.js 应用部署在单个域名下。
 ---
 
+# NextJS中文文档 - Multi Zones
+
 <details open>
   <summary>示例</summary>
 

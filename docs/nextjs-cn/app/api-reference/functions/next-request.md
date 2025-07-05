@@ -3,6 +3,8 @@ title: NextRequest
 description: NextRequest 的 API 参考。
 ---
 
+# NextJS中文文档 - Next Request
+
 NextRequest 扩展了 [Web Request API](https://developer.mozilla.org/docs/Web/API/Request)，增加了额外的便捷方法。
 
 ## `cookies`

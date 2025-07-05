@@ -12,6 +12,8 @@ related:
     - app/api-reference/file-conventions/not-found
 ---
 
+# NextJS中文文档 - Error Handling
+
 错误可以分为两类：[预期错误](#handling-expected-errors)和[未捕获的异常](#handling-uncaught-exceptions)。本页将指导你如何在 Next.js 应用程序中处理这些错误。
 
 ## 处理预期错误

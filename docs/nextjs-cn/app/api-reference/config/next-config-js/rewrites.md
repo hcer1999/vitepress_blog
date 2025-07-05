@@ -3,6 +3,8 @@ title: rewrites
 description: 向你的 Next.js 应用添加重写。
 ---
 
+# NextJS中文文档 - Rewrites
+
 重写允许你将传入的请求路径映射到不同的目标路径。
 
 <AppOnly>

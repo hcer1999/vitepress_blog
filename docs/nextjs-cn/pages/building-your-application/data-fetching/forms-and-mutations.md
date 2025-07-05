@@ -4,6 +4,8 @@ nav_title: Forms and Mutations
 description: Learn how to handle form submissions and data mutations with Next.js.
 ---
 
+# NextJS中文文档 - Forms And Mutations
+
 Forms enable you to create and update data in web applications. Next.js provides a powerful way to handle form submissions and data mutations using **API Routes**.
 
 > **Good to know:**

@@ -3,6 +3,8 @@ title: bundlePagesRouterDependencies
 description: Enable automatic dependency bundling for Pages Router
 ---
 
+# NextJS中文文档 - BundlePagesRouterDependencies
+
 Enable automatic server-side dependency bundling for Pages Router applications. Matches the automatic dependency bundling in App Router.
 
 ```js

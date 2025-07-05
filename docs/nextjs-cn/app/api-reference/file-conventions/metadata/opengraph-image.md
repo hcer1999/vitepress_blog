@@ -3,6 +3,8 @@ title: opengraph-image 和 twitter-image
 description: Open Graph 图像和 Twitter 图像文件约定的 API 参考。
 ---
 
+# NextJS中文文档 - Opengraph Image
+
 `opengraph-image` 和 `twitter-image` 文件约定允许你为路由段设置 Open Graph 和 Twitter 图像。
 
 这些图像在用户分享你网站链接时，会显示在社交网络和消息应用中，非常有用。

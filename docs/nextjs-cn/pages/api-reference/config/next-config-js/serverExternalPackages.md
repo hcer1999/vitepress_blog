@@ -3,6 +3,8 @@ title: serverExternalPackages
 description: Opt-out specific dependencies from the dependency bundling enabled by `bundlePagesRouterDependencies`.
 ---
 
+# NextJS中文文档 - ServerExternalPackages
+
 Opt-out specific dependencies from being included in the automatic bundling of the [`bundlePagesRouterDependencies`](/nextjs-cn/pages/api-reference/config/next-config-js/bundlePagesRouterDependencies) option.
 
 These pages will then use native Node.js `require` to resolve the dependency.

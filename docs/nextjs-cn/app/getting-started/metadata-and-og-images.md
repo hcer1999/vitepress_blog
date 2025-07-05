@@ -16,6 +16,8 @@ related:
     - app/api-reference/file-conventions/metadata/sitemap
 ---
 
+# NextJS中文文档 - Metadata And Og Images
+
 元数据 API 可用于定义你的应用程序元数据，以改善 SEO 和网页分享效果，包括：
 
 1. [静态 `metadata` 对象](#static-metadata)

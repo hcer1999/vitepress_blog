@@ -4,6 +4,8 @@ description: 了解如何在 Next.js 中设置 cacheLife 配置。
 version: canary
 ---
 
+# NextJS中文文档 - CacheLife
+
 `cacheLife` 选项允许你在组件或函数内部使用 [`cacheLife`](/nextjs-cn/app/api-reference/functions/cacheLife) 函数以及在 [`use cache` 指令](/nextjs-cn/app/api-reference/directives/use-cache)范围内定义**自定义缓存配置文件**。
 
 ## 使用方法

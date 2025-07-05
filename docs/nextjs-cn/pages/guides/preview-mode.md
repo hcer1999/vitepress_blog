@@ -5,6 +5,8 @@ description: Next.js has the preview mode for statically generated pages. You ca
 version: legacy
 ---
 
+# NextJS中文文档 - Preview Mode
+
 > **Note**: This feature is superseded by [Draft Mode]().
 
 <details>

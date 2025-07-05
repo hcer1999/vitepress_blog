@@ -9,6 +9,8 @@ related:
     - app/api-reference/components/image
 ---
 
+# NextJS中文文档 - Images
+
 Next.js 的 [`<Image>`](/nextjs-cn/app/api-reference/components/image) 组件扩展了 HTML 的 `<img>` 元素，提供以下功能：
 
 - **尺寸优化：** 自动为每个设备提供正确尺寸的图片，使用 WebP 等现代图片格式。

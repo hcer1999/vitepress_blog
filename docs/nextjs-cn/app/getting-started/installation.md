@@ -4,6 +4,8 @@ nav_title: 安装
 description: 使用 `create-next-app` CLI 创建新的 Next.js 应用程序，并设置 TypeScript、ESLint 和模块路径别名。
 ---
 
+# NextJS中文文档 - Installation
+
 ## 系统要求
 
 在开始之前，请确保您的系统满足以下要求：

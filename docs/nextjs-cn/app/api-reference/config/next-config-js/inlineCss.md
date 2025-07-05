@@ -4,6 +4,8 @@ description: 启用内联 CSS 支持。
 version: experimental
 ---
 
+# NextJS中文文档 - InlineCss
+
 ## 使用方法
 
 内联 CSS 到 `<head>` 的实验性支持。当启用此标志时，所有通常生成 `<link>` 标签的地方将改为生成 `<style>` 标签。

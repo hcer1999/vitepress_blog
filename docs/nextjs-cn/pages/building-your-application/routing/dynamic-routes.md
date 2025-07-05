@@ -9,6 +9,8 @@ related:
     - pages/api-reference/functions/use-router
 ---
 
+# NextJS中文文档 - Dynamic Routes
+
 When you don't know the exact segment names ahead of time and want to create routes from dynamic data, you can use Dynamic Segments that are filled in at request time or [prerendered](/nextjs-cn/pages/building-your-application/data-fetching/get-static-paths) at build time.
 
 ## Convention

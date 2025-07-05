@@ -3,6 +3,8 @@ title: page.js
 description: page.js 文件的 API 参考。
 ---
 
+# NextJS中文文档 - Page
+
 `page` 文件允许你定义对路由**唯一**的 UI。你可以通过从文件中默认导出组件来创建页面：
 
 ```tsx switcher

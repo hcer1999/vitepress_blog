@@ -4,6 +4,8 @@ nav_title: AMP
 description: With minimal config, and without leaving React, you can start adding AMP and improve the performance and speed of your pages.
 ---
 
+# NextJS中文文档 - Amp
+
 <details>
   <summary>Examples</summary>
 

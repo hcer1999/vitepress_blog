@@ -8,6 +8,8 @@ related:
     - app/api-reference/file-conventions/metadata
 ---
 
+# NextJS中文文档 - Generate Image Metadata
+
 你可以使用 `generateImageMetadata` 生成一张图像的不同版本，或者为一个路由段返回多个图像。这在你想避免硬编码元数据值时很有用，例如对于图标。
 
 ## 参数

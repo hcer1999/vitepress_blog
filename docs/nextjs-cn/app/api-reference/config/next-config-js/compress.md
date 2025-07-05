@@ -3,6 +3,8 @@ title: compress
 description: Next.js 提供 gzip 压缩来压缩渲染内容和静态文件，它仅适用于服务器目标。在此了解更多信息。
 ---
 
+# NextJS中文文档 - Compress
+
 默认情况下，Next.js 在使用 `next start` 或自定义服务器时使用 `gzip` 来压缩渲染内容和静态文件。这是对未配置压缩的应用程序的优化。如果应用程序已通过自定义服务器配置了压缩，Next.js 将不会添加压缩。
 
 你可以通过查看响应中的 [`Accept-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)（浏览器接受的选项）和 [`Content-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)（当前使用的）头部来检查压缩是否已启用以及使用的算法。

@@ -4,6 +4,8 @@ nav_title: 部署
 description: 了解如何部署你的 Next.js 应用程序。
 ---
 
+# NextJS中文文档 - Deploying
+
 Next.js 可以作为 Node.js 服务器、Docker 容器、静态导出或适配运行在不同的平台上进行部署。
 
 | 部署选项                         | 功能支持 |

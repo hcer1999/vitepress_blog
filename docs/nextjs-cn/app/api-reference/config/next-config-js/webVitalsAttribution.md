@@ -4,6 +4,8 @@ description: 了解如何使用 webVitalsAttribution 选项定位 Web Vitals 问
 version: experimental
 ---
 
+# NextJS中文文档 - WebVitalsAttribution
+
 在调试与 Web Vitals 相关的问题时，能够准确定位问题来源通常会很有帮助。
 例如，对于累积布局偏移（CLS），我们可能想知道单次最大布局偏移发生时最先移动的元素是什么。
 或者，对于最大内容绘制（LCP），我们可能想要识别页面上对应 LCP 的元素。

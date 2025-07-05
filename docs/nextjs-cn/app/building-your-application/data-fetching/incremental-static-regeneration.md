@@ -3,6 +3,8 @@ title: 增量静态再生 (ISR)
 description: 学习如何使用增量静态再生在运行时创建或更新静态页面。
 ---
 
+# NextJS中文文档 - Incremental Static Regeneration
+
 <details>
   <summary>示例</summary>
 

@@ -4,6 +4,8 @@ description: 使用 `cssChunking` 选项控制 Next.js 应用程序中 CSS 文�
 version: experimental
 ---
 
+# NextJS中文文档 - CssChunking
+
 CSS 分块是一种通过将 CSS 文件分割并重新排序为块来提高 Web 应用程序性能的策略。这使你能够只加载特定路由所需的 CSS，而不是一次加载应用程序的所有 CSS。
 
 你可以使用 `next.config.js` 文件中的 `experimental.cssChunking` 选项来控制 CSS 文件的分块方式：

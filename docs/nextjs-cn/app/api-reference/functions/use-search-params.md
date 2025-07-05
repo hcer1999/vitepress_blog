@@ -3,6 +3,8 @@ title: useSearchParams
 description: useSearchParams 钩子的 API 参考。
 ---
 
+# NextJS中文文档 - Use Search Params
+
 `useSearchParams` 是一个**客户端组件**钩子，允许你读取当前 URL 的**查询字符串**。
 
 `useSearchParams` 返回 [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams) 接口的**只读**版本。

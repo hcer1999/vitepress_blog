@@ -4,6 +4,8 @@ nav_title: cacheHandler
 description: 配置 Next.js 缓存，用于存储和重新验证数据，以使用任何外部服务，如 Redis、Memcached 或其他服务。
 ---
 
+# NextJS中文文档 - IncrementalCacheHandlerPath
+
 如果你想将缓存的页面和数据持久化到持久存储中，或者在 Next.js 应用程序的多个容器或实例之间共享缓存，你可以配置 Next.js 缓存位置。
 
 ```js

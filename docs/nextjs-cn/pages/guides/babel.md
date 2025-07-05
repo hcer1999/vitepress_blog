@@ -4,6 +4,8 @@ nav_title: Babel
 description: Extend the babel preset added by Next.js with your own configs.
 ---
 
+# NextJS中文文档 - Babel
+
 <details>
   <summary>Examples</summary>
 

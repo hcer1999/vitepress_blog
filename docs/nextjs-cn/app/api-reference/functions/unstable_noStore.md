@@ -4,6 +4,8 @@ description: unstable_noStore 函数的 API 参考。
 version: legacy
 ---
 
+# NextJS中文文档 - Unstable_noStore
+
 **在版本 15 中，我们建议使用 [`connection`](/nextjs-cn/app/api-reference/functions/connection) 而不是 `unstable_noStore`。**
 
 `unstable_noStore` 可用于声明性地选择退出静态渲染，并指示特定组件不应被缓存。

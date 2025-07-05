@@ -3,6 +3,8 @@ title: 入门指南
 description: 学习如何使用 Next.js App Router 创建全栈 Web 应用程序。
 ---
 
+# NextJS中文文档 - Getting Started
+
 欢迎阅读 Next.js 文档！
 
 这个**入门指南**部分将帮助你创建你的第一个 Next.js 应用程序，并学习在每个项目中都会使用到的核心功能。

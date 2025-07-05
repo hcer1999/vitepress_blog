@@ -3,6 +3,8 @@ title: favicon, icon, 和 apple-icon
 description: Favicon, Icon 和 Apple Icon 文件约定的 API 参考。
 ---
 
+# NextJS中文文档 - App Icons
+
 `favicon`、`icon` 或 `apple-icon` 文件约定允许你为应用程序设置图标。
 
 这些图标在网络浏览器标签页、手机主屏幕和搜索引擎结果等场所显示，非常有用。

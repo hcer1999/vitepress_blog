@@ -4,6 +4,8 @@ nav_title: Sass
 description: 使用 Sass 为 Next.js 应用程序添加样式。
 ---
 
+# NextJS中文文档 - Sass
+
 Next.js 在安装了相应的包后，内置支持通过 `.scss` 和 `.sass` 扩展名集成 Sass。你可以通过 CSS Modules 和 `.module.scss` 或 `.module.sass` 扩展名使用组件级 Sass。
 
 首先，安装 [`sass`](https://github.com/sass/sass)：

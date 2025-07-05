@@ -6,6 +6,8 @@ related:
     - app/api-reference/file-conventions/error
 ---
 
+# NextJS中文文档 - Error Handling
+
 错误可以分为两类：**预期错误**和**未捕获的异常**：
 
 - **将预期错误建模为返回值**：在服务器操作中避免使用 `try`/`catch` 处理预期错误。使用 [`useActionState`](https://react.dev/reference/react/useActionState) 来管理这些错误并将它们返回给客户端。

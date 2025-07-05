@@ -4,3 +4,5 @@ nav_title: MDX
 description: Learn how to configure MDX to write JSX in your markdown files.
 source: app/guides/mdx
 ---
+
+# NextJS中文文档 - Mdx

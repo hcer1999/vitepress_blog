@@ -4,6 +4,8 @@ nav_title: MDX
 description: 学习如何配置 MDX 并在 Next.js 应用中使用它。
 ---
 
+# NextJS中文文档 - Mdx
+
 [Markdown](https://daringfireball.net/projects/markdown/syntax) 是一种用于格式化文本的轻量级标记语言。它允许你使用纯文本语法编写并将其转换为结构有效的 HTML。它通常用于编写网站和博客上的内容。
 
 你编写...

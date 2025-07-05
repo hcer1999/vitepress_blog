@@ -3,6 +3,8 @@ title: Static Site Generation (SSG)
 description: Use Static Site Generation (SSG) to pre-render pages at build time.
 ---
 
+# NextJS中文文档 - Static Site Generation
+
 <details>
   <summary>Examples</summary>
 

@@ -4,6 +4,8 @@ nav_title: webpack
 description: 了解如何自定义 Next.js 使用的 webpack 配置
 ---
 
+# NextJS中文文档 - Webpack
+
 > **注意**：webpack 配置的更改不在语义化版本的覆盖范围内，所以请自行承担风险
 
 在继续为你的应用添加自定义 webpack 配置之前，请确保 Next.js 尚未支持你的用例：

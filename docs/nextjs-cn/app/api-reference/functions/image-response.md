@@ -3,6 +3,8 @@ title: ImageResponse
 description: ImageResponse 构造函数的 API 参考。
 ---
 
+# NextJS中文文档 - Image Response
+
 `ImageResponse` 构造函数允许你使用 JSX 和 CSS 生成动态图像。这对于生成社交媒体图像（如 Open Graph 图像、Twitter 卡片等）非常有用。
 
 ## 参考

@@ -3,6 +3,8 @@ title: instrumentation-client.js
 description: 了解如何添加客户端检测来跟踪和监控 Next.js 应用程序的前端性能。
 ---
 
+# NextJS中文文档 - Instrumentation Client
+
 `instrumentation-client.js|ts` 文件允许你添加在应用程序前端代码开始执行之前运行的监控和分析代码。这对于设置性能跟踪、错误监控或任何其他客户端可观测性工具非常有用。
 
 要使用它，请将文件放在应用程序的**根目录**中或 `src` 文件夹内。

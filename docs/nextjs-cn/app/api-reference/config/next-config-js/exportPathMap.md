@@ -4,6 +4,8 @@ description: 使用 `next export` 时，自定义将导出为 HTML 文件的页�
 version: legacy
 ---
 
+# NextJS中文文档 - ExportPathMap
+
 > 此功能仅适用于 `next export`，目前已被 `pages` 中的 `getStaticPaths` 或 `app` 中的 `generateStaticParams` **弃用**。
 
 `exportPathMap` 允许你在导出过程中指定请求路径到页面目标的映射。在 `exportPathMap` 中定义的路径在使用 [`next dev`](/nextjs-cn/app/api-reference/cli/next#next-dev-options) 时也可用。

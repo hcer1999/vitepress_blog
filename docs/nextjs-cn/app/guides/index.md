@@ -3,6 +3,8 @@ title: 指南
 description: 学习如何使用 Next.js 实现常见的 UI 模式和用例
 ---
 
+# NextJS中文文档 - Guides
+
 ### 数据获取
 
 - [使用 `fetch` API](/nextjs-cn/app/building-your-application/data-fetching/fetching#fetching-data-on-the-server-with-the-fetch-api)

@@ -3,6 +3,8 @@ title: reactStrictMode
 description: 完整的 Next.js 运行时现在符合严格模式要求，了解如何选择使用
 ---
 
+# NextJS中文文档 - ReactStrictMode
+
 > **须知**：自 Next.js 13.5.1 起，严格模式在 `app` 路由中默认为 `true`，所以上述配置仅对 `pages` 路由必要。你仍然可以通过设置 `reactStrictMode: false` 来禁用严格模式。
 
 > **建议**：我们强烈建议你在 Next.js 应用程序中启用严格模式，以便更好地为 React 的未来做准备。

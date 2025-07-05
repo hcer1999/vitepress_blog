@@ -9,6 +9,8 @@ related:
     - app/api-reference/functions/draft-mode
 ---
 
+# NextJS中文文档 - Draft Mode
+
 **Draft Mode** allows you to preview draft content from your headless CMS in your Next.js application. This is useful for static pages that are generated at build time as it allows you to switch to [dynamic rendering](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-rendering) and see the draft changes without having to rebuild your entire site.
 
 This page walks through how to enable and use Draft Mode.

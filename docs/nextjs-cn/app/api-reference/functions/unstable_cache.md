@@ -3,6 +3,8 @@ title: unstable_cache
 description: unstable_cache 函数的 API 参考。
 ---
 
+# NextJS中文文档 - Unstable_cache
+
 > **注意：** 当 [`use cache`](/nextjs-cn/app/api-reference/directives/use-cache) 稳定后，此 API 将被替换。
 
 `unstable_cache` 允许你缓存昂贵操作的结果，如数据库查询，并在多个请求中重复使用它们。

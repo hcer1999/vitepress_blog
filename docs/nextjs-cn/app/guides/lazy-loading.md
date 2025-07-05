@@ -4,6 +4,8 @@ nav_title: 懒加载
 description: 懒加载导入的库和 React 组件以提高应用程序的加载性能。
 ---
 
+# NextJS中文文档 - Lazy Loading
+
 Next.js 中的[懒加载](https://developer.mozilla.org/docs/Web/Performance/Lazy_loading)通过减少渲染路由所需的 JavaScript 数量来帮助提高应用程序的初始加载性能。
 
 它允许你延迟加载**客户端组件**和导入的库，只在需要时将它们包含在客户端包中。例如，你可能想要延迟加载一个模态框，直到用户点击打开它。

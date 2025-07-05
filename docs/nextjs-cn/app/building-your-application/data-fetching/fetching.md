@@ -4,6 +4,8 @@ nav_title: 数据获取和缓存
 description: 学习在 Next.js 中在服务器或客户端获取数据的最佳实践。
 ---
 
+# NextJS中文文档 - Fetching
+
 <details>
   <summary>示例</summary>
 

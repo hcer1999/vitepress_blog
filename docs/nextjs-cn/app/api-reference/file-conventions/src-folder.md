@@ -7,6 +7,8 @@ related:
     - app/getting-started/project-structure
 ---
 
+# NextJS中文文档 - Src Folder
+
 作为在项目根目录中放置特殊的 Next.js `app` 或 `pages` 目录的替代方案，Next.js 还支持将应用程序代码放在 `src` 文件夹下的常见模式。
 
 这将应用程序代码与大多数位于项目根目录中的项目配置文件分开，这是一些个人和团队所偏好的方式。

@@ -7,6 +7,8 @@ related:
 version: experimental
 ---
 
+# NextJS中文文档 - Unauthorized
+
 **unauthorized** 文件用于在认证过程中调用 [`unauthorized`](/nextjs-cn/app/api-reference/functions/unauthorized) 函数时渲染 UI。除了允许你自定义 UI 外，Next.js 还将返回 `401` 状态码。
 
 ```tsx switcher

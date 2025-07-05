@@ -3,6 +3,8 @@ title: create-next-app
 description: 使用 create-next-app CLI 一键创建 Next.js 应用程序。
 ---
 
+# NextJS中文文档 - Create Next App
+
 `create-next-app` CLI 允许您使用默认模板或来自公共 GitHub 仓库的[示例](https://github.com/vercel/next.js/tree/canary/examples)创建新的 Next.js 应用程序。这是开始使用 Next.js 的最简单方式。
 
 基本用法：

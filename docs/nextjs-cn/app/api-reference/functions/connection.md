@@ -3,6 +3,8 @@ title: connection
 description: connection 函数的 API 参考。
 ---
 
+# NextJS中文文档 - Connection
+
 `connection()` 函数允许你指示渲染应等待传入的用户请求后再继续。
 
 当组件不使用[动态 API](/nextjs-cn/app/building-your-application/rendering/server-components#dynamic-apis)，但你希望它在运行时动态渲染而不是在构建时静态渲染时，这个函数很有用。这通常发生在你访问外部信息，并有意让它改变渲染结果的情况下，例如 `Math.random()` 或 `new Date()`。

@@ -4,6 +4,8 @@ nav_title: 元数据文件
 description: 元数据文件约定的 API 文档。
 ---
 
+# NextJS中文文档 - Metadata
+
 文档的这一部分涵盖**元数据文件约定**。基于文件的元数据可以通过向路由段添加特殊的元数据文件来定义。
 
 每个文件约定可以使用静态文件（例如 `opengraph-image.jpg`）定义，或使用代码生成文件的动态变体（例如 `opengraph-image.js`）。

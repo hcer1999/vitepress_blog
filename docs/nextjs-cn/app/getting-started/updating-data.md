@@ -11,6 +11,8 @@ related:
     - app/api-reference/functions/redirect
 ---
 
+# NextJS中文文档 - Updating Data
+
 你可以使用 React 的[服务器函数](https://react.dev/reference/rsc/server-functions)在 Next.js 中更新数据。本页将介绍如何[创建](#creating-server-functions)和[调用](#invoking-server-functions)服务器函数。
 
 ## 创建服务器函数

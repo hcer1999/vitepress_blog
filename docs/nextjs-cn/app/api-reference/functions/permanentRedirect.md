@@ -6,6 +6,8 @@ related:
     - app/api-reference/functions/redirect
 ---
 
+# NextJS中文文档 - PermanentRedirect
+
 `permanentRedirect` 函数允许你将用户重定向到另一个 URL。`permanentRedirect` 可以在服务器组件、客户端组件、[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)和[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)中使用。
 
 在流式上下文中使用时，它将插入一个元标签，以在客户端上发出重定向。在服务器操作中使用时，它将向调用者返回一个 303 HTTP 重定向响应。否则，它将向调用者提供一个 308（永久）HTTP 重定向响应。

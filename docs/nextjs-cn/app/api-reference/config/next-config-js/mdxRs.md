@@ -4,6 +4,8 @@ description: 在 App Router 中使用新的 Rust 编译器编译 MDX 文件。
 version: experimental.
 ---
 
+# NextJS中文文档 - MdxRs
+
 用于与 `@next/mdx` 的实验性使用。使用新的 Rust 编译器编译 MDX 文件。
 
 ```js

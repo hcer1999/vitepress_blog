@@ -3,6 +3,8 @@ title: Pages and Layouts
 description: Create your first page and shared layout with the Pages Router.
 ---
 
+# NextJS中文文档 - Pages And Layouts
+
 The Pages Router has a file-system based router built on the concept of pages.
 
 When a file is added to the `pages` directory, it's automatically available as a route.

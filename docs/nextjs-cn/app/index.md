@@ -8,6 +8,6 @@ related:
     - app/getting-started/installation
 ---
 
-# App Router
+# NextJS中文文档 - App
 
 **App Router** 是一个基于文件系统的路由器，它使用 React 的最新功能，如[服务器组件](https://react.dev/reference/rsc/server-components)、[Suspense](https://react.dev/reference/react/Suspense) 和[服务器函数](https://react.dev/reference/rsc/server-functions)。

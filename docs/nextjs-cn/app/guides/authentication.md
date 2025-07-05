@@ -4,6 +4,8 @@ nav_title: 身份验证
 description: 学习如何在你的 Next.js 应用程序中实现身份验证。
 ---
 
+# NextJS中文文档 - Authentication
+
 理解身份验证对于保护应用程序的数据至关重要。本页将指导你使用 React 和 Next.js 的功能来实现身份验证。
 
 在开始之前，将这个过程分解为三个概念会有所帮助：

@@ -8,6 +8,8 @@ related:
     - app/api-reference/functions/generate-sitemaps
 ---
 
+# NextJS中文文档 - Sitemap
+
 `sitemap.(xml|js|ts)` 是一个特殊文件，符合 [Sitemaps XML 格式](https://www.sitemaps.org/protocol.html)，帮助搜索引擎爬虫更高效地索引你的网站。
 
 ### 站点地图文件 (.xml)

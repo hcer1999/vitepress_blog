@@ -4,6 +4,8 @@ nav_title: Version 13
 description: Upgrade your Next.js Application from Version 12 to 13.
 ---
 
+# NextJS中文文档 - Version 13
+
 ## Upgrading from 12 to 13
 
 To update to Next.js version 13, run the following command using your preferred package manager:

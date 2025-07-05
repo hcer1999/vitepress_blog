@@ -3,6 +3,8 @@ title: serverActions
 description: 在 Next.js 应用程序中配置服务器操作的行为。
 ---
 
+# NextJS中文文档 - ServerActions
+
 用于在 Next.js 应用程序中配置服务器操作行为的选项。
 
 ## `allowedOrigins`

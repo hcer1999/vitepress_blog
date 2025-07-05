@@ -8,6 +8,8 @@ related:
     - app/building-your-application/routing/parallel-routes
 ---
 
+# NextJS中文文档 - Intercepting Routes
+
 拦截路由允许您在当前布局内加载应用程序其他部分的路由。当您希望显示路由内容而不让用户切换到不同上下文时，这种路由模式非常有用。
 
 例如，当点击信息流中的照片时，您可以在模态中显示照片，覆盖在信息流上方。在这种情况下，Next.js 拦截 `/photo/123` 路由，掩盖 URL，并将其覆盖在 `/feed` 上。

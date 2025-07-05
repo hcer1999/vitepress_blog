@@ -4,6 +4,8 @@ nav_title: JSON-LD
 description: 学习如何在 Next.js 应用程序中添加 JSON-LD，向搜索引擎和 AI 描述你的内容。
 ---
 
+# NextJS中文文档 - Json Ld
+
 [JSON-LD](https://json-ld.org/) 是一种结构化数据格式，可以被搜索引擎和 AI 用来帮助它们理解页面的结构，而不仅仅是纯内容。例如，你可以用它来描述一个人、一个事件、一个组织、一部电影、一本书、一个食谱，以及许多其他类型的实体。
 
 我们目前对 JSON-LD 的建议是在 `layout.js` 或 `page.js` 组件中以 `<script>` 标签的形式渲染结构化数据。例如：

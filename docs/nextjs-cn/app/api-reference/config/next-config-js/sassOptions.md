@@ -3,6 +3,8 @@ title: sassOptions
 description: 配置 Sass 选项。
 ---
 
+# NextJS中文文档 - SassOptions
+
 `sassOptions` 允许你配置 Sass 编译器。
 
 ```ts switcher

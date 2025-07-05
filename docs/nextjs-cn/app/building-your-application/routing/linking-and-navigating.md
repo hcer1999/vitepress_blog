@@ -7,6 +7,8 @@ related:
     - app/api-reference/config/typescript
 ---
 
+# NextJS中文文档 - Linking And Navigating
+
 在 Next.js 中有四种在路由之间导航的方式：
 
 - 使用 [`<Link>` 组件](#link-组件)

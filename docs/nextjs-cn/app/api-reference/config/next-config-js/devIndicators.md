@@ -3,6 +3,8 @@ title: devIndicators
 description: 用于配置开发过程中为当前查看的路由提供上下文的屏幕指示器的配置选项。
 ---
 
+# NextJS中文文档 - DevIndicators
+
 `devIndicators` 允许您配置在开发过程中为当前查看的路由提供上下文的屏幕指示器。
 
 ```ts

@@ -3,6 +3,8 @@ title: Custom Errors
 description: Override and extend the built-in Error page to handle custom errors.
 ---
 
+# NextJS中文文档 - Custom Error
+
 ## 404 Page
 
 A 404 page may be accessed very often. Server-rendering an error page for every visit increases the load of the Next.js server. This can result in increased costs and slow experiences.

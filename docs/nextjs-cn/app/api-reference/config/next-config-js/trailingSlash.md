@@ -3,6 +3,8 @@ title: trailingSlash
 description: 配置 Next.js 页面是否使用尾部斜杠进行解析
 ---
 
+# NextJS中文文档 - TrailingSlash
+
 默认情况下，Next.js 会将带有尾部斜杠的 URL 重定向到不带尾部斜杠的对应 URL。例如，`/about/` 将重定向到 `/about`。你可以配置此行为以相反的方式运行，即将不带尾部斜杠的 URL 重定向到带有尾部斜杠的对应 URL。
 
 打开 `next.config.js` 并添加 `trailingSlash` 配置：

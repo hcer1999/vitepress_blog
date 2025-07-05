@@ -3,6 +3,8 @@ title: reactMaxHeadersLength
 description: React 发出并添加到响应中的头部的最大长度。
 ---
 
+# NextJS中文文档 - ReactMaxHeadersLength
+
 在静态渲染期间，React 可以发出可添加到响应中的头部。这些头部可用于通过允许浏览器预加载资源（如字体、脚本和样式表）来提高性能。默认值为 `6000`，但你可以通过在 `next.config.js` 中配置 `reactMaxHeadersLength` 选项来覆盖此值：
 
 ```js

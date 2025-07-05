@@ -3,6 +3,8 @@ title: logging
 description: 配置在开发模式下运行 Next.js 时如何将数据获取记录到控制台。
 ---
 
+# NextJS中文文档 - Logging
+
 ## 选项
 
 ### 数据获取

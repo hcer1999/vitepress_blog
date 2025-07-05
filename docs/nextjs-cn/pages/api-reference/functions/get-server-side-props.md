@@ -3,6 +3,8 @@ title: getServerSideProps
 description: API reference for `getServerSideProps`. Learn how to fetch data on each request with Next.js.
 ---
 
+# NextJS中文文档 - Get Server Side Props
+
 When exporting a function called `getServerSideProps` (Server-Side Rendering) from a page, Next.js will pre-render this page on each request using the data returned by `getServerSideProps`. This is useful if you want to fetch data that changes often, and have the page update to show the most current data.
 
 ```tsx switcher

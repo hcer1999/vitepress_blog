@@ -4,6 +4,8 @@ nav_title: 单页应用
 description: Next.js 完全支持构建单页应用程序（SPAs）。
 ---
 
+# NextJS中文文档 - Single Page Applications
+
 Next.js 完全支持构建单页应用程序（SPAs）。
 
 这包括快速路由转换与预取、客户端数据获取、使用浏览器 API、集成第三方客户端库、创建静态路由等功能。

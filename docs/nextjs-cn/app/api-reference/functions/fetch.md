@@ -3,6 +3,8 @@ title: fetch
 description: 扩展的 fetch 函数的 API 参考。
 ---
 
+# NextJS中文文档 - Fetch
+
 Next.js 扩展了 [Web `fetch()` API](https://developer.mozilla.org/docs/Web/API/Fetch_API)，允许服务器上的每个请求设置自己的持久缓存和重新验证语义。
 
 在浏览器中，`cache` 选项指示 fetch 请求如何与*浏览器的* HTTP 缓存交互。通过这个扩展，`cache` 指示*服务器端* fetch 请求如何与框架的持久[数据缓存](/nextjs-cn/app/deep-dive/caching#data-cache)交互。

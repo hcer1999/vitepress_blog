@@ -10,6 +10,8 @@ related:
     - app/api-reference/config/next-config-js/ppr
 ---
 
+# NextJS中文文档 - Partial Prerendering
+
 部分预渲染（Partial Prerendering，PPR）是一种渲染策略，允许你在同一路由中结合静态和动态内容。这可以提高初始页面性能，同时仍然支持个性化的动态数据。
 
 <Image

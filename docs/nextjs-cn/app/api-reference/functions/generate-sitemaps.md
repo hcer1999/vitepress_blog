@@ -9,6 +9,8 @@ related:
     - app/api-reference/file-conventions/metadata/sitemap
 ---
 
+# NextJS中文文档 - Generate Sitemaps
+
 你可以使用 `generateSitemaps` 函数为你的应用程序生成多个站点地图。
 
 ## 返回值

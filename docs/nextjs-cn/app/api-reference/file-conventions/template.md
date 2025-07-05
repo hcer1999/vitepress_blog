@@ -3,6 +3,8 @@ title: template.js
 description: template.js 文件的 API 参考。
 ---
 
+# NextJS中文文档 - Template
+
 **template** 文件类似于[布局](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#layouts)，它包装一个布局或页面。与在路由之间保持不变并维持状态的布局不同，模板被赋予一个唯一的键，这意味着子客户端组件在导航时会重置它们的状态。
 
 ```tsx switcher

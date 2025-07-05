@@ -3,6 +3,8 @@ title: cookies
 description: cookies 函数的 API 参考。
 ---
 
+# NextJS中文文档 - Cookies
+
 `cookies` 是一个**异步**函数，允许你在[服务器组件](/nextjs-cn/app/building-your-application/rendering/server-components)中读取 HTTP 传入请求的 cookie，并在[服务器操作](/nextjs-cn/app/building-your-application/data-fetching/server-actions-and-mutations)或[路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers)中读取/写入传出请求的 cookie。
 
 ```tsx switcher

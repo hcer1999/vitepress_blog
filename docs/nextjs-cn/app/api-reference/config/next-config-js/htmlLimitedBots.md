@@ -3,6 +3,8 @@ title: htmlLimitedBots
 description: 指定应接收阻塞元数据的用户代理列表。
 ---
 
+# NextJS中文文档 - HtmlLimitedBots
+
 `htmlLimitedBots` 配置允许您指定一个用户代理列表，这些用户代理应接收阻塞元数据，而不是[流式元数据](/nextjs-cn/app/api-reference/functions/generate-metadata#streaming-metadata)。
 
 ```ts switcher
