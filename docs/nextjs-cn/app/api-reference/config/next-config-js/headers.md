@@ -322,13 +322,13 @@ module.exports = {
 
 When leveraging [`i18n` support](/nextjs-cn/app/building-your-application/routing/internationalization) with headers each `source` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the header. If `locale: false` is used you must prefix the `source` with a locale for it to be matched correctly.
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 
 When leveraging [`i18n` support](/nextjs-cn/pages/building-your-application/routing/internationalization) with headers each `source` is automatically prefixed to handle the configured `locales` unless you add `locale: false` to the header. If `locale: false` is used you must prefix the `source` with a locale for it to be matched correctly.
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 ```js
 module.exports = {
@@ -396,7 +396,7 @@ However, you can set `Cache-Control` headers for other responses or data./nextjs
 
 Learn more about [caching](/nextjs-cn/app/deep-dive/caching) with the App Router.
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 

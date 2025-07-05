@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
 
 查看 [API 参考](/nextjs-cn/pages/api-reference/functions/use-report-web-vitals)了解更多信息。
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 <AppOnly>
 
@@ -78,7 +78,7 @@ export default function Layout({ children }) {
 
 查看 [API 参考](/nextjs-cn/app/api-reference/functions/use-report-web-vitals)了解更多信息。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 ## Web Vitals
 

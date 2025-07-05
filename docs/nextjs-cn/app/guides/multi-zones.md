@@ -139,4 +139,4 @@ const nextConfig = {
 
 查看 [`serverActions.allowedOrigins`](/nextjs-cn/app/api-reference/config/next-config-js/serverActions#allowedorigins) 获取更多信息。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>

@@ -425,7 +425,7 @@ export default function Home() {
 
 Google Fonts 是自动[子集](https://fonts.google.com/knowledge/glossary/subsetting)。这减少了字体文件的大小并提高了性能。你需要定义要预加载哪些子集。如果 [`preload`](/nextjs-cn/app/api-reference/components/font#preload) 为 `true` 而未指定任何子集，则会发出警告。
 
-这可以通过添加到函数调用中来完成：/nextjs-cn/
+这可以通过添加到函数调用中来完成：
 
 <AppOnly>
 
@@ -543,7 +543,7 @@ export default function Page() {
 
 或者，你可以创建一个 [CSS variable](/nextjs-cn/app/api-reference/components/font#variable) 并将其与你的首选 CSS 解决方案一起使用：
 
-<AppOnly>/nextjs-cn/
+<AppOnly>
 
 ```tsx switcher
 import { Inter, Roboto_Mono } from 'next/font/google'
@@ -1021,9 +1021,9 @@ When a font function is called on a page of your site, it is not globally availa
 
 - If it's a [unique page](/nextjs-cn/app/api-reference/file-conventions/page), it is preloaded on the unique route for that page.
 - If it's a [layout](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#layouts), it is preloaded on all the routes wrapped by the layout.
-- If it's the [root layout/nextjs-cn/n/app/building-your-application/routing/index/layouts-and-templates#root-layout-required), it is preloaded on all routes.
-  /nextjs-cn/
-  </AppOnly>/nextjs-cn/
+- If it's the [root layout](/nextjs-cn/app/building-your-application/routing/layouts-and-templates#root-layout-required), it is preloaded on all routes.
+
+</AppOnly>
 
 <PagesOnly>
 
@@ -1031,8 +1031,8 @@ When a font function is called on a page of your site, it is not globally availa
 
 - if it's a [unique page](/nextjs-cn/pages/building-your-application/routing/pages-and-layouts), it is preloaded on the unique route for that page
 - if it's in the [custom App](/nextjs-cn/pages/building-your-application/routing/custom-app), it is preloaded on all the routes of the site under `/pages`
-  /nextjs-cn/
-  </PagesOnly>/nextjs-cn/
+
+</PagesOnly>
 
 ## Version Changes
 

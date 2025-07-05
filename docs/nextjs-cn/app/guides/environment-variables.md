@@ -189,7 +189,7 @@ Next.js 可以支持构建时和运行时环境变量。
 
 要读取运行时环境变量，我们建议使用 `getServerSideProps` 或[逐步采用 App Router](/nextjs-cn/app/guides/migrating/app-router-migration)。
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 <AppOnly>
 

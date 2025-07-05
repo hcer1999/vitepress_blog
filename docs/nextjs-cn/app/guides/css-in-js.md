@@ -227,7 +227,7 @@ export default function RootLayout({ children }) {
 > - 我们专门在树的顶层使用客户端组件作为样式注册表，因为这样提取 CSS 规则更有效。它避免在后续服务器渲染中重新生成样式，并防止它们被发送到服务器组件有效载荷中。
 > - 对于需要配置 styled-components 编译的各个属性的高级用例，你可以阅读我们的 [Next.js styled-components API 参考](/nextjs-cn/architecture/nextjs-compiler#styled-components)了解更多信息。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 

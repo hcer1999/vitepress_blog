@@ -114,7 +114,7 @@ request.nextUrl.searchParams
 
 > **注意：** Pages Router 的国际化属性在 App Router 中不可用。了解更多关于[使用 App Router 进行国际化](/nextjs-cn/app/building-your-application/routing/internationalization)的信息。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 ## 版本历史
 

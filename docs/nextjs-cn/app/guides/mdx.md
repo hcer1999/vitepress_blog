@@ -104,7 +104,6 @@ export function useMDXComponents(components) {
 > - 在 App Router 中使用 `@next/mdx` **必须**有 `mdx-components.tsx` 文件，否则将无法工作。
 > - 了解更多关于 [`mdx-components.tsx` 文件约定](/nextjs-cn/app/api-reference/file-conventions/mdx-components)。
 > - 了解如何[使用自定义样式和组件](#using-custom-styles-and-components)。
->   /nextjs-cn/
 
 ## 渲染 MDX
 

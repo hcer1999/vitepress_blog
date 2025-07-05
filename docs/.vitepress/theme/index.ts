@@ -15,6 +15,8 @@ import CLayout from './components/CLayout.vue'
 import AppOnly from './components/AppOnly.vue'
 import PagesOnly from './components/PagesOnly.vue'
 import './styles/index.scss'
+import './styles/vars.scss'
+import AutoAdInserter from '../components/AutoAdInserter.vue'
 
 if (typeof window !== 'undefined') {
   /* 注销 PWA 服务 */
@@ -99,6 +101,7 @@ export default {
       'nav-bar-title-after': () => h(MNavVisitor),
       'doc-after': () => h(MDocFooter),
       'aside-bottom': () => h(MAsideSponsors),
+      'layout-bottom': () => h(AutoAdInserter),
     })
   },
   async enhanceApp({ app, router }: EnhanceAppContext) {
@@ -118,6 +121,10 @@ export default {
         { immediate: true },
       )
     }
+
+    // 注册组件
+    app.component('GoogleAdsense', () => import('../components/GoogleAdsense.vue'))
+    app.component('AutoAdInserter', () => import('../components/AutoAdInserter.vue'))
 
     // if (!import.meta.env.SSR) {
     //   const { loadOml2d } = await import('oh-my-live2d')

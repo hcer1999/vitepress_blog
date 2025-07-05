@@ -251,13 +251,13 @@ module.exports = {
 
 当使用 [`i18n` 支持](/nextjs-cn/app/building-your-application/routing/internationalization) 与重定向时，每个 `source` 和 `destination` 会自动添加前缀以处理配置的 `locales`，除非你在重定向中添加 `locale: false`。如果使用了 `locale: false`，你必须为 `source` 和 `destination` 添加语言环境前缀，以便正确匹配。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 
 当使用 [`i18n` 支持](/nextjs-cn/pages/building-your-application/routing/internationalization) 与重定向时，每个 `source` 和 `destination` 会自动添加前缀以处理配置的 `locales`，除非你在重定向中添加 `locale: false`。如果使用了 `locale: false`，你必须为 `source` 和 `destination` 添加语言环境前缀，以便正确匹配。
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 ```js
 module.exports = {

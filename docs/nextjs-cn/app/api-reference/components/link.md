@@ -152,8 +152,8 @@ export default function Page() {
 > - 当使用静态生成的页面（不考虑是动态路由还是非动态路由）时，Next.js 预加载整个页面内容，使得客户端导航几乎瞬间完成。
 > - 当使用服务器渲染的路由或用 [`getServerSideProps`](/nextjs-cn/pages/api-reference/functions/get-server-side-props) 的页面时，Next.js 预加载路由的数据，所以它至少会预加载 JSON 文件，在导航时 React 组件依然需要运行。
 > - 你可以通过 Chrome DevTools 网络选项卡查看预加载工作。使用 `(CMD/CTRL+SHIFT+p)` 搜索 "Show Coverage"，点击页面上的任何链接，你会看到已预加载的 JavaScript。
->   /nextjs-cn/
->   </PagesOnly>
+
+</PagesOnly>
 
 ## 示例
 

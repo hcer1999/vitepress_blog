@@ -21,7 +21,6 @@ description: 了解如何在 Node.js 服务器、Docker 镜像或静态 HTML 文
 > - 在基于 glibc 的 Linux 系统上，图像优化可能需要[额外配置](https://sharp.pixelplumbing.com/install#linux-memory-allocator)以防止过度内存使用。
 > - 了解更多关于[优化图像的缓存行为](/nextjs-cn/app/api-reference/components/image#minimumcachettl)以及如何配置 TTL。
 > - 如果你愿意，你也可以[禁用图像优化](/nextjs-cn/app/api-reference/components/image#unoptimized)，同时保留使用 `next/image` 的其他好处。例如，如果你自己单独优化图像。
->   /nextjs-cn/
 
 ## 中间件/nextjs-cn/
 
@@ -41,7 +40,7 @@ Next.js 可以支持构建时和运行时环境变量。
 
 要读取运行时环境变量，我们建议使用 `getServerSideProps` 或[逐步采用 App Router](/nextjs-cn/app/guides/migrating/app-router-migration)。
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 <AppOnly>
 
@@ -81,7 +80,6 @@ export default async function Component() {
 >
 > - 你可以使用 [`register` 函数]() 在服务器启动时运行代码。
 > - 我们不建议使用 [runtimeConfig](/nextjs-cn/pages/api-reference/config/next-config-js/runtime-configuration) 选项，因为它不适用于独立输出模式。相反，我们建议[逐步采用](/nextjs-cn/app/guides/migrating/app-router-migration) App Router。
->   /nextjs-cn/
 
 ## 缓存和 ISR
 

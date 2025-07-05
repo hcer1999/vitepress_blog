@@ -69,13 +69,13 @@ module.exports = {
 
 [`next export`] 将使用 `out` 作为默认输出目录，你可以使用 `-o` 参数自定义它，如下所示：
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 
 [`next export`]() 将使用 `out` 作为默认输出目录，你可以使用 `-o` 参数自定义它，如下所示：
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 ```bash
 next export -o outdir

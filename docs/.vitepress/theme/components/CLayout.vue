@@ -8,6 +8,7 @@ const { isDark, theme, frontmatter } = useData()
 import MNavVisitor from './MNavVisitor.vue'
 import MDocFooter from './MDocFooter.vue'
 import MAsideSponsors from './MAsideSponsors.vue'
+import AutoAdInserter from '../../components/AutoAdInserter.vue'
 
 const enableTransitions = () =>
   'startViewTransition' in document &&
@@ -56,6 +57,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     </template>
     <template #aside-bottom>
       <MAsideSponsors />
+    </template>
+    <template #layout-bottom>
+      <AutoAdInserter />
     </template>
   </Layout>
 </template>

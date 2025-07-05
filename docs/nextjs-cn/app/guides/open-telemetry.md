@@ -39,13 +39,13 @@ npm install @vercel/otel @opentelemetry/sdk-logs @opentelemetry/api-logs @opente
 
 接下来，在项目的**根目录**（或者如果使用 `src` 文件夹，则在其中）创建一个自定义的 [`instrumentation.ts`]()（或 `.js`）文件：
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 
 接下来，在项目的**根目录**（或者如果使用 `src` 文件夹，则在其中）创建一个自定义的 [`instrumentation.ts`]()（或 `.js`）文件：
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 ```ts switcher
 import { registerOTel } from '@vercel/otel'
@@ -72,8 +72,8 @@ export function register() {
 > - `instrumentation` 文件应该位于项目的根目录，而不是在 `app` 或 `pages` 目录内。如果你使用的是 `src` 文件夹，则将文件放在 `src` 中，与 `pages` 和 `app` 并列。
 > - 如果你使用 [`pageExtensions` 配置选项](/nextjs-cn/app/api-reference/config/next-config-js/pageExtensions) 添加后缀，你还需要更新 `instrumentation` 文件名以匹配。
 > - 我们创建了一个基础的 [with-opentelemetry](https://github.com/vercel/next.js/tree/canary/examples/with-opentelemetry) 示例供你使用。
->   /nextjs-cn/
->   </AppOnly>
+
+</AppOnly>
 
 <PagesOnly>
 
@@ -82,8 +82,8 @@ export function register() {
 > - `instrumentation` 文件应该位于项目的根目录，而不是在 `app` 或 `pages` 目录内。如果你使用的是 `src` 文件夹，则将文件放在 `src` 中，与 `pages` 和 `app` 并列。
 > - 如果你使用 [`pageExtensions` 配置选项](/nextjs-cn/pages/api-reference/config/next-config-js/pageExtensions) 添加后缀，你还需要更新 `instrumentation` 文件名以匹配。
 > - 我们创建了一个基础的 [with-opentelemetry](https://github.com/vercel/next.js/tree/canary/examples/with-opentelemetry) 示例供你使用。
->   /nextjs-cn/
->   </PagesOnly>
+
+</PagesOnly>
 
 ### 手动 OpenTelemetry 配置
 

@@ -12,8 +12,8 @@ Next.js 默认通过 `next start` 包含自己的服务器。如果你有现有�
 >
 > - 在决定使用自定义服务器之前，请记住，只有当 Next.js 的集成路由器无法满足你的应用需求时，才应该使用它。自定义服务器将移除重要的性能优化，如 **[自动静态优化](/nextjs-cn/pages/building-your-application/rendering/automatic-static-optimization)。**
 > - 当使用独立输出模式时，它不会跟踪自定义服务器文件。这种模式会输出一个单独的最小化 `server.js` 文件。这两者不能一起使用。
->   /nextjs-cn/
->   看一下自定义服务器的[以下示例](https://github.com/vercel/next.js/tree/canary/examples/custom-server)：
+
+> 看一下自定义服务器的[以下示例](https://github.com/vercel/next.js/tree/canary/examples/custom-server)：
 
 ```ts switcher
 import { createServer } from 'http'
@@ -118,4 +118,4 @@ module.exports = {
 
 > 你可能还希望配置客户端路由器，以禁止客户端重定向到文件名路由；为此，请参考 [`router.beforePopState`](/nextjs-cn/pages/api-reference/functions/use-router#routerbeforepopstate)。
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>

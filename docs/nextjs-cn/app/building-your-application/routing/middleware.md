@@ -440,7 +440,7 @@ export const config = {
 
 > **需要了解的是**：您可以在 [路由处理程序](/nextjs-cn/app/building-your-application/routing/route-handlers#cors) 中为单个路由配置 CORS 头。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 ## 生成响应
 

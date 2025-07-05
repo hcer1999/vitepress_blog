@@ -122,7 +122,7 @@ export default function Page() {
 > - 如果您忘记创建根布局，Next.js 会在运行开发服务器（`next dev`）时自动创建这个文件。
 > - 您可以选择在项目根目录中使用 [`src` 文件夹](/nextjs-cn/app/api-reference/file-conventions/src-folder)，将应用程序代码与配置文件分开。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 

@@ -11,13 +11,13 @@ description: 向你的 Next.js 应用添加重写。
 
 重写充当 URL 代理并掩盖目标路径，使其看起来用户没有改变他们在网站上的位置。相比之下，[重定向](/nextjs-cn/app/api-reference/config/next-config-js/redirects)会路由到新页面并显示 URL 变化。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 
 重写充当 URL 代理并掩盖目标路径，使其看起来用户没有改变他们在网站上的位置。相比之下，[重定向](/nextjs-cn/pages/api-reference/config/next-config-js/redirects)会路由到新页面并显示 URL 变化。
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 要使用重写，你可以在 `next.config.js` 中使用 `rewrites` 键：
 
@@ -95,7 +95,7 @@ Next.js 路由检查的顺序是：
 5. `afterFiles` 重写被检查/应用，如果这些重写之一被匹配，我们会在每次匹配后检查动态路由/静态文件
 6. `fallback` 重写被检/nextjs-cn/面之前和动态路由/所有静态资产被检查之后应用。如果你在 `getStaticPaths` 中使用 [fallback: true/'blocking'](/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true)，你在 `next.config.js` 中定义的 fallback `rewrites` 将*不会*运行。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 
@@ -106,7 +106,7 @@ Next.js 路由检查的顺序是：
 5. `afterFiles` 重写被检查/应用，如果这些重写之一被匹配，我们会在每次匹配后检查动态路由/静态文件
 6. `fallback` 重写被检/nextjs-cn/面之前和动态路由/所有静态资产被检查之后应用。如果你在 `getStaticPaths` 中使用 [fallback: true/'blocking'](/nextjs-cn/pages/api-reference/functions/get-static-paths#fallback-true)，你在 `next.config.js` 中定义的 fallback `rewrites` 将*不会*运行。
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 ## 重写参数
 

@@ -287,7 +287,7 @@ export default function Page() {
 
 参考 [`next/script`](/nextjs-cn/app/api-reference/components/script#onload) API 参考文档了解更多关于每个事件处理程序的信息并查看示例。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 
@@ -329,7 +329,7 @@ export default function Page() {
 
 参考 [`next/script`](/nextjs-cn/pages/api-reference/components/script#onload) API 参考文档了解更多关于每个事件处理程序的信息并查看示例。
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 ### 附加属性
 

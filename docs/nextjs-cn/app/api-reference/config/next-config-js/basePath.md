@@ -47,13 +47,13 @@ export default function HomePage() {
 
 当使用 [`next/image`](/nextjs-cn/app/api-reference/components/image) 组件时，你需要在 `src` 前面添加 `basePath`。
 
-</AppOnly>/nextjs-cn/
+</AppOnly>
 
 <PagesOnly>
 
 当使用 [`next/image`](/nextjs-cn/pages/api-reference/components/image) 组件时，你需要在 `src` 前面添加 `basePath`。
 
-</PagesOnly>/nextjs-cn/
+</PagesOnly>
 
 例如，当 `basePath` 设置为 `/docs` 时，使用 `/docs/me.png` 将正确地提供你的图片。
 
