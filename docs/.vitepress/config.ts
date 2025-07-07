@@ -16,17 +16,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: '冰可乐的前端笔记',
   description: '冰可乐的成长之路，包含前端常用知识、源码阅读笔记、各种奇淫技巧、日常提效工具等',
-  head: [
-    ...head,
-    [
-      'script',
-      {
-        async: 'true',
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-        'data-ad-client': 'ca-pub-YOUR_PUBLISHER_ID', // 替换为你的发布商 ID
-      },
-    ],
-  ],
+  head: [...head],
   mpa: false,
 
   lastUpdated: true,

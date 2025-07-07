@@ -51,6 +51,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     <template #nav-bar-title-after>
       <MNavVisitor />
     </template>
+    <template #aside-top>
+      <SidebarAdsense />
+    </template>
 
     <template #doc-after>
       <MDocFooter />
