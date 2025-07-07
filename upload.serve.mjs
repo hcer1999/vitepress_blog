@@ -31,34 +31,26 @@ conn
       return false
     }
 
-    // 修改删除命令，排除models目录
-    conn.exec(
-      'cd /www/wwwroot/' + server.pathName + ' && find . -maxdepth 1 ! -name "models" ! -name "." -exec rm -rf {} +',
-      function (err, stream) {
-        console.log('删除文件(保留models目录)')
-        setTimeout(() => {
-          console.log('开始上传')
-          spinner.start()
-          client.scp(
-            server.localPath,
-            {
-              host: server.host,
-              port: server.port,
-              username: server.username,
-              password: server.password,
-              path: '/www/wwwroot/' + server.pathName
-            },
-            (err) => {
-              spinner.stop()
-              if (!err) {
-                console.log('项目发布完毕')
-              } else {
-                console.log('err', err)
-              }
-              conn.end() // 结束命令
-            }
-          )
-        }, 3000)
+    // 直接开始上传，不删除任何文件
+    console.log('开始上传')
+    spinner.start()
+    client.scp(
+      server.localPath,
+      {
+        host: server.host,
+        port: server.port,
+        username: server.username,
+        password: server.password,
+        path: '/www/wwwroot/' + server.pathName
+      },
+      (err) => {
+        spinner.stop()
+        if (!err) {
+          console.log('项目发布完毕')
+        } else {
+          console.log('err', err)
+        }
+        conn.end() // 结束命令
       }
     )
   })
