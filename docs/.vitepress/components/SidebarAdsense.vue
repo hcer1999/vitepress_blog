@@ -1,30 +1,56 @@
 <!-- SidebarAdsense.vue -->
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
+import { useRoute } from 'vitepress'
 
-// 在组件挂载时插入广告
-onMounted(() => {
+const route = useRoute()
+
+// 加载广告的函数
+const loadAd = () => {
   if (typeof window === 'undefined') return
+
+  // 清除现有广告
+  const existingAd = document.querySelector('.sidebar-ad-wrapper ins.adsbygoogle')
+  if (existingAd) {
+    existingAd.remove()
+  }
+
+  // 创建新的广告元素
+  const adContainer = document.createElement('ins')
+  adContainer.className = 'adsbygoogle sidebar-ad'
+  adContainer.style.display = 'block'
+  adContainer.setAttribute('data-ad-client', 'ca-pub-6198632316720288')
+  adContainer.setAttribute('data-ad-slot', '8524153934')
+  adContainer.setAttribute('data-ad-format', 'auto')
+  adContainer.setAttribute('data-full-width-responsive', 'true')
 
   // 将广告容器添加到组件中
   const adWrapper = document.querySelector('.sidebar-ad-wrapper')
   if (adWrapper) {
+    adWrapper.appendChild(adContainer)
     ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+  }
+}
+
+// 监听路由变化
+watch(
+  () => route.path,
+  () => {
+    loadAd()
+  }
+)
+
+// 组件挂载时加载广告
+onMounted(() => {
+  if (window.innerWidth > 767) {
+    loadAd()
   }
 })
 </script>
 
 <template>
   <div class="sidebar-ad-wrapper">
-    <!-- 广告将在这里动态插入 -->
-    <ins
-      class="adsbygoogle sidebar-ad"
-      style="display: block;"
-      data-ad-client="ca-pub-6198632316720288"
-      data-ad-slot="8524153934"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
+    <!-- 广告将由 JavaScript 动态插入 -->
   </div>
 </template>
 

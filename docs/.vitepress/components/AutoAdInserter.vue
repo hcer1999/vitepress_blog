@@ -2,8 +2,6 @@
 <script setup lang="ts">
 import { onMounted, ref, watch, h } from 'vue'
 import { useRoute } from 'vitepress'
-import GoogleAdsense from './GoogleAdsense.vue'
-
 
 const route = useRoute()
 const adInserted = ref(false)
