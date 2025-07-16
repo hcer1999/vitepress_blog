@@ -14,6 +14,7 @@ import CArticleFilter from './components/CArticleFilter.vue'
 import CLayout from './components/CLayout.vue'
 import AppOnly from './components/AppOnly.vue'
 import PagesOnly from './components/PagesOnly.vue'
+import BlogHome from './components/BlogHome.vue'
 import './styles/index.scss'
 import './styles/vars.scss'
 import AutoAdInserter from '../components/AutoAdInserter.vue'
@@ -112,6 +113,7 @@ export default {
     app.component('CArticleFilter', CArticleFilter)
     app.component('AppOnly', AppOnly)
     app.component('PagesOnly', PagesOnly)
+    app.component('BlogHome', BlogHome)
 
     app.provide('DEV', process.env.NODE_ENV === 'development')
 
