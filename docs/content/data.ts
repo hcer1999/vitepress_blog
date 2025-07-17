@@ -22,6 +22,17 @@ const data: Data[] = [
     title: '文章列表',
     items: [
       {
+        icon: '../icons/cursor.webp',
+        title: 'AI通用开发助手提示词增强版，拆箱即用（中英双语）',
+        badge: {
+          text: '2025-07-17',
+          type: 'info',
+        },
+        desc: '让Cursor从傻白甜变成最强AI编程大脑',
+        link: '/content/docs/40',
+        target: '_self',
+      },
+      {
         noIcon: true,
         title: '分享几个flowith 邀请码,速取',
         badge: {
