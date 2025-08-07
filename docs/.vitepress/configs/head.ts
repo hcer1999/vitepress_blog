@@ -37,14 +37,14 @@ const baseOptions = [
 ]
 
 const statisticsOptions = [
-  ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-GG8W5BRQHZ' }],
+  ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-FLE6XHRWPD' }],
   [
     'script',
     {},
     `window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-GG8W5BRQHZ');`,
+    gtag('config', 'G-FLE6XHRWPD');`,
   ],
   [
     'script',
