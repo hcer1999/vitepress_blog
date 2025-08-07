@@ -27,6 +27,7 @@ const contacts = [
       :src="`https://visitor-badge.laobi.icu/badge?page_id=hcer1999.notes.${pageId}`"
       title="当前页面累计访问数"
       onerror="this.style.display='none'"
+      alt="visitor"
     />
   </div>
   <p class="contact-title">🎉有任何问题，欢迎联系我</p>
