@@ -130,5 +130,5 @@ table {
 
 // 隐藏未填充的广告
 ins[data-ad-status="unfilled"] {
-  display: none;
+  display: none !important;
 }
