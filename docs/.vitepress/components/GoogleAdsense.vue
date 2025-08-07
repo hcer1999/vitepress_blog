@@ -33,7 +33,6 @@ const props = defineProps({
 let isScriptLoaded = false
 
 onMounted(() => {
-  console.log('onMounted1')
   // 如果 AdSense 脚本还没有加载，加载它
   if (typeof window !== 'undefined' && !isScriptLoaded) {
     const script = document.createElement('script')

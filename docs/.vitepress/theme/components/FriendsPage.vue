@@ -46,13 +46,13 @@
                 <strong>网站名称：</strong>冰可乐的前端笔记
               </div>
               <div class="info-item">
-                <strong>网站地址：</strong>https://note.bingkele.cc
+                <strong>网站地址：</strong>https://nbclasssss.asia
               </div>
               <div class="info-item">
                 <strong>网站描述：</strong>前端开发学习笔记，记录成长路上的点点滴滴
               </div>
               <div class="info-item">
-                <strong>网站头像：</strong>https://note.bingkele.cc/logo.png
+                <strong>网站头像：</strong>https://nbclasssss.asia/logo.png
               </div>
             </div>
           </div>

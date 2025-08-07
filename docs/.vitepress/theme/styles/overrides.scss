@@ -127,3 +127,8 @@ table {
 .dark::view-transition-old(root) {
   z-index: 9999;
 }
+
+// 隐藏未填充的广告
+ins[data-ad-status="unfilled"] {
+  display: none;
+}
