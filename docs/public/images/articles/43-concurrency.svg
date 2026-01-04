@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-label="异步并发对比：串行 await 与 Promise.all 并发">
+  <defs>
+    <style>
+      :root { color-scheme: light; }
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .muted { font: 400 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #475569; }
+      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 16; }
+      .h { font: 700 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .barA { fill: #60a5fa; }
+      .barB { fill: #34d399; }
+      .barC { fill: #fbbf24; }
+      .axis { stroke: #94a3b8; stroke-width: 2; }
+      .label { font: 600 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #0f172a; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="520" rx="22" />
+  <text class="title" x="40" y="70">串行 vs 并发：为什么 Promise.all 更快</text>
+  <text class="muted" x="40" y="102">同样 3 个请求：串行要等 3 次；并发一次发出，等待最长的那个即可。</text>
+
+  <rect class="box" x="70" y="140" width="520" height="320" rx="16" />
+  <text class="h" x="100" y="180">串行（for...of + await）</text>
+  <line class="axis" x1="100" y1="420" x2="540" y2="420" />
+  <rect class="barA" x="110" y="350" width="120" height="70" rx="10" />
+  <rect class="barB" x="250" y="320" width="120" height="100" rx="10" />
+  <rect class="barC" x="390" y="300" width="120" height="120" rx="10" />
+  <text class="label" x="135" y="446">req1</text>
+  <text class="label" x="275" y="446">req2</text>
+  <text class="label" x="415" y="446">req3</text>
+
+  <rect class="box" x="610" y="140" width="520" height="320" rx="16" />
+  <text class="h" x="640" y="180">并发（Promise.all）</text>
+  <line class="axis" x1="640" y1="420" x2="1080" y2="420" />
+  <rect class="barA" x="660" y="350" width="120" height="70" rx="10" />
+  <rect class="barB" x="660" y="320" width="120" height="100" rx="10" />
+  <rect class="barC" x="660" y="300" width="120" height="120" rx="10" />
+  <text class="label" x="685" y="446">req1</text>
+  <text class="label" x="825" y="446">req2</text>
+  <text class="label" x="965" y="446">req3</text>
+  <text class="muted" x="820" y="360">同时开始 → 等最长</text>
+</svg>
+

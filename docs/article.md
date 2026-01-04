@@ -312,7 +312,8 @@ const articleFilter = ref(null)
     <template v-if="totalItems > 0">
       <CNavLinks 
         v-for="item in currentPageData" 
-        :key="item.title" 
+        :key="item.title"
+        :title="item.title"
         :items="item.items"
       />
       <!-- 分页组件 -->

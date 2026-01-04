@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Flex 与 Grid 选择与常用属性速记">
+  <defs>
+    <style>
+      :root { color-scheme: light; }
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .muted { font: 400 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #475569; }
+      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 16; }
+      .h { font: 700 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .t { font: 500 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #111827; }
+      .chipA { fill: #e0e7ff; stroke: #4f46e5; stroke-width: 1.5; rx: 12; }
+      .chipB { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; rx: 12; }
+      .chipText { font: 650 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="560" rx="22" />
+  <text class="title" x="40" y="70">Flex vs Grid：选择原则 + 常用属性速记</text>
+  <text class="muted" x="40" y="102">一维排队用 Flex；二维网格用 Grid。需要时可以嵌套组合。</text>
+
+  <rect class="box" x="70" y="150" width="500" height="350" rx="16" />
+  <text class="h" x="100" y="190">选择流程</text>
+  <text class="t" x="100" y="228">问题 1：布局是否同时控制“行 + 列”？</text>
+  <path class="arrow" d="M 170 245 C 170 290 170 310 170 330" />
+  <rect class="chipA" x="110" y="340" width="200" height="44" rx="12" />
+  <text class="chipText" x="128" y="368">是 → Grid</text>
+  <rect class="chipB" x="340" y="340" width="200" height="44" rx="12" />
+  <text class="chipText" x="358" y="368">否 → Flex</text>
+  <text class="muted" x="100" y="420">补充：组件内部用 Flex，页面整体用 Grid 很常见。</text>
+
+  <rect class="box" x="620" y="150" width="510" height="350" rx="16" />
+  <text class="h" x="650" y="190">最常用属性（够用版）</text>
+
+  <text class="t" x="650" y="235">Flex：</text>
+  <rect class="chipB" x="710" y="215" width="390" height="44" rx="12" />
+  <text class="chipText" x="728" y="243">display:flex; gap; justify-content; align-items</text>
+
+  <text class="t" x="650" y="300">Grid：</text>
+  <rect class="chipA" x="710" y="280" width="390" height="44" rx="12" />
+  <text class="chipText" x="728" y="308">grid-template-columns; gap; auto-fit/minmax</text>
+
+  <text class="muted" x="650" y="370">常见坑：Flex 子项默认 min-width:auto，长文本可能溢出 → 需要时加 min-width:0。</text>
+  <text class="muted" x="650" y="402">常见写法：repeat(auto-fit, minmax(220px, 1fr)) 做自适应卡片网格。</text>
+</svg>
+

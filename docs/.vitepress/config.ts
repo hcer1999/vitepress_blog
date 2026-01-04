@@ -9,6 +9,8 @@ const links: { url: string; lastmod: PageData['lastUpdated']; priority: number }
 
 const hostname = 'https://nbclasssss.asia'
 
+const year = new Date().getFullYear()
+
 export default defineConfig({
   outDir: '../dist',
   base: process.env.APP_BASE_PATH || '/',
@@ -45,7 +47,7 @@ export default defineConfig({
 
     footer: {
       message: '感谢 Cloudflare 提供服务器支持',
-      copyright: 'Powered by VitePress | Copyright © 2025 BingKeLe',
+      copyright: `Powered by VitePress | Copyright © ${year} BingKeLe`,
     },
 
     darkModeSwitchLabel: '外观',

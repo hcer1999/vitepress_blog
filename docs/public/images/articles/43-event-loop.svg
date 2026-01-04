@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="JavaScript 事件循环：调用栈、Web APIs、宏任务队列与微任务队列">
+  <defs>
+    <style>
+      :root { color-scheme: light; }
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .muted { font: 400 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #475569; }
+      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 16; }
+      .h { font: 700 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .t { font: 500 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #111827; }
+      .chip { fill: #eef2ff; stroke: #6366f1; stroke-width: 1.5; rx: 12; }
+      .chip2 { fill: #ecfeff; stroke: #0891b2; stroke-width: 1.5; rx: 12; }
+      .chip3 { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; rx: 12; }
+      .chipText { font: 650 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="560" rx="22" />
+  <text class="title" x="40" y="70">事件循环（Event Loop）速记图</text>
+  <text class="muted" x="40" y="102">关键规则：每次“宏任务”执行完，先清空“微任务队列”，再进入下一轮宏任务。</text>
+
+  <rect class="box" x="60" y="140" width="300" height="360" rx="16" />
+  <text class="h" x="90" y="180">调用栈（Call Stack）</text>
+  <text class="muted" x="90" y="206">正在执行的函数。</text>
+  <rect class="chip" x="90" y="240" width="240" height="44" rx="12" />
+  <text class="chipText" x="108" y="268">main()</text>
+  <rect class="chip" x="90" y="295" width="240" height="44" rx="12" />
+  <text class="chipText" x="108" y="323">handleClick()</text>
+  <rect class="chip" x="90" y="350" width="240" height="44" rx="12" />
+  <text class="chipText" x="108" y="378">render()</text>
+
+  <rect class="box" x="410" y="140" width="320" height="170" rx="16" />
+  <text class="h" x="440" y="180">Web APIs / 系统能力</text>
+  <text class="muted" x="440" y="206">计时器、网络、DOM 事件等。</text>
+  <rect class="chip2" x="440" y="235" width="260" height="44" rx="12" />
+  <text class="chipText" x="458" y="263">setTimeout / fetch</text>
+
+  <rect class="box" x="410" y="330" width="320" height="170" rx="16" />
+  <text class="h" x="440" y="370">宏任务队列（Task）</text>
+  <text class="muted" x="440" y="396">下一轮要执行的任务。</text>
+  <rect class="chip3" x="440" y="425" width="260" height="44" rx="12" />
+  <text class="chipText" x="458" y="453">setTimeout 回调</text>
+
+  <rect class="box" x="780" y="140" width="360" height="360" rx="16" />
+  <text class="h" x="810" y="180">微任务队列（Microtask）</text>
+  <text class="muted" x="810" y="206">本轮结束前要清空。</text>
+  <rect class="chip" x="810" y="240" width="300" height="44" rx="12" />
+  <text class="chipText" x="828" y="268">Promise.then / catch</text>
+  <rect class="chip" x="810" y="295" width="300" height="44" rx="12" />
+  <text class="chipText" x="828" y="323">queueMicrotask</text>
+  <rect class="chip" x="810" y="350" width="300" height="44" rx="12" />
+  <text class="chipText" x="828" y="378">await 后续</text>
+
+  <path class="arrow" d="M 365 265 C 385 265 390 265 405 265" />
+  <path class="arrow" d="M 730 255 C 750 255 755 255 775 255" />
+  <path class="arrow" d="M 730 435 C 750 435 755 435 775 435" />
+  <text class="muted" x="745" y="515">事件循环在每轮结尾：先跑完微任务，再取下一个宏任务。</text>
+</svg>
+
