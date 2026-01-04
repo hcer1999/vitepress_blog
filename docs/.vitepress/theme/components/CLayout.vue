@@ -8,7 +8,7 @@ const { isDark, theme, frontmatter } = useData()
 import MNavVisitor from './MNavVisitor.vue'
 import MDocFooter from './MDocFooter.vue'
 import MAsideSponsors from './MAsideSponsors.vue'
-import AutoAdInserter from '../../components/AutoAdInserter.vue'
+// import AutoAdInserter from '../../components/AutoAdInserter.vue'
 
 const enableTransitions = () =>
   'startViewTransition' in document &&
@@ -51,9 +51,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     <template #nav-bar-title-after>
       <MNavVisitor />
     </template>
-    <template #aside-top>
+    <!-- <template #aside-top>
       <SidebarAdsense />
-    </template>
+    </template> -->
 
     <template #doc-after>
       <MDocFooter />
@@ -61,8 +61,8 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     <template #aside-bottom>
       <MAsideSponsors />
     </template>
-    <template #layout-bottom>
+    <!-- <template #layout-bottom>
       <AutoAdInserter />
-    </template>
+    </template> -->
   </Layout>
 </template>

@@ -9,6 +9,8 @@ const links: { url: string; lastmod: PageData['lastUpdated']; priority: number }
 
 const hostname = 'https://note.bingkele.cc'
 
+const year = new Date().getFullYear()
+
 export default defineConfig({
   outDir: '../dist',
   base: process.env.APP_BASE_PATH || '/',
@@ -45,7 +47,7 @@ export default defineConfig({
 
     footer: {
       message: '赣ICP备2023003243号',
-      copyright: 'Powered by VitePress | Copyright © 2025 BingKeLe',
+      copyright: `Powered by VitePress | Copyright © ${year} BingKeLe`,
     },
 
     darkModeSwitchLabel: '外观',

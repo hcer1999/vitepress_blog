@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="HTTP 缓存响应头速查：Cache-Control、ETag、Vary 等">
+  <defs>
+    <style>
+      :root { color-scheme: light; }
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .muted { font: 400 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #475569; }
+      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 16; }
+      .k { font: 700 15px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #0f172a; }
+      .v { font: 500 15px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #111827; }
+      .note { font: 500 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #111827; }
+      .pill { fill: #e0e7ff; stroke: #4f46e5; stroke-width: 1.5; rx: 12; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="560" rx="22" />
+  <text class="title" x="40" y="70">缓存响应头速查（前端常见场景）</text>
+  <text class="muted" x="40" y="102">核心：资源能否缓存、缓存多久、是否需要校验、缓存是否按请求头区分。</text>
+
+  <rect class="box" x="70" y="150" width="1060" height="340" rx="16" />
+
+  <rect class="pill" x="100" y="190" width="260" height="40" rx="12" />
+  <text class="k" x="118" y="216">Cache-Control</text>
+  <text class="note" x="380" y="216">控制缓存策略（优先级最高）</text>
+  <text class="v" x="120" y="258">max-age=31536000, immutable</text>
+  <text class="muted" x="520" y="258">适合带 hash 的静态资源：一年不过期，内容变更靠换文件名</text>
+  <text class="v" x="120" y="292">no-cache</text>
+  <text class="muted" x="520" y="292">允许缓存，但每次都要协商（可能 304）</text>
+  <text class="v" x="120" y="326">no-store</text>
+  <text class="muted" x="520" y="326">完全不缓存（敏感数据/登录态接口常用）</text>
+
+  <rect class="pill" x="100" y="360" width="260" height="40" rx="12" />
+  <text class="k" x="118" y="386">ETag</text>
+  <text class="note" x="380" y="386">内容指纹，用于协商缓存（配合 If-None-Match）</text>
+  <text class="v" x="120" y="428">ETag: "a1b2c3"</text>
+  <text class="muted" x="520" y="428">不变则 304，变了返回 200 + 新内容</text>
+
+  <rect class="pill" x="720" y="360" width="260" height="40" rx="12" />
+  <text class="k" x="738" y="386">Vary</text>
+  <text class="note" x="100" y="470">提示缓存“同一 URL 可能有多个版本”，例如按语言或压缩方式区分</text>
+  <text class="v" x="720" y="428">Vary: Accept-Encoding, Accept-Language</text>
+
+  <text class="muted" x="70" y="525">提示：CDN 场景还常见 s-maxage / stale-while-revalidate（需要服务端或 CDN 配置支持）。</text>
+</svg>
+

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Git 分支提交图：main 与 feature 分支的提交历史与合并">
+  <defs>
+    <style>
+      :root { color-scheme: light; }
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .muted { font: 400 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #475569; }
+      .label { font: 600 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .lineMain { stroke: #2563eb; stroke-width: 6; stroke-linecap: round; }
+      .lineFeat { stroke: #16a34a; stroke-width: 6; stroke-linecap: round; }
+      .node { stroke: #0f172a; stroke-width: 2; }
+      .nodeMain { fill: #dbeafe; }
+      .nodeFeat { fill: #dcfce7; }
+      .nodeMerge { fill: #fde68a; }
+      .nodeText { font: 700 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #0f172a; }
+      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 16; }
+      .cmd { font: 600 16px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #111827; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="560" rx="22" />
+  <text class="title" x="40" y="70">从 main 拉分支到合并：你在 PR 里看到的“提交线”</text>
+  <text class="muted" x="40" y="102">绿色是功能分支，黄色是合并点（Merge Commit）。</text>
+
+  <text class="label" x="70" y="170">main</text>
+  <text class="label" x="70" y="330">feature/xxx</text>
+
+  <path class="lineMain" d="M 150 190 L 1000 190" />
+  <path class="lineFeat" d="M 360 350 L 820 350" />
+  <path class="lineFeat" d="M 360 350 L 360 190" />
+  <path class="lineMain" d="M 820 350 L 920 190" />
+
+  <!-- main nodes -->
+  <circle class="node nodeMain" cx="200" cy="190" r="18" />
+  <text class="nodeText" x="193" y="195">A</text>
+  <circle class="node nodeMain" cx="320" cy="190" r="18" />
+  <text class="nodeText" x="313" y="195">B</text>
+  <circle class="node nodeMain" cx="480" cy="190" r="18" />
+  <text class="nodeText" x="473" y="195">C</text>
+  <circle class="node nodeMain" cx="640" cy="190" r="18" />
+  <text class="nodeText" x="633" y="195">D</text>
+
+  <!-- feature nodes -->
+  <circle class="node nodeFeat" cx="420" cy="350" r="18" />
+  <text class="nodeText" x="413" y="355">f1</text>
+  <circle class="node nodeFeat" cx="540" cy="350" r="18" />
+  <text class="nodeText" x="533" y="355">f2</text>
+  <circle class="node nodeFeat" cx="700" cy="350" r="18" />
+  <text class="nodeText" x="693" y="355">f3</text>
+  <circle class="node nodeFeat" cx="820" cy="350" r="18" />
+  <text class="nodeText" x="812" y="355">f4</text>
+
+  <!-- merge commit -->
+  <circle class="node nodeMerge" cx="920" cy="190" r="20" />
+  <text class="nodeText" x="912" y="195">M</text>
+
+  <rect class="box" x="70" y="410" width="1060" height="110" rx="18" />
+  <text class="cmd" x="95" y="455">git checkout -b feature/xxx</text>
+  <text class="cmd" x="95" y="485">... 开发提交 f1 f2 f3 ...</text>
+  <text class="cmd" x="95" y="515">git push -u origin feature/xxx  （发起 PR，评审通过后合并到 main）</text>
+</svg>
+

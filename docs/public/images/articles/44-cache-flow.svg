@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="HTTP 缓存流程：强缓存、协商缓存与 200/304">
+  <defs>
+    <style>
+      :root { color-scheme: light; }
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .muted { font: 400 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #475569; }
+      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 16; }
+      .h { font: 700 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .t { font: 500 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #111827; }
+      .chipA { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; rx: 12; }
+      .chipB { fill: #fee2e2; stroke: #dc2626; stroke-width: 1.5; rx: 12; }
+      .chipC { fill: #e0e7ff; stroke: #4f46e5; stroke-width: 1.5; rx: 12; }
+      .chipText { font: 650 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="560" rx="22" />
+  <text class="title" x="40" y="70">缓存命中路径：强缓存 vs 协商缓存</text>
+  <text class="muted" x="40" y="102">强缓存：不发请求；协商缓存：发条件请求，可能返回 304。</text>
+
+  <rect class="box" x="70" y="160" width="340" height="320" rx="16" />
+  <text class="h" x="100" y="200">浏览器</text>
+  <text class="muted" x="100" y="226">查看本地缓存条目</text>
+  <rect class="chipC" x="100" y="255" width="280" height="44" rx="12" />
+  <text class="chipText" x="118" y="283">Cache-Control / Expires</text>
+  <rect class="chipC" x="100" y="310" width="280" height="44" rx="12" />
+  <text class="chipText" x="118" y="338">ETag / Last-Modified</text>
+
+  <rect class="box" x="460" y="160" width="320" height="140" rx="16" />
+  <text class="h" x="490" y="200">强缓存命中</text>
+  <text class="muted" x="490" y="226">直接用本地文件</text>
+  <rect class="chipA" x="490" y="245" width="260" height="44" rx="12" />
+  <text class="chipText" x="508" y="273">Size: from disk cache</text>
+
+  <rect class="box" x="460" y="340" width="320" height="140" rx="16" />
+  <text class="h" x="490" y="380">需要校验（协商）</text>
+  <text class="muted" x="490" y="406">带条件请求头询问</text>
+  <rect class="chipC" x="490" y="425" width="260" height="44" rx="12" />
+  <text class="chipText" x="508" y="453">If-None-Match / If-Modified-Since</text>
+
+  <rect class="box" x="830" y="160" width="300" height="320" rx="16" />
+  <text class="h" x="860" y="200">服务器</text>
+  <text class="muted" x="860" y="226">对比指纹/时间</text>
+  <rect class="chipA" x="860" y="255" width="240" height="44" rx="12" />
+  <text class="chipText" x="878" y="283">304 Not Modified</text>
+  <rect class="chipB" x="860" y="310" width="240" height="44" rx="12" />
+  <text class="chipText" x="878" y="338">200 OK (new content)</text>
+  <text class="muted" x="860" y="382">304：继续用本地</text>
+  <text class="muted" x="860" y="410">200：下载新内容并更新缓存</text>
+
+  <path class="arrow" d="M 410 240 C 430 240 440 240 455 240" />
+  <path class="arrow" d="M 410 400 C 430 400 440 400 455 400" />
+  <path class="arrow" d="M 780 410 C 800 410 810 410 825 410" />
+</svg>
+

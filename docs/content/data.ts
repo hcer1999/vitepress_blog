@@ -22,6 +22,66 @@ const data: Data[] = [
     title: '文章列表',
     items: [
       {
+        noIcon: false,
+        icon: '../icons/css.svg',
+        title: 'CSS 布局进阶：Flex 与 Grid 心智模型（含常见坑与示意图）',
+        badge: {
+          text: '2026-01-04',
+          type: 'info',
+        },
+        desc: '从轴与尺寸分配讲清 Flex/Grid 的选择与高频避坑（含示意图与可复用配方）。',
+        link: '/content/docs/45',
+        target: '_self',
+      },
+      {
+        noIcon: false,
+        icon: '../icons/http.svg',
+        title: 'HTTP 缓存进阶：Cache-Control、ETag、CDN 与最佳实践',
+        badge: {
+          text: '2026-01-04',
+          type: 'info',
+        },
+        desc: '强缓存/协商缓存 + CDN 视角，覆盖 Cache-Control、ETag、Vary 与落地策略（含图）。',
+        link: '/content/docs/44',
+        target: '_self',
+      },
+      {
+        noIcon: false,
+        icon: '../icons/js.svg',
+        title: 'JavaScript 异步从入门到进阶：事件循环、Promise、async/await',
+        badge: {
+          text: '2026-01-04',
+          type: 'info',
+        },
+        desc: '从事件循环到并发控制：微任务/宏任务、Promise 组合、限流、超时与取消（含图）。',
+        link: '/content/docs/43',
+        target: '_self',
+      },
+      {
+        noIcon: false,
+        icon: '../icons/git.svg',
+        title: 'Git 从入门到进阶：分支、合并、撤销与救命命令',
+        badge: {
+          text: '2026-01-04',
+          type: 'info',
+        },
+        desc: '用“三区域 + 提交线”建立心智模型，覆盖 rebase/merge、revert、reflog 等救命技巧（含图）。',
+        link: '/content/docs/42',
+        target: '_self',
+      },
+      {
+        noIcon: false,
+        icon: '../icons/claude.svg',
+        title: 'Claude code 提示词升级版',
+        link: '/content/docs/41',
+        target: '_self',
+        desc: '分享一些 Claude Code 提示词升级版，让 Claude Code 更智能。',
+        badge: {
+          text: '2026-01-04',
+          type: 'info',
+        },
+      },
+      {
         icon: '../icons/cursor.webp',
         title: 'AI通用开发助手提示词增强版，拆箱即用（中英双语）',
         badge: {

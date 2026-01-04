@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Flex 尺寸分配：flex-basis、grow、shrink 与 min-width">
+  <defs>
+    <style>
+      :root { color-scheme: light; }
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .muted { font: 400 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #475569; }
+      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 16; }
+      .h { font: 700 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0f172a; }
+      .mono { font: 650 15px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #0f172a; }
+      .bar { fill: #e0e7ff; stroke: #4f46e5; stroke-width: 2; rx: 12; }
+      .itemA { fill: #dbeafe; stroke: #2563eb; stroke-width: 2; rx: 10; }
+      .itemB { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; rx: 10; }
+      .itemC { fill: #fee2e2; stroke: #dc2626; stroke-width: 2; rx: 10; }
+      .txt { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #111827; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="560" rx="22" />
+  <text class="title" x="40" y="70">Flex 尺寸分配心智模型（够用但不玄学）</text>
+  <text class="muted" x="40" y="102">先用 flex-basis 定“起始尺寸”，再用 grow 分“剩余空间”，必要时 shrink 才会压缩。</text>
+
+  <rect class="box" x="70" y="150" width="1060" height="150" rx="16" />
+  <text class="h" x="100" y="190">容器宽 900px（示意）</text>
+  <rect class="bar" x="100" y="215" width="900" height="55" rx="14" />
+  <rect class="itemA" x="110" y="225" width="220" height="35" rx="10" />
+  <rect class="itemB" x="340" y="225" width="320" height="35" rx="10" />
+  <rect class="itemC" x="670" y="225" width="320" height="35" rx="10" />
+  <text class="txt" x="160" y="248">A</text>
+  <text class="txt" x="490" y="248">B</text>
+  <text class="txt" x="820" y="248">C</text>
+
+  <rect class="box" x="70" y="330" width="520" height="170" rx="16" />
+  <text class="h" x="100" y="370">常用写法</text>
+  <text class="mono" x="100" y="410">flex: 1</text>
+  <text class="muted" x="220" y="412">≈ flex: 1 1 0%（更愿意平均分剩余空间）</text>
+  <text class="mono" x="100" y="450">min-width: 0</text>
+  <text class="muted" x="260" y="452">允许子项变窄，避免长文本把容器撑爆</text>
+
+  <rect class="box" x="610" y="330" width="520" height="170" rx="16" />
+  <text class="h" x="640" y="370">为什么会溢出？</text>
+  <text class="muted" x="640" y="405">Flex 子项默认 min-width:auto（等于“至少要能放下内容”）。</text>
+  <text class="muted" x="640" y="435">当内容很长（如一串 URL）时，子项不愿意被压缩 → 发生溢出。</text>
+  <text class="muted" x="640" y="465">解决：给需要缩小的那列加 min-width:0，并配合 overflow 处理。</text>
+</svg>
+

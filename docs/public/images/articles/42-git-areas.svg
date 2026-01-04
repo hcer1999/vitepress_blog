@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-label="Git 的三个区域：工作区、暂存区、提交历史">
+  <defs>
+    <style>
+      :root { color-scheme: light; }
+      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 18; }
+      .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; fill: #0f172a; }
+      .text { font: 500 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #111827; }
+      .muted { font: 400 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #475569; }
+      .chip { fill: #eef2ff; stroke: #6366f1; stroke-width: 1.5; rx: 12; }
+      .chipText { font: 600 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #3730a3; }
+      .arrow { stroke: #334155; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .bg { fill: #f8fafc; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="520" rx="22" />
+
+  <text class="title" x="40" y="70">Git 的“三个区域”与常用命令</text>
+  <text class="muted" x="40" y="102">理解这张图，很多 Git 命令就不再靠死记硬背。</text>
+
+  <rect class="box" x="60" y="140" width="330" height="300" rx="18" />
+  <text class="text" x="90" y="190">工作区（Working Tree）</text>
+  <text class="muted" x="90" y="222">你正在编辑的文件。</text>
+  <rect class="chip" x="90" y="255" width="260" height="46" rx="14" />
+  <text class="chipText" x="110" y="285">git diff</text>
+  <rect class="chip" x="90" y="315" width="260" height="46" rx="14" />
+  <text class="chipText" x="110" y="345">git restore &lt;file&gt;</text>
+
+  <rect class="box" x="435" y="140" width="330" height="300" rx="18" />
+  <text class="text" x="465" y="190">暂存区（Index / Stage）</text>
+  <text class="muted" x="465" y="222">“这次提交要包含哪些改动”。</text>
+  <rect class="chip" x="465" y="255" width="260" height="46" rx="14" />
+  <text class="chipText" x="485" y="285">git add &lt;file&gt;</text>
+  <rect class="chip" x="465" y="315" width="260" height="46" rx="14" />
+  <text class="chipText" x="485" y="345">git restore --staged &lt;file&gt;</text>
+
+  <rect class="box" x="810" y="140" width="330" height="300" rx="18" />
+  <text class="text" x="840" y="190">提交历史（Repository）</text>
+  <text class="muted" x="840" y="222">已经记录的提交快照。</text>
+  <rect class="chip" x="840" y="255" width="260" height="46" rx="14" />
+  <text class="chipText" x="860" y="285">git commit</text>
+  <rect class="chip" x="840" y="315" width="260" height="46" rx="14" />
+  <text class="chipText" x="860" y="345">git log</text>
+
+  <path class="arrow" d="M 390 290 C 410 290 415 290 430 290" />
+  <text class="muted" x="390" y="270">挑选要提交的改动</text>
+
+  <path class="arrow" d="M 765 290 C 785 290 790 290 805 290" />
+  <text class="muted" x="740" y="270">生成一次提交</text>
+</svg>
+

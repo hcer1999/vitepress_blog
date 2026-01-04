@@ -1,5 +1,5 @@
 import { h, watch, onMounted, nextTick } from 'vue'
-import { useData, useRoute, EnhanceAppContext } from 'vitepress'
+import { useData, useRoute, EnhanceAppContext, PageData } from 'vitepress'
 import mediumZoom from 'medium-zoom'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus'
 import DefaultTheme from 'vitepress/theme'
@@ -18,8 +18,6 @@ import BlogHome from './components/BlogHome.vue'
 import FriendsPage from './components/FriendsPage.vue'
 import './styles/index.scss'
 import './styles/vars.scss'
-import AutoAdInserter from '../components/AutoAdInserter.vue'
-import SidebarAdsense from '../components/SidebarAdsense.vue'
 
 if (typeof window !== 'undefined') {
   /* 注销 PWA 服务 */
@@ -64,7 +62,7 @@ export default {
         lang: 'zh-CN',
       },
       {
-        frontmatter,
+        frontmatter: frontmatter as any,
         route,
       },
       //默认值为true，表示已启用，此参数可以忽略；
@@ -103,8 +101,8 @@ export default {
        */
       'nav-bar-title-after': () => h(MNavVisitor),
       'doc-after': () => h(MDocFooter),
-      'aside-bottom': () => [h(MAsideSponsors), h(SidebarAdsense)],
-      'layout-bottom': () => h(AutoAdInserter),
+      'aside-bottom': () => [h(MAsideSponsors)],
+      // 'layout-bottom': () => h(AutoAdInserter),
     })
   },
   async enhanceApp({ app, router }: EnhanceAppContext) {
@@ -128,9 +126,9 @@ export default {
     }
 
     // 注册组件
-    app.component('GoogleAdsense', () => import('../components/GoogleAdsense.vue'))
-    app.component('AutoAdInserter', AutoAdInserter)
-    app.component('SidebarAdsense', SidebarAdsense)
+    // app.component('GoogleAdsense', () => import('../components/GoogleAdsense.vue'))
+    // app.component('AutoAdInserter', AutoAdInserter)
+    // app.component('SidebarAdsense', SidebarAdsense)
 
     // if (!import.meta.env.SSR) {
     //   const { loadOml2d } = await import('oh-my-live2d')
