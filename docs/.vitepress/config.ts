@@ -7,7 +7,7 @@ import { head, nav, sidebar, algolia } from './configs'
 
 const links: { url: string; lastmod: PageData['lastUpdated']; priority: number }[] = []
 
-const hostname = 'https://nbclasssss.asia'
+const hostname = 'https://note.bingkele.cc'
 
 const year = new Date().getFullYear()
 
