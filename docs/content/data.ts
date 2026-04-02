@@ -22,6 +22,17 @@ const data: Data[] = [
     title: '文章列表',
     items: [
       {
+        icon: '../icons/git.svg',
+        title: 'VS Code 插件 Gitlens Pro破解版',
+        badge: {
+          text: '2026-04-02',
+          type: 'info',
+        },
+        desc: '破解 VS Code 中的神级 Git 管理插件 Gitlens',
+        link: '/content/docs/46',
+        target: '_self',
+      },
+      {
         noIcon: false,
         icon: '../icons/css.svg',
         title: 'CSS 布局进阶：Flex 与 Grid 心智模型（含常见坑与示意图）',
