@@ -190,32 +190,39 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 
   '/interview/': [
     {
-      text: 'HTML 篇',
-      link: '/interview/html',
+      text: '新题库（2026年4月17日更新）',
+      collapsed: false,
+      items: [
+        { text: 'JavaScript 篇（323题）', link: '/interview/new/javascript/' },
+        { text: 'CSS 篇（61题）', link: '/interview/new/css/' },
+        { text: 'HTML 篇（57题）', link: '/interview/new/html/' },
+        { text: 'React 篇（83题）', link: '/interview/new/react/' },
+        { text: 'Vue 篇（80题）', link: '/interview/new/vue/' },
+        { text: '算法篇（19题）', link: '/interview/new/algorithm/' },
+        { text: '计算机网络篇（71题）', link: '/interview/new/network/' },
+        { text: 'Node.js 篇（27题）', link: '/interview/new/nodejs/' },
+        { text: 'TypeScript 篇（46题）', link: '/interview/new/typescript/' },
+        { text: '性能优化篇（25题）', link: '/interview/new/performance/' },
+        { text: '前端安全篇（21题）', link: '/interview/new/security/' },
+        { text: '小程序篇（9题）', link: '/interview/new/miniprogram' },
+        { text: 'ES6 篇（32题）', link: '/interview/new/es6/' },
+        { text: '编程题（50题）', link: '/interview/new/coding/' },
+        { text: '设计模式篇（7题）', link: '/interview/new/design-pattern/' },
+        { text: '工程化篇（34题）', link: '/interview/new/engineering/' },
+      ],
     },
     {
-      text: 'CSS 篇',
-      link: '/interview/css',
-    },
-    {
-      text: 'JS 篇',
-      link: '/interview/javascript',
-    },
-    {
-      text: 'Vue 篇',
-      link: '/interview/vue',
-    },
-    {
-      text: 'DOM 篇',
-      link: '/interview/dom',
-    },
-    {
-      text: 'HTTP 篇',
-      link: '/interview/http',
-    },
-    {
-      text: '大厂面试题',
-      link: '/interview/big-business',
+      text: '前端面试题（旧）',
+      collapsed: false,
+      items: [
+        { text: 'HTML 篇', link: '/interview/html' },
+        { text: 'CSS 篇', link: '/interview/css' },
+        { text: 'JS 篇', link: '/interview/javascript' },
+        { text: 'Vue 篇', link: '/interview/vue' },
+        { text: 'DOM 篇', link: '/interview/dom' },
+        { text: 'HTTP 篇', link: '/interview/http' },
+        { text: '大厂面试题', link: '/interview/big-business' },
+      ],
     },
   ],
   '/content': data,
